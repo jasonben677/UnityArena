@@ -8,6 +8,7 @@ public class Playermobile : MonoBehaviour
     public Transform Player;
     public float MoveSeed=2.0f;
     PlayerAction m_PlayerAction;
+    public Transform Target;
     private void Awake()
     {
     }
@@ -22,24 +23,27 @@ public class Playermobile : MonoBehaviour
     {
         float fY = Input.GetAxis("Vertical");
         float fX = Input.GetAxis("Horizontal");
-        NpcRotation(fX,fY);
 
+
+        
         if (m_PlayerAction.InputPlayrRun())
         {
             MoveSeed = 4.0f;
             PlayAni.Play("Run");
            ThePlayermove(fX , fY , 0);
-        
+
         }
         else if (m_PlayerAction.InputPlayerWalk())
         {
             MoveSeed = 2.0f;
             PlayAni.Play("Walk");
             ThePlayermove(fX, fY, 0);
+          
+
         }
         else { PlayAni.Play("Idel"); }
      
-        
+        NpcRotation();
     }
 
     public void ThePlayermove(float x, float y, float z)
@@ -65,60 +69,109 @@ public class Playermobile : MonoBehaviour
     //判斷角色Ray是否碰牆,如果有moveseed=0
     public void  PlayerRay()
     {
-        Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 10)) 
-        {
-            print(hit.point);
-            print(hit.transform.position);
-            print(hit.collider.gameObject);
-            float PlayerHitDis = Vector3.Dot(Player.position, hit.transform.position);
-        Debug.DrawLine(hit.transform.position,
-            hit.transform.position+hit.transform.forward*3,Color.red);
-
-        }
+       bool n=Physics.Raycast(Player.position, transform.forward, 10);
+        Debug.DrawRay(Player.position, transform.forward ,Color.green);
 
     }
 
 
+    private void PlayerRotate ()
+    {
+    //if (Input.GetKey(KeyCode.W)){transform.Rotate ;}
+    //    if (Input.GetKey(KeyCode.S)){ transform.Rotate ;}
+    //    if (Input.GetKey(KeyCode.A)){ transform.Rotate = Player.position + new Vector3(-1, 0, 0);}
+    //    if (Input.GetKey(KeyCode.D)){ transform.Rotate = Player.position + new Vector3(1, 0, 0);}
+    //    if (Input.GetKey(KeyCode.W) & Input.GetKey(KeyCode.A)) { transform.Rotate = Player.position + new Vector3(-1, 0, 1); }
+    //    if (Input.GetKey(KeyCode.W) & Input.GetKey(KeyCode.D)) { transform.Rotate = Player.position + new Vector3(1, 0, 1); }
+    //    if (Input.GetKey(KeyCode.A) & Input.GetKey(KeyCode.S)) { transform.Rotate = Player.position + new Vector3(-1, 0, -1); }
+    //    if (Input.GetKey(KeyCode.S)&Input.GetKey(KeyCode.D)){ transform.Rotate = Player.position + new Vector3(1, 0, -1); }
+   
+    }
     
     //腳色的轉向角度
-private void NpcRotation(float Input_V ,  float Input_H)
+private void NpcRotation()
     {
-        float Sum_Angle = Mathf.Atan(Input_V/Input_H)/(Mathf.PI/180);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        Vector3 vPlayerNormaliz = (Target.transform.position - Player.position).normalized;
+        float PlayerDot = Vector3.Dot(transform.forward, vPlayerNormaliz);
 
 
-        Sum_Angle = Input_V < 0 ? Sum_Angle + 180 : Sum_Angle;
 
 
 
-        if (float.IsNaN(Sum_Angle))
-            Sum_Angle = 0;
+        //float Sum_Angle = Mathf.Atan(Input_V / Input_H) / (Mathf.PI / 180);
 
-        Debug.Log(Sum_Angle);
-    
-    
-    
-    
-    
-    
+
+        //Sum_Angle = Input_V < 0 ? Sum_Angle + 180 : Sum_Angle;
+
+
+
+        //if (float.IsNaN(Sum_Angle))
+        //    Sum_Angle = 0;
+
+        Debug.Log(PlayerDot);
+
+        transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
+
+
+
     }
-    
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawLine(Player.position, Player.position + Player.forward * 2);
+        //Gizmos.DrawLine(Player.position, Player.position + Player.forward * 2);
     }
-    private void OnMouseEnter()
+    /*
+    private void NPCAnimation()
     {
-               
-        Vector3 pos = Player.position;
-       
-        float fAng=Vector3.Angle(pos,Player.forward);
-        
-        Debug.Log(fAng);
 
-    }
 
-    
+        switch () 
+        {
+            case PlayerAction.Anim.Walk:
+                PlayAni.Play("Walk");
+                break;
+            case PlayerAction.Anim.Run:
+                PlayAni.Play("Run");
+
+                break;
+            case PlayerAction.Anim.Jump:
+                PlayAni.Play("Jump");
+
+                break;
+            case PlayerAction.Anim.Attack1:
+                PlayAni.Play("Attack1");
+                break;
+            case PlayerAction.Anim.Attack2:
+                PlayAni.Play("Attack2");
+                break;
+            case PlayerAction.Anim.Attack3:
+                PlayAni.Play("Attack3");
+                break;
+        }
+    }*/
+
+    //private void OnMouseEnter()
+    //{
+
+    //    Vector3 pos = Player.position;
+
+    //    float fAng=Vector3.Angle(pos,Player.forward);
+
+    //    Debug.Log(fAng);
+
+    //}
+
+
 }

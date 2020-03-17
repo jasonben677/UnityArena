@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAction 
 {
-    Playermobile m_Playermoble = new Playermobile();
+   
     public  enum Anim
     {
     Idel,
