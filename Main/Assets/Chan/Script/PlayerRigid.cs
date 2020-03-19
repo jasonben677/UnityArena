@@ -17,7 +17,7 @@ public class PlayerRigid : MonoBehaviour
     void Update()
     {
         PlayerAtcion();     
-            }
+    }
 
     private void PlayerInstantSpeed() 
     {
@@ -83,10 +83,13 @@ public class PlayerRigid : MonoBehaviour
                 break;
 
         }
-        
     }
+    private void PlayerRotate() 
+    {
     
-   
+    }
+
+
     private enum PLAYERACTION 
     {Idel=0,
         Walk,
