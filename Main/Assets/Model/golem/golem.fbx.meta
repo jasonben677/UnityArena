@@ -142,7 +142,12 @@ ModelImporter:
     10800000: Lamp
     10800002: Sun
     13700000: stone
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fireBaked
+    second: {fileID: 2100000, guid: 7c4724b2e8aa460419c3524a46f0716e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
