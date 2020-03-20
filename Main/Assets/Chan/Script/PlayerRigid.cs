@@ -6,64 +6,73 @@ public class PlayerRigid : MonoBehaviour
 {
     public Rigidbody Player;
     public float speed = 2.0f;
-    public Animator Ani; 
-        // Start is called before the first frame update
+    public Animator Ani;
+    string  sHorizontal = "Horizontal";
+    string sVertical = "Vertical";
+   
+   
+
+    // Start is called before the first frame update
     void Start()
     {
+      
         this.Player = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerAtcion();     
+        InputButton();
+        PlayerRotate();
     }
-
-    private void PlayerInstantSpeed() 
+    private void InputButton()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        Vector3 direction = new Vector3(horizontal, 0f, vertical);
+        bool InputW = Input.GetKey(KeyCode.W);
+        bool InputA = Input.GetKey(KeyCode.A);
+        bool InputS = Input.GetKey(KeyCode.S);
+        bool InputD = Input.GetKey(KeyCode.D);
+        bool inputLShift = Input.GetKey(KeyCode.LeftShift);
 
-        if (Input.anyKey) 
-         {
+        if (inputLShift & (InputW | InputD | InputA | InputS))
+        {
+            PlayerAtcion(PLAYERACTION.Run);
+            speed = 4f;
+            PlayerInstantSpeed();
 
-            Player.velocity = speed * direction;
+        }
+        else if (InputW | InputD | InputA | InputS)
+        {
+            PlayerAtcion(PLAYERACTION.Walk);
+            speed = 2f;
+            PlayerInstantSpeed();
 
+
+        }
+        else 
+        {
+            speed = 0;
+            PlayerAtcion(PLAYERACTION.Idel); 
         }
     }
-    private void PlayerAtcion() 
+    
+
+
+
+    private void PlayerAtcion(PLAYERACTION m_playeraction)
     {
 
-        if ((Input.GetKey(KeyCode.LeftShift)) & (Input.GetKey(KeyCode.W) | Input.GetKey(KeyCode.D)
-               | Input.GetKey(KeyCode.A) | Input.GetKey(KeyCode.S)))
-        {
-            _PlayerAction = PLAYERACTION.Run;
-        }
-        else if (Input.GetKey(KeyCode.W) | Input.GetKey(KeyCode.D)
-               | Input.GetKey(KeyCode.A) | Input.GetKey(KeyCode.S))
-        {
-            _PlayerAction = PLAYERACTION.Walk;
-        }
-        else { _PlayerAction = PLAYERACTION.Idel; }
 
-        switch (_PlayerAction) 
+        switch (_PlayerAtcion)
         {
             case PLAYERACTION.Idel:
                 Ani.Play("Idel");
-                speed = 0;
-                PlayerInstantSpeed();
                 break;
             case PLAYERACTION.Walk:
                 Ani.Play("Walk");
-                speed = 2f;
-                PlayerInstantSpeed();
                 break;
-            
+
             case PLAYERACTION.Run:
                 Ani.Play("Run");
-                speed =4f;
-                PlayerInstantSpeed();
                 break;
 
             case PLAYERACTION.Jump:
@@ -84,14 +93,31 @@ public class PlayerRigid : MonoBehaviour
 
         }
     }
-    private void PlayerRotate() 
+    private void PlayerInstantSpeed()
     {
-    
+        float InpVertical = Input.GetAxis(sVertical);
+        float InpHorizontal = Input.GetAxis(sHorizontal);
+        Vector3 direction = new Vector3(InpHorizontal, 0f, InpVertical);
+
+        if (Input.anyKey)
+        {
+
+            Player.velocity = speed * direction;
+
+        }
+    }
+    //0正前方90右方180後方270左方
+    private void PlayerRotate()
+    {
+        Quaternion qRotat= this.transform.rotation;
+
+        Debug.Log(qRotat);
     }
 
 
-    private enum PLAYERACTION 
-    {Idel=0,
+    private enum PLAYERACTION
+    {
+        Idel = 0,
         Walk,
         Run,
         Jump,
@@ -99,5 +125,5 @@ public class PlayerRigid : MonoBehaviour
         Attack2,
         Attack3
     }
-    private PLAYERACTION _PlayerAction;
+    private PLAYERACTION _PlayerAtcion;
 }
