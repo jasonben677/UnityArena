@@ -40,10 +40,11 @@ public class FistPlayerMovement
         {
             return;
         }
-
-        Vector3 move = (mainCam.transform.forward * moveV) + (mainCam.transform.right * moveH);
-        move.y = 0;
-        _playerRigi.velocity = move * _moveSpeed * run;
+        Vector3 curxz = mainCam.transform.forward;
+        curxz.y = 0;
+        Vector3 move = (curxz * moveV) + (mainCam.transform.right * moveH);
+        //move.y = _playerRigi.velocity.y;
+        _playerRigi.position += move * _moveSpeed* run * Time.fixedDeltaTime;
         _player.transform.forward = move.normalized;
     }
 
@@ -58,7 +59,7 @@ public class FistPlayerMovement
         {
             return;
         }
-        camRotate += new Vector3(0, moveH, 0);
+        camRotate += new Vector3(moveV, moveH, 0);
         myCam.transform.rotation = Quaternion.Euler(camRotate);
 
         //mainCam.transform.position = myCam.transform.position + (-myCam.transform.forward);
