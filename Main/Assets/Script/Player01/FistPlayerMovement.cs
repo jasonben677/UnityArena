@@ -8,7 +8,8 @@ public class FistPlayerMovement
     Rigidbody _playerRigi;
     GameObject _player;
     GameObject myCam;
-
+    Camera mainCam;
+    Vector3 camRotate = new Vector3();
     float go;
     public float walkSign;
 
@@ -19,6 +20,7 @@ public class FistPlayerMovement
         _playerRigi = _rigidbody;
         _player = _playerObj;
         myCam = _camControl;
+        mainCam = Camera.main;
     }
 
     /// <summary>
@@ -28,9 +30,9 @@ public class FistPlayerMovement
     {
         float moveH = (Input.GetKey(KeyCode.D) ? 1.0f : 0f) - (Input.GetKey(KeyCode.A) ? 1.0f : 0f);
         float moveV = (Input.GetKey(KeyCode.W) ? 1.0f : 0f) - (Input.GetKey(KeyCode.S) ? 1.0f : 0f);
-
+        float run = (Input.GetKey(KeyCode.LeftShift) ? 2.0f : 1.0f);
         Vector2 speed = new Vector2(moveH, moveV);
-        walkSign = Mathf.SmoothDamp(walkSign, speed.magnitude, ref go, 0.3f);
+        walkSign = Mathf.SmoothDamp(walkSign, speed.magnitude * run, ref go, 0.3f);
         //float length = speed.magnitude;
         _playerAnim.SetFloat("Speed", walkSign);
 
@@ -39,16 +41,28 @@ public class FistPlayerMovement
             return;
         }
 
-        Vector3 move = (myCam.transform.forward * moveV) + (myCam.transform.right * moveH);
+        Vector3 move = (mainCam.transform.forward * moveV) + (mainCam.transform.right * moveH);
         move.y = 0;
-        _playerRigi.velocity = move * _moveSpeed;
+        _playerRigi.velocity = move * _moveSpeed * run;
         _player.transform.forward = move.normalized;
     }
 
 
     public void CameraMove(float _moveSpeed)
     {
-        Vector3 pos = new Vector3(_player.transform.position.x, myCam.transform.position.y, _player.transform.position.z);
-        myCam.transform.position = pos;
+        float moveH = (Input.GetKey(KeyCode.RightArrow) ? 1.0f : 0f) - (Input.GetKey(KeyCode.LeftArrow) ? 1.0f : 0f);
+        float moveV = (Input.GetKey(KeyCode.UpArrow) ? 1.0f : 0f) - (Input.GetKey(KeyCode.DownArrow) ? 1.0f : 0f);
+        myCam.transform.position = new Vector3(_player.transform.position.x, myCam.transform.position.y, _player.transform.position.z);
+
+        if (moveH == 0 && moveV == 0)
+        {
+            return;
+        }
+        camRotate += new Vector3(0, moveH, 0);
+        myCam.transform.rotation = Quaternion.Euler(camRotate);
+
+        //mainCam.transform.position = myCam.transform.position + (-myCam.transform.forward);
+        //Vector3 pos = new Vector3(_player.transform.position.x, myCam.transform.position.y, _player.transform.position.z);
+        //myCam.transform.position = pos;
     }
 }
