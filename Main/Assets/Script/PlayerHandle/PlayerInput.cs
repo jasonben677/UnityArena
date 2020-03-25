@@ -13,7 +13,11 @@ public class PlayerInput : MonoBehaviour
     public float JRight;
 
     public bool inputEnable = true; 
-    public bool run;
+    public bool run; //pressing signal
+
+    public bool jump; //trigger once signal
+    private bool lastJump;
+    
 
     private float targetDup;
     private float targetDright;
@@ -53,6 +57,18 @@ public class PlayerInput : MonoBehaviour
         Dvec = Dup2 * transform.forward + Dright2 * transform.right; 
 
         run = Input.GetKey(KeyCode.LeftShift);
+
+        bool newJump = Input.GetKey(KeyCode.J);        
+        if(newJump != lastJump && newJump == true)
+        {
+            jump = true;
+            Debug.Log("jump!!");
+        }
+        else
+        {
+            jump = false;
+        }
+        lastJump = newJump;
     }
 
     private Vector2 SquareToCircle(Vector2 input) //使前後和斜向的移動距離一樣: Elliptical grid mapping
