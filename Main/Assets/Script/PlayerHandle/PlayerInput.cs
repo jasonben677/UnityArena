@@ -6,10 +6,13 @@ public class PlayerInput : MonoBehaviour
 {
     public float Dup;
     public float Dright;
-    public float Dmag;
-    public Vector3 Dvec;
+    public float Dmag; //角色移動距離
+    public Vector3 Dvec; //角色移動方向
 
-    public bool inputEnable = true;  //若要暫時拿掉script，可改為false
+    public float JUp; //camera的旋轉控制
+    public float JRight;
+
+    public bool inputEnable = true; 
     public bool run;
 
     private float targetDup;
@@ -27,9 +30,12 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        targetDup = (Input.GetKey(KeyCode.W)? 1.0f : 0 )- (Input.GetKey(KeyCode.S)? 1.0f : 0);
+        targetDup = (Input.GetKey(KeyCode.W)? 1.0f : 0)- (Input.GetKey(KeyCode.S)? 1.0f : 0);
         targetDright = (Input.GetKey(KeyCode.D) ? 1.0f : 0) - (Input.GetKey(KeyCode.A) ? 1.0f : 0);
-       
+
+        JUp = (Input.GetKey(KeyCode.UpArrow) ? 1.0f : 0) - (Input.GetKey(KeyCode.DownArrow) ? 1.0f : 0);
+        JRight = (Input.GetKey(KeyCode.RightArrow) ? 1.0f : 0) - (Input.GetKey(KeyCode.LeftArrow) ? 1.0f : 0);
+
         if (inputEnable == false)
         {
             targetDup = 0;
@@ -38,10 +44,24 @@ public class PlayerInput : MonoBehaviour
 
         Dup = Mathf.SmoothDamp(Dup, targetDup, ref velocityDup, 0.1f);
         Dright = Mathf.SmoothDamp(Dright, targetDright, ref velocityDright, 0.1f);
-        Dmag = Mathf.Sqrt((Dup * Dup) + (Dright * Dright)); //移動距離
-        Dvec = Dup * transform.forward + Dright * transform.right; //移動方向
+
+        Vector2 tempDAxis = SquareToCircle(new Vector2(Dright, Dup));
+        float Dright2 = tempDAxis.x;
+        float Dup2 = tempDAxis.y;
+
+        Dmag = Mathf.Sqrt((Dup2 * Dup2) + (Dright2 * Dright2)); 
+        Dvec = Dup2 * transform.forward + Dright2 * transform.right; 
 
         run = Input.GetKey(KeyCode.LeftShift);
+    }
 
+    private Vector2 SquareToCircle(Vector2 input) //使前後和斜向的移動距離一樣: Elliptical grid mapping
+    {
+        Vector2 output = Vector2.zero;
+
+        output.x = input.x * Mathf.Sqrt(1 - (input.y * input.y) / 2.0f);
+        output.y = input.y * Mathf.Sqrt(1 - (input.x * input.x) / 2.0f);
+
+        return output;
     }
 }
