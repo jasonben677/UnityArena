@@ -48,11 +48,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _ReflDistort: 0.801
-    - _RefrDistort: 0.997
-    - _WaveScale: 0.143
+    - _ReflDistort: 0.55
+    - _RefrDistort: 1.07
+    - _WaveScale: 0.15
     m_Colors:
-    - WaveSpeed: {r: 12, g: 6, b: -10, a: -3.5}
+    - WaveSpeed: {r: 17.15, g: 6, b: -10, a: -3.5}
     - _BumpMap_ST: {r: 1, g: 1, b: 0, a: 0}
     - _Fresnel_ST: {r: 1, g: 1, b: 0, a: 0}
     - _HorizonColor: {r: 0.13575952, g: 0.22810712, b: 0.3810788, a: 0}
