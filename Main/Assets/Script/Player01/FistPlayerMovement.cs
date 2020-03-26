@@ -40,8 +40,8 @@ public class FistPlayerMovement
         {
             return;
         }
-        Vector3 curxz = mainCam.transform.forward;
-        curxz.y = 0;
+        Vector3 curxz = Quaternion.AngleAxis(-90, Vector3.up) * mainCam.transform.right;
+
         Vector3 move = (curxz * moveV) + (mainCam.transform.right * moveH);
         //move.y = _playerRigi.velocity.y;
         _playerRigi.position += move * _moveSpeed* run * Time.fixedDeltaTime;
@@ -49,17 +49,39 @@ public class FistPlayerMovement
     }
 
 
-    public void CameraMove(float _moveSpeed)
+    public void CameraMove(float _moveSpeed, float camHeight)
     {
         float moveH = (Input.GetKey(KeyCode.RightArrow) ? 1.0f : 0f) - (Input.GetKey(KeyCode.LeftArrow) ? 1.0f : 0f);
         float moveV = (Input.GetKey(KeyCode.UpArrow) ? 1.0f : 0f) - (Input.GetKey(KeyCode.DownArrow) ? 1.0f : 0f);
-        myCam.transform.position = new Vector3(_player.transform.position.x, myCam.transform.position.y, _player.transform.position.z);
 
+        RaycastHit hit;
+        if (Physics.Linecast(mainCam.transform.position, myCam.transform.position, out hit, 1 << 9))
+        {
+            Debug.Log("aa");
+            mainCam.transform.localPosition = new Vector3(0, 0, -1.0f);
+        }
+        else
+        {
+            if (!Physics.Raycast(mainCam.transform.position, -mainCam.transform.forward, out hit, 5.0f, 1 << 9))
+            {
+                Debug.Log("bb");
+                mainCam.transform.localPosition = new Vector3(0, 0, -3.84f);
+            }
+            else
+            {
+                mainCam.transform.localPosition = new Vector3(0, 0, -1.0f);
+            }
+        }
+        myCam.transform.position = _player.transform.position + new Vector3(0, camHeight, 0);
+
+        myCam.transform.forward = (myCam.transform.position - mainCam.transform.position).normalized;
         if (moveH == 0 && moveV == 0)
         {
             return;
         }
+
         camRotate += new Vector3(moveV, moveH, 0);
+        camRotate.x = Mathf.Clamp(camRotate.x, -40, 45);
         myCam.transform.rotation = Quaternion.Euler(camRotate);
 
         //mainCam.transform.position = myCam.transform.position + (-myCam.transform.forward);
