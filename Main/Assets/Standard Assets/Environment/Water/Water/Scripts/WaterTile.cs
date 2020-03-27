@@ -54,14 +54,14 @@ namespace UnityStandardAssets.Water
 
         public void OnWillRenderObject()
         {
-            if (reflection)
-            {
-                reflection.WaterTileBeingRendered(transform, Camera.current);
-            }
-            if (waterBase)
-            {
-                waterBase.WaterTileBeingRendered(transform, Camera.current);
-            }
+            //if (reflection)
+            //{
+            //    reflection.WaterTileBeingRendered(transform, Camera.current);
+            //}
+            //if (waterBase)
+            //{
+            //    waterBase.WaterTileBeingRendered(transform, Camera.current);
+            //}
         }
     }
 }
