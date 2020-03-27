@@ -9,7 +9,7 @@ public class FistPlayerController : MonoBehaviour
     public float maxAngle = 45f;
     public float minAngle = -20f;
     public float camHeight = 2.0f;
-
+    public float cameSpeed = 1.5f;
     [Header("----- player status ----")]
     public float moveSpeed = 2.5f;
     FistPlayerMovement playerMovement;
@@ -25,19 +25,12 @@ public class FistPlayerController : MonoBehaviour
 
         playerMovement = new FistPlayerMovement();
         playerMovement.SetPlayerComponent(playerAnim, playerRigi, gameObject, camControl);
-
-        //transform.rotation = Quaternion.AngleAxis(-90, Vector3.up);
     }
 
     private void FixedUpdate()
     {
         playerMovement.PlayerMove(moveSpeed);
-        playerMovement.CameraMove(1.5f, camHeight);
+        playerMovement.CameraMove(cameSpeed, camHeight);
     }
 
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(Camera.main.transform.position, 0.5f);
-    }
 }

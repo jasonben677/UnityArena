@@ -43,7 +43,6 @@ public class FistPlayerMovement
         Vector3 curxz = Quaternion.AngleAxis(-90, Vector3.up) * mainCam.transform.right;
 
         Vector3 move = (curxz * moveV) + (mainCam.transform.right * moveH);
-        //move.y = _playerRigi.velocity.y;
         _playerRigi.position += move * _moveSpeed* run * Time.fixedDeltaTime;
         _player.transform.forward = move.normalized;
     }
@@ -57,14 +56,12 @@ public class FistPlayerMovement
         RaycastHit hit;
         if (Physics.Linecast(mainCam.transform.position, myCam.transform.position, out hit, 1 << 9))
         {
-            Debug.Log("aa");
             mainCam.transform.localPosition = new Vector3(0, 0, -1.0f);
         }
         else
         {
             if (!Physics.Raycast(mainCam.transform.position, -mainCam.transform.forward, out hit, 5.0f, 1 << 9))
             {
-                Debug.Log("bb");
                 mainCam.transform.localPosition = new Vector3(0, 0, -3.84f);
             }
             else
@@ -80,8 +77,8 @@ public class FistPlayerMovement
             return;
         }
 
-        camRotate += new Vector3(moveV, moveH, 0);
-        camRotate.x = Mathf.Clamp(camRotate.x, -40, 45);
+        camRotate += new Vector3(moveV, moveH, 0) * _moveSpeed;
+        camRotate.x = Mathf.Clamp(camRotate.x, -20, 45);
         myCam.transform.rotation = Quaternion.Euler(camRotate);
 
         //mainCam.transform.position = myCam.transform.position + (-myCam.transform.forward);
