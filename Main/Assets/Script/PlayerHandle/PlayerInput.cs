@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    [Header("==== Output signals ====")]
     public float Dup;
     public float Dright;
     public float Dmag; //角色移動距離
     public Vector3 Dvec; //角色移動方向
 
-    public float JUp; //camera的旋轉控制
-    public float JRight;
+    public float Jup; //camera的旋轉控制
+    public float Jright;
 
-    public bool inputEnable = true; 
-    public bool run; //pressing signal
-
-    public bool jump; //trigger once signal
+    public bool run;
+    public bool jump;
     private bool lastJump;
-    
+    public bool attack;
+    private bool lastAttack;
 
+    [Header("==== others ====")]
+
+    public bool inputEnable = true;            
+    
     private float targetDup;
     private float targetDright;
     private float velocityDup;
@@ -37,8 +41,8 @@ public class PlayerInput : MonoBehaviour
         targetDup = (Input.GetKey(KeyCode.W)? 1.0f : 0)- (Input.GetKey(KeyCode.S)? 1.0f : 0);
         targetDright = (Input.GetKey(KeyCode.D) ? 1.0f : 0) - (Input.GetKey(KeyCode.A) ? 1.0f : 0);
 
-        JUp = (Input.GetKey(KeyCode.UpArrow) ? 1.0f : 0) - (Input.GetKey(KeyCode.DownArrow) ? 1.0f : 0);
-        JRight = (Input.GetKey(KeyCode.RightArrow) ? 1.0f : 0) - (Input.GetKey(KeyCode.LeftArrow) ? 1.0f : 0);
+        Jup = (Input.GetKey(KeyCode.UpArrow) ? 1.0f : 0) - (Input.GetKey(KeyCode.DownArrow) ? 1.0f : 0);
+        Jright = (Input.GetKey(KeyCode.RightArrow) ? 1.0f : 0) - (Input.GetKey(KeyCode.LeftArrow) ? 1.0f : 0);
 
         if (inputEnable == false)
         {
@@ -46,8 +50,8 @@ public class PlayerInput : MonoBehaviour
             targetDright = 0;
         }
 
-        Dup = Mathf.SmoothDamp(Dup, targetDup, ref velocityDup, 0.1f);
-        Dright = Mathf.SmoothDamp(Dright, targetDright, ref velocityDright, 0.1f);
+        Dup = Mathf.SmoothDamp(Dup, targetDup, ref velocityDup, 0.01f);
+        Dright = Mathf.SmoothDamp(Dright, targetDright, ref velocityDright, 0.01f);
 
         Vector2 tempDAxis = SquareToCircle(new Vector2(Dright, Dup));
         float Dright2 = tempDAxis.x;
@@ -58,7 +62,7 @@ public class PlayerInput : MonoBehaviour
 
         run = Input.GetKey(KeyCode.LeftShift);
 
-        bool newJump = Input.GetKey(KeyCode.J);        
+        bool newJump = Input.GetKey(KeyCode.Space); //跳躍觸發設定       
         if(newJump != lastJump && newJump == true)
         {
             jump = true;
@@ -69,13 +73,25 @@ public class PlayerInput : MonoBehaviour
             jump = false;
         }
         lastJump = newJump;
+
+        bool newAttack = Input.GetKey(KeyCode.K); //單手普攻觸發設定
+        if (newAttack != lastAttack && newAttack == true)
+        {
+            attack = true;
+            Debug.Log("attack!!");
+        }
+        else
+        {
+            attack = false;
+        }
+        lastAttack = newAttack;
     }
 
     private Vector2 SquareToCircle(Vector2 input) //使前後和斜向的移動距離一樣: Elliptical grid mapping
     {
         Vector2 output = Vector2.zero;
 
-        output.x = input.x * Mathf.Sqrt(1 - (input.y * input.y) / 2.0f);
+        output.x = input.x * Mathf.Sqrt(1 - (input.y * input.y) / 2.0f); //套Elliptical grid mapping的求距離公式
         output.y = input.y * Mathf.Sqrt(1 - (input.x * input.x) / 2.0f);
 
         return output;

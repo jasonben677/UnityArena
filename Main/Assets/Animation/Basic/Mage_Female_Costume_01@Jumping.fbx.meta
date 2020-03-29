@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e701840ad3f532e419f01eceefe6087d
+guid: cbc9e2e56e030a0459b4f97f6854c4e4
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -109,7 +109,7 @@ ModelImporter:
     400100: Bone_Yun
     400102: Bone_Zuoqi
     400104: //RootNode
-    7400000: tip_jump
+    7400000: Jumping_Jab
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -140,28 +140,62 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: tip_jump
+      name: Jumping_Jab
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 50
+      lastFrame: 57
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 1
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
-      heightFromFeet: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
+      curves:
+      - name: jabVelocity
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.09517008
+            value: -3
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          preInfinity: 3
+          postInfinity: 3
+          rotationOrder: 4
       events: []
       transformMask: []
       maskType: 3
@@ -447,24 +481,24 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: jump(Clone)
+    - name: Mage_Female_Costume_01@Jumping(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
-      rotation: {x: -0.005268639, y: 0.012755329, z: -0.046383467, w: 0.9988284}
+      rotation: {x: 0.023366187, y: -0.36817652, z: -0.009126408, w: 0.9294175}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01
-      parentName: jump(Clone)
-      position: {x: 0.009658885, y: 1.0263351, z: 0.0015813666}
-      rotation: {x: 0.53341055, y: -0.47381777, z: -0.51160055, w: -0.4787847}
+      parentName: Mage_Female_Costume_01@Jumping(Clone)
+      position: {x: 0.002800435, y: 0.9769298, z: -0.0066785985}
+      rotation: {x: -0.3056326, y: 0.6594791, z: 0.63754845, w: 0.25535867}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01 Footsteps
       parentName: Bip01
       position: {x: -0, y: 0, z: -1.053738}
-      rotation: {x: 0, y: -0, z: -0.7071062, w: 0.7071074}
+      rotation: {x: 0, y: 0, z: -0.7071062, w: 0.7071074}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01 Pelvis
       parentName: Bip01
-      position: {x: -0.0012041279, y: 0.104615755, z: 0.04392639}
+      position: {x: -0.0024414023, y: -0.000000007450581, z: 0.08904024}
       rotation: {x: 0.5, y: -0.5, z: -0.5, w: -0.5}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01 Spine
