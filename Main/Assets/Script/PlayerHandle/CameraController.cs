@@ -37,6 +37,8 @@ public class CameraController : MonoBehaviour
         tempEulerX = Mathf.Clamp(tempEulerX, - 20, 30); //限制camera上下的旋轉角度
         cameraHandle.transform.localEulerAngles = new Vector3(tempEulerX, 0, 0);
 
+        //cameraHandle.transform.Rotate(Vector3.right, pi.Jup * verticalSpeed * Time.fixedDeltaTime);
+
         model.transform.eulerAngles = tempModelEuler; //模型不會再跟著攝影機旋轉了~
 
         //讓camera追空物件，有延遲視覺效果

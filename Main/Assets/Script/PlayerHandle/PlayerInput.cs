@@ -38,11 +38,11 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        targetDup = (Input.GetKey(KeyCode.W)? 1.0f : 0)- (Input.GetKey(KeyCode.S)? 1.0f : 0);
-        targetDright = (Input.GetKey(KeyCode.D) ? 1.0f : 0) - (Input.GetKey(KeyCode.A) ? 1.0f : 0);
+        targetDup = Input.GetAxis("Vertical");
+        targetDright = Input.GetAxis("Horizontal");
 
-        Jup = (Input.GetKey(KeyCode.UpArrow) ? 1.0f : 0) - (Input.GetKey(KeyCode.DownArrow) ? 1.0f : 0);
-        Jright = (Input.GetKey(KeyCode.RightArrow) ? 1.0f : 0) - (Input.GetKey(KeyCode.LeftArrow) ? 1.0f : 0);
+        Jup = Input.GetAxis("Mouse Y");
+        Jright = Input.GetAxis("Mouse X");
 
         if (inputEnable == false)
         {
