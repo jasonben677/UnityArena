@@ -82,7 +82,7 @@ public class PlayerChat : MonoBehaviour
                 Ani.SetFloat("Walk", fSpeed);
                 break;
             case PLAYERACTION.Walk:
-                if((fSpeed+= Time.deltaTime)>0.5f)fSpeed=0.5f;
+                if((fSpeed+= Time.deltaTime)>0.3f)fSpeed=0.3f;
                 Ani.SetFloat("Walk", fSpeed);
 
                 break;
