@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4f78e2f5dc590ef4ebf5b4973c8501fe
+guid: 43170d83668fdd54b95c6867c7eef952
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -109,7 +109,7 @@ ModelImporter:
     400100: Bone_Yun
     400102: Bone_Zuoqi
     400104: //RootNode
-    7400000: Sprinting Forward Roll
+    7400000: Unarmed Idle 01
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -140,17 +140,17 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Sprinting Forward Roll
+      name: Unarmed Idle 01
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 35
+      lastFrame: 348
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
@@ -447,15 +447,15 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Mage_Female_Costume_01@Sprinting Forward Roll(Clone)
+    - name: Mage_Female_Costume_01@Unarmed Idle 01(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
-      rotation: {x: -0.17594334, y: -0.084040806, z: -0.042345762, w: 0.97989184}
+      rotation: {x: 0, y: 0.000009452015, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01
-      parentName: Mage_Female_Costume_01@Sprinting Forward Roll(Clone)
-      position: {x: -0.020891322, y: 0.909591, z: -0.0024727553}
-      rotation: {x: -0.38987717, y: 0.42983714, z: 0.6358278, w: 0.50888}
+      parentName: Mage_Female_Costume_01@Unarmed Idle 01(Clone)
+      position: {x: 0.0077428925, y: 1.0302625, z: -0.015641939}
+      rotation: {x: 0.513369, y: -0.488805, z: -0.51082313, w: -0.48639664}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01 Footsteps
       parentName: Bip01
@@ -464,7 +464,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01 Pelvis
       parentName: Bip01
-      position: {x: -0.31398988, y: 0.08223479, z: 0.20613503}
+      position: {x: -0.00017908853, y: -0.0017721467, z: 0.036140088}
       rotation: {x: 0.5, y: -0.5, z: -0.5, w: -0.5}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01 Spine

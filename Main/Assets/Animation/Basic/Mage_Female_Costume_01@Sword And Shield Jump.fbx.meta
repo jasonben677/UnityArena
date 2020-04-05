@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4f78e2f5dc590ef4ebf5b4973c8501fe
+guid: 6b5c19e0f9e4e794db3e286ae72ef5f6
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -109,7 +109,7 @@ ModelImporter:
     400100: Bone_Yun
     400102: Bone_Zuoqi
     400104: //RootNode
-    7400000: Sprinting Forward Roll
+    7400000: Sword And Shield Jump
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -140,10 +140,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Sprinting Forward Roll
+      name: Sword And Shield Jump
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 35
+      lastFrame: 25
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -154,7 +154,7 @@ ModelImporter:
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 1
+      loopBlendPositionXZ: 0
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
@@ -447,15 +447,15 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Mage_Female_Costume_01@Sprinting Forward Roll(Clone)
+    - name: Mage_Female_Costume_01@Sword And Shield Jump(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
-      rotation: {x: -0.17594334, y: -0.084040806, z: -0.042345762, w: 0.97989184}
+      rotation: {x: -0.18345384, y: -0.095270164, z: 0.032805037, w: 0.9778508}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01
-      parentName: Mage_Female_Costume_01@Sprinting Forward Roll(Clone)
-      position: {x: -0.020891322, y: 0.909591, z: -0.0024727553}
-      rotation: {x: -0.38987717, y: 0.42983714, z: 0.6358278, w: 0.50888}
+      parentName: Mage_Female_Costume_01@Sword And Shield Jump(Clone)
+      position: {x: -0.009065225, y: 0.9336312, z: -0.006555611}
+      rotation: {x: -0.34151524, y: 0.4687234, z: 0.60726196, w: 0.5430457}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01 Footsteps
       parentName: Bip01
@@ -464,7 +464,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01 Pelvis
       parentName: Bip01
-      position: {x: -0.31398988, y: 0.08223479, z: 0.20613503}
+      position: {x: -0.34873787, y: -0.034843262, z: 0.18986726}
       rotation: {x: 0.5, y: -0.5, z: -0.5, w: -0.5}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip01 Spine

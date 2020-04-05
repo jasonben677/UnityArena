@@ -6,10 +6,10 @@ public class ActorController : MonoBehaviour
 {
     public GameObject model;
     public PlayerInput pi;
-    public float walkSpeed = 1.8f;
-    public float runMultiplier = 3.0f;
+    public float walkSpeed = 5.5f;
+    public float runMultiplier = 2.0f;
     public float jumpVelocity = 3.5f; //向前跳的衝量使用
-    public float rollVelocity = 2.0f; //向前翻滾的衝量使用
+    public float rollVelocity = 3.0f; //向前翻滾的衝量使用
 
     [Space(10)]
     [Header("==== Friction Settings ====")]
@@ -37,7 +37,7 @@ public class ActorController : MonoBehaviour
     void Update()
     {
         float targetRunMulti = ((pi.run) ? 2.0f : 1.0f); 
-        anim.SetFloat("forward", pi.Dmag * Mathf.Lerp(anim.GetFloat("forward"), targetRunMulti, 0.3f)); //調整走跑相互切換的流暢度
+        anim.SetFloat("forward", pi.Dmag * Mathf.Lerp(anim.GetFloat("forward"), targetRunMulti, 0.6f)); //調整走跑相互切換的流暢度
 
         if(rigid.velocity.magnitude > 0.5f)
         {
@@ -57,7 +57,7 @@ public class ActorController : MonoBehaviour
 
         if (pi.Dmag > 0.1f)
         {
-            Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.3f); //調整方向切換時的旋轉流暢度
+            Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.6f); //調整方向切換時的旋轉流暢度
             model.transform.forward = targetForward; 
         }
 
