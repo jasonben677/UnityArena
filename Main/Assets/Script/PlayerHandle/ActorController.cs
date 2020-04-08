@@ -8,7 +8,7 @@ public class ActorController : MonoBehaviour
     public PlayerInput pi;
     public float walkSpeed = 5.5f;
     public float runMultiplier = 2.0f;
-    public float jumpVelocity = 3.5f; //向前跳的衝量使用
+    public float jumpVelocity = 2.0f; //向前跳的衝量使用
     public float rollVelocity = 3.0f; //向前翻滾的衝量使用
 
     [Space(10)]
@@ -23,6 +23,7 @@ public class ActorController : MonoBehaviour
     private bool lockplanar; //鎖死平面移動(為了在jump的時候，不去更新planarVec)
     private bool canAttack;
     private CapsuleCollider col; //為了切換Physic material
+    private float lerpTarget;  
 
     // Start is called before the first frame update
     void Awake()
@@ -151,19 +152,28 @@ public class ActorController : MonoBehaviour
     {
         pi.inputEnable = false;
         //lockplanar = true;
-        anim.SetLayerWeight( anim.GetLayerIndex("attack"), 1.0f);
+        lerpTarget = 1.0f;
+        
     }
 
     public void OnAttack1hAUpdate()
     {
-        thrustVec = model.transform.forward * anim.GetFloat("attack1hAVelocity");
+        thrustVec = model.transform.forward * anim.GetFloat("attack1hAVelocity");        
+        // float currentWeight = Mathf.Lerp(anim.GetLayerWeight(anim.GetLayerIndex("attack")), lerpTarget, 0.1f);
+        anim.SetLayerWeight(anim.GetLayerIndex("attack"), Mathf.Lerp(anim.GetLayerWeight(anim.GetLayerIndex("attack")), lerpTarget, 0.8f)); //使切換攻擊圖層較平緩
     }
 
-    public void OnAttackIdle()
+    public void OnAttackIdleEnter()
     {
         pi.inputEnable = true;
         //lockplanar = false;
-        anim.SetLayerWeight(anim.GetLayerIndex("attack"), 0);
+        //anim.SetLayerWeight(anim.GetLayerIndex("attack"), 0);
+        lerpTarget = 0f;
+    }
+
+    public void OnAttackIdleUpdate()
+    {
+        anim.SetLayerWeight(anim.GetLayerIndex("attack"), Mathf.Lerp(anim.GetLayerWeight(anim.GetLayerIndex("attack")), lerpTarget, 0.8f));
     }
 }
 

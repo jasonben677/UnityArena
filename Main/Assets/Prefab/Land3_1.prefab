@@ -169,7 +169,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
@@ -227,7 +227,7 @@ MonoBehaviour:
   pi: {fileID: 0}
   walkSpeed: 5.5
   runMultiplier: 2
-  jumpVelocity: 3
+  jumpVelocity: 2
   rollVelocity: 2
   frictionOne: {fileID: 13400000, guid: ebbd2e6b6925d07448243d28c94c929d, type: 2}
   frictionZero: {fileID: 13400000, guid: 8262362b21d86c04e8ac2eff1e831a99, type: 2}

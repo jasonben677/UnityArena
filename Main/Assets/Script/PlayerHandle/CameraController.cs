@@ -16,8 +16,7 @@ public class CameraController : MonoBehaviour
     private Camera camera;
 
     //private Vector3 cameraDampvelocity;
-    
-    private Vector3 dir; //射線方向
+    private Vector3 currentPos; //用來存local位置    
     private float offset; //初設的距離
     private bool rayTerrain;
     RaycastHit rayHit;
@@ -31,6 +30,7 @@ public class CameraController : MonoBehaviour
         model = playerHandle.GetComponent<ActorController>().model;
         camera = Camera.main;       
         offset = (transform.position - cameraHandle.transform.position).magnitude;
+        currentPos = transform.localPosition;        
     }
 
     // Update is called once per frame
@@ -41,25 +41,27 @@ public class CameraController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //if (rayTerrain == true)
-        //{
-        //    transform.position = rayHit.point;
-        //    CameraMovement();
-        //}
-        //else //應該是這裡有問題，空物件(cameraPos)該怎麼回到初設的距離位置呢......
-        //{            
-        //    transform.position = cameraHandle.transform.position + dir.normalized * offset;
-        //    CameraMovement();
-        //}
-        CameraMovement();
+        if (rayTerrain == true)
+        {
+            transform.position = rayHit.point;
+            Debug.LogWarning(rayHit.point);
+            CameraMovement();
+        }
+        else
+        {            
+            transform.localPosition = currentPos;
+            CameraMovement();
+        }
     }
 
 
-    private bool CameraRay() //障礙物遮蔽判斷
-    {
-        dir = transform.position - cameraHandle.transform.position; 
+    private bool CameraRay() 
+    {        
+        Vector3 dir = transform.position - cameraHandle.transform.position;
+        
         Physics.Raycast(cameraHandle.transform.position, dir, out rayHit, offset, LayerMask.GetMask("Terrain"));
-        Vector3 newOffset = rayHit.point - cameraHandle.transform.position; //等等用來表示新的距離
+        Vector3 newOffset = rayHit.point - cameraHandle.transform.position; 
+
         if (newOffset.magnitude < offset) //如果有障礙物夾在中間
         {
             rayTerrain = true;

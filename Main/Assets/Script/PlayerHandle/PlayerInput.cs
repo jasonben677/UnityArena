@@ -74,7 +74,7 @@ public class PlayerInput : MonoBehaviour
         }
         lastJump = newJump;
 
-        bool newAttack = Input.GetKey(KeyCode.K); //單手普攻觸發設定
+        bool newAttack = Input.GetMouseButton(0); //單手普攻觸發設定
         if (newAttack != lastAttack && newAttack == true)
         {
             attack = true;
