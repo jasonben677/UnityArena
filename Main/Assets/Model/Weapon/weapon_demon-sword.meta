@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Main/Assets/Model/Weapon/weapon_demon-sword.meta
 guid: d146967ace793f94e941dcc1f206e327
+=======
+guid: b19c65b6b0d1ff243b171d26da90b335
+>>>>>>> 8a19f45fecf07f25dafa074216f21381e4a0c529:Main/Assets/Model/Ninja.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
