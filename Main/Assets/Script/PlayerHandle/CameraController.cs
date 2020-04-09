@@ -44,7 +44,7 @@ public class CameraController : MonoBehaviour
         if (rayTerrain == true)
         {
             transform.position = rayHit.point;
-            Debug.LogWarning(rayHit.point);
+            //Debug.LogWarning(rayHit.point);
             CameraMovement();
         }
         else
