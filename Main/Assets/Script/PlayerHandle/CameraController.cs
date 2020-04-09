@@ -18,6 +18,8 @@ public class CameraController : MonoBehaviour
     //private Vector3 cameraDampvelocity;
     private Vector3 currentPos; //用來存local位置    
     private float offset; //初設的距離
+    private Vector3 newOffset; 
+    private float calRadius;
     private bool rayTerrain;
     RaycastHit rayHit;
 
@@ -30,7 +32,8 @@ public class CameraController : MonoBehaviour
         model = playerHandle.GetComponent<ActorController>().model;
         camera = Camera.main;       
         offset = (transform.position - cameraHandle.transform.position).magnitude;
-        currentPos = transform.localPosition;        
+        currentPos = transform.localPosition;
+        calRadius = playerHandle.GetComponent<CapsuleCollider>().radius;
     }
 
     // Update is called once per frame
@@ -43,7 +46,15 @@ public class CameraController : MonoBehaviour
     {
         if (rayTerrain == true)
         {
-            transform.position = rayHit.point;
+            if(newOffset.magnitude < calRadius)
+            {
+                Debug.Log("newoffset :" + newOffset.magnitude);
+                transform.localPosition = currentPos;
+            }
+            else
+            {
+                transform.position = rayHit.point;
+            }            
             //Debug.LogWarning(rayHit.point);
             CameraMovement();
         }
@@ -60,7 +71,7 @@ public class CameraController : MonoBehaviour
         Vector3 dir = transform.position - cameraHandle.transform.position;
         
         Physics.Raycast(cameraHandle.transform.position, dir, out rayHit, offset, LayerMask.GetMask("Terrain"));
-        Vector3 newOffset = rayHit.point - cameraHandle.transform.position; 
+        newOffset = rayHit.point - cameraHandle.transform.position; 
 
         if (newOffset.magnitude < offset) //如果有障礙物夾在中間
         {
