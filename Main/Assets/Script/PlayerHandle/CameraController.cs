@@ -18,7 +18,9 @@ public class CameraController : MonoBehaviour
     //private Vector3 cameraDampvelocity;
     private Vector3 currentPos; //用來存local位置    
     private float offset; //初設的距離
-    private Vector3 newOffset; 
+    private float miniOffset; //最小距離防止模型穿面
+    private Vector3 newOffset;
+    private Vector3 dir;
     private float calRadius;
     private bool rayTerrain;
     RaycastHit rayHit;
@@ -34,6 +36,7 @@ public class CameraController : MonoBehaviour
         offset = (transform.position - cameraHandle.transform.position).magnitude;
         currentPos = transform.localPosition;
         calRadius = playerHandle.GetComponent<CapsuleCollider>().radius;
+        miniOffset = calRadius + 1.0f;
     }
 
     // Update is called once per frame
@@ -46,29 +49,33 @@ public class CameraController : MonoBehaviour
     {
         if (rayTerrain == true)
         {
-            if(newOffset.magnitude < calRadius)
+            if (newOffset.magnitude < calRadius + 0.5f)
             {
-                Debug.Log("newoffset :" + newOffset.magnitude);
-                transform.localPosition = currentPos;
+                Debug.Log("newoffset :" + newOffset.magnitude);                
+                //transform.localPosition = currentPos;
+                //cameraHandle.transform.Rotate(cameraHandle.transform.up, 200f * Time.fixedDeltaTime);
+                //transform.RotateAround(playerHandle.transform.position, playerHandle.transform.up, 200f * Time.fixedDeltaTime);
+                //transform.Translate(0, 0, offset);
+
             }
             else
             {
                 transform.position = rayHit.point;
-            }            
-            //Debug.LogWarning(rayHit.point);
-            CameraMovement();
+            }
+            ////Debug.LogWarning(rayHit.point);      
+            //transform.position = rayHit.point;
         }
         else
         {            
-            transform.localPosition = currentPos;
-            CameraMovement();
+            transform.localPosition = currentPos;            
         }
+        CameraMovement();
     }
 
 
     private bool CameraRay() 
     {        
-        Vector3 dir = transform.position - cameraHandle.transform.position;
+        dir = transform.position - cameraHandle.transform.position;
         
         Physics.Raycast(cameraHandle.transform.position, dir, out rayHit, offset, LayerMask.GetMask("Terrain"));
         newOffset = rayHit.point - cameraHandle.transform.position; 
@@ -88,7 +95,12 @@ public class CameraController : MonoBehaviour
     {        
         Vector3 tempModelEuler = model.transform.eulerAngles;
 
-        playerHandle.transform.Rotate(Vector3.up, pi.Jright * horizontalSpeed * Time.fixedDeltaTime);
+        if (pi.Jright != 0) {
+            playerHandle.transform.Rotate(Vector3.up, pi.Jright * horizontalSpeed * Time.fixedDeltaTime);
+        }
+        if (pi.Dright != 0) { 
+            playerHandle.transform.Rotate(Vector3.up, pi.Dright * horizontalSpeed * Time.fixedDeltaTime);
+        }
         tempEulerX -= pi.Jup * verticalSpeed * Time.fixedDeltaTime;
         tempEulerX = Mathf.Clamp(tempEulerX, -20, 30); 
         cameraHandle.transform.localEulerAngles = new Vector3(tempEulerX, 0, 0);        

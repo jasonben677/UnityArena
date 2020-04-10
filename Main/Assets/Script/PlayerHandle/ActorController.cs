@@ -101,13 +101,13 @@ public class ActorController : MonoBehaviour
 
     public void IsGround()
     {
-        Debug.Log("is on ground");
+        //Debug.Log("is on ground");
         anim.SetBool("isGround", true);
     }
 
     public void IsNotGround()
     {
-        Debug.Log("is not on ground");
+        //Debug.Log("is not on ground");
         anim.SetBool("isGround", false);
     }
 
