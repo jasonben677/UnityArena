@@ -51,7 +51,11 @@ public class CameraController : MonoBehaviour
             {
                 //Debug.Log("newoffset :" + newOffset.magnitude);
                 //playerHandle.transform.Rotate(playerHandle.transform.up, 200f * Time.fixedDeltaTime);
-                transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);                
+                transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);
+            }
+            else
+            {
+                transform.position = rayHit.point;
             }
         }
         else
