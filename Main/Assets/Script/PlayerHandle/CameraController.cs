@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     public PlayerInput pi;
     public float horizontalSpeed = 100.0f;
     public float verticalSpeed = 100.0f;
-    //public float cameraDampValue = 0.01f;
+    public float cameraDampValue = 0.01f;
         
     private GameObject playerHandle; //camera水平旋轉操控軸心
     private GameObject cameraHandle; //camera垂直旋轉操控軸心
@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
     private GameObject model;
     private Camera camera;
 
-    //private Vector3 cameraDampvelocity;
+    private Vector3 cameraDampvelocity;
     private Vector3 currentPos; //用來存local位置    
     private float offset; //初設的距離
     private Vector3 newOffset;
@@ -88,19 +88,30 @@ public class CameraController : MonoBehaviour
     {        
         Vector3 tempModelEuler = model.transform.eulerAngles;
 
-        if (pi.Jright != 0) {
-            playerHandle.transform.Rotate(Vector3.up, pi.Jright * horizontalSpeed * Time.fixedDeltaTime);
-        }
-        if (pi.Dright != 0) { 
+        if (pi.Dright != 0)
+        {
             playerHandle.transform.Rotate(Vector3.up, pi.Dright * 200f * Time.fixedDeltaTime);
         }
         tempEulerX -= pi.Jup * verticalSpeed * Time.fixedDeltaTime;
-        tempEulerX = Mathf.Clamp(tempEulerX, -20, 70); 
-        cameraHandle.transform.localEulerAngles = new Vector3(tempEulerX, 0, 0);        
+        tempEulerX = Mathf.Clamp(tempEulerX, -20, 70);
+        cameraHandle.transform.localEulerAngles = new Vector3(tempEulerX, 0, 0);
+        //if (pi.Jright !=0)
+        //{
+        //    transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.up, pi.Jright * Time.fixedDeltaTime);
+        //    camera.transform.position = transform.position;
+        //}
+        
+        camera.transform.position = Vector3.Lerp(camera.transform.position, transform.position, 3.0f * Time.fixedDeltaTime);
+
+        //if (pi.Jright >= 0.5f || pi.Jright <= -0.5f)
+        //{
+        //    playerHandle.transform.Rotate(Vector3.up, pi.Jright * horizontalSpeed * Time.fixedDeltaTime);
+        //    camera.transform.position = Vector3.Lerp(camera.transform.position, transform.position, 6.0f * Time.fixedDeltaTime);
+        //}
         
         model.transform.eulerAngles = tempModelEuler; //模型不會再跟著攝影機水平旋轉       
         
-        camera.transform.position = Vector3.Lerp(camera.transform.position, transform.position, 2.6f * Time.fixedDeltaTime);
+        //camera.transform.position = Vector3.Lerp(camera.transform.position, transform.position, 3.0f * Time.fixedDeltaTime);
         //camera.transform.position = Vector3.SmoothDamp(camera.transform.position, transform.position, ref cameraDampvelocity, cameraDampValue);
         //camera.transform.eulerAngles = transform.eulerAngles;
         camera.transform.LookAt(cameraHandle.transform);
