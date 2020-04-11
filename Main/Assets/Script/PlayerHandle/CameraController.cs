@@ -18,7 +18,6 @@ public class CameraController : MonoBehaviour
     //private Vector3 cameraDampvelocity;
     private Vector3 currentPos; //用來存local位置    
     private float offset; //初設的距離
-    private float miniOffset; //最小距離防止模型穿面
     private Vector3 newOffset;
     private Vector3 dir;
     private float calRadius;
@@ -35,8 +34,7 @@ public class CameraController : MonoBehaviour
         camera = Camera.main;       
         offset = (transform.position - cameraHandle.transform.position).magnitude;
         currentPos = transform.localPosition;
-        calRadius = playerHandle.GetComponent<CapsuleCollider>().radius;
-        miniOffset = calRadius + 1.0f;
+        calRadius = playerHandle.GetComponent<CapsuleCollider>().radius;        
     }
 
     // Update is called once per frame
@@ -51,19 +49,10 @@ public class CameraController : MonoBehaviour
         {
             if (newOffset.magnitude < calRadius + 0.5f)
             {
-                Debug.Log("newoffset :" + newOffset.magnitude);                
-                //transform.localPosition = currentPos;
-                //cameraHandle.transform.Rotate(cameraHandle.transform.up, 200f * Time.fixedDeltaTime);
-                //transform.RotateAround(playerHandle.transform.position, playerHandle.transform.up, 200f * Time.fixedDeltaTime);
-                //transform.Translate(0, 0, offset);
-
+                //Debug.Log("newoffset :" + newOffset.magnitude);
+                //playerHandle.transform.Rotate(playerHandle.transform.up, 200f * Time.fixedDeltaTime);
+                transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);                
             }
-            else
-            {
-                transform.position = rayHit.point;
-            }
-            ////Debug.LogWarning(rayHit.point);      
-            //transform.position = rayHit.point;
         }
         else
         {            
@@ -99,13 +88,13 @@ public class CameraController : MonoBehaviour
             playerHandle.transform.Rotate(Vector3.up, pi.Jright * horizontalSpeed * Time.fixedDeltaTime);
         }
         if (pi.Dright != 0) { 
-            playerHandle.transform.Rotate(Vector3.up, pi.Dright * horizontalSpeed * Time.fixedDeltaTime);
+            playerHandle.transform.Rotate(Vector3.up, pi.Dright * 200f * Time.fixedDeltaTime);
         }
         tempEulerX -= pi.Jup * verticalSpeed * Time.fixedDeltaTime;
-        tempEulerX = Mathf.Clamp(tempEulerX, -20, 30); 
+        tempEulerX = Mathf.Clamp(tempEulerX, -20, 70); 
         cameraHandle.transform.localEulerAngles = new Vector3(tempEulerX, 0, 0);        
         
-        model.transform.eulerAngles = tempModelEuler; //模型不會再跟著攝影機水平旋轉
+        model.transform.eulerAngles = tempModelEuler; //模型不會再跟著攝影機水平旋轉       
         
         camera.transform.position = Vector3.Lerp(camera.transform.position, transform.position, 2.6f * Time.fixedDeltaTime);
         //camera.transform.position = Vector3.SmoothDamp(camera.transform.position, transform.position, ref cameraDampvelocity, cameraDampValue);
