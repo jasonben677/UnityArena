@@ -10,8 +10,8 @@ public class PlayerInput : MonoBehaviour
     public float Dmag; //角色移動距離
     public Vector3 Dvec; //角色移動方向
 
-    public float Jup; //camera的旋轉控制
-    public float Jright;
+    public float mouseUp; //camera的旋轉控制
+    public float mouseRight;
 
     public bool run;
     public bool jump;
@@ -21,13 +21,15 @@ public class PlayerInput : MonoBehaviour
 
     [Header("==== others ====")]
 
-    public bool inputEnable = true;            
-    
+    public bool inputEnable = true;
+        
     private float targetDup;
     private float targetDright;
     private float velocityDup;
     private float velocityDright;
-
+    
+    private Vector3 cameraForward;
+    private Vector3 cameraRight;
 
     // Start is called before the first frame update
     void Start()
@@ -38,11 +40,14 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        cameraForward = Camera.main.transform.forward;  
+        cameraRight = Camera.main.transform.right;      
+
         targetDup = Input.GetAxis("Vertical");
         targetDright = Input.GetAxis("Horizontal");
 
-        Jup = Input.GetAxis("Mouse Y");
-        Jright = Input.GetAxis("Mouse X");
+        mouseUp = Input.GetAxis("Mouse Y");
+        mouseRight = Input.GetAxis("Mouse X");
 
         if (inputEnable == false)
         {
@@ -58,9 +63,9 @@ public class PlayerInput : MonoBehaviour
         float Dup2 = tempDAxis.y;
 
         Dmag = Mathf.Sqrt((Dup2 * Dup2) + (Dright2 * Dright2)); 
-        Dvec = Dup2 * transform.forward + Dright2 * transform.right; 
-
-        run = Input.GetKey(KeyCode.LeftShift);
+        Dvec = Dup2 * new Vector3 (cameraForward.x, 0, cameraForward.z) + Dright2 * new Vector3(cameraRight.x, 0, cameraRight.z); 
+                
+        run = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
         bool newJump = Input.GetKey(KeyCode.Space); //跳躍觸發設定       
         if(newJump != lastJump && newJump == true)

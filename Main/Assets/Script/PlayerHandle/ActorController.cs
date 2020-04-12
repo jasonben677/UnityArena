@@ -23,7 +23,8 @@ public class ActorController : MonoBehaviour
     private bool lockplanar; //鎖死平面移動(為了在jump的時候，不去更新planarVec)
     private bool canAttack;
     private CapsuleCollider col; //為了切換Physic material
-    private float lerpTarget;  
+    private float lerpTarget;
+    private Vector3 deltaPos;
 
     // Start is called before the first frame update
     void Awake()
@@ -55,9 +56,9 @@ public class ActorController : MonoBehaviour
         {
             anim.SetTrigger("attack");
         }
-
+        
         if (pi.Dmag > 0.1f)
-        {
+        {          
             Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.6f); //調整方向切換時的旋轉流暢度
             model.transform.forward = targetForward; 
         }
@@ -70,9 +71,11 @@ public class ActorController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        rigid.position += deltaPos;
         //rigid.position += movingVec * Time.fixedDeltaTime;
         rigid.velocity = new Vector3 (planarVec.x, rigid.velocity.y, planarVec.z)+thrustVec;
         thrustVec = Vector3.zero;
+        deltaPos = Vector3.zero;
     }
 
     private bool CheckState(string stateName, string LayerName = "Base Layer") 
@@ -174,6 +177,15 @@ public class ActorController : MonoBehaviour
     public void OnAttackIdleUpdate()
     {
         anim.SetLayerWeight(anim.GetLayerIndex("attack"), Mathf.Lerp(anim.GetLayerWeight(anim.GetLayerIndex("attack")), lerpTarget, 0.8f));
+    }
+
+    public void OnUpdateRM(object _deltaPos)
+    {
+        if(CheckState("attack1hC", "attack"))
+        {
+            deltaPos += (Vector3)_deltaPos;
+        }
+        deltaPos += (0.2f * deltaPos + 0.8f * (Vector3) _deltaPos) /1.0f;
     }
 }
 

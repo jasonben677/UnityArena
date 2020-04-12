@@ -91,6 +91,9 @@ MonoBehaviour:
   pi: {fileID: 650621157}
   horizontalSpeed: 100
   verticalSpeed: 100
+  cameraDampValue: 0.8
+  cameraDampRotation: 0.05
+  playerHandle: {fileID: 1743526977}
 --- !u!1 &1657553540
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,14 +117,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657553540}
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 1.662, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 180.7, y: 11.65, z: 33.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1085858649}
-  m_Father: {fileID: 1743526978}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+  m_Father: {fileID: 7990401141327727746}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1743526977
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +158,6 @@ Transform:
   m_Children:
   - {fileID: 1759245981}
   - {fileID: 674620289}
-  - {fileID: 1657553541}
   m_Father: {fileID: 7990401141327727746}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -187,7 +189,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &650621157
 MonoBehaviour:
@@ -205,8 +207,8 @@ MonoBehaviour:
   Dright: 0
   Dmag: 0
   Dvec: {x: 0, y: 0, z: 0}
-  Jup: 0
-  Jright: 0
+  mouseUp: 0
+  mouseRight: 0
   run: 0
   jump: 0
   attack: 0
@@ -231,6 +233,18 @@ MonoBehaviour:
   rollVelocity: 2
   frictionOne: {fileID: 13400000, guid: ebbd2e6b6925d07448243d28c94c929d, type: 2}
   frictionZero: {fileID: 13400000, guid: 8262362b21d86c04e8ac2eff1e831a99, type: 2}
+--- !u!114 &578517865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759275903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d4fb6b2b05c7c49bf4a4576f8e2d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &295281947268418515
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,6 +487,7 @@ Transform:
   - {fileID: 7990401140816169209}
   - {fileID: 7990401140545238590}
   - {fileID: 1743526978}
+  - {fileID: 1657553541}
   m_Father: {fileID: 930005602140478175}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -711,15 +726,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5793c1fffad12fd47b57878f06af1475, type: 3}
---- !u!1 &1759275903 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100104, guid: 5793c1fffad12fd47b57878f06af1475,
-    type: 3}
-  m_PrefabInstance: {fileID: 1759374455}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1759245981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400106, guid: 5793c1fffad12fd47b57878f06af1475,
+    type: 3}
+  m_PrefabInstance: {fileID: 1759374455}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1759275903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100104, guid: 5793c1fffad12fd47b57878f06af1475,
     type: 3}
   m_PrefabInstance: {fileID: 1759374455}
   m_PrefabAsset: {fileID: 0}
@@ -6067,7 +6082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: fa13717c0193c224fbbf656c81f0252d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.7831116
+      value: 2.739639
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: fa13717c0193c224fbbf656c81f0252d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7294,7 +7309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: fa13717c0193c224fbbf656c81f0252d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.7831116
+      value: 2.739639
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: fa13717c0193c224fbbf656c81f0252d, type: 3}
       propertyPath: m_LocalPosition.y
