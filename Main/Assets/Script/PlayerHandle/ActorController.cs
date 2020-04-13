@@ -89,6 +89,7 @@ public class ActorController : MonoBehaviour
         {
             LoginManager.instance.SendPos(transform.position);
             LoginManager.instance.client.messageProcess = friend.UpdateFirend;
+            sendTime = 0;
         }
     }
 
