@@ -88,7 +88,7 @@ public class ActorController : MonoBehaviour
         if (sendTime >= 1.0f && useServer)
         {
             LoginManager.instance.SendPos(transform.position);
-            LoginManager.instance.client.messageProcess = friend.UpdateFirend;
+            LoginManager.instance.client.messageProcess[1] = friend.UpdateFirend;
             sendTime = 0;
         }
     }

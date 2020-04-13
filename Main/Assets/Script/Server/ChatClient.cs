@@ -7,7 +7,7 @@ using TestDll;
 public class ChatClient
 {
     public delegate void MessageProcess(Message _player);
-    public MessageProcess messageProcess;
+    public MessageProcess[] messageProcess;
     Message send;
     Message receive;
     SerializationManager serialManager = new SerializationManager();
@@ -76,7 +76,20 @@ public class ChatClient
     private void HandleReceiveMessages(TcpClient tcpClient)
     {
         receive = serialManager.DeserializeClass(tcpClient);
-        messageProcess?.Invoke(receive);
+        Debug.Log(receive.msgType);
+        switch (receive.msgType)
+        {
+            case 0:
+                messageProcess[0]?.Invoke(receive);
+                break;
+
+            case 2:
+                messageProcess[1]?.Invoke(receive);
+                break;
+
+            default:
+                break;
+        }
     }
 
 }

@@ -61,7 +61,7 @@ public class LoginManager : MonoBehaviour
             string account = GameObject.Find("Account").GetComponent<InputField>().text;
             string password = GameObject.Find("Password").GetComponent<InputField>().text;
             client.SendAccount(account, password);
-            client.messageProcess = EnterGameScence;
+            client.messageProcess[0] = EnterGameScence;
         }
     }
 

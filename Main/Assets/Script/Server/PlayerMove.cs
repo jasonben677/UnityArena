@@ -14,15 +14,18 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        times += Time.fixedDeltaTime;
+
         float hmove = Input.GetAxis("Horizontal");
         float vmove = Input.GetAxis("Vertical");
         Vector3 vec = transform.forward * vmove + transform.right * hmove;
         myRigi.position += vec * 10f* Time.fixedDeltaTime;
+
+        times += Time.fixedDeltaTime;
         if (times >= 1.0f && useServer)
         {
             LoginManager.instance.SendPos(transform.position);
-            LoginManager.instance.client.messageProcess = Friend.UpdateFirend;
+            LoginManager.instance.client.messageProcess[1] = Friend.UpdateFirend;
+            Debug.Log("send" + transform.position);
             times = 0;
         }
     }
