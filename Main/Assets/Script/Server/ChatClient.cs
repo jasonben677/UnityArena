@@ -77,7 +77,7 @@ public class ChatClient
     private void HandleReceiveMessages(TcpClient tcpClient)
     {
         receive = serialManager.DeserializeClass(tcpClient);
-        //Debug.Log(receive.msgType);
+        Debug.Log(receive.msgType);
         try
         {
             switch (receive.msgType)
