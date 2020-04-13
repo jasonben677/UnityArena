@@ -11,6 +11,12 @@ public class ActorController : MonoBehaviour
     public float jumpVelocity = 2.0f; //向前跳的衝量使用
     public float rollVelocity = 3.0f; //向前翻滾的衝量使用
 
+    // server
+    public bool useServer = false;
+    [SerializeField] FriendManager friend;
+    // 發送時間
+    private float sendTime = 0.0f;
+
     [Space(10)]
     [Header("==== Friction Settings ====")]
     public PhysicMaterial frictionOne;
@@ -76,6 +82,14 @@ public class ActorController : MonoBehaviour
         rigid.velocity = new Vector3 (planarVec.x, rigid.velocity.y, planarVec.z)+thrustVec;
         thrustVec = Vector3.zero;
         deltaPos = Vector3.zero;
+
+        //發送角色位置
+        sendTime += Time.fixedDeltaTime;
+        if (sendTime >= 1.0f && useServer)
+        {
+            LoginManager.instance.SendPos(transform.position);
+            LoginManager.instance.client.messageProcess = friend.UpdateFirend;
+        }
     }
 
     private bool CheckState(string stateName, string LayerName = "Base Layer") 
