@@ -87,10 +87,12 @@ public class ActorController : MonoBehaviour
         sendTime += Time.fixedDeltaTime;
         if (sendTime >= 1.0f && useServer)
         {
+            LoginManager.instance.client.messageProcess[1] = friend.GetNextPos;
             LoginManager.instance.SendPos(transform.position);
-            LoginManager.instance.client.messageProcess[1] = friend.UpdateFirend;
+            Debug.Log("aa" + LoginManager.instance.client.messageProcess.Count);
             sendTime = 0;
         }
+        friend.UpdateFriend();
     }
 
     private bool CheckState(string stateName, string LayerName = "Base Layer") 

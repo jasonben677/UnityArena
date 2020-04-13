@@ -62,6 +62,7 @@ public class LoginManager : MonoBehaviour
             string password = GameObject.Find("Password").GetComponent<InputField>().text;
             client.SendAccount(account, password);
             client.messageProcess[0] = EnterGameScence;
+            client.messageProcess[1] = delegate (Message s) { };
         }
     }
 

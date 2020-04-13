@@ -77,20 +77,28 @@ public class ChatClient
     private void HandleReceiveMessages(TcpClient tcpClient)
     {
         receive = serialManager.DeserializeClass(tcpClient);
-        Debug.Log(receive.msgType);
-        switch (receive.msgType)
+        //Debug.Log(receive.msgType);
+        try
         {
-            case 0:
-                messageProcess[0]?.Invoke(receive);
-                break;
+            switch (receive.msgType)
+            {
+                case 0:
+                    messageProcess[0]?.Invoke(receive);
+                    break;
 
-            case 2:
-                messageProcess[1]?.Invoke(receive);
-                break;
+                case 2:
+                    messageProcess[1]?.Invoke(receive);
+                    break;
 
-            default:
-                break;
+                default:
+                    break;
+            }
         }
+        catch (KeyNotFoundException)
+        {
+            Debug.Log("error index:  " + receive.msgType);
+        }
+
     }
 
 }
