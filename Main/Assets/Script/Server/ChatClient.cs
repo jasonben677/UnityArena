@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using UnityEngine;
@@ -7,7 +8,7 @@ using TestDll;
 public class ChatClient
 {
     public delegate void MessageProcess(Message _player);
-    public MessageProcess[] messageProcess;
+    public Dictionary<int, MessageProcess> messageProcess = new Dictionary<int, MessageProcess>();
     Message send;
     Message receive;
     SerializationManager serialManager = new SerializationManager();
