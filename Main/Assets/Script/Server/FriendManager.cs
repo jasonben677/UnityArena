@@ -10,7 +10,9 @@ public class FriendManager : MonoBehaviour
     private void Awake()
     {
         friend = transform.GetChild(0).gameObject;
-        player2Anim = friend.GetComponent<Animator>();
+        // 稍微暫改一下拿的位置
+        //player2Anim = friend.GetComponent<Animator>();
+        player2Anim = friend.GetComponentInChildren<Animator>();
         nextPos = friend.transform.position;
     }
 
