@@ -1018,6 +1018,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: kachujin_g_rosales
       objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 3ab6dd19084b47e44afd627b34e33d7e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 3ab6dd19084b47e44afd627b34e33d7e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 180.7

@@ -5,6 +5,7 @@ public class FriendManager : MonoBehaviour
 {
     GameObject friend;
     Vector3 nextPos;
+    Vector3 nextForward;
     Animator player2Anim;
     float runIndex;
     private void Awake()
@@ -22,13 +23,14 @@ public class FriendManager : MonoBehaviour
         Debug.Log("receive");
         friend.SetActive(true);
         nextPos = new Vector3(_player.x, _player.y, _player.z);
-        friend.transform.forward = (nextPos - friend.transform.position).normalized;
+        nextForward = (nextPos - friend.transform.position).normalized;
     }
 
     public void UpdateFriend()
     {
         float dis = (nextPos - friend.transform.position).magnitude;
-        if (dis > 2.0f)
+        friend.transform.forward = Vector3.Slerp(friend.transform.forward, nextForward, 0.25f);
+        if (dis > 2.5f)
         {
             runIndex = 1;
             friend.transform.position = Vector3.Lerp(friend.transform.position, nextPos, Time.fixedDeltaTime);
