@@ -89,7 +89,7 @@ public class ActorController : MonoBehaviour
 
         //發送角色位置
         sendTime += Time.fixedDeltaTime;
-        if (sendTime >= 1.0f && useServer)
+        if (sendTime >= 0.5f && useServer)
         {
             LoginManager.instance.client.messageProcess[1] = friend.GetNextPos;
             LoginManager.instance.SendPos(transform.position);
