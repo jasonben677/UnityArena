@@ -10,15 +10,14 @@ public class CameraController : MonoBehaviour
     public float cameraDampValue = 0.05f;
     //public float cameraDampRotation = 0.05f;
 
-    public GameObject playerHandle; 
-
+    public GameObject playerHandle;
+    private GameObject model;
     private GameObject cameraHandle;
-
-    
-    private float tempEulerX;
-    private float tempEulerY;
-    //private GameObject model;
+    public GameObject lockTarget;
     private Camera mainCamera;
+    private float tempEulerX;
+    private float tempEulerY;    
+    
 
     //private float cameraLerpValue;
     private Vector3 cameraDampvelocity = Vector3.zero;
@@ -36,7 +35,7 @@ public class CameraController : MonoBehaviour
         cameraHandle = transform.parent.gameObject;
         cameraHandle.transform.position = playerHandle.transform.position + new Vector3(0, 2.0f, 0);  
         tempEulerX = 20;
-        //model = playerHandle.GetComponent<ActorController>().model;
+        model = playerHandle.GetComponent<ActorController>().model;
         mainCamera = Camera.main;       
         offset = (transform.position - cameraHandle.transform.position).magnitude;
         currentPos = transform.localPosition;
@@ -58,34 +57,27 @@ public class CameraController : MonoBehaviour
 
         if (rayTerrain == true)
         {
-            if (newOffset.magnitude < calRadius + 0.5f) // 若碰撞點過近，camera看到的角色有可能會破面
-            {
-                //Debug.Log("newoffset :" + newOffset.magnitude);
-                //將空物件(cameraPos，維持offset，向上抬升)
+            if (newOffset.magnitude < calRadius + 0.5f){
+                //Debug.Log("newoffset :" + newOffset.magnitude);                
                 transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);
             }
-            else
-            {
-                transform.position = rayHit.point; //但還是會有牆壁破面的小問題，因為剛好座標點在牆上(不要刻意用滑鼠去撞牆可暫時避免)
+            else{
+                transform.position = rayHit.point; 
             }
         }
-        else
-        {            
+        else{            
             transform.localPosition = currentPos;            
         }
         CameraRotate();
         CameraTranslate();
     }
 
-    private void CameraRotate() //follow 空物件(cameraPos)
+    private void CameraRotate() 
     {   
         tempEulerY += pi.mouseRight * horizontalSpeed * Time.fixedDeltaTime;
         tempEulerX -= pi.mouseUp * verticalSpeed * Time.fixedDeltaTime;
         tempEulerX = Mathf.Clamp(tempEulerX, -30, 60);
-
-        cameraHandle.transform.localEulerAngles = new Vector3(tempEulerX, tempEulerY, 0);
-
-        
+        cameraHandle.transform.localEulerAngles = new Vector3(tempEulerX, tempEulerY, 0);        
         mainCamera.transform.position = transform.position;
         mainCamera.transform.LookAt(cameraHandle.transform);
     }
@@ -94,7 +86,6 @@ public class CameraController : MonoBehaviour
     {        
         cameraHandle.transform.position = Vector3.SmoothDamp(cameraHandle.transform.position, playerHandle.transform.position + new Vector3(0, 2.0f, 0), ref cameraDampvelocity, cameraDampValue);
     }
-
 
     private bool CameraRay() //障礙遮蔽判斷
     {        
@@ -112,37 +103,28 @@ public class CameraController : MonoBehaviour
             rayTerrain = false;
         }
         return rayTerrain;
+    } 
+
+    public void LockUnlock()
+    {
+        //Debug.Log("lockUnlock");
+        if (lockTarget == null)
+        {
+            //try to lock
+            Vector3 modelOrigin1 = model.transform.position;
+            Vector3 modelOrigin2 = modelOrigin1 + new Vector3(0, 1, 0);
+            Vector3 boxCenter = modelOrigin2 + model.transform.forward * 5.0f;
+            Collider[] cols = Physics.OverlapBox(boxCenter, new Vector3(0.5f, 0.5f, 5.0f), model.transform.rotation,LayerMask.GetMask("Enemy"));
+            foreach (var col in cols) {
+                //Debug.Log(col.name);
+                lockTarget = col.gameObject;
+                break;
+            }
+        }
+        else
+        {
+            //release lock
+            lockTarget = null;
+        }
     }
-
-    
-
-    //private void CameraMoveTranslation() 
-    //{        
-
-    //    //playerHandle.transform.Rotate(Vector3.up, pi.Dright * 200f * Time.fixedDeltaTime); //為避免轉角處遮蔽，使角色 A、D鍵移動時，呈圓周軌跡運動             
-
-    //    //mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, transform.position, cameraLerpValue * Time.fixedDeltaTime);
-    //    mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position, transform.position, ref cameraDampvelocity, cameraDampValue);
-
-    //    mainCamera.transform.LookAt(cameraHandle.transform);
-    //}
-
-    //private void CameraMoveRotation()
-    //{
-    //    Vector3 tempModelEuler = model.transform.eulerAngles; //存角色當下的角度
-
-    //    playerHandle.transform.Rotate(Vector3.up, pi.mouseRight * horizontalSpeed * Time.fixedDeltaTime); //以playerHandle當軸心，cameraPos可水平環繞角色
-
-    //    model.transform.eulerAngles = tempModelEuler; //角色不會再跟著攝影機一起做水平旋轉
-
-    //    tempEulerX -= pi.mouseUp * verticalSpeed * Time.fixedDeltaTime;
-    //    tempEulerX = Mathf.Clamp(tempEulerX, -20, 70);
-    //    cameraHandle.transform.localEulerAngles = new Vector3(tempEulerX, 0, 0); //以cameraHandle當軸心，cameraPos可俯仰視角色
-
-    //    mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position, transform.position, ref cameraDampvelocity, cameraDampRotation);
-    //    mainCamera.transform.LookAt(cameraHandle.transform);
-    //}
-
-
-
 }

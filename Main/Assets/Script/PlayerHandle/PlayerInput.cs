@@ -10,9 +10,10 @@ public class PlayerInput : MonoBehaviour
     public float Dmag; //角色移動距離
     public Vector3 Dvec; //角色移動方向
 
-    public float mouseUp; //camera的旋轉控制
+    public float mouseUp; 
     public float mouseRight;
 
+    public bool lockon;
     public bool run;
     public bool jump;
     private bool lastJump;
@@ -63,8 +64,9 @@ public class PlayerInput : MonoBehaviour
         float Dup2 = tempDAxis.y;
 
         Dmag = Mathf.Sqrt((Dup2 * Dup2) + (Dright2 * Dright2)); 
-        Dvec = Dup2 * new Vector3 (cameraForward.x, 0, cameraForward.z) + Dright2 * new Vector3(cameraRight.x, 0, cameraRight.z); 
-                
+        Dvec = Dup2 * new Vector3 (cameraForward.x, 0, cameraForward.z) + Dright2 * new Vector3(cameraRight.x, 0, cameraRight.z);
+
+        lockon = Input.GetMouseButtonDown(1);
         run = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
         bool newJump = Input.GetKey(KeyCode.Space); //跳躍觸發設定       

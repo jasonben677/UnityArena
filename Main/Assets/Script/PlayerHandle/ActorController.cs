@@ -5,6 +5,7 @@ using UnityEngine;
 public class ActorController : MonoBehaviour
 {
     public GameObject model;
+    public CameraController camcon;
     public PlayerInput pi;
     public float walkSpeed = 5.5f;
     public float runMultiplier = 2.0f;
@@ -44,6 +45,9 @@ public class ActorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (pi.lockon) { camcon.LockUnlock();
+        }
+
         float targetRunMulti = ((pi.run) ? 2.0f : 1.0f); 
         anim.SetFloat("forward", pi.Dmag * Mathf.Lerp(anim.GetFloat("forward"), targetRunMulti, 0.6f)); //調整走跑相互切換的流暢度
 
