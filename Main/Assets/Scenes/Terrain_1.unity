@@ -928,6 +928,56 @@ PrefabInstance:
       propertyPath: m_Name
       value: Land3_2
       objectReference: {fileID: 0}
+    - target: {fileID: 3127458489880311034, guid: 9e5741d28fa2bf64aa961e0713307bb6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -34.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127458489880311034, guid: 9e5741d28fa2bf64aa961e0713307bb6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 53.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6153924698312896799, guid: 9e5741d28fa2bf64aa961e0713307bb6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -86
+      objectReference: {fileID: 0}
+    - target: {fileID: 6153924698312896799, guid: 9e5741d28fa2bf64aa961e0713307bb6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 124.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176495432607342570, guid: 9e5741d28fa2bf64aa961e0713307bb6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -124.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176495432607342570, guid: 9e5741d28fa2bf64aa961e0713307bb6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 101.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817287269127889933, guid: 9e5741d28fa2bf64aa961e0713307bb6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 27.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817287269127889933, guid: 9e5741d28fa2bf64aa961e0713307bb6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -52.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824568364339863794, guid: 9e5741d28fa2bf64aa961e0713307bb6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824568364339863794, guid: 9e5741d28fa2bf64aa961e0713307bb6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 79.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e5741d28fa2bf64aa961e0713307bb6, type: 3}
 --- !u!1 &599328209
@@ -2438,6 +2488,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 650621155, guid: d8320019a28c58d43803db0012573944, type: 3}
+      propertyPath: runMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 295281947268418515, guid: d8320019a28c58d43803db0012573944,
         type: 3}
       propertyPath: m_Name
