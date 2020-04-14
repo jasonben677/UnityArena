@@ -279,6 +279,8 @@ MonoBehaviour:
   rollVelocity: 2
   useServer: 1
   friend: {fileID: 862265450}
+  useServer: 0
+  friend: {fileID: 0}
   frictionOne: {fileID: 13400000, guid: ebbd2e6b6925d07448243d28c94c929d, type: 2}
   frictionZero: {fileID: 13400000, guid: 8262362b21d86c04e8ac2eff1e831a99, type: 2}
 --- !u!114 &578517865
