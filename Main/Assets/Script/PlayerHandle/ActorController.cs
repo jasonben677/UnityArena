@@ -66,17 +66,30 @@ public class ActorController : MonoBehaviour
         {
             anim.SetTrigger("attack");
         }
-        
-        if (pi.Dmag > 0.1f)
-        {          
-            Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.6f); //調整方向切換時的旋轉流暢度
-            model.transform.forward = targetForward; 
-        }
 
-        if(lockplanar == false)
+        if(camcon.lockState == false) //判斷有無鎖目標(會影響移動時的面部朝向)
         {
-            planarVec = pi.Dmag * model.transform.forward * walkSpeed * ((pi.run) ? runMultiplier : 1.0f);
-        }        
+            if (pi.Dmag > 0.1f)
+            {
+                Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.6f); //調整方向切換時的旋轉流暢度
+                model.transform.forward = targetForward;
+            }
+
+            if (lockplanar == false)
+            {
+                planarVec = pi.Dmag * model.transform.forward * walkSpeed * ((pi.run) ? runMultiplier : 1.0f);
+            }
+        }
+        else
+        {
+            Vector3 tempDvec = camcon.lockTarget.transform.position - transform.position;
+            tempDvec.y = 0;
+            model.transform.forward = tempDvec;
+            if(lockplanar == false)
+            {
+                planarVec = pi.Dvec * walkSpeed * ((pi.run) ? runMultiplier : 1.0f);
+            }            
+        }              
     }
 
     private void FixedUpdate()

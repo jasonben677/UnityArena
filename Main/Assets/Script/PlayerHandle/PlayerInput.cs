@@ -21,8 +21,8 @@ public class PlayerInput : MonoBehaviour
     private bool lastAttack;
 
     [Header("==== others ====")]
-
     public bool inputEnable = true;
+    public CameraController camcon;
         
     private float targetDup;
     private float targetDright;
@@ -31,18 +31,20 @@ public class PlayerInput : MonoBehaviour
     
     private Vector3 cameraForward;
     private Vector3 cameraRight;
-
+    
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        cameraForward = Camera.main.transform.forward;  
-        cameraRight = Camera.main.transform.right;      
+        cameraForward = Camera.main.transform.forward;
+        cameraForward.y = 0;
+        cameraRight = Camera.main.transform.right;
+        cameraRight.y = 0;               
 
         targetDup = Input.GetAxis("Vertical");
         targetDright = Input.GetAxis("Horizontal");
@@ -63,10 +65,11 @@ public class PlayerInput : MonoBehaviour
         float Dright2 = tempDAxis.x;
         float Dup2 = tempDAxis.y;
 
-        Dmag = Mathf.Sqrt((Dup2 * Dup2) + (Dright2 * Dright2)); 
-        Dvec = Dup2 * new Vector3 (cameraForward.x, 0, cameraForward.z) + Dright2 * new Vector3(cameraRight.x, 0, cameraRight.z);
+        Dmag = Mathf.Sqrt((Dup2 * Dup2) + (Dright2 * Dright2));        
+        Dvec = Dup2 * cameraForward + Dright2 * cameraRight;                
+ 
+        lockon = Input.GetMouseButtonDown(1); //鎖定目標
 
-        lockon = Input.GetMouseButtonDown(1);
         run = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
         bool newJump = Input.GetKey(KeyCode.Space); //跳躍觸發設定       

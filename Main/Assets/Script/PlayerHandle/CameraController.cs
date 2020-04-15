@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
@@ -10,10 +11,14 @@ public class CameraController : MonoBehaviour
     public float cameraDampValue = 0.05f;
     //public float cameraDampRotation = 0.05f;
 
+    public Image lockDot;
     public GameObject playerHandle;
     private GameObject model;
     private GameObject cameraHandle;
-    public GameObject lockTarget;
+    
+    public GameObject lockTarget;    
+    public bool lockState;
+
     private Camera mainCamera;
     private float tempEulerX;
     private float tempEulerY;    
@@ -40,23 +45,23 @@ public class CameraController : MonoBehaviour
         offset = (transform.position - cameraHandle.transform.position).magnitude;
         currentPos = transform.localPosition;
         calRadius = playerHandle.GetComponent<CapsuleCollider>().radius;
+        lockDot.enabled = false;
 
         Cursor.lockState = CursorLockMode.Locked;        
     }
 
     // Update is called once per frame
     private void Update()
-    {
-        
+    {        
         CameraRay();
     }
 
     void FixedUpdate()
-    {        
+    { 
         //cameraLerpValue += 0.3f * Time.fixedDeltaTime;
 
         if (rayTerrain == true)
-        {
+        {            
             if (newOffset.magnitude < calRadius + 0.5f){
                 //Debug.Log("newoffset :" + newOffset.magnitude);                
                 transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);
@@ -69,21 +74,21 @@ public class CameraController : MonoBehaviour
             transform.localPosition = currentPos;            
         }
         CameraRotate();
-        CameraTranslate();
+        CameraTranslate();       
     }
 
-    private void CameraRotate() 
-    {   
+    private void CameraRotate()
+    {
         tempEulerY += pi.mouseRight * horizontalSpeed * Time.fixedDeltaTime;
         tempEulerX -= pi.mouseUp * verticalSpeed * Time.fixedDeltaTime;
         tempEulerX = Mathf.Clamp(tempEulerX, -30, 60);
-        cameraHandle.transform.localEulerAngles = new Vector3(tempEulerX, tempEulerY, 0);        
+        cameraHandle.transform.localEulerAngles = new Vector3(tempEulerX, tempEulerY, 0);
         mainCamera.transform.position = transform.position;
         mainCamera.transform.LookAt(cameraHandle.transform);
     }
 
     private void CameraTranslate()
-    {        
+    { 
         cameraHandle.transform.position = Vector3.SmoothDamp(cameraHandle.transform.position, playerHandle.transform.position + new Vector3(0, 2.0f, 0), ref cameraDampvelocity, cameraDampValue);
     }
 
@@ -103,28 +108,43 @@ public class CameraController : MonoBehaviour
             rayTerrain = false;
         }
         return rayTerrain;
-    } 
+    }
 
-    public void LockUnlock()
+    public void LockUnlock() //鎖/解鎖目標
     {
-        //Debug.Log("lockUnlock");
-        if (lockTarget == null)
+        Debug.Log("LockUnlock");
+        Vector3 modelOrigin1 = model.transform.position;
+        Vector3 modelOrigin2 = modelOrigin1 + new Vector3(0, 1, 0);
+        Vector3 boxCenter = modelOrigin2 + model.transform.forward * 5.0f;
+        Collider[] cols = Physics.OverlapBox(boxCenter, new Vector3(0.5f, 0.5f, 5.0f), model.transform.rotation, LayerMask.GetMask("Enemy"));
+
+        if (cols.Length == 0)
         {
-            //try to lock
-            Vector3 modelOrigin1 = model.transform.position;
-            Vector3 modelOrigin2 = modelOrigin1 + new Vector3(0, 1, 0);
-            Vector3 boxCenter = modelOrigin2 + model.transform.forward * 5.0f;
-            Collider[] cols = Physics.OverlapBox(boxCenter, new Vector3(0.5f, 0.5f, 5.0f), model.transform.rotation,LayerMask.GetMask("Enemy"));
-            foreach (var col in cols) {
-                //Debug.Log(col.name);
-                lockTarget = col.gameObject;
-                break;
-            }
+            lockTarget = null;
+            lockDot.enabled = false;
+            lockState = false;
         }
         else
         {
-            //release lock
-            lockTarget = null;
+            foreach (var col in cols)
+            {
+                Debug.Log(col.name);
+                if (lockTarget == col.gameObject)
+                {
+                    lockTarget = null;
+                    lockDot.enabled = false;
+                    lockState = false;
+                    break;
+                }
+                else
+                {
+                    lockTarget = col.gameObject;
+                    lockDot.enabled = true;
+                    lockState = true;
+                    break;
+                }
+
+            }
         }
     }
 }
