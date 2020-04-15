@@ -18,6 +18,7 @@ public class CameraController : MonoBehaviour
     
     public GameObject lockTarget;    
     public bool lockState;
+    private Collider enemyCol;
 
     private Camera mainCamera;
     private float tempEulerX;
@@ -53,7 +54,19 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {        
+        if(lockTarget != null)
+        {
+            //Debug.Log(enemyCol.bounds.extents.y); //halfHeight
+            lockDot.rectTransform.position = mainCamera.WorldToScreenPoint(lockTarget.transform.position + new Vector3 (0, enemyCol.bounds.extents.y, 0));
+            if(Vector3.Distance(model.transform.position, lockTarget.transform.position) >10.0f)
+            {
+                lockTarget = null;
+                lockDot.enabled = false;
+                lockState = false;
+            }
+        }
         CameraRay();
+
     }
 
     void FixedUpdate()
@@ -84,7 +97,15 @@ public class CameraController : MonoBehaviour
         tempEulerX = Mathf.Clamp(tempEulerX, -30, 60);
         cameraHandle.transform.localEulerAngles = new Vector3(tempEulerX, tempEulerY, 0);
         mainCamera.transform.position = transform.position;
-        mainCamera.transform.LookAt(cameraHandle.transform);
+        if(lockTarget == null)
+        {
+            mainCamera.transform.LookAt(cameraHandle.transform);
+        }
+        else
+        {
+            mainCamera.transform.LookAt(lockTarget.transform);
+        }
+        
     }
 
     private void CameraTranslate()
@@ -139,6 +160,7 @@ public class CameraController : MonoBehaviour
                 else
                 {
                     lockTarget = col.gameObject;
+                    enemyCol = col;
                     lockDot.enabled = true;
                     lockState = true;
                     break;
@@ -147,4 +169,17 @@ public class CameraController : MonoBehaviour
             }
         }
     }
+
+    //private class LockTarget
+    //{
+    //    public GameObject obj;
+    //    public float halfHeight;
+
+    //    public LockTarget(GameObject _obj, float _halfHeight)
+    //    {
+    //        obj = _obj;
+    //        halfHeight = _halfHeight;
+    //    }
+    //}
+
 }

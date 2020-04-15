@@ -27,8 +27,9 @@ public class ActorController : MonoBehaviour
     private Rigidbody rigid;
     private Vector3 planarVec;
     private Vector3 thrustVec; //jump時候的衝量  
-    private bool lockplanar; //鎖死平面移動(為了在jump的時候，不去更新planarVec)
+    private bool lockplanar = false; //鎖死平面移動(為了在jump的時候，不去更新planarVec)
     private bool canAttack;
+    private bool trackDirection = false;
     private CapsuleCollider col; //為了切換Physic material
     private float lerpTarget;
     private Vector3 deltaPos;
@@ -45,15 +46,27 @@ public class ActorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pi.lockon) { camcon.LockUnlock();
+        if (pi.lockon) {
+            camcon.LockUnlock();
         }
 
-        float targetRunMulti = ((pi.run) ? 2.0f : 1.0f); 
-        anim.SetFloat("forward", pi.Dmag * Mathf.Lerp(anim.GetFloat("forward"), targetRunMulti, 0.6f)); //調整走跑相互切換的流暢度
+        if(camcon.lockState == false)
+        {
+            float targetRunMulti = ((pi.run) ? 2.0f : 1.0f);
+            anim.SetFloat("forward", pi.Dmag * Mathf.Lerp(anim.GetFloat("forward"), targetRunMulti, 0.6f)); //調整走跑相互切換的流暢度
+            anim.SetFloat("right", 0);
+        }
+        else
+        {
+            Vector3 localDev = transform.InverseTransformVector(pi.Dvec);
+            anim.SetFloat("forward",localDev.z * ((pi.run) ? 2.0f : 1.0f));
+            anim.SetFloat("right", localDev.x * ((pi.run) ? 2.0f : 1.0f));
+        }        
 
-        if(rigid.velocity.magnitude > 0.5f)
+        if(pi.jump || rigid.velocity.magnitude > 7.0f)
         {
             anim.SetTrigger("roll");
+            canAttack = false;
         }
 
         if (pi.jump)//但這樣還是會有機會連跳，所以在animator的ground裡設程式碼調整
@@ -82,10 +95,18 @@ public class ActorController : MonoBehaviour
         }
         else
         {
+            //if(trackDirection == false)
+            //{
+            //    model.transform.forward = transform.forward;
+            //}
+            //else
+            //{
+            //    model.transform.forward = planarVec.normalized;
+            //}
             Vector3 tempDvec = camcon.lockTarget.transform.position - transform.position;
             tempDvec.y = 0;
             model.transform.forward = tempDvec;
-            if(lockplanar == false)
+            if (lockplanar == false)
             {
                 planarVec = pi.Dvec * walkSpeed * ((pi.run) ? runMultiplier : 1.0f);
             }            
@@ -127,7 +148,8 @@ public class ActorController : MonoBehaviour
     {
         thrustVec = new Vector3(0, jumpVelocity, 0);
         pi.inputEnable = false;
-        lockplanar = true;  //此時角色不會有平面方向的旋轉        
+        lockplanar = true;  //此時角色不會有平面方向的旋轉
+        trackDirection = true;
     }
 
     //public void OnJumpExist()
@@ -154,6 +176,7 @@ public class ActorController : MonoBehaviour
         lockplanar = false;
         canAttack = true;
         col.material = frictionOne;
+        trackDirection = false;
     }
 
     public void OnGroundExist()
@@ -172,6 +195,7 @@ public class ActorController : MonoBehaviour
         thrustVec = new Vector3(0, rollVelocity, 0);
         pi.inputEnable = false;
         lockplanar = true;
+        trackDirection = true;
     }
 
     public void OnJabEnter()
