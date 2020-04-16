@@ -29,10 +29,11 @@ public class ActorController : MonoBehaviour
     private Vector3 thrustVec; //jump時候的衝量  
     private bool lockplanar = false; //鎖死平面移動(為了在jump的時候，不去更新planarVec)
     private bool canAttack;
-    private bool trackDirection = false;
+    public bool trackDirection = false;
     private CapsuleCollider col; //為了切換Physic material
     private float lerpTarget;
     private Vector3 deltaPos;
+    private Vector3 localDev;
 
     // Start is called before the first frame update
     void Awake()
@@ -46,6 +47,8 @@ public class ActorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        localDev = transform.InverseTransformVector(pi.Dvec);
+
         if (pi.lockon) {
             camcon.LockUnlock();
         }
@@ -58,7 +61,7 @@ public class ActorController : MonoBehaviour
         }
         else
         {
-            Vector3 localDev = transform.InverseTransformVector(pi.Dvec);
+            
             anim.SetFloat("forward",localDev.z * ((pi.run) ? 2.0f : 1.0f));
             anim.SetFloat("right", localDev.x * ((pi.run) ? 2.0f : 1.0f));
         }        
@@ -95,7 +98,7 @@ public class ActorController : MonoBehaviour
         }
         else
         {
-            //if(trackDirection == false)
+            //if (trackDirection == false)
             //{
             //    model.transform.forward = transform.forward;
             //}
@@ -103,12 +106,28 @@ public class ActorController : MonoBehaviour
             //{
             //    model.transform.forward = planarVec.normalized;
             //}
-            Vector3 tempDvec = camcon.lockTarget.transform.position - transform.position;
-            tempDvec.y = 0;
-            model.transform.forward = tempDvec;
-            if (lockplanar == false)
+
+            if (trackDirection == false)
             {
-                planarVec = pi.Dvec * walkSpeed * ((pi.run) ? runMultiplier : 1.0f);
+                Vector3 tempDvec = camcon.lockTarget.transform.position - transform.position;
+                tempDvec.y = 0;
+                model.transform.forward = tempDvec;
+                //model.transform.forward = camcon.tempDvec;
+
+                if (lockplanar == false)
+                {
+                    planarVec = pi.Dmag * pi.Dvec * walkSpeed * 0.8f * ((pi.run) ? runMultiplier : 1.0f);
+                }
+            }
+            else
+            {
+                //model.transform.forward = planarVec.normalized;
+                model.transform.forward = pi.Dvec;
+
+                if (lockplanar == false)
+                {
+                    planarVec = pi.Dmag * pi.Dvec * walkSpeed * 0.8f * ((pi.run) ? runMultiplier : 1.0f);
+                }
             }            
         }              
     }

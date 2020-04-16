@@ -30,21 +30,37 @@ public class PlayerInput : MonoBehaviour
     private float velocityDright;
     
     private Vector3 cameraForward;
-    private Vector3 cameraRight;
-    
+    private Vector3 cameraRight;    
+    private Vector3 tempCameraForward;
+    private Vector3 tempCameraRight;
+    private ActorController ac;
+    private GameObject model;
+
     // Start is called before the first frame update
     void Awake()
     {
-       
+        ac = transform.gameObject.GetComponent<ActorController>();
+        //model = transform.gameObject.GetComponent<ActorController>().model;
+        model = ac.model;
     }
 
     // Update is called once per frame
     void Update()
     {
-        cameraForward = Camera.main.transform.forward;
-        cameraForward.y = 0;
-        cameraRight = Camera.main.transform.right;
-        cameraRight.y = 0;               
+        if (camcon.lockTarget == null)
+        {
+            cameraForward = Camera.main.transform.forward;
+            cameraForward.y = 0;
+            cameraRight = Camera.main.transform.right;
+            cameraRight.y = 0;
+        }
+        else
+        {
+            tempCameraForward = model.transform.forward;
+            tempCameraForward.y = 0;
+            tempCameraRight = model.transform.right;
+            tempCameraRight.y = 0;
+        }
 
         targetDup = Input.GetAxis("Vertical");
         targetDright = Input.GetAxis("Horizontal");
@@ -65,9 +81,24 @@ public class PlayerInput : MonoBehaviour
         float Dright2 = tempDAxis.x;
         float Dup2 = tempDAxis.y;
 
-        Dmag = Mathf.Sqrt((Dup2 * Dup2) + (Dright2 * Dright2));        
-        Dvec = Dup2 * cameraForward + Dright2 * cameraRight;                
- 
+        Dmag = Mathf.Sqrt((Dup2 * Dup2) + (Dright2 * Dright2));
+
+        if (camcon.lockState == false)
+        {
+            Dvec = Dup2 * cameraForward + Dright2 * cameraRight;
+        }
+        else
+        {
+            if(ac.trackDirection == false)
+            {
+                Dvec = Dup2 * tempCameraForward + Dright2 * tempCameraRight;
+            }
+            else
+            {
+                Dvec = Dup2 * cameraForward + Dright2 * cameraRight;
+            }            
+        }      
+
         lockon = Input.GetMouseButtonDown(1); //鎖定目標
 
         run = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);

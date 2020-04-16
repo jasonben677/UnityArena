@@ -33,7 +33,7 @@ public class CameraController : MonoBehaviour
     private Vector3 dir;
     private float calRadius;
     private bool rayTerrain;
-    RaycastHit rayHit;
+    RaycastHit rayHit;    
 
     // Start is called before the first frame update
     void Awake()
@@ -66,7 +66,6 @@ public class CameraController : MonoBehaviour
             }
         }
         CameraRay();
-
     }
 
     void FixedUpdate()
@@ -94,7 +93,7 @@ public class CameraController : MonoBehaviour
     {
         tempEulerY += pi.mouseRight * horizontalSpeed * Time.fixedDeltaTime;
         tempEulerX -= pi.mouseUp * verticalSpeed * Time.fixedDeltaTime;
-        tempEulerX = Mathf.Clamp(tempEulerX, -30, 60);
+        tempEulerX = Mathf.Clamp(tempEulerX, -30, 55);
         cameraHandle.transform.localEulerAngles = new Vector3(tempEulerX, tempEulerY, 0);
         mainCamera.transform.position = transform.position;
         if(lockTarget == null)
@@ -102,7 +101,7 @@ public class CameraController : MonoBehaviour
             mainCamera.transform.LookAt(cameraHandle.transform);
         }
         else
-        {
+        {            
             mainCamera.transform.LookAt(lockTarget.transform);
         }
         
