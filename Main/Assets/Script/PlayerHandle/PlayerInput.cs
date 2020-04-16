@@ -32,16 +32,13 @@ public class PlayerInput : MonoBehaviour
     private Vector3 cameraForward;
     private Vector3 cameraRight;    
     private Vector3 tempCameraForward;
-    private Vector3 tempCameraRight;
-    private ActorController ac;
+    private Vector3 tempCameraRight;    
     private GameObject model;
 
     // Start is called before the first frame update
     void Awake()
     {
-        ac = transform.gameObject.GetComponent<ActorController>();
-        //model = transform.gameObject.GetComponent<ActorController>().model;
-        model = ac.model;
+        model = transform.gameObject.GetComponent<ActorController>().model;
     }
 
     // Update is called once per frame
@@ -89,15 +86,8 @@ public class PlayerInput : MonoBehaviour
         }
         else
         {
-            if(ac.trackDirection == false)
-            {
-                Dvec = Dup2 * tempCameraForward + Dright2 * tempCameraRight;
-            }
-            else
-            {
-                Dvec = Dup2 * cameraForward + Dright2 * cameraRight;
-            }            
-        }      
+            Dvec = Dup2 * tempCameraForward + Dright2 * tempCameraRight;
+        }
 
         lockon = Input.GetMouseButtonDown(1); //鎖定目標
 

@@ -97,32 +97,21 @@ public class ActorController : MonoBehaviour
             }
         }
         else
-        {
-            //if (trackDirection == false)
-            //{
-            //    model.transform.forward = transform.forward;
-            //}
-            //else
-            //{
-            //    model.transform.forward = planarVec.normalized;
-            //}
-
+        {    
             if (trackDirection == false)
             {
                 Vector3 tempDvec = camcon.lockTarget.transform.position - transform.position;
                 tempDvec.y = 0;
                 model.transform.forward = tempDvec;
-                //model.transform.forward = camcon.tempDvec;
-
+                
                 if (lockplanar == false)
                 {
                     planarVec = pi.Dmag * pi.Dvec * walkSpeed * 0.8f * ((pi.run) ? runMultiplier : 1.0f);
                 }
             }
             else
-            {
-                //model.transform.forward = planarVec.normalized;
-                model.transform.forward = pi.Dvec;
+            {   
+                model.transform.forward = planarVec.normalized;
 
                 if (lockplanar == false)
                 {

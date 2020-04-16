@@ -547,6 +547,7 @@ MonoBehaviour:
   friend: {fileID: 862265450}
   frictionOne: {fileID: 13400000, guid: ebbd2e6b6925d07448243d28c94c929d, type: 2}
   frictionZero: {fileID: 13400000, guid: 8262362b21d86c04e8ac2eff1e831a99, type: 2}
+  trackDirection: 0
 --- !u!114 &578517865
 MonoBehaviour:
   m_ObjectHideFlags: 0
