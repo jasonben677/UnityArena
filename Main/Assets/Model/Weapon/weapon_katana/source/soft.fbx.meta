@@ -10,7 +10,17 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: blade_backuo2
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 03cc9d3d11d1b664c8c55a85b326a1a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacer1
+    second: {fileID: 2100000, guid: a075794ba2168824cb85b0fb665a3e7b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

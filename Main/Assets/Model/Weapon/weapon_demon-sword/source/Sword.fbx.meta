@@ -56,7 +56,12 @@ ModelImporter:
     4300014: Handle03_low
     4300016: Plate_low
     4300018: Handle04_low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SwordMat
+    second: {fileID: 2100000, guid: c147397974f6dc0418ff92e23abd18e0, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
