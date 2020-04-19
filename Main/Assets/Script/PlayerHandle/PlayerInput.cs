@@ -22,6 +22,7 @@ public class PlayerInput : MonoBehaviour
 
     [Header("==== others ====")]
     public bool inputEnable = true;
+    public bool isAI = false;
     public CameraController camcon;
         
     private float targetDup;
@@ -126,5 +127,11 @@ public class PlayerInput : MonoBehaviour
         output.y = input.y * Mathf.Sqrt(1 - (input.x * input.x) / 2.0f);
 
         return output;
+    }
+
+    public void UpdateDmagDvec(float Dup, float Dright)
+    {
+        Dmag = Mathf.Sqrt(Dup * Dup + Dright * Dright);
+        Dvec = Dright * cameraRight + Dup * cameraForward;
     }
 }

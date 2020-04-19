@@ -9,21 +9,21 @@ public class CameraController : MonoBehaviour
     public float horizontalSpeed = 100.0f;
     public float verticalSpeed = 100.0f;
     public float cameraDampValue = 0.05f;
-    //public float cameraDampRotation = 0.05f;
+    //public float cameraDampRotation = 0.05f;    
 
     public Image lockDot;
     public GameObject playerHandle;
     private GameObject model;
     private GameObject cameraHandle;
-    
-    public GameObject lockTarget;    
+
+    public GameObject lockTarget;
     public bool lockState;
     private Collider enemyCol;
 
     private Camera mainCamera;
     private float tempEulerX;
-    private float tempEulerY;    
-    
+    private float tempEulerY;
+
 
     //private float cameraLerpValue;
     private Vector3 cameraDampvelocity = Vector3.zero;
@@ -33,60 +33,68 @@ public class CameraController : MonoBehaviour
     private Vector3 dir;
     private float calRadius;
     private bool rayTerrain;
-    RaycastHit rayHit;    
+    RaycastHit rayHit;
 
     // Start is called before the first frame update
-    void Awake()
-    {        
+    void Start()
+    {
         cameraHandle = transform.parent.gameObject;
-        cameraHandle.transform.position = playerHandle.transform.position + new Vector3(0, 2.0f, 0);  
+        cameraHandle.transform.position = playerHandle.transform.position + new Vector3(0, 2.0f, 0);
         tempEulerX = 20;
         model = playerHandle.GetComponent<ActorController>().model;
-        mainCamera = Camera.main;       
-        offset = (transform.position - cameraHandle.transform.position).magnitude;
-        currentPos = transform.localPosition;
-        calRadius = playerHandle.GetComponent<CapsuleCollider>().radius;
-        lockDot.enabled = false;
 
-        Cursor.lockState = CursorLockMode.Locked;        
+        if (pi.isAI == false)
+        {
+            mainCamera = Camera.main;
+            lockDot.enabled = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            offset = (transform.position - cameraHandle.transform.position).magnitude;
+            currentPos = transform.localPosition;
+            calRadius = playerHandle.GetComponent<CapsuleCollider>().radius;
+        }
     }
 
     // Update is called once per frame
     private void Update()
-    {        
-        if(lockTarget != null)
+    {
+        if (lockTarget != null)
         {
-            //Debug.Log(enemyCol.bounds.extents.y); //halfHeight
-            lockDot.rectTransform.position = mainCamera.WorldToScreenPoint(lockTarget.transform.position + new Vector3 (0, enemyCol.bounds.extents.y, 0));
-            if(Vector3.Distance(model.transform.position, lockTarget.transform.position) >10.0f)
+            if (pi.isAI == false)
             {
-                lockTarget = null;
-                lockDot.enabled = false;
-                lockState = false;
+                lockDot.rectTransform.position = mainCamera.WorldToScreenPoint(lockTarget.transform.position + new Vector3(0, enemyCol.bounds.extents.y, 0));
+            }
+            //Debug.Log(enemyCol.bounds.extents.y); //halfHeight
+
+            if (Vector3.Distance(model.transform.position, lockTarget.transform.position) > 8.0f)
+            {
+                LockProcessA(null, false, false, pi.isAI);
             }
         }
         CameraRay();
     }
 
     void FixedUpdate()
-    { 
+    {
         //cameraLerpValue += 0.3f * Time.fixedDeltaTime;
 
         if (rayTerrain == true)
-        {            
-            if (newOffset.magnitude < calRadius + 0.5f){
+        {
+            if (newOffset.magnitude < calRadius + 0.5f)
+            {
                 //Debug.Log("newoffset :" + newOffset.magnitude);                
                 transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);
             }
-            else{
-                transform.position = rayHit.point; 
+            else
+            {
+                transform.position = rayHit.point;
             }
         }
-        else{            
-            transform.localPosition = currentPos;            
+        else
+        {
+            transform.localPosition = currentPos;
         }
         CameraRotate();
-        CameraTranslate();       
+        CameraTranslate();
     }
 
     private void CameraRotate()
@@ -95,29 +103,36 @@ public class CameraController : MonoBehaviour
         tempEulerX -= pi.mouseUp * verticalSpeed * Time.fixedDeltaTime;
         tempEulerX = Mathf.Clamp(tempEulerX, -30, 55);
         cameraHandle.transform.localEulerAngles = new Vector3(tempEulerX, tempEulerY, 0);
-        mainCamera.transform.position = transform.position;
-        if(lockTarget == null)
+
+        if (pi.isAI == false)
         {
-            mainCamera.transform.LookAt(cameraHandle.transform);
+            mainCamera.transform.position = transform.position;
+            if (lockTarget == null)
+            {
+                mainCamera.transform.LookAt(cameraHandle.transform);
+            }
+            else
+            {
+                mainCamera.transform.LookAt(lockTarget.transform);
+            }
         }
-        else
-        {            
-            mainCamera.transform.LookAt(lockTarget.transform);
-        }
-        
+
     }
 
     private void CameraTranslate()
-    { 
-        cameraHandle.transform.position = Vector3.SmoothDamp(cameraHandle.transform.position, playerHandle.transform.position + new Vector3(0, 2.0f, 0), ref cameraDampvelocity, cameraDampValue);
+    {
+        if (pi.isAI == false)
+        {
+            cameraHandle.transform.position = Vector3.SmoothDamp(cameraHandle.transform.position, playerHandle.transform.position + new Vector3(0, 2.0f, 0), ref cameraDampvelocity, cameraDampValue);
+        }
     }
 
     private bool CameraRay() //障礙遮蔽判斷
-    {        
+    {
         dir = transform.position - cameraHandle.transform.position;
-        
+
         Physics.Raycast(cameraHandle.transform.position, dir, out rayHit, offset, LayerMask.GetMask("Terrain"));
-        newOffset = rayHit.point - cameraHandle.transform.position; 
+        newOffset = rayHit.point - cameraHandle.transform.position;
 
         if (newOffset.magnitude < offset) //如果有障礙物夾在中間
         {
@@ -130,38 +145,43 @@ public class CameraController : MonoBehaviour
         return rayTerrain;
     }
 
+    private void LockProcessA(GameObject _lockTarget, bool _lockDotEnable, bool _lockState, bool _isAI)
+    {
+        lockTarget = _lockTarget;
+        if (pi.isAI == false)
+        {
+            lockDot.enabled = _lockDotEnable;
+        }
+        lockState = _lockState;
+    }
+
     public void LockUnlock() //鎖/解鎖目標
     {
         Debug.Log("LockUnlock");
         Vector3 modelOrigin1 = model.transform.position;
         Vector3 modelOrigin2 = modelOrigin1 + new Vector3(0, 1, 0);
         Vector3 boxCenter = modelOrigin2 + model.transform.forward * 5.0f;
-        Collider[] cols = Physics.OverlapBox(boxCenter, new Vector3(0.5f, 0.5f, 5.0f), model.transform.rotation, LayerMask.GetMask("Enemy"));
+        Collider[] cols = Physics.OverlapBox(boxCenter, new Vector3(0.5f, 0.5f, 5.0f), model.transform.rotation, LayerMask.GetMask(pi.isAI ? "Player" : "Enemy"));
 
         if (cols.Length == 0)
         {
-            lockTarget = null;
-            lockDot.enabled = false;
-            lockState = false;
+            LockProcessA(null, false, false, pi.isAI);
         }
         else
         {
             foreach (var col in cols)
             {
-                Debug.Log(col.name);
+                //Debug.Log(col.name);
                 if (lockTarget == col.gameObject)
                 {
-                    lockTarget = null;
-                    lockDot.enabled = false;
-                    lockState = false;
+                    LockProcessA(null, false, false, pi.isAI);
                     break;
                 }
                 else
                 {
                     lockTarget = col.gameObject;
                     enemyCol = col;
-                    lockDot.enabled = true;
-                    lockState = true;
+                    LockProcessA(lockTarget, true, true, pi.isAI);
                     break;
                 }
 

@@ -31,7 +31,7 @@ public class ActorController : MonoBehaviour
     private bool canAttack;
     public bool trackDirection = false;
     private CapsuleCollider col; //為了切換Physic material
-    private float lerpTarget;
+    //private float lerpTarget;
     private Vector3 deltaPos;
     private Vector3 localDev;
 
@@ -49,11 +49,12 @@ public class ActorController : MonoBehaviour
     {
         localDev = transform.InverseTransformVector(pi.Dvec);
 
-        if (pi.lockon) {
+        if (pi.lockon)
+        {
             camcon.LockUnlock();
         }
 
-        if(camcon.lockState == false)
+        if (camcon.lockState == false)
         {
             float targetRunMulti = ((pi.run) ? 2.0f : 1.0f);
             anim.SetFloat("forward", pi.Dmag * Mathf.Lerp(anim.GetFloat("forward"), targetRunMulti, 0.6f)); //調整走跑相互切換的流暢度
@@ -61,12 +62,12 @@ public class ActorController : MonoBehaviour
         }
         else
         {
-            
-            anim.SetFloat("forward",localDev.z * ((pi.run) ? 2.0f : 1.0f));
-            anim.SetFloat("right", localDev.x * ((pi.run) ? 2.0f : 1.0f));
-        }        
 
-        if(pi.jump || rigid.velocity.magnitude > 7.0f)
+            anim.SetFloat("forward", localDev.z * ((pi.run) ? 2.0f : 1.0f));
+            anim.SetFloat("right", localDev.x * ((pi.run) ? 2.0f : 1.0f));
+        }
+
+        if (pi.jump || rigid.velocity.magnitude > 7.0f)
         {
             anim.SetTrigger("roll");
             canAttack = false;
@@ -76,14 +77,14 @@ public class ActorController : MonoBehaviour
         {
             anim.SetTrigger("jump");
             canAttack = false;
-        }    
-        
-        if (pi.attack && CheckState("ground") && canAttack)
+        }
+
+        if (pi.attack && (CheckState("ground") || CheckStateTag("attack")) && canAttack)
         {
             anim.SetTrigger("attack");
         }
 
-        if(camcon.lockState == false) //判斷有無鎖目標(會影響移動時的面部朝向)
+        if (camcon.lockState == false) //判斷有無鎖目標(會影響移動時的面部朝向)
         {
             if (pi.Dmag > 0.1f)
             {
@@ -97,35 +98,35 @@ public class ActorController : MonoBehaviour
             }
         }
         else
-        {    
+        {
             if (trackDirection == false)
             {
                 Vector3 tempDvec = camcon.lockTarget.transform.position - transform.position;
                 tempDvec.y = 0;
                 model.transform.forward = tempDvec;
-                
+
                 if (lockplanar == false)
                 {
                     planarVec = pi.Dmag * pi.Dvec * walkSpeed * 0.8f * ((pi.run) ? runMultiplier : 1.0f);
                 }
             }
             else
-            {   
+            {
                 model.transform.forward = planarVec.normalized;
 
                 if (lockplanar == false)
                 {
                     planarVec = pi.Dmag * pi.Dvec * walkSpeed * 0.8f * ((pi.run) ? runMultiplier : 1.0f);
                 }
-            }            
-        }              
+            }
+        }
     }
 
     private void FixedUpdate()
     {
         rigid.position += deltaPos;
         //rigid.position += movingVec * Time.fixedDeltaTime;
-        rigid.velocity = new Vector3 (planarVec.x, rigid.velocity.y, planarVec.z)+thrustVec;
+        rigid.velocity = new Vector3(planarVec.x, rigid.velocity.y, planarVec.z) + thrustVec;
         thrustVec = Vector3.zero;
         deltaPos = Vector3.zero;
 
@@ -141,10 +142,17 @@ public class ActorController : MonoBehaviour
         friend.UpdateFriend();
     }
 
-    private bool CheckState(string stateName, string LayerName = "Base Layer") 
+    private bool CheckState(string stateName, string LayerName = "Base Layer")
     {
         int layerIndex = anim.GetLayerIndex(LayerName);
         bool result = anim.GetCurrentAnimatorStateInfo(layerIndex).IsName(stateName);
+        return result;
+    }
+
+    private bool CheckStateTag(string tagName, string LayerName = "Base Layer")
+    {
+        int layerIndex = anim.GetLayerIndex(LayerName);
+        bool result = anim.GetCurrentAnimatorStateInfo(layerIndex).IsTag(tagName);
         return result;
     }
 
@@ -195,7 +203,7 @@ public class ActorController : MonoBehaviour
     public void OnFallEnter()
     {
         pi.inputEnable = false;
-        lockplanar = true;   
+        lockplanar = true;
     }
 
     public void OnRollEnter()
@@ -221,37 +229,24 @@ public class ActorController : MonoBehaviour
     {
         pi.inputEnable = false;
         //lockplanar = true;
-        lerpTarget = 1.0f;
-        
+        //lerpTarget = 1.0f;
+
     }
 
     public void OnAttack1hAUpdate()
     {
-        thrustVec = model.transform.forward * anim.GetFloat("attack1hAVelocity");        
+        thrustVec = model.transform.forward * anim.GetFloat("attack1hAVelocity");
         // float currentWeight = Mathf.Lerp(anim.GetLayerWeight(anim.GetLayerIndex("attack")), lerpTarget, 0.1f);
-        anim.SetLayerWeight(anim.GetLayerIndex("attack"), Mathf.Lerp(anim.GetLayerWeight(anim.GetLayerIndex("attack")), lerpTarget, 0.8f)); //使切換攻擊圖層較平緩
-    }
-
-    public void OnAttackIdleEnter()
-    {
-        pi.inputEnable = true;
-        //lockplanar = false;
-        //anim.SetLayerWeight(anim.GetLayerIndex("attack"), 0);
-        lerpTarget = 0f;
-    }
-
-    public void OnAttackIdleUpdate()
-    {
-        anim.SetLayerWeight(anim.GetLayerIndex("attack"), Mathf.Lerp(anim.GetLayerWeight(anim.GetLayerIndex("attack")), lerpTarget, 0.8f));
+        //anim.SetLayerWeight(anim.GetLayerIndex("attack"), Mathf.Lerp(anim.GetLayerWeight(anim.GetLayerIndex("attack")), lerpTarget, 0.8f)); //使切換攻擊圖層較平緩
     }
 
     public void OnUpdateRM(object _deltaPos)
     {
-        if(CheckState("attack1hC", "attack"))
+        if (CheckState("attack1hC"))
         {
             deltaPos += (Vector3)_deltaPos;
         }
-        deltaPos += (0.2f * deltaPos + 0.8f * (Vector3) _deltaPos) /1.0f;
+        deltaPos += (0.2f * deltaPos + 0.8f * (Vector3)_deltaPos) / 1.0f;
     }
 }
 
