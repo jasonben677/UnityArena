@@ -110,7 +110,7 @@ public class PlayerInput : MonoBehaviour
         if (newAttack != lastAttack && newAttack == true)
         {
             attack = true;
-            Debug.Log("attack!!");
+            //Debug.Log("attack!!");
         }
         else
         {

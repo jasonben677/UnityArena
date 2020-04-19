@@ -79,7 +79,7 @@ public class ActorController : MonoBehaviour
             canAttack = false;
         }
 
-        if (pi.attack && (CheckState("ground") || CheckStateTag("attack")) && canAttack)
+        if (pi.attack && (CheckState("ground") || CheckStateTag("attackR")) && canAttack)
         {
             anim.SetTrigger("attack");
         }
@@ -142,14 +142,14 @@ public class ActorController : MonoBehaviour
         friend.UpdateFriend();
     }
 
-    private bool CheckState(string stateName, string LayerName = "Base Layer")
+    public bool CheckState(string stateName, string LayerName = "Base Layer")
     {
         int layerIndex = anim.GetLayerIndex(LayerName);
         bool result = anim.GetCurrentAnimatorStateInfo(layerIndex).IsName(stateName);
         return result;
     }
 
-    private bool CheckStateTag(string tagName, string LayerName = "Base Layer")
+    public bool CheckStateTag(string tagName, string LayerName = "Base Layer")
     {
         int layerIndex = anim.GetLayerIndex(LayerName);
         bool result = anim.GetCurrentAnimatorStateInfo(layerIndex).IsTag(tagName);
@@ -238,6 +238,11 @@ public class ActorController : MonoBehaviour
         thrustVec = model.transform.forward * anim.GetFloat("attack1hAVelocity");
         // float currentWeight = Mathf.Lerp(anim.GetLayerWeight(anim.GetLayerIndex("attack")), lerpTarget, 0.1f);
         //anim.SetLayerWeight(anim.GetLayerIndex("attack"), Mathf.Lerp(anim.GetLayerWeight(anim.GetLayerIndex("attack")), lerpTarget, 0.8f)); //使切換攻擊圖層較平緩
+    }
+
+    public void OnAttackExist()
+    {
+        model.SendMessage("WeaponDisable");
     }
 
     public void OnHitEnter()

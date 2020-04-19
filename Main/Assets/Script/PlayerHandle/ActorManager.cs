@@ -5,20 +5,39 @@ using UnityEngine;
 public class ActorManager : MonoBehaviour
 {
     public ActorController ac;
+
+    [Header("=== Auto Generate if Null ===")]
     public BattleManager bm;
+    public WeaponManager wm;
+    public StateManager sm;
+
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         ac = GetComponent<ActorController>();
-
+        GameObject model = ac.model;
         GameObject sensor = transform.Find("sensor").gameObject;
         bm = sensor.GetComponent<BattleManager>();
         if ( bm == null )
         {
             bm = sensor.AddComponent<BattleManager>();
         }
-
         bm.am = this;
+
+        wm = model.GetComponent<WeaponManager>();
+        if ( wm == null)
+        {
+            wm = model.GetComponent<WeaponManager>();
+        }
+        wm.am = this;
+
+        sm = gameObject.GetComponent<StateManager>();
+        if (sm = null)
+        {
+            sm = gameObject.AddComponent<StateManager>();
+        }
+        sm.am = this;
+        sm.Test();
     }
 
     // Update is called once per frame
@@ -29,7 +48,7 @@ public class ActorManager : MonoBehaviour
 
     public void DoDamage()
     {
-        ac.IssueTrigger("hit");
+        ac.IssueTrigger("die");
 
     }
 }
