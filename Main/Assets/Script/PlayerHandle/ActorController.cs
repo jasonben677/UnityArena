@@ -240,6 +240,12 @@ public class ActorController : MonoBehaviour
         //anim.SetLayerWeight(anim.GetLayerIndex("attack"), Mathf.Lerp(anim.GetLayerWeight(anim.GetLayerIndex("attack")), lerpTarget, 0.8f)); //使切換攻擊圖層較平緩
     }
 
+    public void OnHitEnter()
+    {
+        pi.inputEnable = false;
+        planarVec = Vector3.zero;
+    }
+
     public void OnUpdateRM(object _deltaPos)
     {
         if (CheckState("attack1hC"))
@@ -247,6 +253,11 @@ public class ActorController : MonoBehaviour
             deltaPos += (Vector3)_deltaPos;
         }
         deltaPos += (0.2f * deltaPos + 0.8f * (Vector3)_deltaPos) / 1.0f;
+    }
+
+    public void IssueTrigger( string triggerName)
+    {
+        anim.SetTrigger(triggerName);
     }
 }
 

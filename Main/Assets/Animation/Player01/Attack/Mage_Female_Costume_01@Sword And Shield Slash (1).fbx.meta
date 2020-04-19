@@ -109,7 +109,7 @@ ModelImporter:
     400100: Bone_Yun
     400102: Bone_Zuoqi
     400104: //RootNode
-    7400000: Sword And Shield Slash (1)
+    7400000: attack1hC
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -140,7 +140,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Sword And Shield Slash (1)
+      name: attack1hC
       takeName: mixamo.com
       firstFrame: 2
       lastFrame: 43
@@ -162,7 +162,21 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.4432523
+        functionName: WeaponEnable
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.55162436
+        functionName: WeaponDisable
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

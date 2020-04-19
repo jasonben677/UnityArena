@@ -243,7 +243,7 @@ ModelImporter:
     400234: upperarm_r
     400236: upperarm_twist_01_l
     400238: upperarm_twist_01_r
-    7400000: slash1
+    7400000: attack1hA
     9500000: //RootNode
     2186277476908879412: ImportLogs
   externalObjects: {}
@@ -301,7 +301,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: slash1
+      name: attack1hA
       takeName: Take 001
       firstFrame: 0
       lastFrame: 66
@@ -348,7 +348,21 @@ ModelImporter:
           preInfinity: 3
           postInfinity: 3
           rotationOrder: 4
-      events: []
+      events:
+      - time: 0.28114453
+        functionName: WeaponEnable
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.3357721
+        functionName: WeaponDisable
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
