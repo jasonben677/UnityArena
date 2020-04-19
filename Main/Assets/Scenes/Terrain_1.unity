@@ -1688,6 +1688,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 974934709}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1230857106 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 668489516334256534, guid: d8320019a28c58d43803db0012573944,
+    type: 3}
+  m_PrefabInstance: {fileID: 1563501457}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627228b04caaeac4eae93f73970f1d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1263322847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: a068bf48aef2d7d47bdb07743d6a9250,
@@ -2618,6 +2630,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6068008081238459938, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: wm
+      value: 
+      objectReference: {fileID: 1647961141}
+    - target: {fileID: 6873538894576414016, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: wm
+      value: 
+      objectReference: {fileID: 1230857106}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8320019a28c58d43803db0012573944, type: 3}
 --- !u!1 &1565597563 stripped
@@ -2737,6 +2759,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e0fbfa2bcbcf4440ac1144965657b1e, type: 3}
+--- !u!114 &1647961141 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5575528671798299430, guid: d8320019a28c58d43803db0012573944,
+    type: 3}
+  m_PrefabInstance: {fileID: 1563501457}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627228b04caaeac4eae93f73970f1d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1659604543 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100028, guid: 71ff0e77341aa304c921a48a639924b6,

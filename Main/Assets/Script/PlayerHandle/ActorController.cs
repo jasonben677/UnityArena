@@ -249,6 +249,14 @@ public class ActorController : MonoBehaviour
     {
         pi.inputEnable = false;
         planarVec = Vector3.zero;
+        model.SendMessage("WeaponDisable");
+    }
+
+    public void OnDieEnter()
+    {
+        pi.inputEnable = false;
+        planarVec = Vector3.zero;
+        model.SendMessage("WeaponDisable");
     }
 
     public void OnUpdateRM(object _deltaPos)

@@ -26,11 +26,29 @@ public class BattleManager : MonoBehaviour
     //}
 
     private void OnTriggerEnter(Collider col)
-    {
-        //Debug.Log(col.name);
+    {//Debug.Log(col.name);
+        WeaponController targetWc = col.GetComponentInParent<WeaponController>();
+
+        GameObject attacker = targetWc.wm.am.gameObject;
+        GameObject receiver = am.gameObject;
+
+        Vector3 attackingDir = receiver.transform.position - attacker.transform.position;
+        Vector3 counterDir = attacker.transform.position - receiver.transform.position;
+
+        float attackingAngle1 = Vector3.Angle(attacker.transform.forward, attackingDir);
+        //float counterAngle1 = Vector3.Angle(receiver.transform.forward, counterDir);
+        //float counterAngle2 = Vector3.Angle(attacker.transform.forward, receiver.transform.forward); //should be close to 180 degrees
+
+        bool attackValid = (attackingAngle1 < 45);
+        //bool counterValid = (counterAngle1 < 90 && Mathf.Abs(counterAngle2 - 180) < 30);
+
         if (col.tag == "Weapon")
         {
-            am.DoDamage();
+            //if(attackingAngle1 <= 45)
+            //{
+            //    am.TryDoDamage(targetWc);
+            //}
+            am.TryDoDamage(targetWc, attackValid);
         }
     }
 }

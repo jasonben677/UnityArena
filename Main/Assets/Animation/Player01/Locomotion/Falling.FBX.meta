@@ -179,22 +179,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Texture_Blue
-    second: {fileID: 2100000, guid: 21aadb4264a5ded43977c1ba0ca90587, type: 2}
+    second: {fileID: 2100000, guid: 3bbec31d6d48b734ca70cf785666b4c9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Texture_Gray
-    second: {fileID: 2100000, guid: cea7dff5b646f464e9ca66b8e3857c2a, type: 2}
+    second: {fileID: 2100000, guid: 910b11dd3bbb77c43832052a02a1770b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Texture_White
-    second: {fileID: 2100000, guid: cb7b5cc8fa0d1f24d9156d0d7cca7847, type: 2}
+    second: {fileID: 2100000, guid: 42df7a11e7644254ca272efc0fc23fa9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Texture_Yellow
-    second: {fileID: 2100000, guid: 49092496b386adf4b99d11e625791eda, type: 2}
+    second: {fileID: 2100000, guid: 076005729fccdbf4d9d3f1d6c15c0cc4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

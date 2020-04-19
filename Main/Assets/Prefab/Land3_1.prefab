@@ -639,7 +639,7 @@ MonoBehaviour:
   ac: {fileID: 0}
   bm: {fileID: 0}
   wm: {fileID: 0}
-  sm: {fileID: 0}
+  sm: {fileID: 6217129251873150726}
 --- !u!114 &6217129251873150726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,6 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   am: {fileID: 0}
+  HPMax: 15
   HP: 15
 --- !u!114 &578517865
 MonoBehaviour:
@@ -826,7 +827,7 @@ MonoBehaviour:
   jump: 0
   attack: 0
   inputEnable: 1
-  isAI: 0
+  isAI: 1
   camcon: {fileID: 0}
 --- !u!114 &2798105348882789749
 MonoBehaviour:
@@ -843,7 +844,7 @@ MonoBehaviour:
   ac: {fileID: 0}
   bm: {fileID: 0}
   wm: {fileID: 0}
-  sm: {fileID: 0}
+  sm: {fileID: 1799468648668461412}
 --- !u!114 &1799468648668461412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,6 +858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   am: {fileID: 0}
+  HPMax: 15
   HP: 15
 --- !u!1 &706046000355696675
 GameObject:

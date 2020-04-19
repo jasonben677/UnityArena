@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
+    public ActorManager am;
     public PlayerInput pi;
     public float horizontalSpeed = 100.0f;
     public float verticalSpeed = 100.0f;
@@ -69,6 +70,13 @@ public class CameraController : MonoBehaviour
             {
                 LockProcessA(null, false, false, pi.isAI);
             }
+            else
+            {
+                if (am != null && am.sm.isDie)
+                {
+                    LockProcessA(null, false, false, pi.isAI);
+                }
+            }            
         }
         CameraRay();
     }
@@ -181,6 +189,7 @@ public class CameraController : MonoBehaviour
                 {
                     lockTarget = col.gameObject;
                     enemyCol = col;
+                    am = lockTarget.GetComponent<ActorManager>();
                     LockProcessA(lockTarget, true, true, pi.isAI);
                     break;
                 }

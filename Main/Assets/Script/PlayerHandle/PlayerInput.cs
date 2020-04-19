@@ -37,7 +37,7 @@ public class PlayerInput : MonoBehaviour
     private GameObject model;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         model = transform.gameObject.GetComponent<ActorController>().model;
     }
@@ -54,10 +54,13 @@ public class PlayerInput : MonoBehaviour
         }
         else
         {
-            tempCameraForward = model.transform.forward;
-            tempCameraForward.y = 0;
-            tempCameraRight = model.transform.right;
-            tempCameraRight.y = 0;
+            if(isAI == false)
+            {
+                tempCameraForward = model.transform.forward;
+                tempCameraForward.y = 0;
+                tempCameraRight = model.transform.right;
+                tempCameraRight.y = 0;
+            }            
         }
 
         targetDup = Input.GetAxis("Vertical");
@@ -98,7 +101,7 @@ public class PlayerInput : MonoBehaviour
         if(newJump != lastJump && newJump == true)
         {
             jump = true;
-            Debug.Log("jump!!");
+            //Debug.Log("jump!!");
         }
         else
         {
