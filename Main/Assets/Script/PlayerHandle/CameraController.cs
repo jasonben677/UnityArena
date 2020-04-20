@@ -70,13 +70,12 @@ public class CameraController : MonoBehaviour
             {
                 LockProcessA(null, false, false, pi.isAI);
             }
-            else
+
+            if (am != null && am.sm.isDie)
             {
-                if (am != null && am.sm.isDie)
-                {
-                    LockProcessA(null, false, false, pi.isAI);
-                }
-            }            
+                LockProcessA(null, false, false, pi.isAI);
+            }
+
         }
         CameraRay();
     }
