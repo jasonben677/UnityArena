@@ -10,7 +10,7 @@ public class ActorController : MonoBehaviour
     public float walkSpeed = 5.5f;
     public float runMultiplier = 2.0f;
     public float jumpVelocity = 2.0f; //向前跳的衝量使用
-    public float rollVelocity = 3.0f; //向前翻滾的衝量使用
+    public float rollVelocity = 1.5f; //向前翻滾的衝量使用
 
     // server
     public bool useServer = false;
