@@ -892,7 +892,7 @@ GameObject:
   - component: {fileID: 2426349942027206021}
   - component: {fileID: 316500639323002769}
   m_Layer: 0
-  m_Name: WeaponHandle
+  m_Name: weaponHandleR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -925,7 +925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7dee0c438e2d04fbc97ba1b36f090f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wm: {fileID: 0}
+  wm: {fileID: 1747889851275413039}
 --- !u!1 &706046000355696675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,7 +1364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   am: {fileID: 0}
-  whR: {fileID: 0}
+  whR: {fileID: 567800162793788612}
   wcR: {fileID: 0}
 --- !u!1 &4583640043311256187
 GameObject:
