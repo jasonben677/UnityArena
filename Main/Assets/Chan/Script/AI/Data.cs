@@ -5,7 +5,8 @@ using UnityEngine;
 
 [System.Serializable]
 public class Data 
-{   
+{
+    public float m_hp;
     public float m_fRadius;
     public float m_fProbeLength;
     public float m_fSpeed;

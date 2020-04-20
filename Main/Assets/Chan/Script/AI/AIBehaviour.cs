@@ -10,11 +10,42 @@ public class AIBehaviour
         {
             return;
         }
+        Transform t = data.m_Go.transform;
+        Vector3 cPos = data.m_Go.transform.position;
+        Vector3 vR = t.right;
+        Vector3 vOriF = t.forward;
+        Vector3 vF = data.m_fCurrentVector;
+
+        if (data.m_fTempTurnForce > data.m_fRot)
+        {
+            data.m_fTempTurnForce = data.m_fRot;
+        }
+        else if (data.m_fTempTurnForce < -data.m_fRot) 
+        {
+            data.m_fTempTurnForce = -data.m_fRot;
+        }
+        vF = vF + vR *data.m_fTempTurnForce;
+        vF.Normalize();
+        t.forward = vF;
+
+        data.m_fSpeed = data.m_fSpeed + data.m_fMoveForce * Time.deltaTime;
+
+        if ( data.m_fSpeed > data.m_fMaxSpeed )
+        {
+            data.m_fSpeed = data.m_fMaxSpeed;
+        }
+        else if ( data.m_fSpeed < data.m_fMinSpeed ) 
+        {
+            data.m_fSpeed = data.m_fMinSpeed;
+        }
+
+
     }
 
 
 
-
+   // public bool CheckCollision(Data data) 
+   // {    }
    static public bool seek(Data data)
     {
         Vector3 cPos = data.m_Go.transform.position;
