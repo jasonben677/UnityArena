@@ -216,10 +216,15 @@ public class ActorController : MonoBehaviour
 
     public void OnRollEnter()
     {
-        thrustVec = new Vector3(0, rollVelocity, 0);
+        //thrustVec = new Vector3(0, rollVelocity, 0);
         pi.inputEnable = false;
         lockplanar = true;
         trackDirection = true;
+    }
+
+    public void OnRollUpdate()
+    {
+        thrustVec = model.transform.forward * anim.GetFloat("rollSpeed");
     }
 
     public void OnJabEnter()

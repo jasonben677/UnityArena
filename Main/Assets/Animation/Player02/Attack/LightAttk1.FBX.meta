@@ -232,14 +232,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.24452555
+      - time: 0.11512416
         functionName: WeaponEnable
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.34671533
+      - time: 0.510158
         functionName: WeaponDisable
         data: 
         objectReferenceParameter: {instanceID: 0}

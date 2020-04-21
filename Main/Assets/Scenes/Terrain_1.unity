@@ -2695,7 +2695,7 @@ PrefabInstance:
     - target: {fileID: 1549055075169414706, guid: d8320019a28c58d43803db0012573944,
         type: 3}
       propertyPath: walkSpeed
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2027869774533204522, guid: d8320019a28c58d43803db0012573944,
         type: 3}
