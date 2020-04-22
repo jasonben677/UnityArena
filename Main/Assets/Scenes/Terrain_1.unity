@@ -2260,6 +2260,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811894352}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &846369824 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1657553540, guid: d8320019a28c58d43803db0012573944,
+    type: 3}
+  m_PrefabInstance: {fileID: 1563501457}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &846369827
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846369824}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &878974802 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100012, guid: 71ff0e77341aa304c921a48a639924b6,
@@ -6008,6 +6027,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1085858648, guid: d8320019a28c58d43803db0012573944, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085858649, guid: d8320019a28c58d43803db0012573944, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 1256722361, guid: d8320019a28c58d43803db0012573944, type: 3}
       propertyPath: playerHandle
       value: 
@@ -6022,11 +6049,15 @@ PrefabInstance:
       objectReference: {fileID: 232786795}
     - target: {fileID: 1657553540, guid: d8320019a28c58d43803db0012573944, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1657553540, guid: d8320019a28c58d43803db0012573944, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657553540, guid: d8320019a28c58d43803db0012573944, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1743526977, guid: d8320019a28c58d43803db0012573944, type: 3}
       propertyPath: m_IsActive
@@ -8617,6 +8648,11 @@ PrefabInstance:
     - target: {fileID: 7990401141416993861, guid: d8320019a28c58d43803db0012573944,
         type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990401141519055548, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7990401141525283964, guid: d8320019a28c58d43803db0012573944,

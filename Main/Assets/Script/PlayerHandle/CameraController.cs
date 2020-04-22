@@ -20,6 +20,8 @@ public class CameraController : MonoBehaviour
     public GameObject lockTarget;
     public bool lockState;
     private Collider enemyCol;
+    private Collider cameraCol;
+    private float cameraColRadius;
 
     private Camera mainCamera;
     private float tempEulerX;
@@ -40,9 +42,11 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         cameraHandle = transform.parent.gameObject;
-        cameraHandle.transform.position = playerHandle.transform.position + new Vector3(0, 2.0f, 0);
-        tempEulerX = 20;
+        cameraHandle.transform.position = playerHandle.transform.position + new Vector3(0, 1.6f, 0);
+        tempEulerX = 20;        
         model = playerHandle.GetComponent<ActorController>().model;
+        cameraCol = cameraHandle.GetComponent<Collider>();
+        cameraColRadius = 0.1f;
 
         if (pi.isAI == false)
         {
@@ -86,14 +90,14 @@ public class CameraController : MonoBehaviour
 
         if (rayTerrain == true)
         {
-            if (newOffset.magnitude < calRadius + 0.5f)
+            if (newOffset.magnitude < calRadius + 0.5f) //如果太靠近角色模型
             {
                 //Debug.Log("newoffset :" + newOffset.magnitude);                
-                transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);
+                transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 90f * Time.fixedDeltaTime);
             }
             else
             {
-                transform.position = rayHit.point;
+                transform.position = rayHit.point; //會有房子破面
             }
         }
         else
@@ -108,7 +112,7 @@ public class CameraController : MonoBehaviour
     {
         tempEulerY += pi.mouseRight * horizontalSpeed * Time.fixedDeltaTime;
         tempEulerX -= pi.mouseUp * verticalSpeed * Time.fixedDeltaTime;
-        tempEulerX = Mathf.Clamp(tempEulerX, -30, 55);
+        tempEulerX = Mathf.Clamp(tempEulerX, -20, 55);
         cameraHandle.transform.localEulerAngles = new Vector3(tempEulerX, tempEulerY, 0);
 
         if (pi.isAI == false)
@@ -130,7 +134,7 @@ public class CameraController : MonoBehaviour
     {
         if (pi.isAI == false)
         {
-            cameraHandle.transform.position = Vector3.SmoothDamp(cameraHandle.transform.position, playerHandle.transform.position + new Vector3(0, 2.0f, 0), ref cameraDampvelocity, cameraDampValue);
+            cameraHandle.transform.position = Vector3.SmoothDamp(cameraHandle.transform.position, playerHandle.transform.position + new Vector3(0, 1.6f, 0), ref cameraDampvelocity, cameraDampValue);
         }
     }
 
@@ -138,8 +142,11 @@ public class CameraController : MonoBehaviour
     {
         dir = transform.position - cameraHandle.transform.position;
 
-        Physics.Raycast(cameraHandle.transform.position, dir, out rayHit, offset, LayerMask.GetMask("Terrain"));
+        //Physics.Raycast(cameraHandle.transform.position, dir, out rayHit, offset, LayerMask.GetMask("Terrain"));
+        //Physics.BoxCast(cameraCol.bounds.center, cameraCol.bounds.extents, dir, out rayHit, cameraHandle.transform.localRotation, offset, LayerMask.GetMask("Terrain"));
+        Physics.SphereCast(cameraCol.bounds.center, cameraColRadius, dir, out rayHit, offset, LayerMask.GetMask("Terrain"));
         newOffset = rayHit.point - cameraHandle.transform.position;
+
 
         if (newOffset.magnitude < offset) //如果有障礙物夾在中間
         {
@@ -197,16 +204,25 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    //private class LockTarget
-    //{
-    //    public GameObject obj;
-    //    public float halfHeight;
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
 
-    //    public LockTarget(GameObject _obj, float _halfHeight)
-    //    {
-    //        obj = _obj;
-    //        halfHeight = _halfHeight;
-    //    }
-    //}
-
+        //Check if there has been a hit yet
+        if (rayTerrain)
+        {
+            
+            Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * rayHit.distance);
+            
+            Gizmos.DrawWireSphere(transform.position, cameraColRadius);
+        }
+        //If there hasn't been a hit yet, draw the ray at the maximum distance
+        else
+        {
+            
+            Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * offset);
+            
+            Gizmos.DrawWireSphere(transform.position, cameraColRadius);
+        }
+    }
 }
