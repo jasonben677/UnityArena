@@ -6690,6 +6690,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3181983259732016581, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: useServer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3630842431163853480, guid: d8320019a28c58d43803db0012573944,
         type: 3}
       propertyPath: m_StaticEditorFlags

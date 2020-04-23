@@ -30,7 +30,8 @@ public class CameraController : MonoBehaviour
 
     //private float cameraLerpValue;
     private Vector3 cameraDampvelocity = Vector3.zero;
-    private Vector3 currentPos; //用來存local位置    
+    private Vector3 currentPos; //用來存local位置
+    private Vector3 tempPos;
     private float offset; //初設的距離
     private Vector3 newOffset;
     private Vector3 dir;
@@ -90,19 +91,31 @@ public class CameraController : MonoBehaviour
 
         if (rayTerrain == true)
         {
-            if (newOffset.magnitude < calRadius + 0.5f) //如果太靠近角色模型
-            {
-                //Debug.Log("newoffset :" + newOffset.magnitude);                
-                transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 90f * Time.fixedDeltaTime);
-            }
-            else
-            {
-                transform.position = rayHit.point; //會有房子破面
-            }
+
+            tempPos = rayHit.point + (-dir.normalized * 0.3f);
+            transform.position = tempPos;
+
+            //if (newOffset.magnitude < calRadius + 0.5f) //如果太靠近角色模型
+            //{
+            //    //Debug.Log("newoffset :" + newOffset.magnitude);                
+            //    transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);
+            //}
+            //else
+            //{
+            //    transform.position = rayHit.point; //會有房子破面
+            //}            
         }
         else
         {
-            transform.localPosition = currentPos;
+            if (transform.position == tempPos)
+            //if((transform.position - cameraHandle.transform.position).magnitude < offset)
+            {
+                this.transform.localPosition = transform.localPosition;
+            }
+            else
+            {
+                transform.localPosition = currentPos;
+            }            
         }
         CameraRotate();
         CameraTranslate();
@@ -148,7 +161,7 @@ public class CameraController : MonoBehaviour
         newOffset = rayHit.point - cameraHandle.transform.position;
 
 
-        if (newOffset.magnitude < offset) //如果有障礙物夾在中間
+        if (newOffset.magnitude < (transform.position - cameraHandle.transform.position).magnitude) //如果有障礙物夾在中間
         {
             rayTerrain = true;
         }
@@ -220,7 +233,7 @@ public class CameraController : MonoBehaviour
         else
         {
             
-            Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * offset);
+            Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * (transform.position - cameraHandle.transform.position).magnitude);
             
             Gizmos.DrawWireSphere(transform.position, cameraColRadius);
         }
