@@ -30,10 +30,10 @@ public class CameraController : MonoBehaviour
 
     //private float cameraLerpValue;
     private Vector3 cameraDampvelocity = Vector3.zero;
-    private Vector3 currentPos; //用來存local位置
+    private Vector3 currentPos; //用來存初設local位置
     private Vector3 tempPos;
     private float offset; //初設的距離
-    private Vector3 newOffset;
+    //private Vector3 newOffset;
     private Vector3 dir;
     private float calRadius;
     private bool rayTerrain;
@@ -91,34 +91,53 @@ public class CameraController : MonoBehaviour
 
         if (rayTerrain == true)
         {
-
-            tempPos = rayHit.point + (-dir.normalized * 0.3f);
-            transform.position = tempPos;
-
-            //if (newOffset.magnitude < calRadius + 0.5f) //如果太靠近角色模型
+            //if (rayHit.distance < calRadius + 0.5f) //如果太靠近角色模型
             //{
-            //    //Debug.Log("newoffset :" + newOffset.magnitude);                
+            //    //Debug.Log("rayHit.distance :" + rayHit.distance);                
             //    transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);
             //}
             //else
             //{
-            //    transform.position = rayHit.point; //會有房子破面
-            //}            
+                tempPos = rayHit.point + (-dir.normalized * 0.3f);
+                transform.position = tempPos;
+            //}
         }
         else
         {
-            if (transform.position == tempPos)
-            //if((transform.position - cameraHandle.transform.position).magnitude < offset)
-            {
-                this.transform.localPosition = transform.localPosition;
-            }
-            else
-            {
-                transform.localPosition = currentPos;
-            }            
+            transform.localPosition = currentPos;
         }
         CameraRotate();
         CameraTranslate();
+    }
+
+    private bool CameraRay() //障礙遮蔽判斷
+    {
+        dir = transform.position - cameraHandle.transform.position;
+
+        //Physics.Raycast(cameraHandle.transform.position, dir, out rayHit, offset, LayerMask.GetMask("Terrain"));
+        //Physics.BoxCast(cameraCol.bounds.center, cameraCol.bounds.extents, dir, out rayHit, cameraHandle.transform.localRotation, offset, LayerMask.GetMask("Terrain"));
+
+        //newOffset = rayHit.point - cameraHandle.transform.position;
+
+        bool rayResult = Physics.SphereCast(cameraCol.bounds.center, cameraColRadius, dir, out rayHit, offset, LayerMask.GetMask("Terrain"));
+
+        if (rayResult == true)
+        {
+            Debug.Log("rayResult: " + rayResult);
+            if (rayHit.distance < (transform.position - cameraHandle.transform.position).magnitude) //如果有障礙物夾在中間
+            {
+                rayTerrain = true;
+            }
+            else
+            {
+                rayTerrain = false;
+            }
+        }
+        else
+        {
+            rayTerrain = false;
+        }
+        return rayTerrain;
     }
 
     private void CameraRotate()
@@ -149,28 +168,7 @@ public class CameraController : MonoBehaviour
         {
             cameraHandle.transform.position = Vector3.SmoothDamp(cameraHandle.transform.position, playerHandle.transform.position + new Vector3(0, 1.6f, 0), ref cameraDampvelocity, cameraDampValue);
         }
-    }
-
-    private bool CameraRay() //障礙遮蔽判斷
-    {
-        dir = transform.position - cameraHandle.transform.position;
-
-        //Physics.Raycast(cameraHandle.transform.position, dir, out rayHit, offset, LayerMask.GetMask("Terrain"));
-        //Physics.BoxCast(cameraCol.bounds.center, cameraCol.bounds.extents, dir, out rayHit, cameraHandle.transform.localRotation, offset, LayerMask.GetMask("Terrain"));
-        Physics.SphereCast(cameraCol.bounds.center, cameraColRadius, dir, out rayHit, offset, LayerMask.GetMask("Terrain"));
-        newOffset = rayHit.point - cameraHandle.transform.position;
-
-
-        if (newOffset.magnitude < (transform.position - cameraHandle.transform.position).magnitude) //如果有障礙物夾在中間
-        {
-            rayTerrain = true;
-        }
-        else
-        {
-            rayTerrain = false;
-        }
-        return rayTerrain;
-    }
+    }    
 
     private void LockProcessA(GameObject _lockTarget, bool _lockDotEnable, bool _lockState, bool _isAI)
     {
@@ -233,7 +231,7 @@ public class CameraController : MonoBehaviour
         else
         {
             
-            Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * (transform.position - cameraHandle.transform.position).magnitude);
+            Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * offset);
             
             Gizmos.DrawWireSphere(transform.position, cameraColRadius);
         }
