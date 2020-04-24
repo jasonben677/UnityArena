@@ -14,25 +14,29 @@ public class EnterInto
         Vector3 vf = data.m_gMoster.transform.forward;
         float fdot = Vector3.Dot(vf,vec);
 
-        Debug.Log(fdot);
         if (data != null)
         {
-            if (fdot > 0)
+            if (m_fVec < (data.m_fPursuitRange / 3))
             {
-                if (m_fVec < data.m_fPursuitRange)
+                data.m_bChase = true;
+                return data.m_bChase;
+            }
+            else
+            {
+                if (fdot > 0)
                 {
-                    return true;
+                    if (LookRay.Look(data, 10f, 200, 200f, data.m_fPursuitRange, Color.blue))
+                    {
+
+                        data.m_bChase = true;
+                        return data.m_bChase;
+                    }
                 }
             }
-            else if (fdot <= 0) 
-            {
-                if (m_fVec < (data.m_fPursuitRange / 3)) return true;
-                
-                
-            }
         }
-        return false;
-
+        data.m_bChase = false;
+        return data.m_bChase;
+        
     }
 
 }

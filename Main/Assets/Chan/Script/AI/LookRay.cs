@@ -30,4 +30,38 @@ public class LookRay : MonoBehaviour
 
 
     }
+  
+    static public bool Look(AIData data,float accuracy, float angle, float rotatePerSecond,float distance, Color debugColor)
+    {
+         
+        float subAngle = angle / accuracy;
+
+
+        for (int i = 0; i < accuracy; i++)
+        {
+            if (LookRay.LookAround(data, Quaternion.Euler(0, -angle / 2 + i * subAngle + Mathf.Repeat(rotatePerSecond * Time.time, subAngle), 0), distance, debugColor))
+            {
+                return true;
+                //Debug.Log("hit Player");
+            }
+            
+        }
+        return false;
+    }
+   static public bool LookAround(AIData data, Quaternion eulerAnger,float distance, Color debugColor) 
+    {
+        GameObject gMonters = data.m_gMoster;
+
+        Debug.DrawRay(gMonters.transform.position, eulerAnger * gMonters.transform.forward.normalized * distance, debugColor);
+
+        RaycastHit hit;
+        if (Physics.Raycast(gMonters.transform.position, eulerAnger * gMonters.transform.forward.normalized * distance, out hit, distance) && hit.collider.name=="Player") 
+        {
+            return true;
+        }
+        Debug.Log("hit null");
+        return false;
+    
+    }
+
 }

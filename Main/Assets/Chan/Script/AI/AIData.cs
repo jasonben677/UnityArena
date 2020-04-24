@@ -20,6 +20,7 @@ public class AIData
 
     public float m_fPursuitRange;
 
+    public bool m_bChase;
 
     [HideInInspector]
     public Vector3 m_vTarget;

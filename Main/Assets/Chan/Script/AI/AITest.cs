@@ -12,25 +12,19 @@ public class AITest : MonoBehaviour
     }
 
     void Update()
-    {
+    {   data.m_vTarget = m_Target.transform.position;
+
+       
 
 
 
 
-
-
-        Debug.DrawRay(this.transform.position, this.transform.position + transform.forward,Color.green,20);
-
-
-
-        //data.m_vTarget = m_Target.transform.position;
-        //if (EnterInto.EnterRange(data))
-        //{
-
-
-        //    AIBehaviour.Playerdirection(data);
-        //    AIBehaviour.Move(data);
-        //}
+        if ( EnterInto.EnterRange(data))
+            {
+                AIBehaviour.Playerdirection(data);
+                AIBehaviour.Move(data);
+            }
+        
     }
     private void OnDrawGizmos()
     {
