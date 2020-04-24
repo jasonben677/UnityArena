@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     public PlayerInput pi;
     public float horizontalSpeed = 100.0f;
     public float verticalSpeed = 100.0f;
-    public float cameraDampValue = 0.05f;
+    public float cameraDampValue = 0.3f;
     //public float cameraDampRotation = 0.05f;    
 
     public Image lockDot;
@@ -33,10 +33,11 @@ public class CameraController : MonoBehaviour
     private Vector3 currentPos; //用來存初設local位置
     private Vector3 tempPos;
     private float offset; //初設的距離
-    //private Vector3 newOffset;
+    
     private Vector3 dir;
     private float calRadius;
     private bool rayTerrain;
+    private bool blockSight;
     RaycastHit rayHit;
 
     // Start is called before the first frame update
@@ -80,29 +81,40 @@ public class CameraController : MonoBehaviour
             {
                 LockProcessA(null, false, false, pi.isAI);
             }
-
-        }
-        CameraRay();
+        }        
     }
 
     void FixedUpdate()
     {
         //cameraLerpValue += 0.3f * Time.fixedDeltaTime;
 
-        if (rayTerrain == true)
+        CameraRay();
+        if (rayTerrain == true) //遮蔽物在射線範圍內
         {
-            //if (rayHit.distance < calRadius + 0.5f) //如果太靠近角色模型
-            //{
-            //    //Debug.Log("rayHit.distance :" + rayHit.distance);                
-            //    transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);
-            //}
-            //else
-            //{
-                tempPos = rayHit.point + (-dir.normalized * 0.3f);
+            if (blockSight == true)
+            {
+                //if (rayHit.distance < calRadius + 1f) //如果太靠近角色模型
+                //{
+                //    //Debug.Log("rayHit.distance :" + rayHit.distance);                
+                //    transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 10f * Time.fixedDeltaTime);
+                //}
+                //else
+                //{
+                //    tempPos = rayHit.point - dir.normalized * 0.3f;
+                //    transform.position = tempPos;                   
+                //}
+
+                tempPos = rayHit.point - dir.normalized * 0.3f;
                 transform.position = tempPos;
-            //}
+            }
+            else
+            {
+                transform.position = tempPos;
+            }
+
+            
         }
-        else
+        else //遮蔽物不在射線範圍內
         {
             transform.localPosition = currentPos;
         }
@@ -110,34 +122,35 @@ public class CameraController : MonoBehaviour
         CameraTranslate();
     }
 
-    private bool CameraRay() //障礙遮蔽判斷
+    private void CameraRay() //障礙遮蔽判斷
     {
         dir = transform.position - cameraHandle.transform.position;
 
         //Physics.Raycast(cameraHandle.transform.position, dir, out rayHit, offset, LayerMask.GetMask("Terrain"));
-        //Physics.BoxCast(cameraCol.bounds.center, cameraCol.bounds.extents, dir, out rayHit, cameraHandle.transform.localRotation, offset, LayerMask.GetMask("Terrain"));
-
-        //newOffset = rayHit.point - cameraHandle.transform.position;
+        //Physics.BoxCast(cameraCol.bounds.center, cameraCol.bounds.extents, dir, out rayHit, cameraHandle.transform.localRotation, offset, LayerMask.GetMask("Terrain"));        
 
         bool rayResult = Physics.SphereCast(cameraCol.bounds.center, cameraColRadius, dir, out rayHit, offset, LayerMask.GetMask("Terrain"));
 
         if (rayResult == true)
         {
             Debug.Log("rayResult: " + rayResult);
-            if (rayHit.distance < (transform.position - cameraHandle.transform.position).magnitude) //如果有障礙物夾在中間
+            if (rayHit.distance <= (transform.position - cameraHandle.transform.position).magnitude) //如果有障礙物夾在中間
             {
                 rayTerrain = true;
+                blockSight = true;
             }
             else
             {
-                rayTerrain = false;
+                rayTerrain = true;
+                blockSight = false;
             }
         }
         else
         {
+            Debug.Log("rayResult: " + rayResult);
             rayTerrain = false;
-        }
-        return rayTerrain;
+            blockSight = false;
+        }        
     }
 
     private void CameraRotate()
@@ -166,6 +179,11 @@ public class CameraController : MonoBehaviour
     {
         if (pi.isAI == false)
         {
+            //if((playerHandle.transform.position - cameraHandle.transform.position).magnitude > 1.6f)
+            //{
+            //    cameraHandle.transform.position = Vector3.SmoothDamp(cameraHandle.transform.position, playerHandle.transform.position + new Vector3(0, 1.6f, 0), ref cameraDampvelocity, cameraDampValue);
+
+            //}
             cameraHandle.transform.position = Vector3.SmoothDamp(cameraHandle.transform.position, playerHandle.transform.position + new Vector3(0, 1.6f, 0), ref cameraDampvelocity, cameraDampValue);
         }
     }    
@@ -222,17 +240,17 @@ public class CameraController : MonoBehaviour
     //    //Check if there has been a hit yet
     //    if (rayTerrain)
     //    {
-            
+
     //        Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * rayHit.distance);
-            
+
     //        Gizmos.DrawWireSphere(transform.position, cameraColRadius);
     //    }
     //    //If there hasn't been a hit yet, draw the ray at the maximum distance
     //    else
     //    {
-            
+
     //        Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * offset);
-            
+
     //        Gizmos.DrawWireSphere(transform.position, cameraColRadius);
     //    }
     //}

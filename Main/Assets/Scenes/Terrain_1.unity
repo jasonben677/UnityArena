@@ -6047,6 +6047,10 @@ PrefabInstance:
       propertyPath: am
       value: 
       objectReference: {fileID: 232786795}
+    - target: {fileID: 1256722361, guid: d8320019a28c58d43803db0012573944, type: 3}
+      propertyPath: cameraDampValue
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1657553540, guid: d8320019a28c58d43803db0012573944, type: 3}
       propertyPath: m_IsActive
       value: 1
