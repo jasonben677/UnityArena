@@ -18,8 +18,11 @@ public class StateManager : MonoBehaviour
     public bool isAttack;
     public bool isHit;
     public bool isDie;
+    public bool isBlocked;
+    public bool isDefense;
 
     [Header("2nd order state flag")]
+    public bool isAllowDefense;
     public bool isImmortal; //無敵狀態
     
     private void Start()
@@ -38,7 +41,11 @@ public class StateManager : MonoBehaviour
         isAttack = am.ac.CheckStateTag("attackR");
         isHit = am.ac.CheckState("hit");
         isDie = am.ac.CheckState("die");
+        isBlocked = am.ac.CheckState("isBlocked");
+        //isDefense = am.ac.CheckState("defenseR", "defense");
 
+        isAllowDefense = isGround || isBlocked;
+        isDefense = isAllowDefense && am.ac.CheckState("defenseR");
         isImmortal = isRoll || isJab;
     }
 

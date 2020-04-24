@@ -84,6 +84,12 @@ public class ActorController : MonoBehaviour
             anim.SetTrigger("attack");
         }
 
+        if (CheckState("ground") || CheckState("blocked"))
+        {
+            anim.SetBool("defense", pi.defense);
+            //anim.SetLayerWeight(anim.GetLayerIndex("defense"), 1);
+        }
+
         if (camcon.lockState == false) //判斷有無鎖目標(會影響移動時的面部朝向)
         {
             if (pi.Dmag > 0.1f)
@@ -270,6 +276,11 @@ public class ActorController : MonoBehaviour
         pi.inputEnable = false;
         planarVec = Vector3.zero;
         model.SendMessage("WeaponDisable");
+    }
+
+    public void OnBlockedEnter()
+    {
+        pi.inputEnable = false;
     }
 
     public void OnUpdateRM(object _deltaPos)

@@ -26,7 +26,7 @@ public class ActorManager : MonoBehaviour
         if (wm == null)
         {
             wm = model.GetComponent<WeaponManager>();
-        }
+        } 
         wm.am = this;
 
         sm = gameObject.GetComponent<StateManager>();
@@ -61,26 +61,38 @@ public class ActorManager : MonoBehaviour
 
     public void HitOrDie(bool doHitAnimation)
     {
-        if (sm.HP <= 0)
+        if (sm.isDefense)
         {
-            //Already dead
+            Blocked();
         }
         else
         {
-            sm.AddHP(-5);
-            if (sm.HP > 0)
+            if (sm.HP <= 0)
             {
-                if (doHitAnimation)
-                {
-                    Hit();
-                }
-                //do some VFX, like splatter blood...
+                //Already dead
             }
             else
             {
-                Die();
+                sm.AddHP(-5);
+                if (sm.HP > 0)
+                {
+                    if (doHitAnimation)
+                    {
+                        Hit();
+                    }
+                    //do some VFX, like splatter blood...
+                }
+                else
+                {
+                    Die();
+                }
             }
         }
+    }
+
+    public void Blocked()
+    {
+        ac.IssueTrigger("blocked");
     }
 
     public void Hit()
