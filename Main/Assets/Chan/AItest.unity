@@ -266,12 +266,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 374413643}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &374413645 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400146, guid: ee0a43a5591205e4f969e90c3484b6ed,
-    type: 3}
-  m_PrefabInstance: {fileID: 374413643}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &374413646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,26 +275,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 374413644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 181c835d83f2897478bf7d3c5e33215b, type: 3}
+  m_Script: {fileID: 11500000, guid: 00b4dfa4e1daa39419a3e77e6bdfe007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_gTarget: {fileID: 0}
-  m_Data:
-    m_hp: 0
-    m_fRadius: 0
-    m_fProbeLength: 10
+  m_Target: {fileID: 205806300}
+  data:
+    m_gMoster: {fileID: 374413644}
     m_fSpeed: 0
-    m_fMaxSpeed: 0
-    m_fMinSpeed: 0
-    m_fRot: 0
-    m_fArriveDistance: 0
-    m_Go: {fileID: 374413645}
+    m_fMaxSpeed: 1
+    m_fMinSpeed: 0.5
+    m_fRadius: 1
+    m_fProbeLenght: 10
+    m_fPursuitRange: 20
+    m_bChase: 0
     m_vTarget: {x: 0, y: 0, z: 0}
-    m_fTargetDistance: 0
-    m_fCurrentVector: {x: 0, y: 0, z: 0}
+    m_vCurrentVector: {x: 0, y: 0, z: 0}
     m_fTempTurnForce: 0
-    m_fMoveForce: 0
-    bMove: 0
 --- !u!1 &610179194
 GameObject:
   m_ObjectHideFlags: 0
