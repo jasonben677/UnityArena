@@ -62,7 +62,7 @@ public class ActorManager : MonoBehaviour
         {
             if (attackValid)
             {
-                HitOrDie(true);
+                HitOrDie(targetWc, true);
             }
         }
         else if (sm.isImmortal) //無敵狀態
@@ -77,12 +77,12 @@ public class ActorManager : MonoBehaviour
         {
             if (attackValid)
             {
-                HitOrDie(true);
+                HitOrDie(targetWc, true);
             }
         }
     }
 
-    public void HitOrDie(bool doHitAnimation)
+    public void HitOrDie(WeaponController targetWc ,bool doHitAnimation)
     {
         if (sm.HP <= 0)
         {
@@ -90,7 +90,7 @@ public class ActorManager : MonoBehaviour
         }
         else
         {
-            sm.AddHP(-5);
+            sm.AddHP(-1 * targetWc.GetATK());
             if (sm.HP > 0)
             {
                 if (doHitAnimation)
