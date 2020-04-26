@@ -40,4 +40,14 @@ public class WeaponManager : MonoBehaviour
         weaponColR.enabled = false;
         //Debug.Log("WeaponDisable");
     }
+
+    public void CounterBackEnable()
+    {
+        am.SetIsCounterBack(true);
+    }
+
+    public void CounterBackDisable()
+    {
+        am.SetIsCounterBack(false);
+    }
 }

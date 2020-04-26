@@ -41,26 +41,45 @@ public class ActorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sm.Test();
+        //sm.Test();
     }
 
-    public void TryDoDamage(WeaponController targetWc, bool attackValid)
+    public void SetIsCounterBack(bool value)
     {
-        if (sm.isImmortal)
+        sm.isCounterBackEnable = value;
+    }
+
+    public void TryDoDamage(WeaponController targetWc, bool attackValid, bool counterValid)
+    {
+        if (sm.isCounterBackSuccess) //反擊成功
         {
-            //Do nothing
+            if (counterValid)
+            {
+                targetWc.wm.am.Stunned();
+            }
         }
-        else if(sm.isDefense)
-        {
-            Blocked();
-        }
-        else 
+        else if (sm.isCounterBackFailure) //反擊失敗
         {
             if (attackValid)
             {
                 HitOrDie(true);
-            }            
-        }                      
+            }
+        }
+        else if (sm.isImmortal) //無敵狀態
+        {
+            //Do nothing
+        }
+        else if (sm.isDefense) //防禦狀態
+        {
+            Blocked();
+        }
+        else
+        {
+            if (attackValid)
+            {
+                HitOrDie(true);
+            }
+        }
     }
 
     public void HitOrDie(bool doHitAnimation)
@@ -86,6 +105,11 @@ public class ActorManager : MonoBehaviour
             }
         }
 
+    }
+
+    public void Stunned()
+    {
+        ac.IssueTrigger("stunned");
     }
 
     public void Blocked()

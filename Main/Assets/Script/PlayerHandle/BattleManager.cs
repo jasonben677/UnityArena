@@ -36,11 +36,11 @@ public class BattleManager : MonoBehaviour
         Vector3 counterDir = attacker.transform.position - receiver.transform.position;
 
         float attackingAngle1 = Vector3.Angle(attacker.transform.forward, attackingDir);
-        //float counterAngle1 = Vector3.Angle(receiver.transform.forward, counterDir);
-        //float counterAngle2 = Vector3.Angle(attacker.transform.forward, receiver.transform.forward); //should be close to 180 degrees
+        float counterAngle1 = Vector3.Angle(receiver.transform.forward, counterDir);
+        float counterAngle2 = Vector3.Angle(attacker.transform.forward, receiver.transform.forward); //should be close to 180 degrees
 
         bool attackValid = (attackingAngle1 < 60);
-        //bool counterValid = (counterAngle1 < 90 && Mathf.Abs(counterAngle2 - 180) < 30);
+        bool counterValid = (counterAngle1 < 90 && Mathf.Abs(counterAngle2 - 180) < 30);
 
         if (col.tag == "Weapon")
         {
@@ -48,7 +48,7 @@ public class BattleManager : MonoBehaviour
             //{
             //    am.TryDoDamage(targetWc);
             //}
-            am.TryDoDamage(targetWc, attackValid);
+            am.TryDoDamage(targetWc, attackValid, counterValid);
         }
     }
 }

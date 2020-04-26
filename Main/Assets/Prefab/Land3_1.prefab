@@ -683,8 +683,12 @@ MonoBehaviour:
   isDie: 0
   isBlocked: 0
   isDefense: 0
+  isCounterBack: 0
+  isCounterBackEnable: 0
   isAllowDefense: 0
   isImmortal: 0
+  isCounterBackSuccess: 0
+  isCounterBackFailure: 0
 --- !u!114 &578517865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,8 +907,12 @@ MonoBehaviour:
   isDie: 0
   isBlocked: 0
   isDefense: 0
+  isCounterBack: 0
+  isCounterBackEnable: 0
   isAllowDefense: 0
   isImmortal: 0
+  isCounterBackSuccess: 0
+  isCounterBackFailure: 0
 --- !u!1 &567800162793788612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,8 +1346,12 @@ MonoBehaviour:
   isDie: 0
   isBlocked: 0
   isDefense: 0
+  isCounterBack: 0
+  isCounterBackEnable: 0
   isAllowDefense: 0
   isImmortal: 0
+  isCounterBackSuccess: 0
+  isCounterBackFailure: 0
 --- !u!1 &3630842431163853480
 GameObject:
   m_ObjectHideFlags: 0

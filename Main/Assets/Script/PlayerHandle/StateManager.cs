@@ -20,10 +20,14 @@ public class StateManager : MonoBehaviour
     public bool isDie;
     public bool isBlocked;
     public bool isDefense;
+    public bool isCounterBack;    //related to state
+    public bool isCounterBackEnable;  //related to animation event
 
     [Header("2nd order state flag")]
     public bool isAllowDefense;
     public bool isImmortal; //無敵狀態
+    public bool isCounterBackSuccess;
+    public bool isCounterBackFailure;
     
     private void Start()
     {
@@ -43,6 +47,9 @@ public class StateManager : MonoBehaviour
         isDie = am.ac.CheckState("die");
         isBlocked = am.ac.CheckState("blocked");
         //isDefense = am.ac.CheckState("defenseR", "defense");
+        isCounterBack = am.ac.CheckState("counterBack");
+        isCounterBackSuccess = isCounterBackEnable;
+        isCounterBackFailure = isCounterBack && !isCounterBackEnable;
 
         isAllowDefense = isGround || isBlocked;
         isDefense = isAllowDefense && am.ac.CheckState("defenseR", "defense");
@@ -53,7 +60,7 @@ public class StateManager : MonoBehaviour
     {
         HP += value;
         HP = Mathf.Clamp(HP, 0, HPMax);        
-    }
+    }    
 
     public void Test()
     {
