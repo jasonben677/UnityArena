@@ -79,16 +79,38 @@ public class ActorController : MonoBehaviour
             canAttack = false;
         }
 
-        if (pi.attack && (CheckState("ground") || CheckStateTag("attackR")) && canAttack)
+        if ((CheckState("ground") || CheckStateTag("attackR")) && canAttack)
         {
+            if (pi.attack) //普通攻擊
+            {
             anim.SetTrigger("attack");
+            }
+
+            if (pi.counterBack) //反擊
+            {
+                anim.SetTrigger("counterBack");
+            }
+        }        
+
+        if (pi.defense)
+        {
+            if(CheckState("ground") || CheckState("blocked"))
+            {
+                anim.SetBool("defense", pi.defense);
+                anim.SetLayerWeight ( anim.GetLayerIndex("defense"), 1);
+            }
+            else
+            {
+                anim.SetBool("defense", false);
+                anim.SetLayerWeight ( anim.GetLayerIndex("defense"), 0);
+            }
+        }
+        else
+        {
+            anim.SetLayerWeight(anim.GetLayerIndex("defense"), 0);
+
         }
 
-        if (CheckState("ground") || CheckState("blocked"))
-        {
-            anim.SetBool("defense", pi.defense);
-            //anim.SetLayerWeight(anim.GetLayerIndex("defense"), 1);
-        }
 
         if (camcon.lockState == false) //判斷有無鎖目標(會影響移動時的面部朝向)
         {
@@ -281,6 +303,18 @@ public class ActorController : MonoBehaviour
     public void OnBlockedEnter()
     {
         pi.inputEnable = false;
+    }
+
+    public void OnStunnedEnter()
+    {
+        pi.inputEnable = false;
+        planarVec = Vector3.zero;
+    }
+
+    public void OnCounterBackEnter()
+    {
+        pi.inputEnable = false;
+        planarVec = Vector3.zero;
     }
 
     public void OnUpdateRM(object _deltaPos)

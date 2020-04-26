@@ -41,11 +41,11 @@ public class StateManager : MonoBehaviour
         isAttack = am.ac.CheckStateTag("attackR");
         isHit = am.ac.CheckState("hit");
         isDie = am.ac.CheckState("die");
-        isBlocked = am.ac.CheckState("isBlocked");
+        isBlocked = am.ac.CheckState("blocked");
         //isDefense = am.ac.CheckState("defenseR", "defense");
 
         isAllowDefense = isGround || isBlocked;
-        isDefense = isAllowDefense && am.ac.CheckState("defenseR");
+        isDefense = isAllowDefense && am.ac.CheckState("defenseR", "defense");
         isImmortal = isRoll || isJab;
     }
 

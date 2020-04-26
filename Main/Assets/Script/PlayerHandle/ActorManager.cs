@@ -50,7 +50,11 @@ public class ActorManager : MonoBehaviour
         {
             //Do nothing
         }
-        else
+        else if(sm.isDefense)
+        {
+            Blocked();
+        }
+        else 
         {
             if (attackValid)
             {
@@ -61,33 +65,27 @@ public class ActorManager : MonoBehaviour
 
     public void HitOrDie(bool doHitAnimation)
     {
-        if (sm.isDefense)
+        if (sm.HP <= 0)
         {
-            Blocked();
+            //Already dead
         }
         else
         {
-            if (sm.HP <= 0)
+            sm.AddHP(-5);
+            if (sm.HP > 0)
             {
-                //Already dead
+                if (doHitAnimation)
+                {
+                    Hit();
+                }
+                //do some VFX, like splatter blood...
             }
             else
             {
-                sm.AddHP(-5);
-                if (sm.HP > 0)
-                {
-                    if (doHitAnimation)
-                    {
-                        Hit();
-                    }
-                    //do some VFX, like splatter blood...
-                }
-                else
-                {
-                    Die();
-                }
+                Die();
             }
         }
+
     }
 
     public void Blocked()

@@ -16,6 +16,7 @@ public class PlayerInput : MonoBehaviour
     public bool lockon;
     public bool run;
     public bool defense;
+    public bool counterBack;
     public bool jump;
     private bool lastJump;
     public bool attack;
@@ -97,7 +98,8 @@ public class PlayerInput : MonoBehaviour
         lockon = Input.GetMouseButtonDown(1); //鎖定目標
 
         run = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-        defense = Input.GetKey(KeyCode.F);
+        defense = Input.GetKey(KeyCode.V);
+        counterBack = Input.GetKey(KeyCode.R);
 
         bool newJump = Input.GetKey(KeyCode.Space); //跳躍觸發設定       
         if(newJump != lastJump && newJump == true)
