@@ -13,7 +13,7 @@ public class ActorController : MonoBehaviour
     public float rollVelocity = 1.5f; //向前翻滾的衝量使用
 
     // server
-    public bool useServer = false;
+    private bool useServer = false;
     [SerializeField] FriendManager friend;
     // 發送時間
     private float sendTime = 0.0f;
@@ -42,6 +42,25 @@ public class ActorController : MonoBehaviour
         anim = model.GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>(); //rigidbody!=null
         col = GetComponent<CapsuleCollider>();
+
+        //判斷server
+        try
+        {
+            if (LoginManager.instance.client.tranmitter != null && gameObject.layer == 11)
+            {
+                useServer = true;
+            }
+            else
+            {
+                useServer = false;
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogWarning(e.ToString());
+            useServer = false;
+        }
+
     }
 
     // Update is called once per frame
@@ -168,11 +187,9 @@ public class ActorController : MonoBehaviour
 
         //發送角色位置
         sendTime += Time.fixedDeltaTime;
-        if (sendTime >= 0.5f && useServer)
+        if (sendTime >= 0.25f && useServer)
         {
-            LoginManager.instance.client.messageProcess[1] = friend.GetNextPos;
             LoginManager.instance.SendPos(transform.position);
-            Debug.Log("aa" + LoginManager.instance.client.messageProcess.Count);
             sendTime = 0;
         }
         friend.UpdateFriend();
