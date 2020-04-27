@@ -8,6 +8,9 @@ public class AIData
    
     public GameObject m_gMoster;
 
+    public GameObject[] m_Target;
+
+
     public float m_fSpeed;
 
     public float m_fMaxSpeed;
@@ -24,8 +27,13 @@ public class AIData
 
     [HideInInspector]
     public Vector3 m_vTarget;
+    
     [HideInInspector]
     public Vector3 m_vCurrentVector;
-
+    
+    //[HideInInspector]
+    public float m_fRotatePerSecond;
+    
+    [HideInInspector]
     public float m_fTempTurnForce;
 }

@@ -43,7 +43,7 @@ public class AIBehaviour
 
 
 
-   
+
 
     static public void Playerdirection(AIData data)
     {

@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 205806302}
   - component: {fileID: 205806301}
   m_Layer: 0
-  m_Name: Target
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -290,6 +290,7 @@ MonoBehaviour:
     m_bChase: 0
     m_vTarget: {x: 0, y: 0, z: 0}
     m_vCurrentVector: {x: 0, y: 0, z: 0}
+    m_fRotatePerSecond: 0
     m_fTempTurnForce: 0
 --- !u!1 &610179194
 GameObject:
