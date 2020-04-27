@@ -614,6 +614,7 @@ MonoBehaviour:
   run: 0
   defense: 0
   counterBack: 0
+  defense: 0
   jump: 0
   attack: 0
   inputEnable: 0
@@ -687,6 +688,9 @@ MonoBehaviour:
   isDefense: 0
   isCounterBack: 0
   isCounterBackEnable: 0
+  isAllowDefense: 0
+  isBlocked: 0
+  isDefense: 0
   isAllowDefense: 0
   isImmortal: 0
   isCounterBackSuccess: 0
@@ -864,6 +868,7 @@ MonoBehaviour:
   run: 0
   defense: 0
   counterBack: 0
+  defense: 0
   jump: 0
   attack: 0
   inputEnable: 1
@@ -1397,6 +1402,9 @@ MonoBehaviour:
   isAttack: 0
   isHit: 0
   isDie: 0
+  isBlocked: 0
+  isDefense: 0
+  isAllowDefense: 0
   isBlocked: 0
   isDefense: 0
   isCounterBack: 0

@@ -38,6 +38,15 @@ public class LoginManager : MonoBehaviour
     }
 
 
+    private void OnDisable()
+    {
+        if (client != null)
+        {
+            client.tranmitter.Close();
+        }
+
+    }
+
     public void SendPos(Vector3 pos)
     {
         float newX = (float)System.Math.Round(pos.x, 2);
@@ -51,22 +60,27 @@ public class LoginManager : MonoBehaviour
         client = new ChatClient();
 
         //虛擬機
-        connectSucceed = client.Connect("34.80.167.143", 4099);
+        //connectSucceed = client.Connect("34.80.167.143", 4099);
 
         //local
-        //connectSucceed = client.Connect("127.0.0.1", 4099);
+        connectSucceed = client.Connect("127.0.0.1", 4099);
+
+        //做假事件
+        client.tranmitter.Register(0, (tranmitter, message) => { });
+        client.tranmitter.Register(1, (tranmitter, message) => { });
+        client.tranmitter.Register(2, (tranmitter, message) => { });
+
         if (connectSucceed)
         {
             Debug.Log("connect");
             string account = GameObject.Find("Account").GetComponent<InputField>().text;
             string password = GameObject.Find("Password").GetComponent<InputField>().text;
             client.SendAccount(account, password);
-            client.messageProcess[0] = EnterGameScence;
-            client.messageProcess[1] = delegate (Message s) { };
+            client.tranmitter.Register(0, EnterGameScence);
         }
     }
 
-    private void EnterGameScence(Message _player)
+    private void EnterGameScence(Common.Tranmitter _tranmitter, Message03 _player)
     {
         SceneManager.LoadScene(1);
     }
