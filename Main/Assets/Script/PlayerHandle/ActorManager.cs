@@ -109,11 +109,13 @@ public class ActorManager : MonoBehaviour
 
     public void Stunned()
     {
+        //Debug.Log("stunned");
         ac.IssueTrigger("stunned");
     }
 
     public void Blocked()
     {
+        //Debug.Log("blocked");
         ac.IssueTrigger("blocked");
     }
 

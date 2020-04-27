@@ -116,7 +116,7 @@ public class ActorController : MonoBehaviour
         {
             if (pi.Dmag > 0.1f)
             {
-                Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.6f); //調整方向切換時的旋轉流暢度
+                Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.8f); //調整方向切換時的旋轉流暢度
                 model.transform.forward = targetForward;
             }
 
@@ -130,13 +130,13 @@ public class ActorController : MonoBehaviour
             if (trackDirection == false)
             {
                 if (pi.isAI == false) {
-                    Vector3 tempDvec = camcon.lockTarget.transform.position - transform.position;
+                    Vector3 tempDvec = camcon.lockTarget.transform.position - model.transform.position;
                     tempDvec.y = 0;
                     model.transform.forward = tempDvec;
                 }
                 else
                 {
-                    Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.6f); //調整方向切換時的旋轉流暢度
+                    Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.8f); //調整方向切換時的旋轉流暢度
                     model.transform.forward = targetForward;
                 }
                 

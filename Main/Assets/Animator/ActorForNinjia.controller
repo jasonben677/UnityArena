@@ -429,10 +429,10 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 0745c929ec5fa3c4390125d5682ee242, type: 3}
+    m_Motion: {fileID: 7400000, guid: d9f66de2f921d0a4984783a59f361c3e, type: 3}
     m_Threshold: 3
     m_Position: {x: 0, y: -1}
-    m_TimeScale: 1.2
+    m_TimeScale: 2
     m_CycleOffset: 0
     m_DirectBlendParameter: forward
     m_Mirror: 0
@@ -476,10 +476,26 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: forward
     m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 7e7329df2b056604f8988556ca77c9b9, type: 3}
+    m_Threshold: 9
+    m_Position: {x: -1.5, y: -1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: forward
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 7e7329df2b056604f8988556ca77c9b9, type: 3}
+    m_Threshold: 10
+    m_Position: {x: 1.5, y: -1}
+    m_TimeScale: 1
+    m_CycleOffset: 0.5
+    m_DirectBlendParameter: forward
+    m_Mirror: 1
   m_BlendParameter: right
   m_BlendParameterY: forward
   m_MinThreshold: 0
-  m_MaxThreshold: 8
+  m_MaxThreshold: 10
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 2
@@ -1305,7 +1321,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: attack1hA
-  m_Speed: 1
+  m_Speed: 1.2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101794363595732262}
@@ -1622,7 +1638,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: stunned
-  m_Speed: 1.5
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101032156672828334}

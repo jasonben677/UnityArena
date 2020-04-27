@@ -6,7 +6,7 @@ public class StateManager : MonoBehaviour
 {
     public ActorManager am;
 
-    public float HPMax = 15.0f;
+    public float HPMax = 100.0f;
     public float HP = 15.0f;
     public float ATK = 10.0f;
 
