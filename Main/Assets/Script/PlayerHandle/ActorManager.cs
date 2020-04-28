@@ -84,14 +84,14 @@ public class ActorManager : MonoBehaviour
 
     public void HitOrDie(WeaponController targetWc ,bool doHitAnimation)
     {
-        if (sm.HP <= 0)
+        if (sm.playerHP.HP <= 0)
         {
             //Already dead
         }
         else
         {
             sm.AddHP(-1 * targetWc.GetATK());
-            if (sm.HP > 0)
+            if (sm.playerHP.HP > 0)
             {
                 if (doHitAnimation)
                 {

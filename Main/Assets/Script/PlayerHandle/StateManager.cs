@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    public ActorManager am;
-    //public HealthPoint playerHP = new HealthPoint(100, 10);
+    public ActorManager am;    
+    public HealthPoint playerHP;
 
-
-
-    public float HPMax = 100.0f;
-    public float HP = 15.0f;
+    //public float HPMax = 100.0f;
+    //public float HP = 15.0f;
     public float ATK = 10.0f;
 
     [Header("1st order state flags")]
@@ -36,8 +34,10 @@ public class StateManager : MonoBehaviour
     private void Start()
     {
         am = gameObject.GetComponent<ActorManager>();
-        //AddHP(0);
-        HP = HPMax;
+        playerHP = gameObject.AddComponent<HealthPoint>();
+        playerHP.MaxHP = 100f;
+        playerHP.HP = 15f;
+        playerHP.HP = playerHP.MaxHP;
     }
     private void Update()
     {
@@ -62,12 +62,12 @@ public class StateManager : MonoBehaviour
 
     public void AddHP(float value)
     {
-        HP += value;
-        HP = Mathf.Clamp(HP, 0, HPMax);        
+        playerHP.HP += value;
+        playerHP.HP = Mathf.Clamp(playerHP.HP, 0, playerHP.MaxHP);        
     }    
 
     public void Test()
     {
-        Debug.Log("sm test: HP is" + HP);
+        Debug.Log("sm test: HP is" + playerHP.HP);
     }
 }    

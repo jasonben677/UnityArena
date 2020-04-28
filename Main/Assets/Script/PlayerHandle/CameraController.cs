@@ -235,25 +235,25 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
+    //void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
 
-        //Check if there has been a hit yet
-        if (rayTerrain)
-        {
+    //    //Check if there has been a hit yet
+    //    if (rayTerrain)
+    //    {
 
-            Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * rayHit.distance);
+    //        Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * rayHit.distance);
 
-            Gizmos.DrawWireSphere(transform.position, cameraColRadius);
-        }
-        //If there hasn't been a hit yet, draw the ray at the maximum distance
-        else
-        {
+    //        Gizmos.DrawWireSphere(transform.position, cameraColRadius);
+    //    }
+    //    //If there hasn't been a hit yet, draw the ray at the maximum distance
+    //    else
+    //    {
 
-            Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * offset);
+    //        Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * offset);
 
-            Gizmos.DrawWireSphere(transform.position, cameraColRadius);
-        }
-    }
+    //        Gizmos.DrawWireSphere(transform.position, cameraColRadius);
+    //    }
+    //}
 }
