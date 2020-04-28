@@ -29,11 +29,11 @@ public class ActorController : MonoBehaviour
     private Vector3 thrustVec; //jump時候的衝量  
     private bool lockplanar = false; //鎖死平面移動(為了在jump的時候，不去更新planarVec)
     private bool canAttack;
-    public bool trackDirection = false;
+    //public bool trackDirection = false;
     private CapsuleCollider col; //為了切換Physic material
     //private float lerpTarget;
     private Vector3 deltaPos;
-    private Vector3 localDev;
+    private Vector3 localDvec;
 
     // Start is called before the first frame update
     void Awake()
@@ -66,7 +66,7 @@ public class ActorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        localDev = transform.InverseTransformVector(pi.Dvec);
+        localDvec = model.transform.InverseTransformVector(pi.Dvec);
 
         if (pi.lockon)
         {
@@ -82,8 +82,8 @@ public class ActorController : MonoBehaviour
         else
         {
 
-            anim.SetFloat("forward", localDev.z * ((pi.run) ? 2.0f : 1.0f));
-            anim.SetFloat("right", localDev.x * ((pi.run) ? 2.0f : 1.0f));
+            anim.SetFloat("forward", localDvec.z * ((pi.run) ? 2.0f : 1.0f));
+            anim.SetFloat("right", localDvec.x * ((pi.run) ? 2.0f : 1.0f));
         }
 
         if (pi.jump || rigid.velocity.magnitude > 7.0f)
@@ -146,7 +146,7 @@ public class ActorController : MonoBehaviour
         }
         else
         {
-            if (trackDirection == false)
+            if (pi.trackDirection == false)
             {
                 if (pi.isAI == false) {
                     Vector3 tempDvec = camcon.lockTarget.transform.position - model.transform.position;
@@ -218,7 +218,7 @@ public class ActorController : MonoBehaviour
         thrustVec = new Vector3(0, jumpVelocity, 0);
         pi.inputEnable = false;
         lockplanar = true;  //此時角色不會有平面方向的旋轉
-        trackDirection = true;
+        pi.trackDirection = true;
     }
 
     //public void OnJumpExist()
@@ -245,7 +245,7 @@ public class ActorController : MonoBehaviour
         lockplanar = false;
         canAttack = true;
         col.material = frictionOne;
-        trackDirection = false;
+        pi.trackDirection = false;
     }
 
     public void OnGroundExist()
@@ -264,7 +264,7 @@ public class ActorController : MonoBehaviour
         //thrustVec = new Vector3(0, rollVelocity, 0);
         pi.inputEnable = false;
         lockplanar = true;
-        trackDirection = true;
+        pi.trackDirection = true;
     }
 
     public void OnRollUpdate()

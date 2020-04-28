@@ -211,7 +211,7 @@ ModelImporter:
     - serializedVersion: 16
       name: counterBack
       takeName: Take 001
-      firstFrame: 55
+      firstFrame: 0
       lastFrame: 111
       wrapMode: 0
       orientationOffsetY: 0

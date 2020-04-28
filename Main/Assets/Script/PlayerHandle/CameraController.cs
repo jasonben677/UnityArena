@@ -133,7 +133,7 @@ public class CameraController : MonoBehaviour
 
         if (rayResult == true)
         {
-            Debug.Log("rayResult: " + rayResult);
+            //Debug.Log("rayResult: " + rayResult);
             if (rayHit.distance <= (transform.position - cameraHandle.transform.position).magnitude) //如果有障礙物夾在中間
             {
                 rayTerrain = true;
@@ -147,7 +147,7 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            Debug.Log("rayResult: " + rayResult);
+            //Debug.Log("rayResult: " + rayResult);
             rayTerrain = false;
             blockSight = false;
         }        
@@ -169,7 +169,8 @@ public class CameraController : MonoBehaviour
             }
             else
             {
-                mainCamera.transform.LookAt(lockTarget.transform);
+                //mainCamera.transform.LookAt(lockTarget.transform);
+                mainCamera.transform.LookAt(lockTarget.transform.position + new Vector3 (0, enemyCol.bounds.extents.y * 2.0f, 0));
             }
         }
 
@@ -200,7 +201,7 @@ public class CameraController : MonoBehaviour
 
     public void LockUnlock() //鎖/解鎖目標
     {
-        Debug.Log("LockUnlock");
+        //Debug.Log("LockUnlock");
         Vector3 modelOrigin1 = model.transform.position;
         Vector3 modelOrigin2 = modelOrigin1 + new Vector3(0, 1, 0);
         Vector3 boxCenter = modelOrigin2 + model.transform.forward * 5.0f;

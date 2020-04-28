@@ -25,6 +25,7 @@ public class PlayerInput : MonoBehaviour
     [Header("==== others ====")]
     public bool inputEnable = true;
     public bool isAI = false;
+    public bool trackDirection = false;
     public CameraController camcon;
         
     private float targetDup;
@@ -92,7 +93,14 @@ public class PlayerInput : MonoBehaviour
         }
         else
         {
-            Dvec = Dup2 * tempCameraForward + Dright2 * tempCameraRight;
+            if(trackDirection == false)
+            {
+                Dvec = Dup2 * tempCameraForward + Dright2 * tempCameraRight;
+            }
+            else
+            {
+                Dvec = Dup2 * cameraForward + Dright2 * cameraRight;
+            }
         }
 
         lockon = Input.GetMouseButtonDown(1); //鎖定目標

@@ -165,7 +165,7 @@ ModelImporter:
     4300006: Sword_Hold
     4300008: BladeL
     4300010: BladeR
-    7400000: Take 001
+    7400000: Ninjia_attack1hC
     9500000: //RootNode
     13700000: BladeL
     13700002: BladeR
@@ -209,7 +209,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Ninjia_attack1hC
       takeName: Take 001
       firstFrame: 44
       lastFrame: 98
