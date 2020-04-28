@@ -6,19 +6,22 @@ public class AITest : MonoBehaviour
 {
     public AIData data;
 
+
     void Start()
     {
+        //賦予所有怪物Layer為Enemy
         this.gameObject.layer = LayerMask.NameToLayer("Enemy");
-        data.m_Target = GameObject.FindGameObjectsWithTag("Player");
-
+        //獲取所有Tag為Player的目標
+        data.ArrTarget = GameObject.FindGameObjectsWithTag("Player");
     }
 
     void Update()
     {
-
-        data.m_vTarget = data.m_Target[0].transform.position;
-
+        LookRay.LockTarget(data);
         EnterInto.EnterRange(data);
+
+
+
 
         if (data.m_bChase)
         {
@@ -37,7 +40,7 @@ public class AITest : MonoBehaviour
         {
 
             Gizmos.color = Color.green;
-            Gizmos.DrawLine(this.transform.position, this.transform.position + transform.forward*20);
+            Gizmos.DrawLine(this.transform.position, this.transform.position + transform.forward);
 
             Vector3 vLastTemp = Quaternion.Euler(0.0f, 30f, 0.0f) * -transform.right;
 
