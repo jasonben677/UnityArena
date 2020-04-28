@@ -1,0 +1,1076 @@
+fileFormatVersion: 2
+guid: 2efacd88951b9ee419c648e9057bb527
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Body
+    100002: Body.002
+    100004: Body.003
+    100006: Body2
+    100008: Body2_end
+    100010: Box
+    100012: FU_1_L
+    100014: FU_1_R
+    100016: FU_2_L
+    100018: FU_2_R
+    100020: FU_3_L
+    100022: FU_3_L_end
+    100024: FU_3_R
+    100026: FU_3_R_end
+    100028: Hemi
+    100030: //RootNode
+    100032: Spider
+    100034: Spider_Armature
+    100036: Spider_Eyes
+    100038: Spider_Fur
+    100040: Spider_teeth
+    100042: v2_B1_L
+    100044: v2_B1_R
+    100046: v2_B2_L
+    100048: v2_B2_R
+    100050: v2_B3_L
+    100052: v2_B3_L.001
+    100054: v2_B3_L.001_end
+    100056: v2_B3_L_end
+    100058: v2_B3_R
+    100060: v2_B3_R.001
+    100062: v2_B3_R.001_end
+    100064: v2_B3_R_end
+    100066: v3_B1_L
+    100068: v3_B1_R
+    100070: v3_B2_L
+    100072: v3_B2_R
+    100074: v3_B3_L
+    100076: v3_B3_L.001
+    100078: v3_B3_L.001_end
+    100080: v3_B3_L_end
+    100082: v3_B3_R
+    100084: v3_B3_R.001
+    100086: v3_B3_R.001_end
+    100088: v3_B3_R_end
+    100090: v4_B1_L
+    100092: v4_B1_R
+    100094: v4_B2_L
+    100096: v4_B2_R
+    100098: v4_B3_L
+    100100: v4_B3_L.001
+    100102: v4_B3_L.001_end
+    100104: v4_B3_L_end
+    100106: v4_B3_R
+    100108: v4_B3_R.001
+    100110: v4_B3_R.001_end
+    100112: v4_B3_R_end
+    100114: v_B1_L
+    100116: v_B1_R
+    100118: v_B2_L
+    100120: v_B2_R
+    100122: v_B3_L
+    100124: v_B3_L.001
+    100126: v_B3_L.001_end
+    100128: v_B3_L_end
+    100130: v_B3_R
+    100132: v_B3_R.001
+    100134: v_B3_R.001_end
+    100136: v_B3_R_end
+    100138: Zahn_L
+    100140: Zahn_L_end
+    100142: Zahn_R
+    100144: Zahn_R_end
+    400000: Body
+    400002: Body.002
+    400004: Body.003
+    400006: Body2
+    400008: Body2_end
+    400010: Box
+    400012: FU_1_L
+    400014: FU_1_R
+    400016: FU_2_L
+    400018: FU_2_R
+    400020: FU_3_L
+    400022: FU_3_L_end
+    400024: FU_3_R
+    400026: FU_3_R_end
+    400028: Hemi
+    400030: //RootNode
+    400032: Spider
+    400034: Spider_Armature
+    400036: Spider_Eyes
+    400038: Spider_Fur
+    400040: Spider_teeth
+    400042: v2_B1_L
+    400044: v2_B1_R
+    400046: v2_B2_L
+    400048: v2_B2_R
+    400050: v2_B3_L
+    400052: v2_B3_L.001
+    400054: v2_B3_L.001_end
+    400056: v2_B3_L_end
+    400058: v2_B3_R
+    400060: v2_B3_R.001
+    400062: v2_B3_R.001_end
+    400064: v2_B3_R_end
+    400066: v3_B1_L
+    400068: v3_B1_R
+    400070: v3_B2_L
+    400072: v3_B2_R
+    400074: v3_B3_L
+    400076: v3_B3_L.001
+    400078: v3_B3_L.001_end
+    400080: v3_B3_L_end
+    400082: v3_B3_R
+    400084: v3_B3_R.001
+    400086: v3_B3_R.001_end
+    400088: v3_B3_R_end
+    400090: v4_B1_L
+    400092: v4_B1_R
+    400094: v4_B2_L
+    400096: v4_B2_R
+    400098: v4_B3_L
+    400100: v4_B3_L.001
+    400102: v4_B3_L.001_end
+    400104: v4_B3_L_end
+    400106: v4_B3_R
+    400108: v4_B3_R.001
+    400110: v4_B3_R.001_end
+    400112: v4_B3_R_end
+    400114: v_B1_L
+    400116: v_B1_R
+    400118: v_B2_L
+    400120: v_B2_R
+    400122: v_B3_L
+    400124: v_B3_L.001
+    400126: v_B3_L.001_end
+    400128: v_B3_L_end
+    400130: v_B3_R
+    400132: v_B3_R.001
+    400134: v_B3_R.001_end
+    400136: v_B3_R_end
+    400138: Zahn_L
+    400140: Zahn_L_end
+    400142: Zahn_R
+    400144: Zahn_R_end
+    2300000: Box
+    3300000: Box
+    4300000: Box
+    4300002: Spider_Eyes
+    4300004: Spider
+    4300006: Spider_teeth
+    4300008: Spider_Fur
+    7400000: Spider_Armature|Attack
+    7400002: Spider_Armature|die
+    7400004: Spider_Armature|die 2
+    7400006: Spider_Armature|fall
+    7400008: Spider_Armature|Jump
+    7400010: Spider_Armature|normal
+    7400012: Spider_Armature|run_ani_back
+    7400014: Spider_Armature|run_ani_vor
+    7400016: Spider_Armature|run_left
+    7400018: Spider_Armature|run_right
+    7400020: Spider_Armature|walk_ani_back
+    7400022: Spider_Armature|walk_ani_vor
+    7400024: Spider_Armature|walk_left
+    7400026: Spider_Armature|walk_right
+    7400028: Spider_Armature|warte_pose
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Spider
+    13700002: Spider_Eyes
+    13700004: Spider_Fur
+    13700006: Spider_teeth
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box
+    second: {fileID: 2100000, guid: 070818b2e7893934ba7a9dab8d0fe6a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Spider
+    second: {fileID: 2100000, guid: 933d8c24dade0c243963dbfab1a4c61c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Spider_Eye
+    second: {fileID: 2100000, guid: 19c4bb1c8ef1b194485c3f5be36f0491, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Spider_Fur
+    second: {fileID: 2100000, guid: b98c9d5ad4015894b80df0bf43df11de, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Spider_teeth
+    second: {fileID: 2100000, guid: 0bc3d2ec46e6fdb42b8610cf2c2ffc6a, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Spider_Armature|Attack
+      takeName: Spider_Armature|Attack
+      firstFrame: 0
+      lastFrame: 27
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spider_Armature|die
+      takeName: Spider_Armature|die
+      firstFrame: 0
+      lastFrame: 72
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spider_Armature|die 2
+      takeName: Spider_Armature|die 2
+      firstFrame: 0
+      lastFrame: 33
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spider_Armature|fall
+      takeName: Spider_Armature|fall
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spider_Armature|Jump
+      takeName: Spider_Armature|Jump
+      firstFrame: 0
+      lastFrame: 7.6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spider_Armature|normal
+      takeName: Spider_Armature|normal
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spider_Armature|run_ani_back
+      takeName: Spider_Armature|run_ani_back
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spider_Armature|run_ani_vor
+      takeName: Spider_Armature|run_ani_vor
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spider_Armature|run_left
+      takeName: Spider_Armature|run_left
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spider_Armature|run_right
+      takeName: Spider_Armature|run_right
+      firstFrame: 0
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spider_Armature|walk_ani_back
+      takeName: Spider_Armature|walk_ani_back
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spider_Armature|walk_ani_vor
+      takeName: Spider_Armature|walk_ani_vor
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spider_Armature|walk_left
+      takeName: Spider_Armature|walk_left
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spider_Armature|walk_right
+      takeName: Spider_Armature|walk_right
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Spider_Armature|warte_pose
+      takeName: Spider_Armature|warte_pose
+      firstFrame: 0
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 5
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.049999993
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton:
+    - name: Spider(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hemi
+      parentName: Spider(Clone)
+      position: {x: 5.7070303, y: 7.6228504, z: -6.158007}
+      rotation: {x: -0.00000003774895, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Box
+      parentName: Spider(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Spider_Armature
+      parentName: Box
+      position: {x: -0, y: 0.012111483, z: 2.0502717}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 20, y: 20, z: 20}
+    - name: Body.003
+      parentName: Spider_Armature
+      position: {x: 3.8181094e-10, y: -0.0025286195, z: -0.000000011920927}
+      rotation: {x: 0.49086216, y: 0.16378498, z: 0.85046613, w: 0.09453139}
+      scale: {x: 1.000001, y: 0.9999998, z: 1}
+    - name: Body.002
+      parentName: Body.003
+      position: {x: 0.042690203, y: 0.011373209, z: 0.024662744}
+      rotation: {x: -0.3906635, y: -0.89883566, z: -0.1831553, w: -0.077011466}
+      scale: {x: 1, y: 1.0000013, z: 1.000001}
+    - name: Body
+      parentName: Body.002
+      position: {x: -0.031936176, y: 0.039778598, z: -0.0117637105}
+      rotation: {x: 0.6187324, y: -0.24258833, z: 0.7094702, w: -0.23446357}
+      scale: {x: 1.000009, y: 1.0000025, z: 1.0000025}
+    - name: Body2
+      parentName: Body
+      position: {x: -0.000000038639644, y: 0.09000002, z: -0.0050001773}
+      rotation: {x: -0.00000066204416, y: -0.00000038743056, z: 0.00000056158, w: 1}
+      scale: {x: 1.0000012, y: 0.99999976, z: 0.9999995}
+    - name: Body2_end
+      parentName: Body2
+      position: {x: -0, y: 0.15, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: v_B1_L
+      parentName: Body
+      position: {x: -0.029047733, y: 0.024809849, z: -0.014831002}
+      rotation: {x: 0.0615175, y: -0.17441526, z: -0.93204474, w: -0.3115886}
+      scale: {x: 0.9999969, y: 0.99999964, z: 0.9999999}
+    - name: v_B2_L
+      parentName: v_B1_L
+      position: {x: 0.000000006332993, y: 0.079676345, z: -0.0000000029802318}
+      rotation: {x: -0.26718503, y: -0.13349281, z: 0.14189328, w: 0.94374686}
+      scale: {x: 0.9999967, y: 1.0000017, z: 1.0000013}
+    - name: v_B3_L
+      parentName: v_B2_L
+      position: {x: 0.0000000025145706, y: 0.09211995, z: 0.000000005215406}
+      rotation: {x: 0.25373653, y: 0.036145646, z: -0.22918561, w: -0.9390342}
+      scale: {x: 0.99999523, y: 1.0000042, z: 1.0000033}
+    - name: v_B3_L_end
+      parentName: v_B3_L
+      position: {x: -0, y: 0.12549089, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: v2_B1_L
+      parentName: Body
+      position: {x: -0.029478716, y: 0.041634183, z: -0.017779805}
+      rotation: {x: 0.21560597, y: -0.37094462, z: -0.75996876, w: -0.48822296}
+      scale: {x: 0.999999, y: 1.0000006, z: 1.0000008}
+    - name: v2_B2_L
+      parentName: v2_B1_L
+      position: {x: -0.0000000029802318, y: 0.07344451, z: 3.7252898e-10}
+      rotation: {x: 0.3469436, y: 0.57068986, z: -0.10322381, w: -0.7370808}
+      scale: {x: 1.0000007, y: 1.0000004, z: 1.0000088}
+    - name: v2_B3_L
+      parentName: v2_B2_L
+      position: {x: 0.0000000096857535, y: 0.10240911, z: -0.0000000074505797}
+      rotation: {x: -0.22922343, y: -0.15389973, z: 0.2452543, w: 0.9293126}
+      scale: {x: 0.9999939, y: 1.0000049, z: 1.000004}
+    - name: v2_B3_L_end
+      parentName: v2_B3_L
+      position: {x: -0, y: 0.09097615, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: v3_B1_L
+      parentName: Body
+      position: {x: -0.029478751, y: 0.05761096, z: -0.01777982}
+      rotation: {x: 0.4059088, y: 0.33631968, z: -0.53215015, w: 0.66252804}
+      scale: {x: 1.0000015, y: 0.99999964, z: 1.0000007}
+    - name: v3_B2_L
+      parentName: v3_B1_L
+      position: {x: -0.0000000046566124, y: 0.0677701, z: 7.4505796e-10}
+      rotation: {x: -0.059277136, y: -0.75546837, z: 0.06196957, w: -0.64954865}
+      scale: {x: 1.000005, y: 0.99999857, z: 1.0000036}
+    - name: v3_B3_L
+      parentName: v3_B2_L
+      position: {x: -0.0000000014901159, y: 0.09102757, z: -0.00000000912696}
+      rotation: {x: -0.006850424, y: -0.07502424, z: 0.0070004715, w: -0.9971337}
+      scale: {x: 0.99999964, y: 1.0000036, z: 1.0000002}
+    - name: v3_B3_L_end
+      parentName: v3_B3_L
+      position: {x: -0, y: 0.0995842, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: v4_B1_L
+      parentName: Body
+      position: {x: -0.028216392, y: 0.07415215, z: -0.016776988}
+      rotation: {x: 0.12634648, y: -0.04989089, z: 0.36386314, w: 0.92149395}
+      scale: {x: 1.0000018, y: 1.0000007, z: 1.0000021}
+    - name: v4_B2_L
+      parentName: v4_B1_L
+      position: {x: 0.000000006053596, y: 0.08127952, z: 0.0000000055879346}
+      rotation: {x: -0.28362638, y: 0.16111799, z: -0.22059703, w: 0.9192029}
+      scale: {x: 0.9999973, y: 1.0000039, z: 1.000004}
+    - name: v4_B3_L
+      parentName: v4_B2_L
+      position: {x: 0.0000000137835725, y: 0.10765068, z: 0.0000000048428768}
+      rotation: {x: -0.19730112, y: 0.030768424, z: -0.12349789, w: 0.97204626}
+      scale: {x: 1.0000023, y: 1.0000031, z: 1.0000023}
+    - name: v4_B3_L_end
+      parentName: v4_B3_L
+      position: {x: -0, y: 0.08187563, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FU_1_L
+      parentName: Body
+      position: {x: -0.026934952, y: -0.00917046, z: -0.008095024}
+      rotation: {x: -0.72959375, y: -0.0000004444003, z: 0.5905889, w: 0.34481567}
+      scale: {x: 1.0000048, y: 1.0000051, z: 1}
+    - name: FU_2_L
+      parentName: FU_1_L
+      position: {x: -0.0000000014901159, y: 0.030817904, z: -0.0000000033527607}
+      rotation: {x: -0.18600859, y: 0.44537696, z: -0.29193723, w: 0.82571954}
+      scale: {x: 0.9999925, y: 1.0000038, z: 1.0000015}
+    - name: FU_3_L
+      parentName: FU_2_L
+      position: {x: -0.000000009674112, y: 0.032246456, z: -0.0000000029802318}
+      rotation: {x: 0.088373415, y: 0.46299303, z: -0.13757499, w: 0.87114906}
+      scale: {x: 1.0000008, y: 1.0000025, z: 1.0000004}
+    - name: FU_3_L_end
+      parentName: FU_3_L
+      position: {x: -0, y: 0.029505378, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zahn_L
+      parentName: Body
+      position: {x: -0.011678174, y: -0.025283637, z: -0.010129813}
+      rotation: {x: 0.11735637, y: -0.41887686, z: 0.89623314, w: -0.086809404}
+      scale: {x: 0.9999991, y: 1.0000036, z: 1.0000018}
+    - name: Zahn_L_end
+      parentName: Zahn_L
+      position: {x: -0, y: 0.038123947, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: v_B1_R
+      parentName: Body
+      position: {x: 0.02904776, y: 0.024809971, z: -0.0148309525}
+      rotation: {x: -0.05452984, y: -0.17207569, z: -0.9324789, w: 0.31288892}
+      scale: {x: 0.99999845, y: 0.99999815, z: 1.0000011}
+    - name: v_B2_R
+      parentName: v_B1_R
+      position: {x: -0.0000000048428768, y: 0.07967635, z: 0.0000000014901159}
+      rotation: {x: -0.2623381, y: 0.1505905, z: -0.1506658, w: 0.9411701}
+      scale: {x: 0.99999547, y: 1.0000039, z: 1.0000035}
+    - name: v_B3_R
+      parentName: v_B2_R
+      position: {x: -0.0000000071711828, y: 0.09211977, z: 0.000000006332993}
+      rotation: {x: 0.24777779, y: -0.012064077, z: 0.23561424, w: -0.9396524}
+      scale: {x: 0.9999972, y: 1.0000069, z: 1.0000075}
+    - name: v_B3_R_end
+      parentName: v_B3_R
+      position: {x: -0, y: 0.12549089, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: v2_B1_R
+      parentName: Body
+      position: {x: 0.029478697, y: 0.041634306, z: -0.017779764}
+      rotation: {x: -0.27565324, y: -0.408779, z: -0.7403052, w: 0.45701572}
+      scale: {x: 1.0000031, y: 0.99999934, z: 1.0000002}
+    - name: v2_B2_R
+      parentName: v2_B1_R
+      position: {x: 0.0000000014901159, y: 0.07344451, z: 0.0000000031664964}
+      rotation: {x: 0.35837448, y: -0.5794684, z: 0.050917853, w: -0.73019964}
+      scale: {x: 0.999998, y: 1.0000007, z: 1.0000068}
+    - name: v2_B3_R
+      parentName: v2_B2_R
+      position: {x: -7.4505796e-10, y: 0.10240892, z: 0}
+      rotation: {x: -0.24536762, y: 0.21672717, z: -0.22910179, w: 0.9166987}
+      scale: {x: 0.99999523, y: 1.0000074, z: 1.0000045}
+    - name: v2_B3_R_end
+      parentName: v2_B3_R
+      position: {x: -0, y: 0.09097601, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: v3_B1_R
+      parentName: Body
+      position: {x: 0.02947866, y: 0.05761107, z: -0.017779788}
+      rotation: {x: 0.37014017, y: -0.2921465, z: 0.55762565, w: 0.68315476}
+      scale: {x: 1.000002, y: 0.9999982, z: 1.0000025}
+    - name: v3_B2_R
+      parentName: v3_B1_R
+      position: {x: -7.4505796e-10, y: 0.067770064, z: -0.0000000022351738}
+      rotation: {x: 0.0503815, y: -0.75288165, z: 0.06939463, w: 0.6525453}
+      scale: {x: 1, y: 0.99999833, z: 1.0000054}
+    - name: v3_B3_R
+      parentName: v3_B2_R
+      position: {x: 0.000000014901159, y: 0.091027565, z: 0.0000000029802318}
+      rotation: {x: 0.0063470663, y: -0.14419693, z: 0.0074606743, w: 0.9895005}
+      scale: {x: 1.0000007, y: 1.0000021, z: 0.999999}
+    - name: v3_B3_R_end
+      parentName: v3_B3_R
+      position: {x: -0, y: 0.09958419, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: v4_B1_R
+      parentName: Body
+      position: {x: 0.028216239, y: 0.07415223, z: -0.016776942}
+      rotation: {x: 0.1263467, y: 0.04989052, z: -0.36386135, w: 0.92149466}
+      scale: {x: 1.0000018, y: 0.99999976, z: 1.000001}
+    - name: v4_B2_R
+      parentName: v4_B1_R
+      position: {x: -0.0000000021420417, y: 0.081279546, z: 0}
+      rotation: {x: -0.28362605, y: -0.16111775, z: 0.22059684, w: 0.9192031}
+      scale: {x: 0.99999785, y: 1.0000068, z: 1.000006}
+    - name: v4_B3_R
+      parentName: v4_B2_R
+      position: {x: -0.000000019744036, y: 0.10765062, z: 0.00000000912696}
+      rotation: {x: -0.19730139, y: -0.03076851, z: 0.12349795, w: 0.97204614}
+      scale: {x: 0.9999977, y: 0.9999975, z: 0.999999}
+    - name: v4_B3_R_end
+      parentName: v4_B3_R
+      position: {x: -0, y: 0.081875585, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FU_1_R
+      parentName: Body
+      position: {x: 0.026935132, y: -0.009170379, z: -0.008094986}
+      rotation: {x: -0.79885525, y: -0.3253671, z: 0.49287984, w: 0.114175335}
+      scale: {x: 1.0000012, y: 1.0000029, z: 0.99999857}
+    - name: FU_2_R
+      parentName: FU_1_R
+      position: {x: 7.4505796e-10, y: 0.03081788, z: 0.0000000014901159}
+      rotation: {x: 0.27144542, y: 0.4525158, z: 0.21481232, w: 0.8218287}
+      scale: {x: 0.999994, y: 1.0000044, z: 0.99999964}
+    - name: FU_3_R
+      parentName: FU_2_R
+      position: {x: -0.0000000018626449, y: 0.032246444, z: -0.0000000022351738}
+      rotation: {x: 0.018975839, y: 0.41738373, z: 0.1624096, w: 0.8938982}
+      scale: {x: 1.0000006, y: 1.0000036, z: 1.0000048}
+    - name: FU_3_R_end
+      parentName: FU_3_R
+      position: {x: -0, y: 0.029505378, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zahn_R
+      parentName: Body
+      position: {x: 0.011678416, y: -0.025283622, z: -0.010129797}
+      rotation: {x: 0.14158534, y: -0.4262998, z: 0.89272606, w: -0.035526477}
+      scale: {x: 0.9999967, y: 0.99999857, z: 0.99999803}
+    - name: Zahn_R_end
+      parentName: Zahn_R
+      position: {x: -0, y: 0.038123943, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: v_B3_L.001
+      parentName: Body.003
+      position: {x: -0.04054929, y: -0.27496448, z: 0.07967316}
+      rotation: {x: 0.24169096, y: 0.45449752, z: 0.6645186, w: 0.5416941}
+      scale: {x: 0.0959125, y: 0.47278875, z: 0.027176332}
+    - name: v_B3_L.001_end
+      parentName: v_B3_L.001
+      position: {x: -0, y: 0.050000172, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: v2_B3_L.001
+      parentName: Body.003
+      position: {x: -0.14955996, y: -0.14191948, z: 0.15987898}
+      rotation: {x: 0.24169193, y: 0.4544975, z: 0.6645189, w: 0.54169345}
+      scale: {x: 0.0959127, y: 0.1005108, z: 0.02717636}
+    - name: v2_B3_L.001_end
+      parentName: v2_B3_L.001
+      position: {x: -0, y: 0.050000183, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: v3_B3_L.001
+      parentName: Body.003
+      position: {x: -0.22229382, y: 0.045304514, z: 0.13607067}
+      rotation: {x: 0.24169174, y: 0.45449778, z: 0.66451836, w: 0.54169387}
+      scale: {x: 0.09591246, y: 0.09968828, z: 0.027176302}
+    - name: v3_B3_L.001_end
+      parentName: v3_B3_L.001
+      position: {x: -0, y: 0.05000004, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: v4_B3_L.001
+      parentName: Body.003
+      position: {x: -0.21346217, y: 0.18314704, z: 0.010561274}
+      rotation: {x: 0.24169165, y: 0.45449737, z: 0.6645188, w: 0.5416938}
+      scale: {x: 0.095912695, y: 0.0996884, z: 0.027176369}
+    - name: v4_B3_L.001_end
+      parentName: v4_B3_L.001
+      position: {x: -0, y: 0.05000009, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: v_B3_R.001
+      parentName: Body.003
+      position: {x: 0.048765283, y: -0.27496454, z: -0.07492682}
+      rotation: {x: -0.45449698, y: 0.24169071, z: -0.5416939, w: 0.66451925}
+      scale: {x: 0.09591273, y: 0.47278887, z: 0.027176386}
+    - name: v_B3_R.001_end
+      parentName: v_B3_R.001
+      position: {x: -0, y: 0.050000194, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: v2_B3_R.001
+      parentName: Body.003
+      position: {x: 0.06379355, y: -0.14191946, z: -0.20942749}
+      rotation: {x: 0.45449874, y: -0.2416917, z: 0.5416933, w: -0.6645183}
+      scale: {x: 0.095912814, y: 0.10051105, z: 0.027176403}
+    - name: v2_B3_R.001_end
+      parentName: v2_B3_R.001
+      position: {x: -0, y: 0.050000113, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: v3_B3_R.001
+      parentName: Body.003
+      position: {x: 0.0068359785, y: 0.04530453, z: -0.2605439}
+      rotation: {x: -0.47286057, y: 0.2186901, z: -0.52573997, w: 0.67243963}
+      scale: {x: 0.09381704, y: 0.099688455, z: 0.03370648}
+    - name: v3_B3_R.001_end
+      parentName: v3_B3_R.001
+      position: {x: -0, y: 0.05000016, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: v4_B3_R.001
+      parentName: Body.003
+      position: {x: -0.097480975, y: 0.18314703, z: -0.19019757}
+      rotation: {x: 0.4544975, y: -0.24169125, z: 0.54169357, w: -0.6645191}
+      scale: {x: 0.09591268, y: 0.099688426, z: 0.027176375}
+    - name: v4_B3_R.001_end
+      parentName: v4_B3_R.001
+      position: {x: -0, y: 0.0500001, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Spider_Eyes
+      parentName: Spider(Clone)
+      position: {x: -0.0000000018626449, y: 0, z: -0.024222966}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 20, y: 20, z: 19.999998}
+    - name: Spider
+      parentName: Spider(Clone)
+      position: {x: -0.0000000018626449, y: 0, z: -0.024222966}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 20, y: 20, z: 19.999998}
+    - name: Spider_teeth
+      parentName: Spider(Clone)
+      position: {x: -0.0000000018626449, y: 0, z: -0.024222966}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 20, y: 20, z: 19.999998}
+    - name: Spider_Fur
+      parentName: Spider(Clone)
+      position: {x: -0.0000000018626449, y: 0, z: -0.024222966}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 20, y: 20, z: 19.999998}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
