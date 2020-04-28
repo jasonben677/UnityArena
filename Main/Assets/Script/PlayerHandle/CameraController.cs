@@ -96,12 +96,13 @@ public class CameraController : MonoBehaviour
                 //if (rayHit.distance < calRadius + 1f) //如果太靠近角色模型
                 //{
                 //    //Debug.Log("rayHit.distance :" + rayHit.distance);                
-                //    transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 10f * Time.fixedDeltaTime);
+                //    transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);
+                //    ////cameraHandle.transform.rotation = Quaternion.Euler(-55f, 0, 0);
                 //}
                 //else
                 //{
                 //    tempPos = rayHit.point - dir.normalized * 0.3f;
-                //    transform.position = tempPos;                   
+                //    transform.position = tempPos;
                 //}
 
                 tempPos = rayHit.point - dir.normalized * 0.3f;
