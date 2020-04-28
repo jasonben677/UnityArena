@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     public PlayerInput pi;
     public float horizontalSpeed = 100.0f;
     public float verticalSpeed = 100.0f;
-    public float cameraDampValue = 0.3f;
+    public float cameraDampValue = 0.15f;
     //public float cameraDampRotation = 0.05f;    
 
     public Image lockDot;
@@ -72,7 +72,7 @@ public class CameraController : MonoBehaviour
             }
             //Debug.Log(enemyCol.bounds.extents.y); //halfHeight
 
-            if (Vector3.Distance(model.transform.position, lockTarget.transform.position) > 8.0f)
+            if (Vector3.Distance(model.transform.position, lockTarget.transform.position) > 10.0f)
             {
                 LockProcessA(null, false, false, pi.isAI);
             }
@@ -235,25 +235,25 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    //void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
 
-    //    //Check if there has been a hit yet
-    //    if (rayTerrain)
-    //    {
+        //Check if there has been a hit yet
+        if (rayTerrain)
+        {
 
-    //        Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * rayHit.distance);
+            Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * rayHit.distance);
 
-    //        Gizmos.DrawWireSphere(transform.position, cameraColRadius);
-    //    }
-    //    //If there hasn't been a hit yet, draw the ray at the maximum distance
-    //    else
-    //    {
+            Gizmos.DrawWireSphere(transform.position, cameraColRadius);
+        }
+        //If there hasn't been a hit yet, draw the ray at the maximum distance
+        else
+        {
 
-    //        Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * offset);
+            Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * offset);
 
-    //        Gizmos.DrawWireSphere(transform.position, cameraColRadius);
-    //    }
-    //}
+            Gizmos.DrawWireSphere(transform.position, cameraColRadius);
+        }
+    }
 }

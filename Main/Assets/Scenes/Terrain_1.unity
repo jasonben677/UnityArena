@@ -5930,10 +5930,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 134968178, guid: d8320019a28c58d43803db0012573944, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 249734897, guid: d8320019a28c58d43803db0012573944, type: 3}
+      propertyPath: ATK
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256722361, guid: d8320019a28c58d43803db0012573944, type: 3}
+      propertyPath: cameraDampValue
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 295281947268418515, guid: d8320019a28c58d43803db0012573944,
         type: 3}
       propertyPath: m_Name
       value: Land3_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 561365518732731976, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 930005602140478175, guid: d8320019a28c58d43803db0012573944,
         type: 3}
@@ -5989,6 +6006,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799468648668461412, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: ATK
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4773955325757604548, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640382086881091463, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 54.13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8320019a28c58d43803db0012573944, type: 3}

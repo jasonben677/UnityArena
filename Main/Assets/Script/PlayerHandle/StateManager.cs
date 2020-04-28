@@ -5,6 +5,9 @@ using UnityEngine;
 public class StateManager : MonoBehaviour
 {
     public ActorManager am;
+    //public HealthPoint playerHP = new HealthPoint(100, 10);
+
+
 
     public float HPMax = 100.0f;
     public float HP = 15.0f;
