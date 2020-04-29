@@ -78,8 +78,8 @@ public class PlayerInput : MonoBehaviour
             targetDright = 0;
         }
 
-        Dup = Mathf.SmoothDamp(Dup, targetDup, ref velocityDup, 0.05f);
-        Dright = Mathf.SmoothDamp(Dright, targetDright, ref velocityDright, 0.05f);
+        Dup = Mathf.SmoothDamp(Dup, targetDup, ref velocityDup, 0.03f);
+        Dright = Mathf.SmoothDamp(Dright, targetDright, ref velocityDright, 0.03f);
 
         Vector2 tempDAxis = SquareToCircle(new Vector2(Dright, Dup));
         float Dright2 = tempDAxis.x;
