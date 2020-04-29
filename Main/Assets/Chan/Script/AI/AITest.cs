@@ -9,6 +9,7 @@ public class AITest : MonoBehaviour
 
     void Start()
     {
+
         //賦予所有怪物Layer為Enemy
         this.gameObject.layer = LayerMask.NameToLayer("Enemy");
         //獲取所有Tag為Player的目標
@@ -17,7 +18,7 @@ public class AITest : MonoBehaviour
 
     void Update()
     {
-        LookRay.LockTarget(data);
+        CheackScope.LockTarget(data);
         EnterInto.EnterRange(data);
 
 
@@ -44,8 +45,17 @@ public class AITest : MonoBehaviour
 
             Vector3 vLastTemp = Quaternion.Euler(0.0f, 30f, 0.0f) * -transform.right;
 
+
+            //最近的範圍
             Gizmos.color = Color.white;
-            Gizmos.DrawWireSphere(this.transform.position, data.m_fPursuitRange);
+            Gizmos.DrawWireSphere(this.transform.position, data.m_fPursuitRange*0.3f);
+            //最遠的範圍
+            Gizmos.color = Color.white;
+            CheackScope.LookRange(data, 45, 135f, 1f);
+            //中間的範圍
+            Gizmos.color = Color.yellow;
+            CheackScope.LookRange(data, -10, 190f, 0.8f);
+
 
 
         }

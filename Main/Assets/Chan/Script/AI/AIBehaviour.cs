@@ -58,7 +58,7 @@ public class AIBehaviour
 
         Vector3 cPos = data.m_ObjEnemy.transform.position;
 
-        Vector3 vec = data.m_ArrayVTarget - cPos;
+        Vector3 vec = data.m_vTarget - cPos;
 
         vec.y = 0;
         vec.Normalize();

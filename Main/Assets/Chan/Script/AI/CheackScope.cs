@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 //怪物的視野範圍
-public class LookRay : MonoBehaviour
+public class CheackScope : MonoBehaviour
 {
 
     /// <summary>
@@ -32,13 +32,19 @@ public class LookRay : MonoBehaviour
                 //儲存現在的i值
                 int id = i;
                 //儲存現在的目標的位置
-                data.m_ArrayVTarget = data.ArrTarget[id].transform.position;
+                data.m_vTarget = data.ArrTarget[id].transform.position;
             }
         }
 
     }
 
-    /*// Gizmos 的怪物追擊範圍
+    /// <summary>
+    /// Gizmos 的怪物追擊範圍
+    /// </summary>
+    /// <param name="data"></param>
+    /// <param name="x">角度</param>
+    /// <param name="y">最大角度</param>
+    /// <param name="z">0-1之間變更距離</param>
     static public void LookRange(AIData data, int x, float y, float z)
     {
         GameObject ObjEnemy = data.m_ObjEnemy;
@@ -47,14 +53,14 @@ public class LookRay : MonoBehaviour
         {
             Vector3 vR = -ObjEnemy.transform.right;
             Vector3 vTemp = Quaternion.Euler(0.0f, 1 * i, 0.0f) * vR;
-            Vector3 Start = ObjEnemy.transform.position + vLastTemp * (data.m_fProbeLenght / z);
-            Vector3 End = ObjEnemy.transform.position + vTemp * (data.m_fProbeLenght / z);
+            Vector3 Start = ObjEnemy.transform.position + vLastTemp * (data.m_fPursuitRange * z);
+            Vector3 End = ObjEnemy.transform.position + vTemp * (data.m_fPursuitRange * z);
             vLastTemp = vTemp;
             Gizmos.DrawLine(Start, End);
         }
 
 
-    }*/
+    }
 
     /// <summary>
     /// 射線的的範圍也是視線的範圍
@@ -74,7 +80,7 @@ public class LookRay : MonoBehaviour
 
         for (int i = 0; i < accuracy; i++)
         {
-            if (LookRay.LookAround(data, Quaternion.Euler(0, -angle / 2 + i * subAngle + Mathf.Repeat(rotatePerSecond * Time.time, subAngle), 0), distance, debugColor))
+            if (global::CheackScope.LookAround(data, Quaternion.Euler(0, -angle / 2 + i * subAngle + Mathf.Repeat(rotatePerSecond * Time.time, subAngle), 0), distance, debugColor))
             {
                 return true;
                 //Debug.Log("hit Player");
@@ -107,6 +113,35 @@ public class LookRay : MonoBehaviour
             return true;
         }
         return false;
+
+    }
+
+
+
+
+    /// <summary>
+    /// 偵查範圍
+    /// </summary>
+    /// <param name="data"></param>
+    /// <param name="Angle">視野角度</param>
+    /// <param name="Value">0-1的數字來減短看的到的距離</param>
+
+    static public bool LookScope(AIData data,  float Angle, float Value) 
+    {
+        //怪物與玩家的距離
+        float fdis = Vector3.Distance(data.m_vTarget, data.m_ObjEnemy.transform.position);
+        float fAngle = Vector3.Angle(data.m_ObjEnemy.transform.forward, data.m_vTarget - data.m_ObjEnemy.transform.position);
+
+        if (fdis <= (data.m_fPursuitRange*Value) && fAngle <= Angle/2)
+        {
+            Debug.Log("看到你了");
+            return true;
+        }
+        else 
+        {
+            Debug.Log("跑去哪了");
+            return false;
+        }
 
     }
 

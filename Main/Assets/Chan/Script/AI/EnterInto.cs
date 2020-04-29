@@ -17,39 +17,38 @@ public class EnterInto
         Vector3 cpos = ObjEnemy.transform.position;
 
         //抓取怪物與目標的距離並轉換成長度
-        Vector3 vec = data.m_ArrayVTarget - cpos;
+        Vector3 vec = data.m_vTarget - cpos;
         float m_fVec = vec.magnitude;
 
         //data資料不為空的時候
         if (data != null)
         {
-            //目標是否在怪物背後(怪物背後的距離為m_fPursuitRange * 0.3f)
+            //目標是否在怪物背後，怪物判斷玩家最近的範圍
             if (m_fVec < (data.m_fPursuitRange * 0.3f))
             {
                 //怪物進入攻擊範圍
                 if (m_fVec < 10)
-                {//速度要為0最好改成遞減 追擊為false
-                    data.m_fMinSpeed = 0.0f;
+                {
+                    //速度要為0最好改成遞減 追擊為false
                     data.m_bChase = false;
 
                 }
                 //目標脫離攻擊範圍 進入追擊 速度遞增恢復 追擊為True
-                data.m_fMinSpeed = 0.2f;
                 data.m_bChase = true;
             }
             //目標不在最怪物背後
             else if (m_fVec > (data.m_fPursuitRange * 0.3f))
             {
-                //確認是否有目標進入怪物扇形偵測範圍230度偵測距離m_fPursuitRange*0.6可修改(目前為探針掃描待修*****改成範圍探測*****)
-                if (LookRay.Look(data, 10f, 230, data.m_fRotatePerSecond, data.m_fPursuitRange * 0.6f, Color.blue))
+                //怪物兩側的偵測範圍
+                if (CheackScope.LookScope(data, data.m_fAngle / 2, 1))
                 {
                     //追擊為true
                     data.m_bChase = true;
                 }
                 else
                 {
-                    //確認是否有目標進入怪物扇形偵測範圍90度偵測距離m_fPursuitRange(目前為探針掃描待修*****改成範圍探測*****)
-                    if (LookRay.Look(data, 5f, 90, data.m_fRotatePerSecond, data.m_fPursuitRange, Color.blue))
+                    //怪物正前方最遠距裡的範圍
+                    if (CheackScope.LookScope(data, data.m_fAngle + 20f, 0.8f))
                     {
                         //追擊為true
                         data.m_bChase = true;

@@ -11,7 +11,7 @@ public class AIData
     //所有目標
     public GameObject[] ArrTarget;
 
-    //速度
+   //速度
     public float m_fSpeed;
 
     //最大速度
@@ -33,10 +33,13 @@ public class AIData
     //追擊確認
     public bool m_bChase;
 
+    //可視角度
+    public float m_fAngle;
+
 
     //目標的位置
     //[HideInInspector]
-    public Vector3 m_ArrayVTarget;
+    public Vector3 m_vTarget;
 
 
     //當前向量
