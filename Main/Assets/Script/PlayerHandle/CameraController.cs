@@ -93,20 +93,22 @@ public class CameraController : MonoBehaviour
         {
             if (blockSight == true)
             {
-                //if (rayHit.distance < calRadius + 1f) //如果太靠近角色模型
-                //{
-                //    //Debug.Log("rayHit.distance :" + rayHit.distance);                
-                //    transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);
-                //    ////cameraHandle.transform.rotation = Quaternion.Euler(-55f, 0, 0);
-                //}
-                //else
-                //{
-                //    tempPos = rayHit.point - dir.normalized * 0.3f;
-                //    transform.position = tempPos;
-                //}
+                if (rayHit.distance < calRadius +0.35f) //如果太靠近角色模型
+                {
+                    //Debug.Log("rayHit.distance :" + rayHit.distance);                
+                    //transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);
+                    ////cameraHandle.transform.rotation = Quaternion.Euler(-55f, 0, 0);
+                    tempPos = cameraHandle.transform.position + dir.normalized * (calRadius + 0.35f);
+                    transform.position = tempPos;
+                }
+                else
+                {
+                    tempPos = rayHit.point - dir.normalized * 0.25f;
+                    transform.position = tempPos;
+                }
 
-                tempPos = rayHit.point - dir.normalized * 0.3f;
-                transform.position = tempPos;
+                //tempPos = rayHit.point - dir.normalized * 0.3f;
+                //transform.position = tempPos;
             }
             else
             {
@@ -181,7 +183,7 @@ public class CameraController : MonoBehaviour
     {
         if (pi.isAI == false)
         {
-            //if((playerHandle.transform.position - cameraHandle.transform.position).magnitude > 1.6f)
+            //if ((playerHandle.transform.position - cameraHandle.transform.position).magnitude > 1.65f)
             //{
             //    cameraHandle.transform.position = Vector3.SmoothDamp(cameraHandle.transform.position, playerHandle.transform.position + new Vector3(0, 1.6f, 0), ref cameraDampvelocity, cameraDampValue);
 
@@ -235,25 +237,25 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    //void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
 
-    //    //Check if there has been a hit yet
-    //    if (rayTerrain)
-    //    {
+        //Check if there has been a hit yet
+        if (rayTerrain)
+        {
 
-    //        Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * rayHit.distance);
+            Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * rayHit.distance);
 
-    //        Gizmos.DrawWireSphere(transform.position, cameraColRadius);
-    //    }
-    //    //If there hasn't been a hit yet, draw the ray at the maximum distance
-    //    else
-    //    {
+            Gizmos.DrawWireSphere(transform.position, cameraColRadius);
+        }
+        //If there hasn't been a hit yet, draw the ray at the maximum distance
+        else
+        {
 
-    //        Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * offset);
+            Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * offset);
 
-    //        Gizmos.DrawWireSphere(transform.position, cameraColRadius);
-    //    }
-    //}
+            Gizmos.DrawWireSphere(transform.position, cameraColRadius);
+        }
+    }
 }

@@ -76,7 +76,7 @@ public class ActorController : MonoBehaviour
         if (camcon.lockState == false)
         {
             float targetRunMulti = ((pi.run) ? 2.0f : 1.0f);
-            anim.SetFloat("forward", pi.Dmag * Mathf.Lerp(anim.GetFloat("forward"), targetRunMulti, 0.4f)); //調整走跑相互切換的流暢度
+            anim.SetFloat("forward", pi.Dmag * Mathf.Lerp(anim.GetFloat("forward"), targetRunMulti, 0.3f)); //調整走跑相互切換的流暢度
             anim.SetFloat("right", 0);
         }
         else
@@ -135,7 +135,7 @@ public class ActorController : MonoBehaviour
         {
             if (pi.Dmag > 0.1f)
             {
-                Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.3f); //調整方向切換時的旋轉流暢度
+                Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.25f); //調整方向切換時的旋轉流暢度
                 model.transform.forward = targetForward;
             }
 
@@ -155,7 +155,7 @@ public class ActorController : MonoBehaviour
                 }
                 else
                 {
-                    Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.3f); //調整方向切換時的旋轉流暢度
+                    Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.25f); //調整方向切換時的旋轉流暢度
                     model.transform.forward = targetForward;
                 }
                 

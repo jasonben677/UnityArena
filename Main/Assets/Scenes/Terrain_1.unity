@@ -5938,6 +5938,14 @@ PrefabInstance:
       propertyPath: ATK
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 846369827, guid: d8320019a28c58d43803db0012573944, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085858649, guid: d8320019a28c58d43803db0012573944, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1256722361, guid: d8320019a28c58d43803db0012573944, type: 3}
       propertyPath: cameraDampValue
       value: 0.15
