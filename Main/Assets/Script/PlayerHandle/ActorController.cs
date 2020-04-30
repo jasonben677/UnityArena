@@ -189,7 +189,8 @@ public class ActorController : MonoBehaviour
         sendTime += Time.fixedDeltaTime;
         if (sendTime >= 0.25f && useServer)
         {
-            LoginManager.instance.SendPos(transform.position);
+            Vector2 moveStatus = new Vector2(anim.GetFloat("forward"), anim.GetFloat("right"));
+            LoginManager.instance.SendPos(transform.position, model.transform.forward, moveStatus);
             sendTime = 0;
         }
         friend.UpdateFriend();

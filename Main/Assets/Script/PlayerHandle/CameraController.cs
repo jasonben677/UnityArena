@@ -253,7 +253,7 @@ public class CameraController : MonoBehaviour
         else
         {
 
-            Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * offset);
+            //Gizmos.DrawRay(cameraHandle.transform.position, dir.normalized * offset);
 
             Gizmos.DrawWireSphere(transform.position, cameraColRadius);
         }

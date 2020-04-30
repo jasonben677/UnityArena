@@ -36,12 +36,12 @@ public class ChatClient
         tranmitter.Send();
     }
 
-    public void SendPos(float _x, float _y, float _z)
+    public void SendPos(Vector3 _pos, Vector3 _forward, Vector2 _moveStatus)
     {
         tranmitter.mMessage.msgType = 2;
-        tranmitter.mMessage.x = _x;
-        tranmitter.mMessage.y = _y;
-        tranmitter.mMessage.z = _z;
+        tranmitter.mMessage.myPosition = (_pos.x,_pos.y, _pos.z);
+        tranmitter.mMessage.myForward = (_forward.x, _forward.y, _forward.z);
+        tranmitter.mMessage.myMoveStatus = (_moveStatus.x, _moveStatus.y);
         tranmitter.Send();
     }
 

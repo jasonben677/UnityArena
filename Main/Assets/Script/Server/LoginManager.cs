@@ -47,13 +47,21 @@ public class LoginManager : MonoBehaviour
 
     }
 
-    public void SendPos(Vector3 pos)
+    public void SendPos(Vector3 pos, Vector3 forward, Vector2 moveStatus)
     {
-        float newX = (float)System.Math.Round(pos.x, 2);
-        float newY = (float)System.Math.Round(pos.y, 2);
-        float newZ = (float)System.Math.Round(pos.z, 2);
+        float newPosX = (float)System.Math.Round(pos.x, 2);
+        float newPosY = (float)System.Math.Round(pos.y, 2);
+        float newPosZ = (float)System.Math.Round(pos.z, 2);
 
-        client.SendPos(newX, newY, newZ);
+        float newforwardX = (float)System.Math.Round(forward.x, 2);
+        float newforwardY = (float)System.Math.Round(forward.y, 2);
+        float newforwardZ = (float)System.Math.Round(forward.z, 2);
+
+        float newmoveX = (float)System.Math.Round(moveStatus.x, 2);
+        float newmoveY = (float)System.Math.Round(moveStatus.y, 2);
+
+
+        client.SendPos(new Vector3(newPosX, newPosY, newPosZ), new Vector3(newforwardX, newforwardY, newforwardZ), new Vector2(newmoveX, newmoveY));
     }
     public void Login()
     {
