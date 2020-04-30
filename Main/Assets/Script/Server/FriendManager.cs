@@ -7,6 +7,7 @@ public class FriendManager : MonoBehaviour
     Vector3 nextForward = Vector3.zero;
     Animator player2Anim;
     float runIndex = 0;
+    bool attack = false;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class FriendManager : MonoBehaviour
         try
         {
             LoginManager.instance.client.tranmitter.Register(2, GetNextPos);
+            LoginManager.instance.client.tranmitter.Register(3, GetAttackStatus);
         }
         catch (System.Exception e)
         {
@@ -36,10 +38,22 @@ public class FriendManager : MonoBehaviour
         nextPos = new Vector3(_player.friend.position.x, _player.friend.position.y, _player.friend.position.z);
         nextForward = new Vector3(_player.friend.forward.x, _player.friend.forward.y, _player.friend.forward.z);
         runIndex = (_player.friend.moveStatus.forward > 0.05f) ? 1.0f : 0.0f;
+        attack = _player.friend.attackStatus;
+    }
+
+    public void GetAttackStatus(Common.Tranmitter _tranmitter, TestDll.Message03 _player)
+    {
+        player2Anim.SetTrigger("attack");
+        Debug.Log("attack");
     }
 
     public void UpdateFriend()
     {
+        if (!friend.activeSelf) 
+        {
+            return; 
+        }
+
         float dis = (nextPos - friend.transform.position).magnitude;
 
         if (nextForward != Vector3.zero)
@@ -48,8 +62,11 @@ public class FriendManager : MonoBehaviour
         }
 
         friend.transform.position = Vector3.Lerp(friend.transform.position, nextPos, Time.fixedDeltaTime * 2f);
+
         player2Anim.SetFloat("forward", runIndex);
     }
+
+
 
 
 }

@@ -77,6 +77,7 @@ public class LoginManager : MonoBehaviour
         client.tranmitter.Register(0, (tranmitter, message) => { });
         client.tranmitter.Register(1, (tranmitter, message) => { });
         client.tranmitter.Register(2, (tranmitter, message) => { });
+        client.tranmitter.Register(3, (tranmitter, message) => { });
 
         if (connectSucceed)
         {
@@ -87,6 +88,17 @@ public class LoginManager : MonoBehaviour
             client.tranmitter.Register(0, EnterGameScence);
         }
     }
+
+    /// <summary>
+    /// 調整攻擊(暫時不傳送)
+    /// </summary>
+    public void SetAttack(bool _attack)
+    {
+        client.tranmitter.mMessage.msgType = 3;
+        client.tranmitter.mMessage.myAttackStatus = _attack;
+        client.tranmitter.Send();
+    }
+
 
     private void EnterGameScence(Common.Tranmitter _tranmitter, Message03 _player)
     {

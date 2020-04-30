@@ -92,15 +92,22 @@ namespace Common
 		{
 			mMessage = serialManager.DeserializeClass(mClient);
 			int num = mMessage.msgType;
-			if (num == -1)
+			try
 			{
-				Console.WriteLine("error");
+				if (num == -1)
+				{
+					Console.WriteLine("error");
+				}
+				else
+				{
+					mDelegates[num]?.DynamicInvoke(this, mMessage);
+				}
 			}
-			else
+			catch (Exception)
 			{
-				mDelegates[num]?.DynamicInvoke(this, mMessage);
-				Console.WriteLine("receive : " + num);
+				Console.WriteLine("Error Index : "+ num);
 			}
+
 		}
 	}
 }
