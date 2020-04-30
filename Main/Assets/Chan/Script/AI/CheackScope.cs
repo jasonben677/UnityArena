@@ -30,9 +30,9 @@ public class CheackScope : MonoBehaviour
             {
                 TemLength = fDis;
                 //儲存現在的i值
-                int id = i;
+                data.m_fID = i;
                 //儲存現在的目標的位置
-                data.m_vTarget = data.ArrTarget[id].transform.position;
+                data.m_vTarget = data.ArrTarget[data.m_fID].transform.position;
             }
         }
 
@@ -80,7 +80,7 @@ public class CheackScope : MonoBehaviour
 
         for (int i = 0; i < accuracy; i++)
         {
-            if (global::CheackScope.LookAround(data, Quaternion.Euler(0, -angle / 2 + i * subAngle + Mathf.Repeat(rotatePerSecond * Time.time, subAngle), 0), distance, debugColor))
+            if (LookAround(data, Quaternion.Euler(0, -angle / 2 + i * subAngle + Mathf.Repeat(rotatePerSecond * Time.time, subAngle), 0), distance, debugColor))
             {
                 return true;
                 //Debug.Log("hit Player");
@@ -97,7 +97,7 @@ public class CheackScope : MonoBehaviour
     /// <param name="distance">距離</param>
     /// <param name="debugColor">顏色</param>
     /// <returns></returns>
-    static public bool LookAround(AIData data, Quaternion eulerAnger, float distance, Color debugColor)
+    static private bool LookAround(AIData data, Quaternion eulerAnger, float distance, Color debugColor)
     {
         GameObject ObjEnemy = data.m_ObjEnemy;
         //劃出所有掃描線

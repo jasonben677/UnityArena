@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class AITest : MonoBehaviour
 {
-    public AIData data;
+    public Animator ani;
 
+    public AIData data;
 
     void Start()
     {
@@ -14,6 +15,8 @@ public class AITest : MonoBehaviour
         this.gameObject.layer = LayerMask.NameToLayer("Enemy");
         //獲取所有Tag為Player的目標
         data.ArrTarget = GameObject.FindGameObjectsWithTag("Player");
+
+        ani = gameObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -26,13 +29,19 @@ public class AITest : MonoBehaviour
 
         if (data.m_bChase)
         {
-            data.m_fRotatePerSecond = 0f;
+            
             AIBehaviour.Playerdirection(data);
             AIBehaviour.Move(data);
+            
+
+            EnemyAnimater(EnemyAni.RUN);
+
         }
         else
         {
-            data.m_fRotatePerSecond = 100f;
+            EnemyAnimater(EnemyAni.IDLE);
+            Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - transform.position, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f);
         }
     }
     private void OnDrawGizmos()
@@ -48,7 +57,7 @@ public class AITest : MonoBehaviour
 
             //最近的範圍
             Gizmos.color = Color.white;
-            Gizmos.DrawWireSphere(this.transform.position, data.m_fPursuitRange*0.3f);
+            Gizmos.DrawWireSphere(this.transform.position, data.m_fPursuitRange * 0.3f);
             //最遠的範圍
             Gizmos.color = Color.white;
             CheackScope.LookRange(data, 45, 135f, 1f);
@@ -62,6 +71,49 @@ public class AITest : MonoBehaviour
 
 
 
+    }
+
+    public void EnemyAnimater(EnemyAni ANIMATER) 
+    {
+        switch (ANIMATER) 
+        {
+            case EnemyAni.IDLE:
+                ani.Play("Idle");
+                break;
+            case EnemyAni.WALK:
+                ani.Play("Walk");
+
+                break;
+            case EnemyAni.RUN:
+                ani.Play("Run");
+
+                break;
+            case EnemyAni.ATTACK1:
+                ani.Play("Attack1");
+
+                break;
+            case EnemyAni.ATTACK2:
+                ani.Play("Attack2");
+
+                break;
+
+            case EnemyAni.ATTACK3:
+                ani.Play("Attack3");
+
+                break;
+        }
+
+
+    }
+    public enum EnemyAni
+    {
+        NONE = 0,
+        IDLE,
+        WALK,
+        RUN,
+        ATTACK1,
+        ATTACK2,
+        ATTACK3
     }
 
 }

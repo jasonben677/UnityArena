@@ -27,14 +27,16 @@ public class EnterInto
             if (m_fVec < (data.m_fPursuitRange * 0.3f))
             {
                 //怪物進入攻擊範圍
-                if (m_fVec < 10)
+                if (m_fVec < data.AttRange)
                 {
                     //速度要為0最好改成遞減 追擊為false
                     data.m_bChase = false;
-
                 }
-                //目標脫離攻擊範圍 進入追擊 速度遞增恢復 追擊為True
-                data.m_bChase = true;
+                else
+                {
+                    //目標脫離攻擊範圍 進入追擊 速度遞增恢復 追擊為True
+                    data.m_bChase = true;
+                }
             }
             //目標不在最怪物背後
             else if (m_fVec > (data.m_fPursuitRange * 0.3f))

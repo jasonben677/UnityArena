@@ -23,6 +23,8 @@ public class AIData
     //半徑
     public float m_fRadius;
 
+    //攻擊範圍
+    public float AttRange;
 
     //探針長度
     public float m_fProbeLenght;
@@ -36,10 +38,13 @@ public class AIData
     //可視角度
     public float m_fAngle;
 
+    //鎖定目標的ID
+    public int m_fID;
 
     //目標的位置
     //[HideInInspector]
     public Vector3 m_vTarget;
+
 
 
     //當前向量
