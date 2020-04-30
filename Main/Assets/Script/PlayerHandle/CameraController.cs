@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
 
     //private float cameraLerpValue;
     private Vector3 cameraDampvelocity = Vector3.zero;
-    //private Vector3 currentPos; //用來存初設local位置
+    private Vector3 currentPos; //用來存初設local位置
     private Vector3 tempPos;
     private float offset; //初設的距離
     
@@ -96,8 +96,7 @@ public class CameraController : MonoBehaviour
                 if (rayHit.distance < calRadius +0.35f) //如果太靠近角色模型
                 {
                     //Debug.Log("rayHit.distance :" + rayHit.distance);                
-                    //transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);
-                    ////cameraHandle.transform.rotation = Quaternion.Euler(-55f, 0, 0);
+                    //transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);                    
                     tempPos = cameraHandle.transform.position + dir.normalized * (calRadius + 0.35f);
                     transform.position = tempPos;
                 }
@@ -105,24 +104,17 @@ public class CameraController : MonoBehaviour
                 {
                     tempPos = rayHit.point - dir.normalized * 0.3f;
                     transform.position = tempPos;
-                }
-
-                //tempPos = rayHit.point - dir.normalized * 0.3f;
-                //transform.position = tempPos;
+                }                
             }
             else
             {
                 transform.position = tempPos;               
-            }
-
-            
+            }            
         }
         else //遮蔽物不在射線範圍內
-        {
-            //transform.localPosition = currentPos;
-            transform.position = cameraHandle.transform.position + dir.normalized * offset;
-            transform.localPosition = new Vector3(0, 0, -2.5f);            
-            //transform.localPosition = currentPos;
+        {            
+            transform.position = cameraHandle.transform.position + dir.normalized * offset;                       
+            transform.localPosition = currentPos;
         }
         CameraRotate();
         CameraTranslate();
