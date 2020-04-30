@@ -13,6 +13,12 @@ public class HealthPoint : MonoBehaviour
         HP = _HP;
     }
 
+    public void AddHP(float value)
+    {
+        HP += value;
+        HP = Mathf.Clamp(HP, 0, MaxHP);
+    }
+
     //// Start is called before the first frame update
     //void Start()
     //{

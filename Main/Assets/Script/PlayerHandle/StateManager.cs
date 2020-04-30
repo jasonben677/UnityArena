@@ -60,11 +60,11 @@ public class StateManager : MonoBehaviour
         isImmortal = isRoll || isJab;
     }
 
-    public void AddHP(float value)
-    {
-        playerHP.HP += value;
-        playerHP.HP = Mathf.Clamp(playerHP.HP, 0, playerHP.MaxHP);        
-    }    
+    //public void AddHP(float value)
+    //{
+    //    playerHP.HP += value;
+    //    playerHP.HP = Mathf.Clamp(playerHP.HP, 0, playerHP.MaxHP);        
+    //}    
 
     public void Test()
     {

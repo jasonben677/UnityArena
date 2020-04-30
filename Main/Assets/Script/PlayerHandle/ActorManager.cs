@@ -90,7 +90,7 @@ public class ActorManager : MonoBehaviour
         }
         else
         {
-            sm.AddHP(-1 * targetWc.GetATK());
+            sm.playerHP.AddHP(-1 * targetWc.GetATK());
             if (sm.playerHP.HP > 0)
             {
                 if (doHitAnimation)
