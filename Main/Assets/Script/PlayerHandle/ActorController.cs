@@ -102,7 +102,12 @@ public class ActorController : MonoBehaviour
         {
             if (pi.attack) //普通攻擊
             {
-            anim.SetTrigger("attack");
+                if (gameObject.layer == 11 && useServer)
+                {
+                    Debug.Log("CAttack");
+                    LoginManager.instance.SetAttack(true);
+                }
+                anim.SetTrigger("attack");
             }
 
             if (pi.counterBack) //反擊
@@ -189,11 +194,24 @@ public class ActorController : MonoBehaviour
         sendTime += Time.fixedDeltaTime;
         if (sendTime >= 0.25f && useServer)
         {
+            //bool playerAttack = false;
+
+            //if (CheckState("attack1hA") || CheckState("attack1hB") || CheckState("attack1hC"))
+            //{
+            //    playerAttack = true;
+            //}
+            //else
+            //{
+            //    playerAttack = false;
+            //}
+
             Vector2 moveStatus = new Vector2(anim.GetFloat("forward"), anim.GetFloat("right"));
+            //LoginManager.instance.SetAttack(playerAttack);
             LoginManager.instance.SendPos(transform.position, model.transform.forward, moveStatus);
             sendTime = 0;
         }
-        friend.UpdateFriend();
+
+        friend?.UpdateFriend();
     }
 
     public bool CheckState(string stateName, string LayerName = "Base Layer")
