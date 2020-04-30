@@ -166,15 +166,15 @@ public class CameraController : MonoBehaviour
         if (pi.isAI == false)
         {
             mainCamera.transform.position = transform.position;
-            if (lockTarget == null)
-            {
+            //if (lockTarget == null)
+            //{
                 mainCamera.transform.LookAt(cameraHandle.transform);
-            }
-            else
-            {
-                //mainCamera.transform.LookAt(lockTarget.transform);
-                mainCamera.transform.LookAt(lockTarget.transform.position + new Vector3 (0, enemyCol.bounds.extents.y * 2.0f, 0));
-            }
+            //}
+            //else
+            //{
+            //    //mainCamera.transform.LookAt(lockTarget.transform);
+            //    mainCamera.transform.LookAt(lockTarget.transform.position + new Vector3 (0, enemyCol.bounds.extents.y * 2.0f, 0));
+            //}
         }
 
     }
