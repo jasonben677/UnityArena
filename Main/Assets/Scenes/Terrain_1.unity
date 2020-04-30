@@ -8330,7 +8330,7 @@ PrefabInstance:
     - target: {fileID: 1549055075169414706, guid: d8320019a28c58d43803db0012573944,
         type: 3}
       propertyPath: walkSpeed
-      value: 4
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1799468648668461412, guid: d8320019a28c58d43803db0012573944,
         type: 3}
