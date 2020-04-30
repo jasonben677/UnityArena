@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
 
     //private float cameraLerpValue;
     private Vector3 cameraDampvelocity = Vector3.zero;
-    private Vector3 currentPos; //用來存初設local位置
+    //private Vector3 currentPos; //用來存初設local位置
     private Vector3 tempPos;
     private float offset; //初設的距離
     
@@ -103,7 +103,7 @@ public class CameraController : MonoBehaviour
                 }
                 else
                 {
-                    tempPos = rayHit.point - dir.normalized * 0.25f;
+                    tempPos = rayHit.point - dir.normalized * 0.3f;
                     transform.position = tempPos;
                 }
 
@@ -112,14 +112,17 @@ public class CameraController : MonoBehaviour
             }
             else
             {
-                transform.position = tempPos;
+                transform.position = tempPos;               
             }
 
             
         }
         else //遮蔽物不在射線範圍內
         {
-            transform.localPosition = currentPos;
+            //transform.localPosition = currentPos;
+            transform.position = cameraHandle.transform.position + dir.normalized * offset;
+            transform.localPosition = new Vector3(0, 0, -2.5f);            
+            //transform.localPosition = currentPos;
         }
         CameraRotate();
         CameraTranslate();
