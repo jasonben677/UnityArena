@@ -8327,6 +8327,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1549055075169414706, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: walkSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1799468648668461412, guid: d8320019a28c58d43803db0012573944,
         type: 3}
       propertyPath: ATK
@@ -8965,6 +8970,11 @@ PrefabInstance:
     - target: {fileID: 4111973381435338751, guid: d8320019a28c58d43803db0012573944,
         type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111973381442755617, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4583640043311256187, guid: d8320019a28c58d43803db0012573944,
@@ -11117,7 +11127,23 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9037449181114230437, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9037449181114230437, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.316
+      objectReference: {fileID: 0}
+    - target: {fileID: 9037449181114230437, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1364619186249400350, guid: d8320019a28c58d43803db0012573944, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d8320019a28c58d43803db0012573944, type: 3}
 --- !u!1 &1565597563 stripped
 GameObject:
