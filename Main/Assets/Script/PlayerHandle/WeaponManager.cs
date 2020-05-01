@@ -24,11 +24,21 @@ public class WeaponManager : MonoBehaviour
         wcR = whR.GetComponent<WeaponController>();
     }
 
-    //// Update is called once per frame
-    //void Update()
-    //{
+    public void UpdateWeaponCollider(Collider col)
+    {
+        weaponColR = col;
+    }
 
-    //}
+    public void UnLoadWeapon()
+    {
+        foreach (Transform tran in whR.transform)
+        {
+            weaponColR = null;
+            wcR.wdata = null;
+            Destroy(tran.gameObject);
+        }
+    }
+
     public void WeaponEnable()
     {
         weaponColR.enabled = true;

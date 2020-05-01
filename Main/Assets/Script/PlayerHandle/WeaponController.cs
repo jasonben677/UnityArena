@@ -8,7 +8,7 @@ public class WeaponController : MonoBehaviour
     public WeaponData wdata;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         wdata = GetComponentInChildren<WeaponData>();
     }
