@@ -12,7 +12,7 @@ public class DummyIUserInput : PlayerInput
         while (true)
         {
             attack = true;
-            yield return 0;
+            yield return 3;
         }
     }
 

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     private WeaponDataBase weaponDB;
     private WeaponFactory weaponFact;
+    
 
 
     // Start is called before the first frame update
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
         OnSwitchWeapon();  
     }
 
+    
 
     private void OnSwitchWeapon()    //切換武器功能
     {
@@ -56,8 +58,7 @@ public class GameManager : MonoBehaviour
             testWm.UnLoadWeapon();
         }
     }
-
-
+    
     private void CheckGameObject()
     {
         if(tag == "GM")
