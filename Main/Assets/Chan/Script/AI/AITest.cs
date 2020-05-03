@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class AITest : MonoBehaviour
 {
-    public Animator ani;
-
+     AIAnimater Ani;
+    [Header("------AIData------")]
     public AIData data;
+    [Header("------AIBoolAni------")]
+    public AIManage m_AImag;
 
     void Start()
     {
@@ -15,33 +17,63 @@ public class AITest : MonoBehaviour
         this.gameObject.layer = LayerMask.NameToLayer("Enemy");
         //獲取所有Tag為Player的目標
         data.ArrTarget = GameObject.FindGameObjectsWithTag("Player");
-
-        ani = gameObject.GetComponent<Animator>();
+        //抓取動作腳本
+        Ani = GetComponent<AIAnimater>();
+        data.m_fThinkTime = Random.Range(0.2f, 0.5f);
     }
 
     void Update()
     {
         CheackScope.LockTarget(data);
-        EnterInto.EnterRange(data);
+        EnterInto.EnterRange(data,m_AImag);
 
-
-
-
-        if (data.m_bChase)
+        //追擊確認
+        if (m_AImag.m_bChase)
         {
-            
-            AIBehaviour.Playerdirection(data);
-            AIBehaviour.Move(data);
-            
+            //發現停頓
+            if (data.m_fThinkTime <= 0)
+            {
 
-            EnemyAnimater(EnemyAni.RUN);
-
+                //轉向立
+                AIBehaviour.Playerdirection(data);
+                //追擊
+                AIBehaviour.Move(data);
+                //撥放跑步動畫
+                Ani.EnemyAnimater(AIAnimater.EnemyAni.RUN);
+            }else
+            {
+                //發呆時間
+                data.m_fThinkTime -= Time.deltaTime;
+            }
         }
         else
         {
-            EnemyAnimater(EnemyAni.IDLE);
-            Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - transform.position, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f);
+            //發呆時間刷新
+            data.m_fThinkTime = Random.Range(0.2f, 0.5f);
+            //攻擊判斷
+            if (m_AImag.m_bAttack)
+            {
+                //攻擊選擇
+                m_AImag.m_iAttackRandom = Random.Range(1, 3);
+
+                if (m_AImag.m_iAttackRandom == 1)
+                {
+
+                    Ani.EnemyAttack(AIAnimater.EnemyAni.ATTACK1);
+
+                }
+                else if (m_AImag.m_iAttackRandom == 2)
+                {
+                    Ani.EnemyAttack(AIAnimater.EnemyAni.ATTACK2);
+                }
+                else if (m_AImag.m_iAttackRandom == 3)
+                {
+                    Ani.EnemyAttack(AIAnimater.EnemyAni.ATTACK3);
+                }
+            }
+            //甚麼都沒看到進入Idle
+            Ani.EnemyAnimater(AIAnimater.EnemyAni.IDLE);
+
         }
     }
     private void OnDrawGizmos()
@@ -73,47 +105,6 @@ public class AITest : MonoBehaviour
 
     }
 
-    public void EnemyAnimater(EnemyAni ANIMATER) 
-    {
-        switch (ANIMATER) 
-        {
-            case EnemyAni.IDLE:
-                ani.Play("Idle");
-                break;
-            case EnemyAni.WALK:
-                ani.Play("Walk");
-
-                break;
-            case EnemyAni.RUN:
-                ani.Play("Run");
-
-                break;
-            case EnemyAni.ATTACK1:
-                ani.Play("Attack1");
-
-                break;
-            case EnemyAni.ATTACK2:
-                ani.Play("Attack2");
-
-                break;
-
-            case EnemyAni.ATTACK3:
-                ani.Play("Attack3");
-
-                break;
-        }
-
-
-    }
-    public enum EnemyAni
-    {
-        NONE = 0,
-        IDLE,
-        WALK,
-        RUN,
-        ATTACK1,
-        ATTACK2,
-        ATTACK3
-    }
+    
 
 }

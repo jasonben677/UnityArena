@@ -22,7 +22,7 @@ public class AIData
 
     //半徑
     public float m_fRadius;
-
+      
     //攻擊範圍
     public float AttRange;
 
@@ -32,29 +32,26 @@ public class AIData
     //追擊範圍
     public float m_fPursuitRange;
 
-    //追擊確認
-    public bool m_bChase;
-
     //可視角度
     public float m_fAngle;
 
+    //思考時間
+    public float m_fThinkTime;
+
+
+    
     //鎖定目標的ID
+    [HideInInspector]
     public int m_fID;
-
     //目標的位置
-    //[HideInInspector]
+    [HideInInspector]
     public Vector3 m_vTarget;
-
-
-
     //當前向量
     [HideInInspector]
     public Vector3 m_vCurrentVector;
-
     //每秒旋轉
     [HideInInspector]
     public float m_fRotatePerSecond;
-
     //暫時的旋轉力度
     [HideInInspector]
     public float m_fTempTurnForce;
