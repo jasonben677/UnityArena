@@ -41,9 +41,7 @@ public class AIBehaviour
 
 
 
-
         cPos = cPos + data.m_fSpeed * m_tEnemy.forward;
-
         m_tEnemy.position = cPos;
     }
 

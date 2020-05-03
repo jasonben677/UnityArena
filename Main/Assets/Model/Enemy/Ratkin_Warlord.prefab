@@ -2010,7 +2010,6 @@ GameObject:
   - component: {fileID: 4527837034070371776}
   - component: {fileID: 4527837034071141486}
   - component: {fileID: 4527837034072141486}
-  - component: {fileID: 4527837035491231901}
   m_Layer: 0
   m_Name: kings_axe01
   m_TagString: Untagged
@@ -2078,20 +2077,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4527837035491231901
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4527837034069946848}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300006, guid: b534877d0b7dd48479825282eea4671f, type: 3}
 --- !u!1 &4527837034069946850
 GameObject:
   m_ObjectHideFlags: 0
@@ -2210,7 +2195,6 @@ GameObject:
   - component: {fileID: 4527837034070371782}
   - component: {fileID: 4527837034071141484}
   - component: {fileID: 4527837034072141484}
-  - component: {fileID: 4527837035937863462}
   m_Layer: 0
   m_Name: kings_axe
   m_TagString: Untagged
@@ -2277,20 +2261,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4527837035937863462
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4527837034069946854}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300008, guid: b534877d0b7dd48479825282eea4671f, type: 3}
 --- !u!1 &4527837034069946856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2423,7 +2393,6 @@ GameObject:
   - component: {fileID: 4527837034070371796}
   - component: {fileID: 4527837034071141476}
   - component: {fileID: 4527837034072141476}
-  - component: {fileID: 4527837034962526809}
   m_Layer: 0
   m_Name: Warlord_Helmet
   m_TagString: Untagged
@@ -2490,20 +2459,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4527837034962526809
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4527837034069946868}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300004, guid: b534877d0b7dd48479825282eea4671f, type: 3}
 --- !u!1 &4527837034069946872
 GameObject:
   m_ObjectHideFlags: 0
@@ -2660,7 +2615,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4527837034070371802}
   - component: {fileID: 4527837034064674158}
-  - component: {fileID: 4527837035838902921}
   m_Layer: 0
   m_Name: Warlord_body
   m_TagString: Untagged
@@ -2794,20 +2748,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.08162105, y: 0.120640814, z: -0.06378594}
     m_Extent: {x: 0.97039115, y: 0.9492572, z: 0.69040513}
   m_DirtyAABB: 0
---- !u!64 &4527837035838902921
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4527837034069946874}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!1 &4527837034069946876
 GameObject:
   m_ObjectHideFlags: 0
@@ -2899,7 +2839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b4dfa4e1daa39419a3e77e6bdfe007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ani: {fileID: 0}
   data:
     m_ObjEnemy: {fileID: 4527837034069946878}
     ArrTarget: []
@@ -2910,12 +2849,15 @@ MonoBehaviour:
     AttRange: 0
     m_fProbeLenght: 10
     m_fPursuitRange: 10
-    m_bChase: 0
     m_fAngle: 90
+    m_fThinkTime: 0
+    m_bChase: 0
+    m_fID: 0
     m_vTarget: {x: 0, y: 0, z: 0}
     m_vCurrentVector: {x: 0, y: 0, z: 0}
     m_fRotatePerSecond: 0
     m_fTempTurnForce: 0
+  m_State: {fileID: 0}
 --- !u!1 &4527837034069946878
 GameObject:
   m_ObjectHideFlags: 0
@@ -2926,7 +2868,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4527837034070371806}
   - component: {fileID: 4527837034060546988}
+  - component: {fileID: 3124360105010522125}
+  - component: {fileID: 2961737451626248739}
   - component: {fileID: 4527837034664136222}
+  - component: {fileID: 892057208}
   m_Layer: 0
   m_Name: Ratkin_Warlord
   m_TagString: Untagged
@@ -2964,12 +2909,42 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 4c5c8a32f607a1446be0562638faf2ca, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &3124360105010522125
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4527837034069946878}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0.2}
+--- !u!54 &2961737451626248739
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4527837034069946878}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!114 &4527837034664136222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2982,20 +2957,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b4dfa4e1daa39419a3e77e6bdfe007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ani: {fileID: 0}
   data:
     m_ObjEnemy: {fileID: 4527837034069946878}
     ArrTarget: []
     m_fSpeed: 0
-    m_fMaxSpeed: 0.5
-    m_fMinSpeed: 0.2
+    m_fMaxSpeed: 0.3
+    m_fMinSpeed: 0.1
     m_fRadius: 0
     AttRange: 10
     m_fProbeLenght: 0
     m_fPursuitRange: 15
-    m_bChase: 0
     m_fAngle: 180
+    m_fThinkTime: 0
+    m_bChase: 0
+    m_fID: 0
     m_vTarget: {x: 0, y: 0, z: 0}
     m_vCurrentVector: {x: 0, y: 0, z: 0}
     m_fRotatePerSecond: 0
     m_fTempTurnForce: 0
+  m_State: {fileID: 0}
+--- !u!114 &892057208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4527837034069946878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a43d0734abac0143b1d92b0aa88ed7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ani: {fileID: 4527837034060546988}
