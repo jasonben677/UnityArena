@@ -14,6 +14,7 @@ public class WeaponManager : MonoBehaviour
 
     private GameObject objFXA; //普攻A刀光特效
     private GameObject objFXB; //普攻B刀光特效
+    private GameObject objFXC; //普攻C刀光特效
 
     // Start is called before the first frame update
     void Start()
@@ -96,5 +97,21 @@ public class WeaponManager : MonoBehaviour
     public void OnFXDisableB()
     {
         Destroy(objFXB.gameObject);
+    }
+
+    public GameObject OnFXEnableC()
+    {
+        GameObject prefabFX = Resources.Load("FX003") as GameObject;
+        objFXC = GameObject.Instantiate(prefabFX);
+        objFXC.transform.parent = whR.transform;
+        objFXC.transform.localPosition = Vector3.zero;
+        objFXC.transform.localRotation = Quaternion.identity;
+
+        return objFXC;
+    }
+
+    public void OnFXDisableC()
+    {
+        Destroy(objFXC.gameObject);
     }
 }

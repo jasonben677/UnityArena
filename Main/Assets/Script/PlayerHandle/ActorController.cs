@@ -73,17 +73,20 @@ public class ActorController : MonoBehaviour
             camcon.LockUnlock();
         }
 
-        if (camcon.lockState == false)
+        if (pi.isAI == false)
         {
-            float targetRunMulti = ((pi.run) ? 2.0f : 1.0f);
-            anim.SetFloat("forward", pi.Dmag * Mathf.Lerp(anim.GetFloat("forward"), targetRunMulti, 0.3f)); //調整走跑相互切換的流暢度
-            anim.SetFloat("right", 0);
-        }
-        else
-        {
+            if (camcon.lockState == false)
+            {
+                float targetRunMulti = ((pi.run) ? 2.0f : 1.0f);
+                anim.SetFloat("forward", pi.Dmag * Mathf.Lerp(anim.GetFloat("forward"), targetRunMulti, 0.3f)); //調整走跑相互切換的流暢度
+                anim.SetFloat("right", 0);
+            }
+            else
+            {
 
-            anim.SetFloat("forward", localDvec.z * ((pi.run) ? 2.0f : 1.0f));
-            anim.SetFloat("right", localDvec.x * ((pi.run) ? 2.0f : 1.0f));
+                anim.SetFloat("forward", localDvec.z * ((pi.run) ? 2.0f : 1.0f));
+                anim.SetFloat("right", localDvec.x * ((pi.run) ? 2.0f : 1.0f));
+            }
         }
 
         if (pi.jump || rigid.velocity.magnitude > 7.0f)
@@ -135,48 +138,51 @@ public class ActorController : MonoBehaviour
 
         }
 
-
-        if (camcon.lockState == false) //判斷有無鎖目標(會影響移動時的面部朝向)
+        if (pi.isAI == false)
         {
-            if (pi.Dmag > 0.1f)
+            if (camcon.lockState == false) //判斷有無鎖目標(會影響移動時的面部朝向)
             {
-                Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.25f); //調整方向切換時的旋轉流暢度
-                model.transform.forward = targetForward;
-            }
-
-            if (lockplanar == false)
-            {
-                planarVec = pi.Dmag * model.transform.forward * walkSpeed * ((pi.run) ? runMultiplier : 1.0f);
-            }
-        }
-        else
-        {
-            if (pi.trackDirection == false)
-            {
-                if (pi.isAI == false) {
-                    Vector3 tempDvec = camcon.lockTarget.transform.position - model.transform.position;
-                    tempDvec.y = 0;
-                    model.transform.forward = tempDvec;
-                }
-                else
+                if (pi.Dmag > 0.1f)
                 {
                     Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.25f); //調整方向切換時的旋轉流暢度
                     model.transform.forward = targetForward;
                 }
-                
 
                 if (lockplanar == false)
                 {
-                    planarVec = pi.Dmag * pi.Dvec * walkSpeed * 0.8f * ((pi.run) ? runMultiplier : 1.0f);
+                    planarVec = pi.Dmag * model.transform.forward * walkSpeed * ((pi.run) ? runMultiplier : 1.0f);
                 }
             }
             else
             {
-                model.transform.forward = planarVec.normalized;
-
-                if (lockplanar == false)
+                if (pi.trackDirection == false)
                 {
-                    planarVec = pi.Dmag * pi.Dvec * walkSpeed * 0.8f * ((pi.run) ? runMultiplier : 1.0f);
+                    if (pi.isAI == false)
+                    {
+                        Vector3 tempDvec = camcon.lockTarget.transform.position - model.transform.position;
+                        tempDvec.y = 0;
+                        model.transform.forward = tempDvec;
+                    }
+                    else
+                    {
+                        Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.25f); //調整方向切換時的旋轉流暢度
+                        model.transform.forward = targetForward;
+                    }
+
+
+                    if (lockplanar == false)
+                    {
+                        planarVec = pi.Dmag * pi.Dvec * walkSpeed * 0.8f * ((pi.run) ? runMultiplier : 1.0f);
+                    }
+                }
+                else
+                {
+                    model.transform.forward = planarVec.normalized;
+
+                    if (lockplanar == false)
+                    {
+                        planarVec = pi.Dmag * pi.Dvec * walkSpeed * 0.8f * ((pi.run) ? runMultiplier : 1.0f);
+                    }
                 }
             }
         }
