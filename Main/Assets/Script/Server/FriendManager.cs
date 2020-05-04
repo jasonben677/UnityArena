@@ -35,9 +35,9 @@ public class FriendManager : MonoBehaviour
         if (_player == null) return;
         Debug.Log("receive");
         friend.SetActive(true);
-        nextPos = new Vector3(_player.friend.position.x, _player.friend.position.y, _player.friend.position.z);
-        nextForward = new Vector3(_player.friend.forward.x, _player.friend.forward.y, _player.friend.forward.z);
-        runIndex = (_player.friend.moveStatus.forward > 0.05f) ? 1.0f : 0.0f;
+        nextPos = new Vector3(_player.friend.position[0], _player.friend.position[1], _player.friend.position[2]);
+        nextForward = new Vector3(_player.friend.forward[0], _player.friend.forward[1], _player.friend.forward[2]);
+        runIndex = (_player.friend.moveStatus[0] > 0.05f) ? 1.0f : 0.0f;
         attack = _player.friend.attackStatus;
     }
 
