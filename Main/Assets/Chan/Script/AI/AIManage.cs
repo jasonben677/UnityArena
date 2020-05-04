@@ -12,5 +12,10 @@ public class AIManage
     public int m_iAttackRandom;
     //攻擊判斷
     public bool m_bAttack;
+    //攻擊距離
+    public float m_fAttDis;
+
+
+
 
 }

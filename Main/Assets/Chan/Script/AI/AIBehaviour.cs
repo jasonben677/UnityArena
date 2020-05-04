@@ -47,6 +47,37 @@ public class AIBehaviour
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    static public void Away(AIData data,AIManage AImag) 
+    {
+        AImag.m_iAttackRandom = Random.Range(1, 3);
+
+    }
+
+
+    static public void TargetRotate(AIData data) 
+    {
+        GameObject Enemy = data.m_ObjEnemy;
+        //持續怪物繞著目標旋轉
+       Enemy.transform.RotateAround(data.ArrTarget[data.m_fID].transform.position, Vector3.up, data.m_fSpeed * Time.deltaTime); 
+
+
+    }
     /// <summary>
     ///抓取目標位置並獲取轉向力
     /// </summary>

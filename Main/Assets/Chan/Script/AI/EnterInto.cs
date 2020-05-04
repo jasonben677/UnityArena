@@ -5,6 +5,71 @@ using UnityEngine;
 //追擊判斷
 public class EnterInto
 {
+
+
+
+   static public void aaaaa(AIData data,AIManage AImag,AIAnimater Ani)
+    {
+        if (AImag.m_bChase)
+        {
+            //判斷時間
+            if (data.m_fThinkTime <= 0)
+            {
+                //轉方向
+                AIBehaviour.Playerdirection(data);
+                //追擊
+                AIBehaviour.Move(data);
+                //播放跑步動畫
+                Ani.EnemyAnimater(AIAnimater.EnemyAni.RUN, data);
+
+            }
+            else
+            {
+                //判斷時間小於等於0
+                data.m_fThinkTime -= Time.deltaTime;
+            }
+            Debug.Log(data.m_fSpeed);
+        }
+        else
+        {
+
+            if (EnterInto.AttackMode(data, AImag))
+            {
+                //if (AImag.m_iAttackRandom == 1)
+                //{
+                    Ani.EnemyAttack(data,AIAnimater.EnemyAni.ATTACK1, AImag);
+
+                //}
+                //else if (AImag.m_iAttackRandom == 2)
+                //{
+                //    Ani.EnemyAttack(AIAnimater.EnemyAni.ATTACK2, AImag);
+                //}
+                //else if (AImag.m_iAttackRandom == 3)
+                //{
+                //    Ani.EnemyAttack(AIAnimater.EnemyAni.ATTACK3, AImag);
+                //}
+
+            }
+            else
+            {
+
+                Ani.EnemyAnimater(AIAnimater.EnemyAni.IDLE, data);
+            }
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
     /// <summary>
     ///追擊範圍的判斷並且確認是否追擊
     /// </summary>
@@ -30,6 +95,8 @@ public class EnterInto
                 if (m_fVec < data.AttRange)
                 {
                     //速度要為0最好改成遞減 追擊為false
+                    data.m_fSpeed -= Time.deltaTime;
+
                     manage.m_bChase = false;
                     //玩家在範圍移動，怪物持續鎖定玩家
                     Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - data.m_ObjEnemy.transform.position, Vector3.up);
@@ -39,7 +106,9 @@ public class EnterInto
                 {
 
                     //目標脫離攻擊範圍 進入追擊 速度遞增恢復 追擊為True
+                    data.m_fSpeed += Time.deltaTime;
                     manage.m_bChase = true;
+                    
                 }
             }
             //目標不在最怪物背後
@@ -64,6 +133,8 @@ public class EnterInto
                     else
                     {
                         //追擊為false
+
+
                         manage.m_bChase = false;
                     }
                 }
@@ -76,13 +147,12 @@ public class EnterInto
     }
 
 
-    public void AttackMode(AIData data,AIManage aiman)
+   static public bool AttackMode(AIData data,AIManage aiman)
     {
         //抓取怪物位置
         Transform ObjEnemy = data.m_ObjEnemy.transform;
         Vector3 cpos = data.m_ObjEnemy.transform.position;
-        Vector3 vR = ObjEnemy.right;
-        Vector3 vF = ObjEnemy.forward;
+       
         
         
         //抓取怪物與目標的距離並轉換成長度
@@ -93,16 +163,22 @@ public class EnterInto
         Transform m_tEnemy = data.m_ObjEnemy.transform;
 
 
-        m_tEnemy.forward = data.m_vCurrentVector + vR * data.m_fTempTurnForce;
-        m_tEnemy.forward.Normalize();
-        m_tEnemy.forward = m_tEnemy.forward;
+
 
         //怪物前進
 
         //兩者間距離小於攻擊距離
+        if (m_fVec <= aiman.m_fAttDis)
+        {
+            //確認攻擊
+            return true;
+        }
+        else 
+        {
 
+            return false;
+        }
 
-        //確認攻擊
 
         //攻擊結束後後退
 

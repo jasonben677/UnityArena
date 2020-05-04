@@ -134,12 +134,12 @@ public class CheackScope : MonoBehaviour
 
         if (fdis <= (data.m_fPursuitRange*Value) && fAngle <= Angle/2)
         {
-            Debug.Log("看到你了");
+            //Debug.Log("看到你了");
             return true;
         }
         else 
         {
-            Debug.Log("跑去哪了");
+            //Debug.Log("跑去哪了");
             return false;
         }
 
