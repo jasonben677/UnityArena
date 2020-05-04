@@ -77,6 +77,10 @@ namespace PlayerUI
                 }
                 enemyUIMatch[_player].ShowHP(temp);
             }
+            else if (_player.layer == 11)
+            {
+                ShowPlayerHp(temp);
+            }
         }
 
         /// <summary>

@@ -130,6 +130,22 @@ public class PlayerInput : MonoBehaviour
         else
         {
             attack = false;
+            if (gameObject.layer == 11)
+            {
+                try
+                {
+                    if (LoginManager.instance.client.tranmitter.mMessage.myAttackStatus)
+                    {
+                        LoginManager.instance.SetAttack(attack);
+                    }
+
+                }
+                catch (System.Exception)
+                {
+                    Debug.Log("NotInServer");
+                }
+
+            }
         }
         lastAttack = newAttack;
     }

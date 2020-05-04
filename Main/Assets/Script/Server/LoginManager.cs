@@ -69,10 +69,10 @@ public class LoginManager : MonoBehaviour
         client = new ChatClient();
 
         //虛擬機
-        connectSucceed = client.Connect("34.80.167.143", 4099);
+        //connectSucceed = client.Connect("34.80.167.143", 4099);
 
         //local
-        //connectSucceed = client.Connect("127.0.0.1", 4099);
+        connectSucceed = client.Connect("127.0.0.1", 4099);
 
         //做假事件
         client.tranmitter.Register(0, (tranmitter, message) => { });
@@ -95,7 +95,8 @@ public class LoginManager : MonoBehaviour
     /// </summary>
     public void SetAttack(bool _attack)
     {
-        client.tranmitter.mMessage.msgType = 3;
+        //client.tranmitter.mMessage.msgType = 3;
+        //Debug.Log("sendAttack");
         client.tranmitter.mMessage.myAttackStatus = _attack;
         client.tranmitter.Send();
     }
@@ -107,6 +108,7 @@ public class LoginManager : MonoBehaviour
 
     private void EnterGameScence(Common.Tranmitter _tranmitter, Message03 _player)
     {
+        Debug.Log("load");
         SceneManager.LoadScene(1);
     }
 

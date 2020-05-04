@@ -4726,9 +4726,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 249734897, guid: d8320019a28c58d43803db0012573944, type: 3}
-      propertyPath: ATK
-      value: 100
+    - target: {fileID: 107650323312204633, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 295281947268418515, guid: d8320019a28c58d43803db0012573944,
         type: 3}
@@ -4790,27 +4791,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2195857975776296936, guid: d8320019a28c58d43803db0012573944,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7864726469247825893, guid: d8320019a28c58d43803db0012573944,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980545107019817902, guid: d8320019a28c58d43803db0012573944,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980545107019817902, guid: d8320019a28c58d43803db0012573944,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1036064808, guid: d8320019a28c58d43803db0012573944, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d8320019a28c58d43803db0012573944, type: 3}
 --- !u!1 &1565597563 stripped
 GameObject:
