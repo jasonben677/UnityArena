@@ -38,6 +38,9 @@ public class StateManager : MonoBehaviour
         playerHP.MaxHP = 100f;
         playerHP.HP = 15f;
         playerHP.HP = playerHP.MaxHP;
+
+        //UI顯示
+        PlayerUI.UIManager.instance.ShowPlayerHp(playerHP);
     }
     private void Update()
     {

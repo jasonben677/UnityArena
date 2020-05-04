@@ -91,6 +91,7 @@ public class ActorManager : MonoBehaviour
         else
         {
             sm.playerHP.AddHP(-1 * targetWc.GetATK());
+
             if (sm.playerHP.HP > 0)
             {
                 if (doHitAnimation)
@@ -103,6 +104,8 @@ public class ActorManager : MonoBehaviour
             {
                 Die();
             }
+
+            PlayerUI.UIManager.instance.HitPlayer(gameObject);
         }
 
     }

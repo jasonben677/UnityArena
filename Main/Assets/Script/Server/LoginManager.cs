@@ -61,8 +61,9 @@ public class LoginManager : MonoBehaviour
         float newmoveY = (float)System.Math.Round(moveStatus.y, 2);
 
 
-        client.SendPos(new Vector3(newPosX, newPosY, newPosZ), new Vector3(newforwardX, newforwardY, newforwardZ), new Vector2(newmoveX, newmoveY));
+        //client.SendPos(new Vector3(newPosX, newPosY, newPosZ), new Vector3(newforwardX, newforwardY, newforwardZ), new Vector2(newmoveX, newmoveY));
     }
+
     public void Login()
     {
         client = new ChatClient();
@@ -99,10 +100,16 @@ public class LoginManager : MonoBehaviour
         client.tranmitter.Send();
     }
 
+    public void NoServerEnter()
+    {
+        SceneManager.LoadScene(1);
+    }
 
     private void EnterGameScence(Common.Tranmitter _tranmitter, Message03 _player)
     {
         SceneManager.LoadScene(1);
     }
+
+
 
 }

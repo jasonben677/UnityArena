@@ -1,0 +1,103 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace PlayerUI
+{
+    public class UIManager : MonoBehaviour
+    {
+        public static UIManager instance = null;
+
+        public GameObject player;
+
+        public Camera mainCamera;
+
+        Dictionary<GameObject, EnemyUI> enemyUIMatch = new Dictionary<GameObject, EnemyUI>();
+        List<GameObject> temp;
+
+        [Header("玩家UI")]
+        [SerializeField] Image playerHP;
+        [SerializeField] Image playerMP;
+
+        private void Awake()
+        {
+            instance = this;
+            mainCamera = Camera.main;
+        }
+
+        private void Update()
+        {
+            temp = new List<GameObject>();
+
+            //更新UI位置
+            foreach (KeyValuePair<GameObject, EnemyUI> item in enemyUIMatch)
+            {
+                item.Value?.UpdatePos();
+                if (item.Value.IsUse == false)
+                {
+                    temp.Add(item.Key);
+                }
+            }
+
+            //移除沒在使用的物件
+            foreach (var item in temp)
+            {
+                Debug.Log("origin : " + enemyUIMatch.Count);
+                enemyUIMatch.Remove(item);
+                Debug.Log("Final : " + enemyUIMatch.Count);
+            }
+
+        }
+
+        /// <summary>
+        /// 玩家UI更新
+        /// </summary>
+        public void ShowPlayerHp(HealthPoint _player)
+        {
+            float hpRate = (float)System.Math.Round((_player.HP / _player.MaxHP), 2);
+            playerHP.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
+        }
+
+        /// <summary>
+        /// 敵人UI更新
+        /// </summary>
+        public void HitPlayer(GameObject _player)
+        {
+            HealthPoint temp = _player.GetComponent<HealthPoint>();
+
+            Debug.Log(_player.name);
+
+            if (_player.layer == 10)
+            {
+                if (!enemyUIMatch.ContainsKey(_player))
+                {
+                    enemyUIMatch.Add(_player, new EnemyUI());
+                    enemyUIMatch[_player].GetHealthBar(_player.transform, CheckUIPool());
+                }
+                enemyUIMatch[_player].ShowHP(temp);
+            }
+        }
+
+        /// <summary>
+        /// 敵人UI物件總數量，目前4個
+        /// </summary>
+        /// <returns></returns>
+        public GameObject CheckUIPool()
+        {
+            GameObject obj;
+            for (int i = 0; i < 4; i++)
+            {
+                obj = transform.GetChild(0).GetChild(i).gameObject;
+
+                if (obj.activeSelf == false)
+                {
+                    return obj;
+                }
+            }
+            return null;
+        }
+
+    }
+}
+
