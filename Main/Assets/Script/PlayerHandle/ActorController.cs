@@ -323,6 +323,16 @@ public class ActorController : MonoBehaviour
         //anim.SetLayerWeight(anim.GetLayerIndex("attack"), Mathf.Lerp(anim.GetLayerWeight(anim.GetLayerIndex("attack")), lerpTarget, 0.8f)); //使切換攻擊圖層較平緩
     }
 
+    public void OnAttack1hBUpdate()
+    {
+        thrustVec = model.transform.forward * anim.GetFloat("attack1hBVelocity");
+    }
+
+    public void OnAttack1hCUpdate()
+    {
+        thrustVec = model.transform.forward * anim.GetFloat("attack1hCVelocity");
+    }
+
     public void OnAttackExist()
     {
         model.SendMessage("WeaponDisable");

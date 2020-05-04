@@ -69,10 +69,10 @@ public class ActorManager : MonoBehaviour
         {
             //Do nothing
         }
-        else if (sm.isDefense) //防禦狀態
-        {
-            Blocked();
-        }
+        //else if (sm.isDefense) //防禦狀態
+        //{
+        //    Blocked();
+        //}
         else
         {
             if (attackValid)
