@@ -8,6 +8,8 @@ namespace PlayerUI
 {
     public class EnemyUI
     {
+        public string Name;
+
         public Transform enemy
         {
             get;
@@ -53,8 +55,14 @@ namespace PlayerUI
             if (enemy != null && healthBar != null)
             {
                 Image enemyHp = healthBar.transform.GetChild(0).GetChild(0).GetComponent<Image>();
+                Text enemyName = healthBar.transform.GetChild(2).GetChild(0).GetComponent<Text>();
+
                 float hpRate = (float)System.Math.Round((_player.HP / _player.MaxHP), 2);
+
                 enemyHp.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
+
+                enemyName.text = Name;
+
 
                 if (hpRate <= 0.02f)
                 {

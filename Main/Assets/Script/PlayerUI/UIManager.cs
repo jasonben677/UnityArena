@@ -75,6 +75,16 @@ namespace PlayerUI
                     enemyUIMatch.Add(_player, new EnemyUI());
                     enemyUIMatch[_player].GetHealthBar(_player.transform, CheckUIPool());
                 }
+
+                if (temp.tag == "ServerSYNC")
+                {
+                    enemyUIMatch[_player].Name = LoginManager.instance.ShowFriendName(temp.transform.GetSiblingIndex());
+                }
+                else
+                {
+                    enemyUIMatch[_player].Name = "雜魚";
+                }
+
                 enemyUIMatch[_player].ShowHP(temp);
             }
             else if (_player.layer == 11)

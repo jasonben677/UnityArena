@@ -4731,10 +4731,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 107650323312204633, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: m_TagString
+      value: ServerSYNC
+      objectReference: {fileID: 0}
+    - target: {fileID: 107650323312204633, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: m_Name
+      value: Friend00
+      objectReference: {fileID: 0}
     - target: {fileID: 295281947268418515, guid: d8320019a28c58d43803db0012573944,
         type: 3}
       propertyPath: m_Name
       value: Land3_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 308849709880393632, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 930005602140478175, guid: d8320019a28c58d43803db0012573944,
         type: 3}
@@ -4790,6 +4805,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738425648709104379, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: m_TagString
+      value: ServerSYNC
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738425648709104379, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: m_Name
+      value: Friend01
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1036064808, guid: d8320019a28c58d43803db0012573944, type: 3}

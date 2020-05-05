@@ -47,6 +47,18 @@ public class LoginManager : MonoBehaviour
 
     }
 
+
+
+    public string ShowFriendName(int index)
+    {
+        if (client == null)
+        {
+            return null;
+        }
+
+        string name = client.tranmitter.mMessage.friend[index].name;
+        return name;
+    }
     public void SendPos(Vector3 pos, Vector3 forward, Vector2 moveStatus)
     {
         float newPosX = (float)System.Math.Round(pos.x, 2);
@@ -91,7 +103,7 @@ public class LoginManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 調整攻擊(暫時不傳送)
+    /// 調整攻擊
     /// </summary>
     public void SetAttack(bool _attack)
     {
@@ -99,6 +111,22 @@ public class LoginManager : MonoBehaviour
         //Debug.Log("sendAttack");
         client.tranmitter.mMessage.myAttackStatus = _attack;
         client.tranmitter.Send();
+    }
+
+    /// <summary>
+    /// 送出主角資料
+    /// </summary>
+    /// <param name="_transform">角色transform</param>
+    /// <param name="_hp">角色當前hp血量</param>
+    /// <param name="_atk">角色攻擊力</param>
+    public void SetHP(Transform _transform, float _hp, float _atk)
+    {
+        if (_transform.gameObject.layer == 10)
+        {
+            return;
+        }
+        client.tranmitter.mMessage.myHp = (int)_hp;
+        client.tranmitter.mMessage.myAtkDamage = (int)_atk;
     }
 
     public void NoServerEnter()

@@ -49,6 +49,10 @@ public class FriendManager : MonoBehaviour
 
     public void UpdateFriend()
     {
+        if (curMessage == null)
+        {
+            return;
+        }
         for (int i = 0; i < curMessage.friend.Length; i++)
         {
             TestDll.Player tempFriend = curMessage.friend[i];
@@ -70,6 +74,7 @@ public class FriendManager : MonoBehaviour
                 serverUser[i].SetAnim(tempFriend.moveStatus[0], tempFriend.attackStatus, 
                     new Vector3(tempFriend.position[0], tempFriend.position[1], tempFriend.position[2]));
 
+                serverUser[i].UpdatePlayerState(tempFriend.hp, tempFriend.atkDamage);
                 friend[i].SetActive(true);
             }
         }

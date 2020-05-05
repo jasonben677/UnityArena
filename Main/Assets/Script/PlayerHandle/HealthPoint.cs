@@ -5,8 +5,13 @@ using UnityEngine;
 public class HealthPoint : MonoBehaviour
 {
     public float MaxHP;
-    public float HP;   
+    public float HP;
 
+
+    public void Test()
+    {
+        Debug.Log(transform.GetSiblingIndex());
+    }
     public void SetHP(float _MaxHP, float _HP)
     {
         MaxHP = _MaxHP;

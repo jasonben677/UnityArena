@@ -5,23 +5,12 @@ using UnityEngine;
 public class ServerUserInput : PlayerInput
 {
     Animator anim;
-
+    HealthPoint health;
+    StateManager stateManager;
 
     private void Awake()
     {
         anim = transform.GetChild(0).GetComponent<Animator>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void SetDir(Vector3 _dir)
@@ -56,5 +45,28 @@ public class ServerUserInput : PlayerInput
         
     }
 
+
+    public void UpdatePlayerState(float _hp, float _atk)
+    {
+        //if (health == null)
+        //{
+        //    health = GetComponent<HealthPoint>();
+        //}
+        //else
+        //{
+        //    health.HP = _hp;
+        //}
+
+
+        //if (stateManager == null)
+        //{
+        //    stateManager = GetComponent<StateManager>();
+        //}
+        //else
+        //{
+        //    stateManager.ATK = _atk;
+        //}
+        
+    }
 
 }
