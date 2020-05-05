@@ -20,6 +20,11 @@ public class AIData
     //最小速度
     public float m_fMinSpeed;
 
+    //轉向力
+    public float m_fRot;
+    //最大轉向力
+    public float m_fMaxRot;
+
     //半徑
     public float m_fRadius;
       
@@ -38,7 +43,8 @@ public class AIData
     //思考時間
     public float m_fThinkTime;
 
-
+    //是否死亡
+    public bool m_bdie;
     
     //鎖定目標的ID
     [HideInInspector]
@@ -55,4 +61,13 @@ public class AIData
     //暫時的旋轉力度
     [HideInInspector]
     public float m_fTempTurnForce;
+    [HideInInspector]
+    public float m_fMoveforce;
+    [HideInInspector]
+    public bool m_bMove;
+    [HideInInspector]
+    public bool m_bCol;
+
+    [HideInInspector]
+    public float m_fTargetDistance;
 }

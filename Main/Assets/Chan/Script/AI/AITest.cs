@@ -6,17 +6,17 @@ using UnityEngine.AI;
 public class AITest : MonoBehaviour
 {
     AIAnimater Ani;
+    public float ClearTime;
+    public float EmergeTime;
     [Header("------AIData------")]
     public AIData data;
     [Header("------AIBoolAni------")]
     public AIManage AImag;
     public HealthPoint m_HP;
 
-    public NavMeshAgent agent;
     public float NextHP;
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
 
         //賦予所有怪物Layer為Enemy
         this.gameObject.layer = LayerMask.NameToLayer("Enemy");
@@ -28,31 +28,68 @@ public class AITest : MonoBehaviour
         AImag.m_iAttackRandom = Random.Range(1, 3);
         m_HP.HP = m_HP.MaxHP;
         NextHP = m_HP.HP;
+        data.m_bdie = true;
     }
 
     void Update()
     {
 
         CheackScope.LockTarget(data);
-        EnterInto.EnterRange(data, AImag);
+     //   EnterInto.EnterRange(data, AImag);
 
-        //按下F1 HP-1
-        if (Input.GetKeyDown(KeyCode.F1)) m_HP.HP -= 1;
 
-        //現在HP小於上個HP
-        if (m_HP.HP < NextHP)
+        if (SteeringBehaviour.CollisionAvoid(data) == false)
         {
-            //受傷動畫
-            Ani.EnemyAnimater(AIAnimater.EnemyAni.HIT, data);
-            //下個HP等於現在HP
-            NextHP = m_HP.HP;
+            SteeringBehaviour.Seek(data);
         }
-        else
-        {
-            EnterInto.aaaaa(data, AImag, Ani);
+            SteeringBehaviour.Move(data);
 
 
-        }
+
+        ////按下F1 HP-1
+        //if (Input.GetKeyDown(KeyCode.F1)) m_HP.HP -= 10;
+        ////HP不足1的時候判斷死亡
+        //if (m_HP.HP <= 0)
+        //{
+        //    //播放死亡動畫
+        //    Ani.EnemyAnimater(AIAnimater.EnemyAni.DIE, data);
+        //    if (data.m_bdie == true)
+        //    {
+        //        if (ClearTime <= 0)
+        //        {
+        //            data.m_bdie = false;
+        //            EnemyDie();
+
+        //        }
+        //        else
+        //        {
+        //            ClearTime -= Time.deltaTime;
+        //        }
+        //    }
+
+        //}
+        //else
+        //{
+
+        //    //現在HP小於上個HP
+        //    if (m_HP.HP < NextHP)
+        //    {
+        //        //受傷動畫
+        //        Ani.EnemyAnimater(AIAnimater.EnemyAni.HIT, data);
+        //        //下個HP等於現在HP
+        //        NextHP = m_HP.HP;
+        //    }
+        //    else
+        //    {
+        //        if (SteeringBehaviour.CollisionAvoid(data) == false)
+        //        {
+        //            SteeringBehaviour.Move(data);
+
+        //        }
+        //    }
+        //}
+
+
 
 
         #region
@@ -64,9 +101,9 @@ public class AITest : MonoBehaviour
             {
 
                 //轉向立
-                AIBehaviour.Playerdirection(data);
+                SteeringBehaviour.Seek(data);
                 //追擊
-                AIBehaviour.Move(data);
+                SteeringBehaviour.Move(data);
                 //撥放跑步動畫
                 Ani.EnemyAnimater(AIAnimater.EnemyAni.RUN);
             }
@@ -140,14 +177,20 @@ public class AITest : MonoBehaviour
             CheackScope.LookRange(data, -10, 190f, 0.8f);
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(this.transform.position, AImag.m_fAttDis);
-
-
+            Vector3 vLeftStart = this.transform.position - this.transform.right * data.m_fRadius;
+            Vector3 vLeftEnd = vLeftStart + this.transform.forward * data.m_fProbeLenght;
+            Gizmos.DrawLine(vLeftStart, vLeftEnd);
+            Vector3 vRightStart = this.transform.position + this.transform.right * data.m_fRadius;
+            Vector3 vRightEnd = vRightStart + this.transform.forward * data.m_fProbeLenght;
+            Gizmos.DrawLine(vRightStart, vRightEnd);
+            Gizmos.DrawLine(vRightEnd, vLeftEnd);
         }
 
 
 
     }
-
-
-
+    public void EnemyDie()
+    {
+        Destroy(data.m_ObjEnemy);
+    }
 }

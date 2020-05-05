@@ -16,9 +16,9 @@ public class EnterInto
             if (data.m_fThinkTime <= 0)
             {
                 //轉方向
-                AIBehaviour.Playerdirection(data);
+                SteeringBehaviour.Seek(data);
                 //追擊
-                AIBehaviour.Move(data);
+                SteeringBehaviour.Move(data);
                 //播放跑步動畫
                 Ani.EnemyAnimater(AIAnimater.EnemyAni.RUN, data);
 
@@ -95,7 +95,7 @@ public class EnterInto
                 if (m_fVec < data.AttRange)
                 {
                     //速度要為0最好改成遞減 追擊為false
-                    data.m_fSpeed -= Time.deltaTime;
+                    data.m_fSpeed = 0;
 
                     manage.m_bChase = false;
                     //玩家在範圍移動，怪物持續鎖定玩家
@@ -106,7 +106,6 @@ public class EnterInto
                 {
 
                     //目標脫離攻擊範圍 進入追擊 速度遞增恢復 追擊為True
-                    data.m_fSpeed += Time.deltaTime;
                     manage.m_bChase = true;
                     
                 }

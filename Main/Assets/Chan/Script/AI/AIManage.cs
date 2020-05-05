@@ -14,8 +14,8 @@ public class AIManage
     public bool m_bAttack;
     //攻擊距離
     public float m_fAttDis;
-
-
+    
+    //
 
 
 }
