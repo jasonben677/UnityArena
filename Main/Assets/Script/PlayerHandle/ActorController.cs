@@ -118,6 +118,12 @@ public class ActorController : MonoBehaviour
             {
                 anim.SetTrigger("counterBack");
             }
+
+            if (pi.slash && camcon.lockTarget != null) //技能攻擊
+            {
+                anim.SetTrigger("slash");
+                //pi.RotateTowards(camcon.lockTarget);
+            }
         }
 
         if (pi.defense)
@@ -325,6 +331,11 @@ public class ActorController : MonoBehaviour
     public void OnAttackExist()
     {
         model.SendMessage("WeaponDisable");
+    }
+
+    public void OnSlashEnter()
+    {
+        pi.inputEnable = false;
     }
 
     public void OnHitEnter()

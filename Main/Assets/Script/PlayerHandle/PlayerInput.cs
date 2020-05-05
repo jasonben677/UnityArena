@@ -19,8 +19,10 @@ public class PlayerInput : MonoBehaviour
     public bool counterBack;
     public bool jump;
     private bool lastJump;
-    public bool attack;
+    public bool attack; //普攻
     private bool lastAttack;
+    public bool slash; //技能
+    private bool lastSlash;
 
     [Header("==== others ====")]
     public bool inputEnable = true;
@@ -150,6 +152,17 @@ public class PlayerInput : MonoBehaviour
             }
         }
         lastAttack = newAttack;
+
+        bool newSlash = Input.GetMouseButton(1); //技能觸發設定
+        if (newSlash != lastSlash && newSlash == true)
+        {
+            slash = true;
+        }
+        else
+        {
+            slash = false;
+        }
+        lastSlash = newSlash;
     }
 
     private Vector2 SquareToCircle(Vector2 input) //使前後和斜向的移動距離一樣: Elliptical grid mapping
@@ -166,5 +179,10 @@ public class PlayerInput : MonoBehaviour
     {
         Dmag = Mathf.Sqrt(Dup * Dup + Dright * Dright);
         Dvec = Dright * cameraRight + Dup * cameraForward;
+    } //給DummyPlayerInput使用的，假的指令
+
+    public void RotateTowards(GameObject _lockTarget) //使用slash技能時的旋轉表現
+    {
+        model.transform.rotation = Quaternion.LookRotation(_lockTarget.transform.position - model.transform.position);
     }
 }
