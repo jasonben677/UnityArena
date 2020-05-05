@@ -13,6 +13,8 @@ namespace PlayerUI
 
         public Camera mainCamera;
 
+        public Camera MiniMapCamera;
+
         Dictionary<GameObject, EnemyUI> enemyUIMatch = new Dictionary<GameObject, EnemyUI>();
         List<GameObject> temp;
 
@@ -49,6 +51,16 @@ namespace PlayerUI
             }
 
         }
+
+
+        private void LateUpdate()
+        {
+            Vector3 newMinimapPos = player.transform.position;
+            newMinimapPos.y = MiniMapCamera.transform.position.y;
+            MiniMapCamera.transform.position = newMinimapPos;
+            MiniMapCamera.transform.rotation = Quaternion.Euler(90f, mainCamera.transform.eulerAngles.y, 0);
+        }
+
 
         /// <summary>
         /// 玩家UI更新
