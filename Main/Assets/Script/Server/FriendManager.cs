@@ -66,16 +66,15 @@ public class FriendManager : MonoBehaviour
             return; 
         }
 
-        float dis = (nextPos - friend.transform.position).magnitude;
 
         if (nextForward != Vector3.zero)
         {
             serverUser.SetDir(nextForward);
         }
 
-        friend.transform.position = Vector3.Lerp(friend.transform.position, nextPos, Time.fixedDeltaTime * 3f);
-        serverUser.SetAnim(runIndex, attack);
+        friend.transform.position = Vector3.Lerp(friend.transform.position, nextPos, Time.fixedDeltaTime);
 
+        serverUser.SetAnim(runIndex, attack, nextPos);
     }
 
 
