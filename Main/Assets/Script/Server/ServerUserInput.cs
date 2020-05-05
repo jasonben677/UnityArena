@@ -31,6 +31,8 @@ public class ServerUserInput : PlayerInput
 
     public void SetAnim(float _walk, bool _attack, Vector3 _pos)
     {
+        if (anim == null) { return; }
+
         //float curWalk = Mathf.Lerp(anim.GetFloat("forward"), _walk, 0.75f);
 
         float dis = (_pos - transform.position).magnitude;

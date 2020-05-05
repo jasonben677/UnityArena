@@ -2,22 +2,23 @@
 
 public class FriendManager : MonoBehaviour
 {
-    GameObject friend;
-    ServerUserInput serverUser;
-    Vector3 nextPos = Vector3.zero;
-    Vector3 nextForward = Vector3.zero;
-    Animator player2Anim;
-    float runIndex = 0;
-    bool attack = false;
+    int maxFriend = 2;
+
+    GameObject[] friend;
+    ServerUserInput[] serverUser;
+
+    TestDll.Message03 curMessage;
 
     private void Awake()
     {
-        friend = transform.GetChild(0).gameObject;
-        serverUser = friend.GetComponent<ServerUserInput>();
-        // 稍微暫改一下拿的位置
-        player2Anim = friend.GetComponent<Animator>();
-        //player2Anim = friend.GetComponentInChildren<Animator>();
-        nextPos = friend.transform.position;
+        friend = new GameObject[maxFriend];
+        serverUser = new ServerUserInput[maxFriend];
+
+        friend[0] = transform.GetChild(0).gameObject;
+        friend[1] = transform.GetChild(1).gameObject;
+
+        serverUser[0] = friend[0].GetComponent<ServerUserInput>();
+        serverUser[1] = friend[1].GetComponent<ServerUserInput>();
 
         //添加位移事件
         try
@@ -34,50 +35,44 @@ public class FriendManager : MonoBehaviour
 
     public void GetNextPos(Common.Tranmitter _tranmitter, TestDll.Message03 _player)
     {
-        if (_player == null) return;
         Debug.Log("receive");
-
-        nextPos = new Vector3(_player.friend.position[0], _player.friend.position[1], _player.friend.position[2]);
-        nextForward = new Vector3(_player.friend.forward[0], _player.friend.forward[1], _player.friend.forward[2]);
-
-        runIndex = _player.friend.moveStatus[0];
-        attack = _player.friend.attackStatus;
-
-        if (friend.activeSelf == false) 
-        {
-            friend.transform.position = nextPos;
-            friend.transform.forward = nextForward;
-        }
-
-        friend.SetActive(true);
+        _tranmitter.mMessage = _player;
+        curMessage = _tranmitter.mMessage;
     }
 
     public void GetAttackStatus(Common.Tranmitter _tranmitter, TestDll.Message03 _player)
     {
-        //player2Anim.SetTrigger("attack");
-        serverUser.attack = _player.friend.attackStatus;
+        _tranmitter.mMessage = _player;
+        curMessage = _tranmitter.mMessage;
         Debug.Log("attack");
     }
 
     public void UpdateFriend()
     {
-        if (!friend.activeSelf) 
+        for (int i = 0; i < curMessage.friend.Length; i++)
         {
-            return; 
+            TestDll.Player tempFriend = curMessage.friend[i];
+
+            if (tempFriend.name != null)
+            {
+                serverUser[i].SetDir(new Vector3(tempFriend.forward[0], tempFriend.forward[1], tempFriend.forward[2]));
+
+                if (friend[i].activeSelf == false)
+                {
+                    friend[i].transform.position = new Vector3(tempFriend.position[0], tempFriend.position[1], tempFriend.position[2]);
+                }
+                else
+                {
+                    friend[i].transform.position = Vector3.Lerp(friend[i].transform.position,
+                        new Vector3(tempFriend.position[0], tempFriend.position[1], tempFriend.position[2]), Time.fixedDeltaTime);
+                }
+
+                serverUser[i].SetAnim(tempFriend.moveStatus[0], tempFriend.attackStatus, 
+                    new Vector3(tempFriend.position[0], tempFriend.position[1], tempFriend.position[2]));
+
+                friend[i].SetActive(true);
+            }
         }
-
-
-        if (nextForward != Vector3.zero)
-        {
-            serverUser.SetDir(nextForward);
-        }
-
-        friend.transform.position = Vector3.Lerp(friend.transform.position, nextPos, Time.fixedDeltaTime);
-
-        serverUser.SetAnim(runIndex, attack, nextPos);
     }
-
-
-
 
 }

@@ -42,6 +42,7 @@ public class ChatClient
         tranmitter.mMessage.myPosition = new float[] { _pos.x, _pos.y, _pos.z };
         tranmitter.mMessage.myForward = new float[] { _forward.x, _forward.y, _forward.z };
         tranmitter.mMessage.myMoveStatus = new float[] { _moveStatus.x, _moveStatus.y };
+        Debug.Log("sendPos");
         tranmitter.Send();
     }
 
