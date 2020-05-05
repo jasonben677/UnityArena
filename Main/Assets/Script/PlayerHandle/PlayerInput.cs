@@ -103,11 +103,13 @@ public class PlayerInput : MonoBehaviour
             }
         }
 
-        lockon = Input.GetMouseButtonDown(1); //鎖定目標
+        lockon = Input.GetMouseButtonDown(2); //鎖定目標
 
         run = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-        defense = Input.GetKey(KeyCode.F);
-        counterBack = Input.GetKey(KeyCode.R);
+        
+        counterBack = Input.GetKey(KeyCode.R); //反擊觸發設定
+
+        defense= Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl); //防禦觸發設定        
 
         bool newJump = Input.GetKey(KeyCode.Space); //跳躍觸發設定       
         if(newJump != lastJump && newJump == true)
