@@ -89,33 +89,37 @@ public class CameraController : MonoBehaviour
         //cameraLerpValue += 0.3f * Time.fixedDeltaTime;
 
         CameraRay();
+        Quaternion tempRotation = transform.localRotation;
         if (rayTerrain == true) //遮蔽物在射線範圍內
         {
             if (blockSight == true)
             {
-                if (rayHit.distance < calRadius +0.35f) //如果太靠近角色模型
+                if (rayHit.distance < calRadius + 0.4f) //如果太靠近角色模型
                 {
                     //Debug.Log("rayHit.distance :" + rayHit.distance);                
                     //transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);                    
-                    tempPos = cameraHandle.transform.position + dir.normalized * (calRadius + 0.35f);
+                    tempPos = cameraHandle.transform.position + dir.normalized * (calRadius + 0.4f);
                     transform.position = tempPos;
+
                 }
                 else
                 {
                     tempPos = rayHit.point - dir.normalized * 0.3f;
                     transform.position = tempPos;
-                }                
+                }
             }
             else
             {
-                transform.position = tempPos;               
+                transform.position = tempPos;                
             }            
         }
         else //遮蔽物不在射線範圍內
         {            
-            transform.position = cameraHandle.transform.position + dir.normalized * offset;                       
-            transform.localPosition = currentPos;
+            transform.position = cameraHandle.transform.position + dir.normalized * offset;
+            //transform.localPosition = currentPos;            
+            transform.localRotation = tempRotation;
         }
+        
         CameraRotate();
         CameraTranslate();
     }
