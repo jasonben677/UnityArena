@@ -35,7 +35,7 @@ public class StateManager : MonoBehaviour
     {
         am = gameObject.GetComponent<ActorManager>();
         playerHP = gameObject.AddComponent<HealthPoint>();
-        playerHP.MaxHP = 100f;
+        playerHP.MaxHP = 80f;
         playerHP.HP = 15f;
         playerHP.HP = playerHP.MaxHP;
         //UI顯示

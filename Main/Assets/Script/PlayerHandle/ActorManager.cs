@@ -8,7 +8,6 @@ public class ActorManager : MonoBehaviour
     public BattleManager bm;
     public WeaponManager wm;
     public StateManager sm;
-    private LoginManager Lom;
 
     // Start is called before the first frame update
     void Start()
@@ -38,15 +37,20 @@ public class ActorManager : MonoBehaviour
         //sm.am = this;
 
         //Lom = gameObject.AddComponent<LoginManager>();
-        Lom = new LoginManager();
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         //sm.Test();
-        Lom.SetHP(transform, sm.playerHP.HP, wm.wcR.GetATK());
+        LoginManager.instance?.SetMPlayerHP(transform, sm.playerHP.HP, wm.wcR.GetATK());
+
+        if (LoginManager.instance != null)
+        {
+            //Debug.Log(LoginManager.instance?.GetMPlayerHP());
+            //sm.playerHP.HP = (int)LoginManager.instance?.GetMPlayerHP();
+        }
     }
 
     public void SetIsCounterBack(bool value)

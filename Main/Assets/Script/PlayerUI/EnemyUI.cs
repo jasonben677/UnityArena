@@ -66,7 +66,7 @@ namespace PlayerUI
 
                 if (hpRate <= 0.02f)
                 {
-                    EnemyDisable();
+                    IsUse = false;
                 }
             }
 

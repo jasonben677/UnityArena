@@ -130,7 +130,7 @@ public class LoginManager : MonoBehaviour
     /// <param name="_transform">角色transform</param>
     /// <param name="_hp">角色當前hp血量</param>
     /// <param name="_atk">角色攻擊力</param>
-    public void SetHP(Transform _transform, float _hp, float _atk)
+    public void SetMPlayerHP(Transform _transform, float _hp, float _atk)
     {
         if (_transform.gameObject.layer == 10 || client == null)
         {
@@ -140,6 +140,18 @@ public class LoginManager : MonoBehaviour
         client.tranmitter.mMessage.myAtkDamage = (int)_atk;
     }
 
+
+    public int GetMPlayerHP()
+    {
+        if (client != null)
+        {
+            return client.tranmitter.mMessage.myHp;
+        }
+        else
+        {
+            return -1;
+        }
+    }
     public void NoServerEnter()
     {
         ScenceFadeOut();
