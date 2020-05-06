@@ -37,7 +37,8 @@ public class ActorManager : MonoBehaviour
         //}
         //sm.am = this;
 
-        Lom = gameObject.AddComponent<LoginManager>();
+        //Lom = gameObject.AddComponent<LoginManager>();
+        Lom = new LoginManager();
         
     }
 
