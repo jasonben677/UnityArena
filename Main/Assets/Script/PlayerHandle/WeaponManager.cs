@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -153,13 +154,13 @@ public class WeaponManager : MonoBehaviour
         anim.speed = 0;
 
         //DOTween...
-        //transform.DOMOve(am.ac.camcon.lockTarget.transform.position, warpDuration).SetEase(Ease.InExpo).OnComplete(()=>FinishWarp());
-        transform.position = Vector3.Lerp(transform.position, am.ac.camcon.lockTarget.transform.position, 0.5f);
-        if(transform.position == am.ac.camcon.lockTarget.transform.position)
-        {
-            Debug.Log("FinishWarp Enter");
-            FinishWarp();
-        }
+        transform.DOMove(am.ac.camcon.lockTarget.transform.position, warpDuration).SetEase(Ease.InExpo).OnComplete(()=>FinishWarp());
+        //transform.position = Vector3.Lerp(transform.position, am.ac.camcon.lockTarget.transform.position, 0.5f);
+        //if(transform.position == am.ac.camcon.lockTarget.transform.position)
+        //{
+        //    Debug.Log("FinishWarp Enter");
+        //    FinishWarp();
+        //}
 
         //FX1.Play();
         //FX2.Play();...
@@ -167,6 +168,7 @@ public class WeaponManager : MonoBehaviour
 
     private void FinishWarp()
     {
+        //Debug.Log("finishWarp Enter");
         RevealModel(true);
 
         //SkinnedMeshRenderer[] skinMeshList = GetComponentsInChildren<SkinnedMeshRenderer>();
@@ -177,8 +179,8 @@ public class WeaponManager : MonoBehaviour
 
         am.ac.camcon.lockTarget.GetComponentInChildren<Animator>().SetTrigger("hit");
         //DOTween...
-        //am.ac.camcon.lockTarget.DOMove(am.ac.camcon.lockTarget.transform.position + transform.forward, 0.5f);
-        am.ac.camcon.lockTarget.transform.position = Vector3.Lerp(am.ac.camcon.lockTarget.transform.position, am.ac.camcon.lockTarget.transform.position + transform.forward * 0.5f, 0.8f);
+        am.ac.camcon.lockTarget.transform.DOMove(am.ac.camcon.lockTarget.transform.position + transform.forward, 0.5f);
+        //am.ac.camcon.lockTarget.transform.position = Vector3.Lerp(am.ac.camcon.lockTarget.transform.position, am.ac.camcon.lockTarget.transform.position + transform.forward * 0.5f, 0.8f);
 
         StartCoroutine(PlayAnimation());
         //StartCoroutine(StopParticles());
