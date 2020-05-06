@@ -35,125 +35,62 @@ public class AITest : MonoBehaviour
     {
 
         CheackScope.LockTarget(data);
-     //   EnterInto.EnterRange(data, AImag);
 
 
-        if (SteeringBehaviour.CollisionAvoid(data) == false)
-        {
-            SteeringBehaviour.Seek(data);
-        }
+      
             SteeringBehaviour.Move(data);
 
 
 
-        ////按下F1 HP-1
-        //if (Input.GetKeyDown(KeyCode.F1)) m_HP.HP -= 10;
-        ////HP不足1的時候判斷死亡
-        //if (m_HP.HP <= 0)
-        //{
-        //    //播放死亡動畫
-        //    Ani.EnemyAnimater(AIAnimater.EnemyAni.DIE, data);
-        //    if (data.m_bdie == true)
-        //    {
-        //        if (ClearTime <= 0)
-        //        {
-        //            data.m_bdie = false;
-        //            EnemyDie();
-
-        //        }
-        //        else
-        //        {
-        //            ClearTime -= Time.deltaTime;
-        //        }
-        //    }
-
-        //}
-        //else
-        //{
-
-        //    //現在HP小於上個HP
-        //    if (m_HP.HP < NextHP)
-        //    {
-        //        //受傷動畫
-        //        Ani.EnemyAnimater(AIAnimater.EnemyAni.HIT, data);
-        //        //下個HP等於現在HP
-        //        NextHP = m_HP.HP;
-        //    }
-        //    else
-        //    {
-        //        if (SteeringBehaviour.CollisionAvoid(data) == false)
-        //        {
-        //            SteeringBehaviour.Move(data);
-
-        //        }
-        //    }
-        //}
-
-
-
-
-        #region
-        /*
-        if (m_AImag.m_bChase)
+        //按下F1 HP-1
+        if (Input.GetKeyDown(KeyCode.F1)) m_HP.HP -= 10;
+        //HP不足1的時候判斷死亡
+        if (m_HP.HP <= 0)
         {
-            //發現停頓
-            if (data.m_fThinkTime <= 0)
+            //播放死亡動畫
+            Ani.EnemyAnimater(AIAnimater.EnemyAni.DIE, data);
+            if (data.m_bdie == true)
             {
+                if (ClearTime <= 0)
+                {
+                    data.m_bdie = false;
+                    EnemyDie();
 
-                //轉向立
-                SteeringBehaviour.Seek(data);
-                //追擊
-                SteeringBehaviour.Move(data);
-                //撥放跑步動畫
-                Ani.EnemyAnimater(AIAnimater.EnemyAni.RUN);
-            }
-            else
-            {
-                //發呆時間
-                data.m_fThinkTime -= Time.deltaTime;
-
+                }
+                else
+                {
+                    ClearTime -= Time.deltaTime;
+                }
             }
 
         }
         else
         {
-            //發呆時間刷新
-            data.m_fThinkTime = Random.Range(0.2f, 0.5f);
-            //攻擊選擇判定
-           // EnterInto.AttackMode(data, m_AImag);
+            EnterInto.EnterRange(data, AImag);
 
-            //攻擊判斷
-            if (m_AImag.m_bAttack)
+            if (SteeringBehaviour.CollisionAvoid(data) == false)
             {
-                //攻擊選擇
-
-                if (m_AImag.m_iAttackRandom == 1)
-                {
-
-                    Ani.EnemyAttack(AIAnimater.EnemyAni.ATTACK1);
-
-                }
-                else if (m_AImag.m_iAttackRandom == 2)
-                {
-                    Ani.EnemyAttack(AIAnimater.EnemyAni.ATTACK2);
-                }
-                else if (m_AImag.m_iAttackRandom == 3)
-                {
-                    Ani.EnemyAttack(AIAnimater.EnemyAni.ATTACK3);
-                }
+                EnterInto.aaaaa(data, AImag, Ani);
             }
             else
             {
-                m_AImag.m_iAttackRandom = Random.Range(1, 3);
-                EnterInto.AttackMode(data, m_AImag);
-
+                //現在HP小於上個HP
+                if (m_HP.HP < NextHP)
+                {
+                    //受傷動畫
+                    Ani.EnemyAnimater(AIAnimater.EnemyAni.HIT, data);
+                    //下個HP等於現在HP
+                    NextHP = m_HP.HP;
+                }
+                else
+                {
+                }
             }
-            //甚麼都沒看到進入Idle
-            Ani.EnemyAnimater(AIAnimater.EnemyAni.IDLE);
-
         }
- */
-        #endregion
+
+
+
+
     }
     private void OnDrawGizmos()
     {

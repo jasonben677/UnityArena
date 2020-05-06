@@ -10,12 +10,13 @@ public class EnterInto
 
    static public void aaaaa(AIData data,AIManage AImag,AIAnimater Ani)
     {
-        if (AImag.m_bChase)
+        if (AImag.m_bChase==true)
         {
             //判斷時間
             if (data.m_fThinkTime <= 0)
             {
-                //轉方向
+                
+                   //轉方向
                 SteeringBehaviour.Seek(data);
                 //追擊
                 SteeringBehaviour.Move(data);

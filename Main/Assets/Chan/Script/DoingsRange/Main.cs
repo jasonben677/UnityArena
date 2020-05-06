@@ -26,7 +26,7 @@ public class Main : MonoBehaviour
                 m_Obstacles.Add(go.GetComponent<Obstacle>());
             }
         }
-        
+     
     }
 
 
