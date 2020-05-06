@@ -23,6 +23,7 @@ public class FriendManager : MonoBehaviour
         //添加位移事件
         try
         {
+            LoginManager.instance.client.tranmitter.Register(1, FriendLogout);
             LoginManager.instance.client.tranmitter.Register(2, GetNextPos);
             LoginManager.instance.client.tranmitter.Register(3, GetAttackStatus);
         }
@@ -31,6 +32,13 @@ public class FriendManager : MonoBehaviour
             Debug.LogWarning(e.ToString());
         }
 
+    }
+
+    public void FriendLogout(Common.Tranmitter _tranmitter, TestDll.Message03 _player)
+    {
+        Debug.Log("Friend logout");
+        _tranmitter.mMessage = _player;
+        curMessage = _tranmitter.mMessage;
     }
 
     public void GetNextPos(Common.Tranmitter _tranmitter, TestDll.Message03 _player)
@@ -57,26 +65,34 @@ public class FriendManager : MonoBehaviour
         {
             TestDll.Player tempFriend = curMessage.friend[i];
 
-            if (tempFriend.name != null)
+            if (tempFriend == null)
             {
-                serverUser[i].SetDir(new Vector3(tempFriend.forward[0], tempFriend.forward[1], tempFriend.forward[2]));
-
-                if (friend[i].activeSelf == false)
-                {
-                    friend[i].transform.position = new Vector3(tempFriend.position[0], tempFriend.position[1], tempFriend.position[2]);
-                }
-                else
-                {
-                    friend[i].transform.position = Vector3.Lerp(friend[i].transform.position,
-                        new Vector3(tempFriend.position[0], tempFriend.position[1], tempFriend.position[2]), Time.fixedDeltaTime);
-                }
-
-                serverUser[i].SetAnim(tempFriend.moveStatus[0], tempFriend.attackStatus, 
-                    new Vector3(tempFriend.position[0], tempFriend.position[1], tempFriend.position[2]));
-
-                serverUser[i].UpdatePlayerState(tempFriend.hp, tempFriend.atkDamage);
-                friend[i].SetActive(true);
+                friend[i].SetActive(false);
             }
+            else
+            {
+                if (tempFriend.name != null)
+                {
+                    serverUser[i].SetDir(new Vector3(tempFriend.forward[0], tempFriend.forward[1], tempFriend.forward[2]));
+
+                    if (friend[i].activeSelf == false)
+                    {
+                        friend[i].transform.position = new Vector3(tempFriend.position[0], tempFriend.position[1], tempFriend.position[2]);
+                    }
+                    else
+                    {
+                        friend[i].transform.position = Vector3.Lerp(friend[i].transform.position,
+                            new Vector3(tempFriend.position[0], tempFriend.position[1], tempFriend.position[2]), Time.fixedDeltaTime);
+                    }
+
+                    serverUser[i].SetAnim(tempFriend.moveStatus[0], tempFriend.attackStatus,
+                        new Vector3(tempFriend.position[0], tempFriend.position[1], tempFriend.position[2]));
+
+                    serverUser[i].UpdatePlayerState(tempFriend.hp, tempFriend.atkDamage);
+                    friend[i].SetActive(true);
+                }
+            }
+
         }
     }
 

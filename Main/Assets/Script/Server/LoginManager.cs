@@ -46,7 +46,8 @@ public class LoginManager : MonoBehaviour
     {
         if (client != null)
         {
-            client.tranmitter.Close();
+            Debug.Log("logout");
+            Logout();
         }
 
     }
@@ -106,6 +107,12 @@ public class LoginManager : MonoBehaviour
         }
     }
 
+    public void Logout()
+    {
+        client.tranmitter.mMessage.msgType = 1;
+        client.tranmitter.Send();
+    }
+
     /// <summary>
     /// 調整攻擊
     /// </summary>
@@ -125,7 +132,7 @@ public class LoginManager : MonoBehaviour
     /// <param name="_atk">角色攻擊力</param>
     public void SetHP(Transform _transform, float _hp, float _atk)
     {
-        if (_transform.gameObject.layer == 10)
+        if (_transform.gameObject.layer == 10 || client == null)
         {
             return;
         }

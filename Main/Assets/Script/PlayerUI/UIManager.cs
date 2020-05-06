@@ -19,9 +19,10 @@ namespace PlayerUI
         List<GameObject> temp;
 
         [Header("玩家UI")]
-        [SerializeField] Image playerHP;
+        [SerializeField] Image imgPlayerHP;
+        [SerializeField] Text playerHPText;
         [SerializeField] Image playerMP;
-        [SerializeField] Text leftPlayerText;
+        [SerializeField] Text texPlayerLeft;
 
         private void Awake()
         {
@@ -31,7 +32,9 @@ namespace PlayerUI
 
         private void Start()
         {
-            LoginManager.instance.ScenceFadeIn();
+            playerHPText.text = 555.ToString();
+            if (LoginManager.instance != null)
+                LoginManager.instance.ScenceFadeIn();
         }
 
         private void Update()
@@ -74,7 +77,7 @@ namespace PlayerUI
         public void ShowPlayerHp(HealthPoint _player)
         {
             float hpRate = (float)System.Math.Round((_player.HP / _player.MaxHP), 2);
-            playerHP.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
+            imgPlayerHP.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
         }
 
         /// <summary>
@@ -132,8 +135,13 @@ namespace PlayerUI
 
         public void UpdatePlayerCount()
         {
+            if (LoginManager.instance == null)
+            {
+                return;
+            }
+
             int leftPlayer = LoginManager.instance.client.tranmitter.mMessage.playerLeft;
-            leftPlayerText.text = leftPlayer.ToString();
+            texPlayerLeft.text = leftPlayer.ToString();
             if (LoginManager.instance.client.tranmitter.mMessage.gameStart)
             {
                 Debug.Log("還剩 " + leftPlayer + "人");
