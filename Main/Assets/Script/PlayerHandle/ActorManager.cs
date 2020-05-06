@@ -8,6 +8,7 @@ public class ActorManager : MonoBehaviour
     public BattleManager bm;
     public WeaponManager wm;
     public StateManager sm;
+    private LoginManager Lom;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,8 @@ public class ActorManager : MonoBehaviour
         //    sm = gameObject.AddComponent<StateManager>();
         //}
         //sm.am = this;
+
+        Lom = gameObject.AddComponent<LoginManager>();
         
     }
 
@@ -42,6 +45,7 @@ public class ActorManager : MonoBehaviour
     void Update()
     {
         //sm.Test();
+        Lom.SetHP(transform, sm.playerHP.HP, wm.wcR.GetATK());
     }
 
     public void SetIsCounterBack(bool value)
