@@ -21,11 +21,17 @@ namespace PlayerUI
         [Header("玩家UI")]
         [SerializeField] Image playerHP;
         [SerializeField] Image playerMP;
+        [SerializeField] Text leftPlayerText;
 
         private void Awake()
         {
             instance = this;
             mainCamera = Camera.main;
+        }
+
+        private void Start()
+        {
+            LoginManager.instance.ScenceFadeIn();
         }
 
         private void Update()
@@ -49,7 +55,7 @@ namespace PlayerUI
                 enemyUIMatch.Remove(item);
                 Debug.Log("Final : " + enemyUIMatch.Count);
             }
-
+            UpdatePlayerCount();
         }
 
 
@@ -122,6 +128,21 @@ namespace PlayerUI
                 }
             }
             return null;
+        }
+
+        public void UpdatePlayerCount()
+        {
+            int leftPlayer = LoginManager.instance.client.tranmitter.mMessage.playerLeft;
+            leftPlayerText.text = leftPlayer.ToString();
+            if (LoginManager.instance.client.tranmitter.mMessage.gameStart)
+            {
+                Debug.Log("還剩 " + leftPlayer + "人");
+                if (leftPlayer <= 1)
+                {
+                    Debug.Log("恭喜!! 你是贏家");
+                    transform.GetChild(5).gameObject.SetActive(true);
+                }
+            }
         }
 
     }

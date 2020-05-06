@@ -6,7 +6,10 @@ using TestDll;
 public class LoginManager : MonoBehaviour
 {
     static public LoginManager instance;
+
     public ChatClient client = null;
+
+    [SerializeField] ScenceFade ScenceFade;
     bool connectSucceed = false;
 
     private void Awake()
@@ -27,6 +30,7 @@ public class LoginManager : MonoBehaviour
     {
         Button button = GameObject.Find("LoginButton").GetComponent<Button>();
         button.onClick.AddListener(() => Login());
+
     }
 
     private void FixedUpdate()
@@ -131,15 +135,31 @@ public class LoginManager : MonoBehaviour
 
     public void NoServerEnter()
     {
-        SceneManager.LoadScene(1);
+        ScenceFadeOut();
     }
 
     private void EnterGameScence(Common.Tranmitter _tranmitter, Message03 _player)
     {
-        Debug.Log("load");
-        SceneManager.LoadScene(1);
+        if (_player.success)
+        {
+            ScenceFadeOut();
+            Debug.Log("login work");
+        }
+        else
+        {
+            Debug.Log("login Fail");
+        }
     }
 
 
+    public void ScenceFadeIn()
+    {
+        ScenceFade.FadeIn();
+    }
+
+    public void ScenceFadeOut()
+    {
+        ScenceFade.FadeOut();
+    }
 
 }
