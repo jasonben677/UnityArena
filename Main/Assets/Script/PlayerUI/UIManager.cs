@@ -45,8 +45,9 @@ namespace PlayerUI
             foreach (KeyValuePair<GameObject, EnemyUI> item in enemyUIMatch)
             {
                 item.Value?.UpdatePos();
-                if (item.Value.IsUse == false)
+                if (item.Value.IsUse == false || item.Key.activeSelf == false)
                 {
+                    item.Value.EnemyDisable();
                     temp.Add(item.Key);
                 }
             }

@@ -165,15 +165,19 @@ public class CameraController : MonoBehaviour
         if (pi.isAI == false)
         {
             mainCamera.transform.position = transform.position;
-            //if (lockTarget == null)
-            //{
+            if (lockTarget == null)
+            {
                 mainCamera.transform.LookAt(cameraHandle.transform);
-            //}
-            //else
-            //{
-            //    //mainCamera.transform.LookAt(lockTarget.transform);
-            //    mainCamera.transform.LookAt(lockTarget.transform.position + new Vector3 (0, enemyCol.bounds.extents.y * 2.0f, 0));
-            //}
+            }
+            else
+            {
+                //Quaternion lookTarget = Quaternion.LookRotation(lockTarget.transform.position - transform.position);
+                //transform.rotation = Quaternion.Slerp(transform.rotation, lookTarget, Time.fixedDeltaTime);
+                //mainCamera.transform.LookAt(lockTarget.transform);
+                Vector3 lookTarget = lockTarget.transform.position + new Vector3(0, enemyCol.bounds.extents.y, 0);
+                mainCamera.transform.LookAt(Vector3.SmoothDamp(cameraHandle.transform.position, lookTarget, ref cameraDampvelocity, cameraDampValue));
+                //mainCamera.transform.LookAt(lockTarget.transform.position + new Vector3(0, enemyCol.bounds.extents.y * 2.0f, 0));
+            }
         }
 
     }
@@ -182,11 +186,7 @@ public class CameraController : MonoBehaviour
     {
         if (pi.isAI == false)
         {
-            //if ((playerHandle.transform.position - cameraHandle.transform.position).magnitude > 1.65f)
-            //{
-            //    cameraHandle.transform.position = Vector3.SmoothDamp(cameraHandle.transform.position, playerHandle.transform.position + new Vector3(0, 1.6f, 0), ref cameraDampvelocity, cameraDampValue);
-
-            //}
+            
             cameraHandle.transform.position = Vector3.SmoothDamp(cameraHandle.transform.position, playerHandle.transform.position + new Vector3(0, 1.6f, 0), ref cameraDampvelocity, cameraDampValue);
         }
     }    

@@ -266,13 +266,6 @@ ModelImporter:
           postInfinity: 2
           rotationOrder: 4
       events:
-      - time: 0.311054
-        functionName: WeaponDisable
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.21052632
         functionName: OnFXEnableA
         data: 
@@ -289,6 +282,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.22272728
         functionName: WeaponEnable
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.28572643
+        functionName: WeaponDisable
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
