@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace PlayerUI
 {
@@ -20,7 +21,7 @@ namespace PlayerUI
 
         [Header("玩家UI")]
         [SerializeField] Image imgPlayerHP;
-        [SerializeField] Text playerHPText;
+        [SerializeField] TextMeshProUGUI  playerHPText;
         [SerializeField] Image playerMP;
         [SerializeField] Text texPlayerLeft;
 
@@ -32,9 +33,12 @@ namespace PlayerUI
 
         private void Start()
         {
-            playerHPText.text = 555.ToString();
             if (LoginManager.instance != null)
+            {
                 LoginManager.instance.ScenceFadeIn();
+                playerHPText.text = LoginManager.instance.client.tranmitter.mMessage.myHp.ToString();
+            }
+               
         }
 
         private void Update()
