@@ -8,67 +8,6 @@ public class EnterInto
 
 
 
-   static public void aaaaa(AIData data,AIManage AImag,AIAnimater Ani)
-    {
-        if (AImag.m_bChase==true)
-        {
-            //判斷時間
-            if (data.m_fThinkTime <= 0)
-            {
-                
-                   //轉方向
-                SteeringBehaviour.Seek(data);
-                //追擊
-                SteeringBehaviour.Move(data);
-                //播放跑步動畫
-                Ani.EnemyAnimater(AIAnimater.EnemyAni.RUN, data);
-
-            }
-            else
-            {
-                //判斷時間小於等於0
-                data.m_fThinkTime -= Time.deltaTime;
-            }
-            Debug.Log(data.m_fSpeed);
-        }
-        else
-        {
-
-            if (EnterInto.AttackMode(data, AImag))
-            {
-                //if (AImag.m_iAttackRandom == 1)
-                //{
-                    Ani.EnemyAttack(data,AIAnimater.EnemyAni.ATTACK1, AImag);
-
-                //}
-                //else if (AImag.m_iAttackRandom == 2)
-                //{
-                //    Ani.EnemyAttack(AIAnimater.EnemyAni.ATTACK2, AImag);
-                //}
-                //else if (AImag.m_iAttackRandom == 3)
-                //{
-                //    Ani.EnemyAttack(AIAnimater.EnemyAni.ATTACK3, AImag);
-                //}
-
-            }
-            else
-            {
-
-                Ani.EnemyAnimater(AIAnimater.EnemyAni.IDLE, data);
-            }
-
-        }
-
-    }
-
-
-
-
-
-
-
-
-
 
 
     /// <summary>
@@ -76,7 +15,7 @@ public class EnterInto
     /// </summary>
     /// <param name="data"></param>
     /// <returns></returns>
-    static public bool EnterRange(AIData data,AIManage manage)
+    static public bool EnterRange(AIData data)
     {
         //抓取怪物位置
         GameObject ObjEnemy = data.m_ObjEnemy;
@@ -98,7 +37,7 @@ public class EnterInto
                     //速度要為0最好改成遞減 追擊為false
                     data.m_fSpeed = 0;
 
-                    manage.m_bChase = false;
+                    data.m_bChase = false;
                     //玩家在範圍移動，怪物持續鎖定玩家
                     Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - data.m_ObjEnemy.transform.position, Vector3.up);
                     data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);
@@ -107,7 +46,7 @@ public class EnterInto
                 {
 
                     //目標脫離攻擊範圍 進入追擊 速度遞增恢復 追擊為True
-                    manage.m_bChase = true;
+                    data.m_bChase = true;
                     
                 }
             }
@@ -119,7 +58,7 @@ public class EnterInto
                 {
 
                     //追擊為true
-                    manage.m_bChase = true;
+                    data.m_bChase = true;
                 }
                 else
                 {
@@ -128,26 +67,26 @@ public class EnterInto
                     {
 
                         //追擊為true
-                        manage.m_bChase = true;
+                        data.m_bChase = true;
                     }
                     else
                     {
                         //追擊為false
 
 
-                        manage.m_bChase = false;
+                        data.m_bChase = false;
                     }
                 }
             }
 
         }
         //返回追擊數據
-        return manage.m_bChase;
+        return data.m_bChase;
 
     }
 
-
-   static public bool AttackMode(AIData data,AIManage aiman)
+    /*
+   static public bool AttackMode(AIData data)
     {
         //抓取怪物位置
         Transform ObjEnemy = data.m_ObjEnemy.transform;
@@ -183,5 +122,5 @@ public class EnterInto
         //攻擊結束後後退
 
 
-    }
+    }*/
 }

@@ -39,6 +39,51 @@ public class CheackScope : MonoBehaviour
     }
 
     /// <summary>
+    /// 偵查範圍
+    /// </summary>
+    /// <param name="data"></param>
+    /// <param name="Angle">視野角度</param>
+    /// <param name="Value">0-1的數字來減短看的到的距離</param>
+
+    static public bool LookScope(AIData data, float Angle, float Value)
+    {
+        //怪物與玩家的距離
+        float fdis = Vector3.Distance(data.m_vTarget, data.m_ObjEnemy.transform.position);
+        float fAngle = Vector3.Angle(data.m_ObjEnemy.transform.forward, data.m_vTarget - data.m_ObjEnemy.transform.position);
+
+        if (fdis <= (data.m_fPursuitRange * Value) && fAngle <= Angle / 2)
+        {
+            //Debug.Log("看到你了");
+            return true;
+        }
+        else
+        {
+            //Debug.Log("跑去哪了");
+            return false;
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /// <summary>
     /// Gizmos 的怪物追擊範圍
     /// </summary>
     /// <param name="data"></param>
@@ -119,30 +164,5 @@ public class CheackScope : MonoBehaviour
 
 
 
-    /// <summary>
-    /// 偵查範圍
-    /// </summary>
-    /// <param name="data"></param>
-    /// <param name="Angle">視野角度</param>
-    /// <param name="Value">0-1的數字來減短看的到的距離</param>
-
-    static public bool LookScope(AIData data,  float Angle, float Value) 
-    {
-        //怪物與玩家的距離
-        float fdis = Vector3.Distance(data.m_vTarget, data.m_ObjEnemy.transform.position);
-        float fAngle = Vector3.Angle(data.m_ObjEnemy.transform.forward, data.m_vTarget - data.m_ObjEnemy.transform.position);
-
-        if (fdis <= (data.m_fPursuitRange*Value) && fAngle <= Angle/2)
-        {
-            //Debug.Log("看到你了");
-            return true;
-        }
-        else 
-        {
-            //Debug.Log("跑去哪了");
-            return false;
-        }
-
-    }
-
+  
 }

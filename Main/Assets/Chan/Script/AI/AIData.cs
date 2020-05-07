@@ -45,7 +45,20 @@ public class AIData
 
     //是否死亡
     public bool m_bdie;
-    
+
+    //追擊確認
+    public bool m_bChase;
+    //攻擊動作決定
+    public int m_iAttackRandom;
+    //攻擊判斷
+    public bool m_bAttack;
+    //攻擊距離
+    public float m_fAttDis;
+
+    //
+
+
+
     //鎖定目標的ID
     [HideInInspector]
     public int m_fID;

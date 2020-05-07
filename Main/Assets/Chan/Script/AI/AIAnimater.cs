@@ -54,7 +54,7 @@ public class AIAnimater : MonoBehaviour
     }
 
     //簡易的攻擊動作切換
-    public void EnemyAttack(AIData data,EnemyAni Attack,AIManage AImag)
+    public void EnemyAttack(AIData data,EnemyAni Attack)
     {
 
         switch (Attack)
