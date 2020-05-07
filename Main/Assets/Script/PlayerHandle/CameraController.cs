@@ -41,8 +41,10 @@ public class CameraController : MonoBehaviour
     private float calRadius;
     private bool rayTerrain;
     private bool blockSight;
-    RaycastHit rayHit;
 
+    private bool isback;
+    RaycastHit rayHit;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -94,7 +96,8 @@ public class CameraController : MonoBehaviour
         //cameraLerpValue += 0.3f * Time.fixedDeltaTime;       
 
         CameraRay();
-        Quaternion tempRotation = transform.localRotation;
+        
+        //Quaternion tempRotation = transform.localRotation;
         if (rayTerrain == true) //遮蔽物在射線範圍內
         {
             if (blockSight == true)
@@ -116,13 +119,25 @@ public class CameraController : MonoBehaviour
             else
             {
                 transform.position = tempPos;                
-            }            
+            }
+            isback = false;
         }
         else //遮蔽物不在射線範圍內
-        {            
-            transform.position = cameraHandle.transform.position + dir.normalized * offset;
-            //transform.localPosition = currentPos;            
-            transform.localRotation = tempRotation;
+        {
+            //transform.position = cameraHandle.transform.position + dir.normalized * offset;
+            ////transform.localPosition = currentPos;            
+            //transform.localRotation = tempRotation;
+            if (isback)
+            {
+                this.transform.position = transform.position;
+                
+            }
+            else
+            {
+                Vector3 returnPos = cameraHandle.transform.position + dir.normalized * offset;                
+                transform.position = Vector3.SmoothDamp(transform.position, returnPos, ref cameraDampvelocity, cameraDampValue);                
+            }
+            isback = true;            
         }
         
         CameraRotate();
