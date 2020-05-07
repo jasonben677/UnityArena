@@ -17,7 +17,7 @@ public class AITest : PlayerInput
     [Header("------AIData------")]
     public AIData data;
 
-    float NextHp;
+   public  float NextHp;
     private void Awake()
     {
         //ani = GetComponent<AIAnimater>();
@@ -52,46 +52,51 @@ public class AITest : PlayerInput
         if (Input.GetKeyDown(KeyCode.Keypad0))
         {
             hp.HP -= 10;
+            ani.EnemyAnimater(AIAnimater.EnemyAni.HIT, data);
+
         }
-        else
+
+
+        if (data.fHP > 0)
         {
-            if (data.fHP > 0)
+            //目標是否在範圍內
+            if (EnterInto.EnterRange(data) == true)
             {
-                //目標是否在範圍內
-                if (EnterInto.EnterRange(data) == true)
+                //前方是否有障礙物
+                if (SteeringBehaviour.CollisionAvoid(data) == false)
                 {
-                    //前方是否有障礙物
-                    if (SteeringBehaviour.CollisionAvoid(data) == false)
-                    {
-                        SteeringBehaviour.Seek(data);
-                    }
-
-                    //追擊判定
-                    SteeringBehaviour.Move(data);
-                    ani.EnemyAnimater(AIAnimater.EnemyAni.RUN, data);
-
-
+                    SteeringBehaviour.Seek(data);
                 }
-                else
-                {
-                    //暫時先放Idle,之後安插巡邏動畫
-                    ani.EnemyAnimater(AIAnimater.EnemyAni.IDLE,data);
-                }
+
+                //追擊判定
+                SteeringBehaviour.Move(data);
+                ani.EnemyAnimater(AIAnimater.EnemyAni.RUN, data);
+
+
             }
-            else if (data.fHP <= 0)
+            else 
             {
-                if (ClearTime <= 0)
-                {
-                    ClearEnemy();
-                }else
-                {
-                    ClearTime -= Time.deltaTime;
-                }
-                //撥放死亡動畫
-                Debug.Log("is die");
+                //暫時先放Idle,之後安插巡邏腳本
+                ani.EnemyAnimater(AIAnimater.EnemyAni.IDLE, data);
             }
-
         }
+        else if (data.fHP <= 0)
+        {
+            if (ClearTime <= 0)
+            {
+                ClearEnemy();
+            }
+            else
+            {
+                ClearTime -= Time.deltaTime;
+            }
+            //撥放死亡動畫
+            ani.EnemyAnimater(AIAnimater.EnemyAni.DIE, data);
+
+            Debug.Log("is die");
+        }
+
+
 
 
         //Debug.Log(hp.MaxHP);
@@ -173,7 +178,8 @@ public class AITest : PlayerInput
         data.m_fThinkTime = Random.Range(0.2f, 0.5f);
         data.m_iAttackRandom = Random.Range(1, 3);
         data.m_fAttDis = 4f;
-
+        ClearTime = 3f;
+        data.AttRange = 4f;
 
     }
 

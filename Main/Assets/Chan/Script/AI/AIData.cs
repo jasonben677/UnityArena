@@ -11,6 +11,9 @@ public class AIData
     //怪物
     public GameObject m_ObjEnemy;
 
+    //怪物的鄰居(怪物附近的怪物)
+    public GameObject[] NeighborEnemys;
+
     //所有目標
     public GameObject[] ArrTarget;
 

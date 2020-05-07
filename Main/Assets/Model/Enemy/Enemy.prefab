@@ -1153,7 +1153,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &3778378937781975402
 MonoBehaviour:
@@ -1219,7 +1219,7 @@ MonoBehaviour:
     m_fRot: 0
     m_fMaxRot: 0
     m_fRadius: 0
-    AttRange: 0
+    AttRange: 4
     m_fProbeLenght: 0
     m_fPursuitRange: 0
     m_fAngle: 0
@@ -1238,6 +1238,7 @@ MonoBehaviour:
     m_bMove: 1
     m_bCol: 0
     m_fTargetDistance: 295.36136
+  NextHp: 0
 --- !u!114 &882072491714673669
 MonoBehaviour:
   m_ObjectHideFlags: 0
