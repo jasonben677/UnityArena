@@ -358,6 +358,7 @@ public class ActorController : MonoBehaviour
     public void OnBlockedEnter()
     {
         pi.inputEnable = false;
+        model.SendMessage("WeaponDisable");
     }
 
     public void OnStunnedEnter()
