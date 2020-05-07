@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class ActorController : MonoBehaviour
 {
-    public GameObject model;
-    public CameraController camcon;
+    public GameObject model; 
+
     public PlayerInput pi;
     public float walkSpeed = 5.5f;
     public float runMultiplier = 2.0f;
     public float jumpVelocity = 2.0f; //向前跳的衝量使用
     public float rollVelocity = 1.5f; //向前翻滾的衝量使用
+        
+    public CameraController camcon;
 
     // server
     private bool useServer = false;
@@ -42,6 +44,7 @@ public class ActorController : MonoBehaviour
         anim = model.GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>(); //rigidbody!=null
         col = GetComponent<CapsuleCollider>();
+        camcon = pi.camcon;
 
         //判斷server
         try
