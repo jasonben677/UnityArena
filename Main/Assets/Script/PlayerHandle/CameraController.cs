@@ -10,15 +10,16 @@ public class CameraController : MonoBehaviour
     public float horizontalSpeed = 100.0f;
     public float verticalSpeed = 100.0f;
     public float cameraDampValue = 0.15f;
-    //public float cameraDampRotation = 0.05f;    
+    
 
     public Image lockDot;
-    public GameObject playerHandle;
-    private GameObject model;
-    private GameObject cameraHandle;
-
     public GameObject lockTarget;
     public bool lockState;
+
+    private GameObject playerHandle;
+    private GameObject model;
+    private GameObject cameraHandle;
+    
     private Collider enemyCol;
     private Collider cameraCol;
     private float cameraColRadius;
@@ -33,6 +34,8 @@ public class CameraController : MonoBehaviour
     private Vector3 currentPos; //用來存初設local位置
     private Vector3 tempPos;
     private float offset; //初設的距離
+    [SerializeField]
+    private float miniOffset = 1.0f;
     
     private Vector3 dir;
     private float calRadius;
@@ -44,17 +47,19 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         cameraHandle = transform.parent.gameObject;
+        playerHandle = pi.transform.gameObject;
         cameraHandle.transform.position = playerHandle.transform.position + new Vector3(0, 1.6f, 0);
         tempEulerX = 20;        
         model = playerHandle.GetComponent<ActorController>().model;
         cameraCol = cameraHandle.GetComponent<Collider>();
-        cameraColRadius = 0.1f;
+        cameraColRadius = 0.1f;        
 
         if (pi.isAI == false)
         {
             mainCamera = Camera.main;
             lockDot.enabled = false;
-            //Cursor.lockState = CursorLockMode.Locked;
+            //鼠標顯示與否
+            Cursor.lockState = CursorLockMode.Locked; 
             offset = (transform.position - cameraHandle.transform.position).magnitude;
             currentPos = transform.localPosition;
             calRadius = playerHandle.GetComponent<CapsuleCollider>().radius;
@@ -86,7 +91,7 @@ public class CameraController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //cameraLerpValue += 0.3f * Time.fixedDeltaTime;
+        //cameraLerpValue += 0.3f * Time.fixedDeltaTime;       
 
         CameraRay();
         Quaternion tempRotation = transform.localRotation;
@@ -170,13 +175,9 @@ public class CameraController : MonoBehaviour
                 mainCamera.transform.LookAt(cameraHandle.transform);
             }
             else
-            {
-                //Quaternion lookTarget = Quaternion.LookRotation(lockTarget.transform.position - transform.position);
-                //transform.rotation = Quaternion.Slerp(transform.rotation, lookTarget, Time.fixedDeltaTime);
-                //mainCamera.transform.LookAt(lockTarget.transform);
+            {                
                 Vector3 lookTarget = lockTarget.transform.position + new Vector3(0, enemyCol.bounds.extents.y, 0);
-                mainCamera.transform.LookAt(Vector3.SmoothDamp(cameraHandle.transform.position, lookTarget, ref cameraDampvelocity, cameraDampValue));
-                //mainCamera.transform.LookAt(lockTarget.transform.position + new Vector3(0, enemyCol.bounds.extents.y * 2.0f, 0));
+                mainCamera.transform.LookAt(Vector3.SmoothDamp(cameraHandle.transform.position, lookTarget, ref cameraDampvelocity, cameraDampValue));                
             }
         }
 
@@ -217,7 +218,7 @@ public class CameraController : MonoBehaviour
         {
             foreach (var col in cols)
             {
-                //Debug.Log(col.name);
+                Debug.Log("LockTarget_" + col.name);
                 if (lockTarget == col.gameObject)
                 {
                     LockProcessA(null, false, false, pi.isAI);

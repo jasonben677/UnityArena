@@ -6643,12 +6643,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 100420969}
-  camcon: {fileID: 0}
   pi: {fileID: 797354536}
   walkSpeed: 5.5
   runMultiplier: 2
   jumpVelocity: 2
   rollVelocity: 2
+  camcon: {fileID: 0}
   friend: {fileID: 0}
   frictionOne: {fileID: 13400000, guid: ebbd2e6b6925d07448243d28c94c929d, type: 2}
   frictionZero: {fileID: 13400000, guid: 8262362b21d86c04e8ac2eff1e831a99, type: 2}
@@ -7589,12 +7589,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 512593124}
-  camcon: {fileID: 0}
   pi: {fileID: 0}
   walkSpeed: 5.5
   runMultiplier: 2
   jumpVelocity: 2
   rollVelocity: 2
+  camcon: {fileID: 0}
   friend: {fileID: 454189871}
   frictionOne: {fileID: 13400000, guid: ebbd2e6b6925d07448243d28c94c929d, type: 2}
   frictionZero: {fileID: 13400000, guid: 8262362b21d86c04e8ac2eff1e831a99, type: 2}
@@ -8695,7 +8695,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002540109}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.5}
+  m_LocalPosition: {x: 0, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1811919184}
@@ -8719,9 +8719,9 @@ MonoBehaviour:
   verticalSpeed: 100
   cameraDampValue: 0.15
   lockDot: {fileID: 961036349}
-  playerHandle: {fileID: 1999624739}
   lockTarget: {fileID: 0}
   lockState: 0
+  miniOffset: 1
 --- !u!1 &1019781047
 GameObject:
   m_ObjectHideFlags: 0
@@ -9151,12 +9151,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 251408895}
-  camcon: {fileID: 0}
   pi: {fileID: 0}
   walkSpeed: 5.5
   runMultiplier: 2
   jumpVelocity: 2
   rollVelocity: 2
+  camcon: {fileID: 0}
   friend: {fileID: 454189871}
   frictionOne: {fileID: 13400000, guid: ebbd2e6b6925d07448243d28c94c929d, type: 2}
   frictionZero: {fileID: 13400000, guid: 8262362b21d86c04e8ac2eff1e831a99, type: 2}
@@ -16052,12 +16052,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 2082932942}
-  camcon: {fileID: 1002540111}
   pi: {fileID: 1999624743}
   walkSpeed: 4.5
   runMultiplier: 2
   jumpVelocity: 2
   rollVelocity: 1
+  camcon: {fileID: 1002540111}
   friend: {fileID: 454189871}
   frictionOne: {fileID: 13400000, guid: ebbd2e6b6925d07448243d28c94c929d, type: 2}
   frictionZero: {fileID: 13400000, guid: 8262362b21d86c04e8ac2eff1e831a99, type: 2}
@@ -16969,7 +16969,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 43
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
