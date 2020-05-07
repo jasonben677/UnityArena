@@ -5,6 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class AIData
 {
+    //怪物HP量
+    public float fHP;
+
     //怪物
     public GameObject m_ObjEnemy;
 
@@ -27,7 +30,9 @@ public class AIData
 
     //半徑
     public float m_fRadius;
-      
+
+   
+
     //攻擊範圍
     public float AttRange;
 

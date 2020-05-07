@@ -13,39 +13,46 @@ public class AIAnimater : MonoBehaviour
         switch (ANIMATER)
         {
             case EnemyAni.IDLE:
-                ani.SetFloat("IdleRun",0);
+                ani.SetFloat("right",0);
+                ani.SetFloat("forward", 0);
                 data.m_fSpeed = 0;
                 data.m_fThinkTime = Random.Range(0.2f, 0.5f);
                 break;
             case EnemyAni.WALK:
+                ani.SetFloat("right", 0);
+                ani.SetFloat("forward", 1);
                 ani.Play("Walk");
 
                 break;
             case EnemyAni.RUN:
-                ani.SetFloat("IdleRun",1);
+                ani.SetFloat("right", 0);
+                ani.SetFloat("forward", 2);
                 data.m_fSpeed += data.m_fMinSpeed;
                 break;
             case EnemyAni.MOVINGLEFT:
-                ani.Play("Movingleft");
+                ani.SetFloat("right", -1);
+                ani.SetFloat("forward", 0);
 
                 break;
 
             case EnemyAni.MOVINGRIGHT:
-                ani.Play("Moveingright");
+                ani.SetFloat("right", 1);
+                ani.SetFloat("forward", 0);
 
                 break;
 
             case EnemyAni.WALKINGBACK:
-                ani.Play("Walkingback");
+                ani.SetFloat("right", 0);
+                ani.SetFloat("forward", 1);
 
                 break;
 
             case EnemyAni.HIT:
-                ani.Play("Hit");
+                ani.Play("hit");
 
                 break;
             case EnemyAni.DIE:
-                ani.Play("Die");
+                ani.Play("die");
                 break;
 
         }
@@ -60,17 +67,17 @@ public class AIAnimater : MonoBehaviour
         switch (Attack)
         {
             case EnemyAni.ATTACK1:
-                ani.Play("Attack1");
+                ani.Play("attack1hA");
                 data.m_fSpeed = 0;
 
                 break;
             case EnemyAni.ATTACK2:
-                ani.Play("Attack2");
+                ani.Play("attack1hB");
 
                 break;
 
             case EnemyAni.ATTACK3:
-                ani.Play("Attack3");
+                ani.Play("attack1hC");
 
                 break;
             case EnemyAni.SKILL1:

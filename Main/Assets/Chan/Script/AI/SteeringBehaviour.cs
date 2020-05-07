@@ -265,7 +265,7 @@ public class SteeringBehaviour
             data.m_bMove = false;
             return false;
         }
-        data.m_fMinSpeed = 0.2f;
+        data.m_fMinSpeed = 0.02f;
 
         Vector3 vf = data.m_ObjEnemy.transform.forward;
         Vector3 vr = data.m_ObjEnemy.transform.right;

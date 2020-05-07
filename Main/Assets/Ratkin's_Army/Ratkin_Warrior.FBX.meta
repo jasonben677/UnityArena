@@ -188,7 +188,7 @@ ModelImporter:
     4300008: Ratkin_Warr_Sword
     4300010: Ratkin_Warr_Sword01
     4300012: Ratkin_Warr_Shield03
-    7400134: Ratkin_IDLE
+    7400134: IDLE
     7400136: Ratkin_anger
     7400138: Ratkin_Eating
     7400140: Ratkin_Looking_around
@@ -202,19 +202,19 @@ ModelImporter:
     7400156: Ratkin_Climbing_wall
     7400158: Ratkin_Crawling
     7400160: Ratkin_falling_down
-    7400162: Ratkin_Walking_back_A
-    7400164: Ratkin_1H_Casual_walk
+    7400162: WalkingBwk
+    7400164: Walk
     7400166: Ratkin_1H_Cautious_walk
     7400168: Ratkin_1H_combat_run
-    7400170: Ratkin_1H_run
+    7400170: run
     7400172: Ratkin_1H_Jump_runing
     7400174: Ratkin_1H_COMBAT_mode
     7400176: Ratkin_1H_banging_shield
     7400178: Ratkin_1H_Dodge_Jump_Backward
     7400180: Ratkin_1H_Dodge_Jump_Left
     7400182: Ratkin_1H_Dodge_Jump_Right
-    7400184: Ratkin_1H_Moving_left
-    7400186: Ratkin_1H_Moving_right
+    7400184: WalkL
+    7400186: WalkR
     7400188: Ratkin_1H_Tracking
     7400190: Ratkin_1H_warning
     7400192: Ratkin_1H_moveTOblock
@@ -223,10 +223,10 @@ ModelImporter:
     7400198: 1H_Wide_Slash_Combo
     7400200: Ratkin_1H_5X_Combo
     7400202: Ratkin_1H_360_Jump_swing
-    7400204: Ratkin_1H_Heavy Smash
+    7400204: AttackB
     7400206: Ratkin_1H_Jump_Swing
     7400208: Ratkin_1H_Hit_from_back
-    7400210: Ratkin_1H_Hit_from_front
+    7400210: Hit
     7400212: Ratkin_1H_Hit_from_left
     7400214: Ratkin_1H_Hit_from_righ
     7400216: Ratkin_1H_shield_block_high_left
@@ -240,11 +240,11 @@ ModelImporter:
     7400232: Ratkin_1H_sword_swing_high_right
     7400234: Ratkin_1H_sword_swing_high_straight_down
     7400236: Ratkin_1H_sword_swing_low_left
-    7400238: Ratkin_1H_sword_swing_low_right
+    7400238: AttackA
     7400240: Ratkin_1H_sword_thrust_high
     7400242: Ratkin_1H_sword_thrust_low
-    7400244: Ratkin_1H_sword_thrust_mid
-    7400246: Ratkin_1H_Die_knocked_backward
+    7400244: AttackC
+    7400246: Dead
     7400248: Ratkin_1H_Die_knocked_forward
     7400250: Ratkin_1H_Dying_A
     7400252: Ratkin_1H_Dying_B
@@ -320,7 +320,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Ratkin_IDLE
+      name: IDLE
       takeName: 
       firstFrame: 0
       lastFrame: 100
@@ -712,7 +712,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_Walking_back_A
+      name: WalkingBwk
       takeName: 
       firstFrame: 1087
       lastFrame: 1122
@@ -740,7 +740,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_1H_Casual_walk
+      name: Walk
       takeName: 
       firstFrame: 1127
       lastFrame: 1163
@@ -824,7 +824,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_1H_run
+      name: run
       takeName: 
       firstFrame: 1240
       lastFrame: 1266
@@ -892,9 +892,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -1020,7 +1020,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_1H_Moving_left
+      name: WalkL
       takeName: 
       firstFrame: 1466
       lastFrame: 1486
@@ -1048,7 +1048,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_1H_Moving_right
+      name: WalkR
       takeName: 
       firstFrame: 1487
       lastFrame: 1507
@@ -1300,7 +1300,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_1H_Heavy Smash
+      name: AttackB
       takeName: 
       firstFrame: 1983
       lastFrame: 2023
@@ -1384,7 +1384,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_1H_Hit_from_front
+      name: Hit
       takeName: 
       firstFrame: 2106
       lastFrame: 2141
@@ -1776,7 +1776,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_1H_sword_swing_low_right
+      name: AttackA
       takeName: 
       firstFrame: 2610
       lastFrame: 2645
@@ -1860,7 +1860,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_1H_sword_thrust_mid
+      name: AttackC
       takeName: 
       firstFrame: 2718
       lastFrame: 2753
@@ -1888,7 +1888,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_1H_Die_knocked_backward
+      name: Dead
       takeName: 
       firstFrame: 2758
       lastFrame: 2775
