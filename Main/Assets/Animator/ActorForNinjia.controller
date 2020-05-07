@@ -466,7 +466,7 @@ BlendTree:
   m_Name: ground
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: c149d348fb3a6964986bba01df51ff39, type: 3}
+    m_Motion: {fileID: 7400000, guid: 729433dfce71012438f76174f3b6a095, type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -508,7 +508,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 0a1f021c334c6c849915fa9ff42fe3f1, type: 3}
     m_Threshold: 5
-    m_Position: {x: 1, y: 1}
+    m_Position: {x: 1, y: 0}
     m_TimeScale: 1.2
     m_CycleOffset: 0
     m_DirectBlendParameter: forward
@@ -524,7 +524,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 5f45bd63cef8e0b4396e7c623e87a31d, type: 3}
     m_Threshold: 7
-    m_Position: {x: -1, y: 1}
+    m_Position: {x: -1, y: 0}
     m_TimeScale: 1.2
     m_CycleOffset: 0
     m_DirectBlendParameter: forward
