@@ -33,7 +33,8 @@ public class ActorController : MonoBehaviour
     private bool canAttack;
     //public bool trackDirection = false;
     private CapsuleCollider col; //為了切換Physic material
-    //private float lerpTarget;
+    private float lerpTargetDirect;
+    private float lerpTargetAnimation;
     private Vector3 deltaPos;
     private Vector3 localDvec;
 
@@ -69,6 +70,9 @@ public class ActorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        lerpTargetDirect += 0.04f * Time.deltaTime;
+        lerpTargetAnimation += 0.95f * Time.deltaTime;
+
         localDvec = model.transform.InverseTransformVector(pi.Dvec);
 
         if (pi.lockon)
@@ -81,18 +85,17 @@ public class ActorController : MonoBehaviour
             if (camcon.lockState == false)
             {
                 float targetRunMulti = ((pi.run) ? 2.0f : 1.0f);
-                anim.SetFloat("forward", pi.Dmag * Mathf.Lerp(anim.GetFloat("forward"), targetRunMulti, 0.3f)); //調整走跑相互切換的流暢度
+                anim.SetFloat("forward", pi.Dmag * Mathf.Lerp(anim.GetFloat("forward"), targetRunMulti, lerpTargetAnimation)); //調整走跑相互切換的流暢度
                 anim.SetFloat("right", 0);
             }
             else
             {
-
-                anim.SetFloat("forward", localDvec.z * ((pi.run) ? 2.0f : 1.0f));
-                anim.SetFloat("right", localDvec.x * ((pi.run) ? 2.0f : 1.0f));
+                anim.SetFloat("forward", localDvec.z * Mathf.Lerp(anim.GetFloat("forward"),((pi.run) ? 2.0f : 1.0f), lerpTargetAnimation));
+                anim.SetFloat("right", localDvec.x * Mathf.Lerp(anim.GetFloat("right"),((pi.run) ? 2.0f : 1.0f), lerpTargetAnimation));
             }
         }
 
-        if (pi.jump || rigid.velocity.magnitude > 7.0f)
+        if (pi.jump || rigid.velocity.magnitude > 10.0f)
         {
             anim.SetTrigger("roll");
             canAttack = false;
@@ -154,7 +157,7 @@ public class ActorController : MonoBehaviour
             {
                 if (pi.Dmag > 0.1f)
                 {
-                    Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.25f); //調整方向切換時的旋轉流暢度
+                    Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, lerpTargetDirect); //調整方向切換時的旋轉流暢度
                     model.transform.forward = targetForward;
                 }
 
@@ -175,14 +178,14 @@ public class ActorController : MonoBehaviour
                     }
                     else
                     {
-                        Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, 0.25f); //調整方向切換時的旋轉流暢度
+                        Vector3 targetForward = Vector3.Slerp(model.transform.forward, pi.Dvec, lerpTargetDirect); //調整方向切換時的旋轉流暢度
                         model.transform.forward = targetForward;
                     }
 
 
                     if (lockplanar == false)
                     {
-                        planarVec = pi.Dmag * pi.Dvec * walkSpeed * 0.8f * ((pi.run) ? runMultiplier : 1.0f);
+                        planarVec = pi.Dmag * pi.Dvec * walkSpeed * 0.7f * ((pi.run) ? runMultiplier : 1.0f);
                     }
                 }
                 else
@@ -191,7 +194,7 @@ public class ActorController : MonoBehaviour
 
                     if (lockplanar == false)
                     {
-                        planarVec = pi.Dmag * pi.Dvec * walkSpeed * 0.8f * ((pi.run) ? runMultiplier : 1.0f);
+                        planarVec = pi.Dmag * pi.Dvec * walkSpeed * 0.7f * ((pi.run) ? runMultiplier : 1.0f);
                     }
                 }
             }
