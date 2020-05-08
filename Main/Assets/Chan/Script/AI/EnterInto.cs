@@ -32,23 +32,24 @@ public class EnterInto
             if (m_fVec < (data.m_fPursuitRange * 0.3f))
             {
                 //怪物進入攻擊範圍
-                if (m_fVec < data.AttRange)
-                {
+                
                     //速度要為0最好改成遞減 追擊為false
-                    data.m_fSpeed = 0;
-
-                    data.m_bChase = false;
-                    //玩家在範圍移動，怪物持續鎖定玩家
-                    Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - data.m_ObjEnemy.transform.position, Vector3.up);
-                    data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);
-                }
-                else
-                {
+                    data.m_fSpeed -= Time.deltaTime;
+                    if (data.m_fSpeed <= 0)
+                    {
+                        data.m_fSpeed = 0;
+                    }
+                    data.m_bChase = true;
+                    ////玩家在範圍移動，怪物持續鎖定玩家
+                    //Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - data.m_ObjEnemy.transform.position, Vector3.up);
+                    //data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);
+                
+                
 
                     //目標脫離攻擊範圍 進入追擊 速度遞增恢復 追擊為True
-                    data.m_bChase = true;
-                    
-                }
+                    //data.m_bChase = true;
+
+                
             }
             //目標不在最怪物背後
             else if (m_fVec > (data.m_fPursuitRange * 0.3f))
@@ -85,42 +86,34 @@ public class EnterInto
 
     }
 
-    /*
-   static public bool AttackMode(AIData data)
+
+    static public bool AttackDistance(AIData data, Vector3 vTarget)
     {
         //抓取怪物位置
         Transform ObjEnemy = data.m_ObjEnemy.transform;
         Vector3 cpos = data.m_ObjEnemy.transform.position;
-       
-        
-        
         //抓取怪物與目標的距離並轉換成長度
+        data.m_vTarget = vTarget;
         Vector3 vec = data.m_vTarget - cpos;
         float m_fVec = vec.magnitude;
-
+        
 
         Transform m_tEnemy = data.m_ObjEnemy.transform;
 
 
-
-
-        //怪物前進
-
-        //兩者間距離小於攻擊距離
-        if (m_fVec <= aiman.m_fAttDis)
+        if (m_fVec <= data.m_fAttDis)
         {
-            //確認攻擊
+            data.m_fMaxSpeed = 0.0f;
+            //玩家在範圍移動，怪物持續鎖定玩家
+            Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - data.m_ObjEnemy.transform.position, Vector3.up);
+            data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);
             return true;
+
         }
-        else 
-        {
-
-            return false;
-        }
+        //目標脫離攻擊範圍 進入追擊 速度遞增恢復 追擊為True
+        return false;
 
 
-        //攻擊結束後後退
 
-
-    }*/
+    }
 }

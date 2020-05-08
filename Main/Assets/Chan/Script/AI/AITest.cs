@@ -14,6 +14,7 @@ public class AITest : PlayerInput
 
     public float ClearTime;
     public float IdleTime;
+    public float AttackTime;
     [Header("------AIData------")]
     public AIData data;
 
@@ -32,13 +33,12 @@ public class AITest : PlayerInput
         data.ArrWanderPoint = GameObject.FindGameObjectsWithTag("WanderPoint");
         //抓取第一次移動點
         WanderPoint = Decision.LookingPatrolPoint(data);
-
     }
     void Start()
     {
+        
         //抓取HP腳本
         hp = gameObject.GetComponent<HealthPoint>();
-
     }
 
 
@@ -46,6 +46,8 @@ public class AITest : PlayerInput
 
     void Update()
     {
+        
+        /*
         //防止抓不到腳本
         if (hp == null)
         {
@@ -57,7 +59,7 @@ public class AITest : PlayerInput
 
         data.fHP = hp.HP;
 
-        if (Input.GetKeyDown(KeyCode.Keypad0))
+        if (Input.GetKeyDown(KeyCode.Keypad0)) 
         {
             hp.HP -= 10;
             ani.EnemyAnimater(AIAnimater.EnemyAni.HIT, data);
@@ -70,27 +72,30 @@ public class AITest : PlayerInput
             //目標是否在範圍內
             if (EnterInto.EnterRange(data) == true)
             {
-
-                //前方是否有障礙物
-                if (SteeringBehaviour.CollisionAvoid(data) == false)
+                if (EnterInto.AttackDistance(data, data.m_vTarget) == true)
                 {
-                    SteeringBehaviour.Seek(data, data.ArrTarget[data.m_fID].transform.position);
-                }
-                
+                   
+                        ani.EnemyAttack(data, AIAnimater.EnemyAni.ATTACK1);
+                       // Debug.Log("Attack");
+                } 
+                else
+                {//前方是否有障礙物
+                    if (SteeringBehaviour.CollisionAvoid(data) == false)
+                    {
+                        SteeringBehaviour.Seek(data, data.ArrTarget[data.m_fID].transform.position);
+                    }
                     //追擊判定
                     SteeringBehaviour.Move(data);
                     ani.EnemyAnimater(AIAnimater.EnemyAni.RUN, data);
-                
-
+                }
             }
             else
             {
-
-
                 //WanderPoint的位子與怪物位子相等時重新獲取下個WanderPoint
-                if ( (data.m_ObjEnemy.transform.position-WanderPoint.transform.position).magnitude<=1)
+                if ((data.m_ObjEnemy.transform.position - WanderPoint.transform.position).magnitude <= 1)
                 {
-                     WanderPoint = Decision.LookingPatrolPoint(data);
+                    WanderPoint = Decision.LookingPatrolPoint(data);
+                    IdleTime = Random.Range(1f, 3f);
 
                 }
                 else
@@ -101,15 +106,14 @@ public class AITest : PlayerInput
                         {
                             SteeringBehaviour.Seek(data, WanderPoint.transform.position);
                         }
-                        ani.EnemyAnimater(AIAnimater.EnemyAni.RUN, data);
+                        ani.EnemyAnimater(AIAnimater.EnemyAni.WALK, data);
                         SteeringBehaviour.Move(data);
-                    }else
+                    }
+                    else
                     {
                         IdleTime -= Time.deltaTime;
                         ani.EnemyAnimater(AIAnimater.EnemyAni.IDLE, data);
-
                     }
-
                 }
             }
         }
@@ -125,31 +129,7 @@ public class AITest : PlayerInput
             }
             //撥放死亡動畫
             ani.EnemyAnimater(AIAnimater.EnemyAni.DIE, data);
-
-            Debug.Log("is die");
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }*/
     }
 
 
@@ -195,25 +175,34 @@ public class AITest : PlayerInput
 
     private void Initialization()
     {
-
-
-
         data.fHP = hp.MaxHP;
         NextHp = data.fHP;
         data.m_fMaxSpeed = 0.15f;
         data.m_fMinSpeed = 0.02f;
-        data.m_fMaxRot = 0.2f;
+        data.m_fMaxRot = 0.1f;
         data.m_fRadius = 1;
         data.m_fProbeLenght = 1;
         data.m_fPursuitRange = 20f;
         data.m_fAngle = 180;
         data.m_fThinkTime = Random.Range(0.2f, 0.5f);
         data.m_iAttackRandom = Random.Range(1, 3);
-        data.m_fAttDis = 4f;
+        data.m_fAttDis = 2f;
         ClearTime = 3f;
         data.AttRange = 4f;
+        IdleTime = Random.Range(1f, 3f);
+    }
+
+     bool Timer() 
+    {
+        float fTheTimer = 3f;
+        if (fTheTimer <= 0) 
+        {
+            fTheTimer -= Time.deltaTime;
         
+        }
+        return true;
 
     }
+   
 
 }
