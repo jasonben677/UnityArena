@@ -245,10 +245,11 @@ public class SteeringBehaviour
     ///抓取目標位置並獲取轉向力
     /// </summary>
     /// <param name="data"></param>
-    static public bool Seek(AIData data)
+    static public bool Seek(AIData data,Vector3 vTarget )
     {
 
         Vector3 cPos = data.m_ObjEnemy.transform.position;
+        data.m_vTarget = vTarget;
         Vector3 vec = data.m_vTarget - cPos;
         vec.y = 0;
         float fDis = vec.magnitude;

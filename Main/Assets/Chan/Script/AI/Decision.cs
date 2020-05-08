@@ -4,19 +4,11 @@ using UnityEngine;
 
 public class Decision 
 {
-    public void LookingPatrolPoint(AIData data)
+  static  public GameObject LookingPatrolPoint(AIData data)
     {
-        //抓取怪物
-        GameObject Enemy = data.m_ObjEnemy;
-        Vector3 vEnemyPos = Enemy.transform.position;
-        //抓取巡邏點
-        GameObject Target = data.Patrolpoint;
-        Vector3 vPos = Target.transform.position;
-
-
-
-
-
+        int iRand=Random.Range(0, data.ArrWanderPoint.Length);
+        GameObject Target= data.ArrWanderPoint[iRand];
+        return Target;
     }
 
 

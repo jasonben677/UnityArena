@@ -13,11 +13,12 @@ public class AITest : PlayerInput
     [Header("------ClearTime------")]
 
     public float ClearTime;
-    public float EmergeTime;
+    public float IdleTime;
     [Header("------AIData------")]
     public AIData data;
 
-   public  float NextHp;
+    public float NextHp;
+    public GameObject WanderPoint;
     private void Awake()
     {
         //ani = GetComponent<AIAnimater>();
@@ -28,14 +29,16 @@ public class AITest : PlayerInput
         //獲取所有Tag為Player的目標
         data.ArrTarget = GameObject.FindGameObjectsWithTag("Player");
         //抓取所有WenderPoint
-        data.m
+        data.ArrWanderPoint = GameObject.FindGameObjectsWithTag("WanderPoint");
+        //抓取第一次移動點
+        WanderPoint = Decision.LookingPatrolPoint(data);
 
-        
     }
     void Start()
     {
         //抓取HP腳本
         hp = gameObject.GetComponent<HealthPoint>();
+
     }
 
 
@@ -43,6 +46,7 @@ public class AITest : PlayerInput
 
     void Update()
     {
+        //防止抓不到腳本
         if (hp == null)
         {
             Start();
@@ -51,16 +55,7 @@ public class AITest : PlayerInput
         }
 
 
-
-
-
-
-
-
-
-
         data.fHP = hp.HP;
-        CheackScope.LockTarget(data);
 
         if (Input.GetKeyDown(KeyCode.Keypad0))
         {
@@ -68,29 +63,54 @@ public class AITest : PlayerInput
             ani.EnemyAnimater(AIAnimater.EnemyAni.HIT, data);
 
         }
-
-
+        CheackScope.LockTarget(data);
         if (data.fHP > 0)
         {
+
             //目標是否在範圍內
             if (EnterInto.EnterRange(data) == true)
             {
+
                 //前方是否有障礙物
                 if (SteeringBehaviour.CollisionAvoid(data) == false)
                 {
-                    SteeringBehaviour.Seek(data);
+                    SteeringBehaviour.Seek(data, data.ArrTarget[data.m_fID].transform.position);
                 }
-
-                //追擊判定
-                SteeringBehaviour.Move(data);
-                ani.EnemyAnimater(AIAnimater.EnemyAni.RUN, data);
-
+                
+                    //追擊判定
+                    SteeringBehaviour.Move(data);
+                    ani.EnemyAnimater(AIAnimater.EnemyAni.RUN, data);
+                
 
             }
             else
             {
-                //暫時先放Idle,之後安插巡邏腳本
-                ani.EnemyAnimater(AIAnimater.EnemyAni.IDLE, data);
+
+
+                //WanderPoint的位子與怪物位子相等時重新獲取下個WanderPoint
+                if ( (data.m_ObjEnemy.transform.position-WanderPoint.transform.position).magnitude<=1)
+                {
+                     WanderPoint = Decision.LookingPatrolPoint(data);
+
+                }
+                else
+                {
+                    if (IdleTime <= 0)
+                    {
+                        if (SteeringBehaviour.CollisionAvoid(data) == false)
+                        {
+                            SteeringBehaviour.Seek(data, WanderPoint.transform.position);
+                        }
+                        ani.EnemyAnimater(AIAnimater.EnemyAni.RUN, data);
+                        SteeringBehaviour.Move(data);
+                    }else
+                    {
+                        IdleTime -= Time.deltaTime;
+                        ani.EnemyAnimater(AIAnimater.EnemyAni.IDLE, data);
+
+                    }
+
+                }
             }
         }
         else if (data.fHP <= 0)
@@ -112,7 +132,6 @@ public class AITest : PlayerInput
 
 
 
-        Debug.Log(hp.MaxHP);
 
 
 
@@ -193,6 +212,7 @@ public class AITest : PlayerInput
         data.m_fAttDis = 4f;
         ClearTime = 3f;
         data.AttRange = 4f;
+        
 
     }
 

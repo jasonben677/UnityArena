@@ -15,7 +15,7 @@ public class AIData
     public GameObject[] NeighborEnemys;
 
     //巡邏點
-    public GameObject[] ArrPatrolpoint;
+    public GameObject[] ArrWanderPoint;
 
     //所有目標
     public GameObject[] ArrTarget;
