@@ -15,19 +15,27 @@ public class AIAnimater : MonoBehaviour
             case EnemyAni.IDLE:
                 ani.SetFloat("right",0);
                 ani.SetFloat("forward", 0);
-                data.m_fSpeed = 0;
+                data.m_fMaxSpeed = 0;
                 data.m_fThinkTime = Random.Range(0.2f, 0.5f);
                 break;
             case EnemyAni.WALK:
                 ani.SetFloat("right", 0);
                 ani.SetFloat("forward", 1);
-                ani.Play("Walk");
+                data.m_fMaxSpeed = 0.02f;
 
                 break;
             case EnemyAni.RUN:
                 ani.SetFloat("right", 0);
                 ani.SetFloat("forward", 2);
-                data.m_fSpeed += data.m_fMinSpeed;
+                if (data.m_fMaxSpeed <= 0.15)
+                {
+                    data.m_fMaxSpeed += Time.deltaTime;
+                }
+                else 
+                {
+                    data.m_fMaxSpeed = 0.15f; 
+                }
+
                 break;
             case EnemyAni.MOVINGLEFT:
                 ani.SetFloat("right", -1);
@@ -68,7 +76,7 @@ public class AIAnimater : MonoBehaviour
         {
             case EnemyAni.ATTACK1:
                 ani.Play("attack1hA");
-                data.m_fSpeed = 0;
+                data.m_fMaxSpeed = 0;
 
                 break;
             case EnemyAni.ATTACK2:

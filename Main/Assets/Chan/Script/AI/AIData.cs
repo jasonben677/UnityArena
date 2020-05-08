@@ -8,6 +8,7 @@ public class AIData
     //怪物HP量
     public float fHP;
 
+    public float PlayerHP;
     //怪物
     public GameObject m_ObjEnemy;
 
