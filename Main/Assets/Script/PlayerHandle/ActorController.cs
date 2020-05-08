@@ -80,6 +80,7 @@ public class ActorController : MonoBehaviour
             camcon.LockUnlock();
         }
 
+        //Locomotion的BlendTree
         if (pi.isAI == false)
         {
             if (camcon.lockState == false)
@@ -129,7 +130,7 @@ public class ActorController : MonoBehaviour
             {
                 anim.SetTrigger("slash");
                 //pi.RotateTowards(camcon.lockTarget);
-            }
+            }            
         }
 
         if (pi.defense)
@@ -148,9 +149,9 @@ public class ActorController : MonoBehaviour
         else
         {
             anim.SetLayerWeight(anim.GetLayerIndex("defense"), 0);
-
         }
 
+        //玩家角色面向判定
         if (pi.isAI == false)
         {
             if (camcon.lockState == false) //判斷有無鎖目標(會影響移動時的面部朝向)
