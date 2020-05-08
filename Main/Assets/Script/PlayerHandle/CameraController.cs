@@ -97,48 +97,48 @@ public class CameraController : MonoBehaviour
 
         CameraRay();
         
-        //Quaternion tempRotation = transform.localRotation;
-        if (rayTerrain == true) //遮蔽物在射線範圍內
-        {
-            if (blockSight == true)
-            {
-                if (rayHit.distance < calRadius + 0.4f) //如果太靠近角色模型
-                {
-                    //Debug.Log("rayHit.distance :" + rayHit.distance);                
-                    //transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);                    
-                    tempPos = cameraHandle.transform.position + dir.normalized * (calRadius + 0.4f);
-                    transform.position = tempPos;
+        ////Quaternion tempRotation = transform.localRotation;
+        //if (rayTerrain == true) //遮蔽物在射線範圍內
+        //{
+        //    if (blockSight == true)
+        //    {
+        //        if (rayHit.distance < calRadius + 0.4f) //如果太靠近角色模型
+        //        {
+        //            //Debug.Log("rayHit.distance :" + rayHit.distance);                
+        //            //transform.RotateAround(cameraHandle.transform.position, cameraHandle.transform.right, 100f * Time.fixedDeltaTime);                    
+        //            tempPos = cameraHandle.transform.position + dir.normalized * (calRadius + 0.4f);
+        //            transform.position = tempPos;
 
-                }
-                else
-                {
-                    tempPos = rayHit.point - dir.normalized * 0.3f;
-                    transform.position = tempPos;
-                }
-            }
-            else
-            {
-                transform.position = tempPos;                
-            }
-            isback = false;
-        }
-        else //遮蔽物不在射線範圍內
-        {
-            //transform.position = cameraHandle.transform.position + dir.normalized * offset;
-            ////transform.localPosition = currentPos;            
-            //transform.localRotation = tempRotation;
-            if (isback)
-            {
-                this.transform.position = transform.position;
+        //        }
+        //        else
+        //        {
+        //            tempPos = rayHit.point - dir.normalized * 0.3f;
+        //            transform.position = tempPos;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        transform.position = tempPos;                
+        //    }
+        //    isback = false;
+        //}
+        //else //遮蔽物不在射線範圍內
+        //{
+        //    //transform.position = cameraHandle.transform.position + dir.normalized * offset;
+        //    ////transform.localPosition = currentPos;            
+        //    //transform.localRotation = tempRotation;
+        //    if (isback)
+        //    {
+        //        this.transform.position = transform.position;
                 
-            }
-            else
-            {
-                Vector3 returnPos = cameraHandle.transform.position + dir.normalized * offset;                
-                transform.position = Vector3.SmoothDamp(transform.position, returnPos, ref cameraDampvelocity, cameraDampValue);                
-            }
-            isback = true;            
-        }
+        //    }
+        //    else
+        //    {
+        //        Vector3 returnPos = cameraHandle.transform.position + dir.normalized * offset;                
+        //        transform.position = Vector3.SmoothDamp(transform.position, returnPos, ref cameraDampvelocity, cameraDampValue);                
+        //    }
+        //    isback = true;            
+        //}
         
         CameraRotate();
         CameraTranslate();
@@ -184,7 +184,25 @@ public class CameraController : MonoBehaviour
 
         if (pi.isAI == false)
         {
-            mainCamera.transform.position = transform.position;
+            if (!rayTerrain)
+            {
+                mainCamera.transform.position = transform.position;
+            }
+            else
+            {
+                if (rayHit.distance < calRadius + 0.25f) //如果太靠近角色模型
+                {                                       
+                    tempPos = cameraHandle.transform.position + dir.normalized * (calRadius + 0.25f);
+                    mainCamera.transform.position = tempPos;
+
+                }
+                else
+                {
+                    tempPos = rayHit.point - dir.normalized * 0.3f;
+                    mainCamera.transform.position = tempPos;
+                }
+            }
+            
             if (lockTarget == null)
             {
                 mainCamera.transform.LookAt(cameraHandle.transform);
