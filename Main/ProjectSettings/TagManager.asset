@@ -8,6 +8,7 @@ TagManager:
   - GM
   - Obstacle
   - ServerSYNC
+  - WanderPoint
   layers:
   - Default
   - TransparentFX

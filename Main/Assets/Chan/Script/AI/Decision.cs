@@ -2,18 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Decision : ActorController
+public class Decision 
 {
-    // Start is called before the first frame update
-    void Start()
+    public void LookingPatrolPoint(AIData data)
     {
+        //抓取怪物
+        GameObject Enemy = data.m_ObjEnemy;
+        Vector3 vEnemyPos = Enemy.transform.position;
+        //抓取巡邏點
+        GameObject Target = data.Patrolpoint;
+        Vector3 vPos = Target.transform.position;
+
+
+
+
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
+
+
     public void BattleNumber(AIData data)
     {
         //獲取怪物資料

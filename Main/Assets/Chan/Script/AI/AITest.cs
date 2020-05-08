@@ -27,6 +27,10 @@ public class AITest : PlayerInput
         this.gameObject.layer = LayerMask.NameToLayer("Enemy");
         //獲取所有Tag為Player的目標
         data.ArrTarget = GameObject.FindGameObjectsWithTag("Player");
+        //抓取所有WenderPoint
+        data.m
+
+        
     }
     void Start()
     {
@@ -45,6 +49,15 @@ public class AITest : PlayerInput
             //初始化數值
             Initialization();
         }
+
+
+
+
+
+
+
+
+
 
         data.fHP = hp.HP;
         CheackScope.LockTarget(data);
@@ -74,7 +87,7 @@ public class AITest : PlayerInput
 
 
             }
-            else 
+            else
             {
                 //暫時先放Idle,之後安插巡邏腳本
                 ani.EnemyAnimater(AIAnimater.EnemyAni.IDLE, data);
@@ -99,7 +112,7 @@ public class AITest : PlayerInput
 
 
 
-        //Debug.Log(hp.MaxHP);
+        Debug.Log(hp.MaxHP);
 
 
 
