@@ -92,31 +92,37 @@ public class ActorManager : MonoBehaviour
     }
 
     public void HitOrDie(WeaponController targetWc ,bool doHitAnimation)
-    {
-        if (sm.playerHP.HP <= 0)
+    {      
+        if (ac.pi.isAI && targetWc.wm.am.transform.gameObject.layer == 10) //避免Npc打Npc的問題
         {
-            //Already dead
+            return;
         }
         else
         {
-            sm.playerHP.AddHP(-1 * targetWc.GetATK());
-
-            if (sm.playerHP.HP > 0)
+            if (sm.playerHP.HP <= 0)
             {
-                if (doHitAnimation)
-                {
-                    Hit();
-                }
-                //do some VFX, like splatter blood...
+                //Already dead
             }
             else
             {
-                Die();
+                sm.playerHP.AddHP(-1 * targetWc.GetATK());
+
+                if (sm.playerHP.HP > 0)
+                {
+                    if (doHitAnimation)
+                    {
+                        Hit();
+                    }
+                    //do some VFX, like splatter blood...
+                }
+                else
+                {
+                    Die();
+                }
+
+                PlayerUI.UIManager.instance.HitPlayer(gameObject);
             }
-
-            PlayerUI.UIManager.instance.HitPlayer(gameObject);
-        }
-
+        }  
     }
 
     public void Stunned()
