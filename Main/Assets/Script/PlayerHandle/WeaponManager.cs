@@ -18,7 +18,8 @@ public class WeaponManager : MonoBehaviour
     private GameObject objFXA; //普攻A刀光特效
     private GameObject objFXB; //普攻B刀光特效
     private GameObject objFXC; //普攻C刀光特效
-    private Animator anim;    
+    private Animator anim;
+    private float lerpWarp;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,11 @@ public class WeaponManager : MonoBehaviour
         wcR = whR.GetComponent<WeaponController>();
 
         anim = transform.gameObject.GetComponent<Animator>();        
+    }
+
+    private void FixedUpdate()
+    {
+        lerpWarp += 0.3f * Time.fixedDeltaTime;
     }
 
     /// <summary>
@@ -133,6 +139,10 @@ public class WeaponManager : MonoBehaviour
         Destroy(objFXC.gameObject);
     }
 
+
+    /// <summary>
+    /// slash技能
+    /// </summary>
     public void OnWarp()
     {
         //GameObject prefabModel = Resources.Load("Ninjia") as GameObject;
@@ -154,9 +164,9 @@ public class WeaponManager : MonoBehaviour
         anim.speed = 0;
 
         //DOTween...
-        transform.DOMove(am.ac.camcon.lockTarget.transform.position, warpDuration).SetEase(Ease.InExpo).OnComplete(()=>FinishWarp());
-        //transform.position = Vector3.Lerp(transform.position, am.ac.camcon.lockTarget.transform.position, 0.5f);
-        //if(transform.position == am.ac.camcon.lockTarget.transform.position)
+        am.transform.DOMove(am.ac.camcon.lockTarget.transform.position, warpDuration).SetEase(Ease.InExpo).OnComplete(()=>FinishWarp());
+        //am.transform.position = Vector3.Lerp(am.transform.position, am.ac.camcon.lockTarget.transform.position, lerpWarp);
+        //if (am.transform.position == am.ac.camcon.lockTarget.transform.position)
         //{
         //    Debug.Log("FinishWarp Enter");
         //    FinishWarp();
@@ -177,10 +187,12 @@ public class WeaponManager : MonoBehaviour
         //    material.....shader
         //}
 
-        am.ac.camcon.lockTarget.GetComponentInChildren<Animator>().SetTrigger("hit");
+        am.ac.camcon.lockTarget.GetComponentInChildren<Animator>().SetTrigger("stunned");
         //DOTween...
-        am.ac.camcon.lockTarget.transform.DOMove(am.ac.camcon.lockTarget.transform.position + transform.forward, 0.5f);
-        //am.ac.camcon.lockTarget.transform.position = Vector3.Lerp(am.ac.camcon.lockTarget.transform.position, am.ac.camcon.lockTarget.transform.position + transform.forward * 0.5f, 0.8f);
+        //am.ac.camcon.lockTarget.transform.DOMove(am.ac.camcon.lockTarget.transform.position + transform.forward, 0.5f);
+
+        //用Lerp位移敵人NPC位置，避免向量是0的情況
+        am.ac.camcon.lockTarget.transform.position = Vector3.Lerp(am.ac.camcon.lockTarget.transform.position, am.ac.camcon.lockTarget.transform.position + transform.forward * 0.8f, 0.8f);
 
         StartCoroutine(PlayAnimation());
         //StartCoroutine(StopParticles());

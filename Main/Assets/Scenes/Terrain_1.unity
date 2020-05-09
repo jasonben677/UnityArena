@@ -7167,6 +7167,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 428268203, guid: d8320019a28c58d43803db0012573944, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1716983298, guid: d8320019a28c58d43803db0012573944, type: 3}
       propertyPath: m_IsActive
       value: 1

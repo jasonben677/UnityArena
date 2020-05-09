@@ -202,17 +202,20 @@ public class CameraController : MonoBehaviour
                     mainCamera.transform.position = tempPos;
                 }
             }
-            
+
             if (lockTarget == null)
-            {
+            {                
                 mainCamera.transform.LookAt(cameraHandle.transform);
             }
             else
-            {                
-                Vector3 lookTarget = lockTarget.transform.position + new Vector3(0, enemyCol.bounds.extents.y, 0);
-                mainCamera.transform.LookAt(Vector3.SmoothDamp(cameraHandle.transform.position, lookTarget, ref cameraDampvelocity, cameraDampValue));                
+            {
+                Vector3 targetDirection = lockTarget.transform.position - model.transform.position;
+                float targetDistance = targetDirection.magnitude;
+                Vector3 lookTargetPoint = playerHandle.transform.position + new Vector3(0, 1.6f, 0) + targetDirection.normalized * targetDistance * 0.5f;
+                //Vector3 lookTargetPoint = lockTarget.transform.position + new Vector3(0, enemyCol.bounds.extents.y, 0);
+                mainCamera.transform.LookAt(Vector3.SmoothDamp(cameraHandle.transform.position, lookTargetPoint, ref cameraDampvelocity, cameraDampValue));
             }
-        }
+        }        
 
     }
 
@@ -220,7 +223,6 @@ public class CameraController : MonoBehaviour
     {
         if (pi.isAI == false)
         {
-            
             cameraHandle.transform.position = Vector3.SmoothDamp(cameraHandle.transform.position, playerHandle.transform.position + new Vector3(0, 1.6f, 0), ref cameraDampvelocity, cameraDampValue);
         }
     }    

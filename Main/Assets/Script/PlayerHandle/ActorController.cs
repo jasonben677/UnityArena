@@ -31,6 +31,7 @@ public class ActorController : MonoBehaviour
     private Vector3 thrustVec; //jump時候的衝量  
     private bool lockplanar = false; //鎖死平面移動(為了在jump的時候，不去更新planarVec)
     private bool canAttack;
+    private bool canDenfese = false;
     //public bool trackDirection = false;
     private CapsuleCollider col; //為了切換Physic material
     private float lerpTargetDirect;
@@ -100,12 +101,14 @@ public class ActorController : MonoBehaviour
         {
             anim.SetTrigger("roll");
             canAttack = false;
+            canDenfese = false;
         }
 
         if (pi.jump)//但這樣還是會有機會連跳，所以在animator的ground裡設程式碼調整
         {
             anim.SetTrigger("jump");
             canAttack = false;
+            canDenfese = false;
         }
 
         if ((CheckState("ground") || CheckStateTag("attackR")) && canAttack)
@@ -133,23 +136,32 @@ public class ActorController : MonoBehaviour
             }            
         }
 
-        if (pi.defense)
-        {
-            if(CheckState("ground") || CheckState("blocked"))
+        //if (pi.defense)
+        //{
+            if(CheckState("ground") || CheckState("blocked") && canDenfese)
             {
-                anim.SetBool("defense", pi.defense);
-                anim.SetLayerWeight ( anim.GetLayerIndex("defense"), 1);
+                if (pi.defense)
+                {
+                    anim.SetBool("defense", pi.defense);
+                //anim.SetTrigger("defense");
+                    anim.SetLayerWeight(anim.GetLayerIndex("defense"), 1);
+                }
+                else
+                {
+                    anim.SetLayerWeight(anim.GetLayerIndex("defense"), 0);
+                }
+                
             }
             else
             {
                 anim.SetBool("defense", false);
                 anim.SetLayerWeight ( anim.GetLayerIndex("defense"), 0);
             }
-        }
-        else
-        {
-            anim.SetLayerWeight(anim.GetLayerIndex("defense"), 0);
-        }
+        //}
+        //else
+        //{
+        //    anim.SetLayerWeight(anim.GetLayerIndex("defense"), 0);
+        //}
 
         //玩家角色面向判定
         if (pi.isAI == false)
@@ -274,6 +286,7 @@ public class ActorController : MonoBehaviour
         pi.inputEnable = true;
         lockplanar = false;
         canAttack = true;
+        canDenfese = true;
         col.material = frictionOne;
         pi.trackDirection = false;
     }

@@ -109,11 +109,12 @@ public class PlayerInput : MonoBehaviour
 
         run = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         
-        counterBack = Input.GetKey(KeyCode.R); //反擊觸發設定
+        counterBack = Input.GetKeyDown(KeyCode.Q); //反擊觸發設定
 
-        defense= Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl); //防禦觸發設定        
+        //defense= Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl); //防禦觸發設定       
+        defense = Input.GetMouseButton(1);
 
-        bool newJump = Input.GetKey(KeyCode.Space); //跳躍觸發設定       
+        bool newJump = Input.GetKeyDown(KeyCode.Space); //跳躍觸發設定       
         if(newJump != lastJump && newJump == true)
         {
             jump = true;
@@ -125,7 +126,7 @@ public class PlayerInput : MonoBehaviour
         }
         lastJump = newJump;
 
-        bool newAttack = Input.GetMouseButton(0); //單手普攻觸發設定
+        bool newAttack = Input.GetMouseButtonDown(0); //單手普攻觸發設定
         if (newAttack != lastAttack && newAttack == true)
         {
             attack = true;
@@ -153,7 +154,7 @@ public class PlayerInput : MonoBehaviour
         }
         lastAttack = newAttack;
 
-        bool newSlash = Input.GetMouseButton(1); //技能觸發設定
+        bool newSlash = Input.GetKeyDown(KeyCode.E); //技能觸發設定
         if (newSlash != lastSlash && newSlash == true)
         {
             slash = true;

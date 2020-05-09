@@ -58,7 +58,7 @@ public class StateManager : MonoBehaviour
         isCounterBackFailure = isCounterBack && !isCounterBackEnable;
 
         isAllowDefense = isGround || isBlocked;
-        isDefense = isAllowDefense && am.ac.CheckState("defenseR", "defense");
+        isDefense = isAllowDefense && am.ac.CheckState("defenseR", "defense") && am.ac.pi.defense;
         isImmortal = isRoll || isJab;
     }
 
