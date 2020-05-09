@@ -173,9 +173,12 @@ public class ActorController : MonoBehaviour
                 {
                     if (pi.isAI == false)
                     {
-                        Vector3 tempDvec = camcon.lockTarget.transform.position - model.transform.position;
-                        tempDvec.y = 0;
-                        model.transform.forward = tempDvec;
+                        if(camcon.lockTarget != null)
+                        {
+                            Vector3 tempDvec = camcon.lockTarget.transform.position - model.transform.position;
+                            tempDvec.y = 0;
+                            model.transform.forward = tempDvec;
+                        }                        
                     }
                     else
                     {
