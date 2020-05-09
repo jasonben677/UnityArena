@@ -60,7 +60,7 @@ public class AITest : PlayerInput
         if (Input.GetKeyDown(KeyCode.Keypad0)) 
         {
             hp.HP -= 10;
-            ani.EnemyAnimater(AIAnimater.EnemyAni.HIT, data);
+            ani.EnemyAnimater(data,AIAnimater.EnemyAni.HIT);
 
         }
         CheackScope.LockTarget(data);
@@ -72,16 +72,16 @@ public class AITest : PlayerInput
             {
                 if (EnterInto.AttackDistance(data, data.m_vTarget) == true)
                 {
-
-                    if (AttackTime <= 0)
+                    // 攻擊時間判斷
+                    if (AttackTime >= 0)
                     {
                         AttackTime -= Time.deltaTime;
-
+                        ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
                     }
                     else
                     {
-                        ani.EnemyAttack(data, AIAnimater.EnemyAni.ATTACK1);
-                        AttackTime = 3f;
+                        ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
+                        AttackTime = Random.Range(2,5);
 
                     }
                     // Debug.Log("Attack");
@@ -94,7 +94,7 @@ public class AITest : PlayerInput
                     }
                     //追擊判定
                     SteeringBehaviour.Move(data);
-                    ani.EnemyAnimater(AIAnimater.EnemyAni.RUN, data);
+                    ani.EnemyAnimater(data,AIAnimater.EnemyAni.RUN);
                 }
             }
             else
@@ -114,13 +114,13 @@ public class AITest : PlayerInput
                         {
                             SteeringBehaviour.Seek(data, WanderPoint.transform.position);
                         }
-                        ani.EnemyAnimater(AIAnimater.EnemyAni.WALK, data);
+                        ani.EnemyAnimater(data,AIAnimater.EnemyAni.WALK);
                         SteeringBehaviour.Move(data);
                     }
                     else
                     {
                         IdleTime -= Time.deltaTime;
-                        ani.EnemyAnimater(AIAnimater.EnemyAni.IDLE, data);
+                        ani.EnemyAnimater(data,AIAnimater.EnemyAni.IDLE);
                     }
                 }
             }
@@ -136,7 +136,7 @@ public class AITest : PlayerInput
                 ClearTime -= Time.deltaTime;
             }
             //撥放死亡動畫
-            ani.EnemyAnimater(AIAnimater.EnemyAni.DIE, data);
+            ani.EnemyAnimater(data,AIAnimater.EnemyAni.DIE);
         }
     }
 
@@ -198,16 +198,10 @@ public class AITest : PlayerInput
         ClearTime = 3f;
         data.AttRange = 4f;
         IdleTime = Random.Range(1f, 3f);
-        AttackTime = 3f;
+        AttackTime = Random.Range(1f,3f);
     }
 
 
-    bool Timer()
-    {
-       
-       
-        return true;
-
-    }
+   
 
 }

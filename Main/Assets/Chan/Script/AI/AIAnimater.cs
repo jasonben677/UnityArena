@@ -5,17 +5,10 @@ using UnityEngine;
 public class AIAnimater : MonoBehaviour
 {
     public Animator ani;
-    public ActorManager am;
-    public StateManager sm;
-    private void Start()
-    {
-        am = gameObject.GetComponent<ActorManager>();
-        sm = gameObject.GetComponent<StateManager>();
-    }
-
+    
 
     //簡易的動作切換
-    public void EnemyAnimater(EnemyAni ANIMATER,AIData data)
+    public void EnemyAnimater(AIData data,EnemyAni ANIMATER)
     {
         switch (ANIMATER)
         {
@@ -70,41 +63,31 @@ public class AIAnimater : MonoBehaviour
                 ani.Play("die");
                 break;
 
+            case EnemyAni.ATTACK:
+                int i = Random.Range(1, 3);
+                data.m_fMaxSpeed = 0;
+                EnemyAttack(i);
+                break;
         }
 
 
     }
 
     //簡易的攻擊動作切換
-    public void EnemyAttack(AIData data,EnemyAni Attack)
+    private void EnemyAttack(int i)
     {
 
-        switch (Attack)
+        switch (i)
         {
-            case EnemyAni.ATTACK1:
-                
-                data.m_fMaxSpeed = 0;
-               
+            case 1:
+                ani.Play("attack1hA");
                 break;
-            case EnemyAni.ATTACK2:
+            case 2:
                 ani.Play("attack1hB");
-
                 break;
-
-            case EnemyAni.ATTACK3:
+            case 3:
                 ani.Play("attack1hC");
-
                 break;
-            case EnemyAni.SKILL1:
-                ani.Play("Skill1");
-
-                break;
-
-            case EnemyAni.SKILL2:
-                ani.Play("Skill2");
-
-                break;
-
         }
 
     }
@@ -119,6 +102,7 @@ public class AIAnimater : MonoBehaviour
         IDLE,
         WALK,
         RUN,
+        ATTACK,
         ATTACK1,
         ATTACK2,
         ATTACK3,
