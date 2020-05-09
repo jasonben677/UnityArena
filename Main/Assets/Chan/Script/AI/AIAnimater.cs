@@ -5,7 +5,14 @@ using UnityEngine;
 public class AIAnimater : MonoBehaviour
 {
     public Animator ani;
-    
+    public ActorManager am;
+    public StateManager sm;
+    private void Start()
+    {
+        am = gameObject.GetComponent<ActorManager>();
+        sm = gameObject.GetComponent<StateManager>();
+    }
+
 
     //簡易的動作切換
     public void EnemyAnimater(EnemyAni ANIMATER,AIData data)
@@ -75,9 +82,9 @@ public class AIAnimater : MonoBehaviour
         switch (Attack)
         {
             case EnemyAni.ATTACK1:
-                ani.Play("attack1hA");
+                
                 data.m_fMaxSpeed = 0;
-
+               
                 break;
             case EnemyAni.ATTACK2:
                 ani.Play("attack1hB");
@@ -103,7 +110,9 @@ public class AIAnimater : MonoBehaviour
     }
 
 
-    
+   
+
+
     public enum EnemyAni
     {
         NONE = 0,

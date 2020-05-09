@@ -29,14 +29,12 @@ public class AITest : PlayerInput
         this.gameObject.layer = LayerMask.NameToLayer("Enemy");
         //獲取所有Tag為Player的目標
         data.ArrTarget = GameObject.FindGameObjectsWithTag("Player");
-        //抓取所有WenderPoint
-        data.ArrWanderPoint = GameObject.FindGameObjectsWithTag("WanderPoint");
         //抓取第一次移動點
         WanderPoint = Decision.LookingPatrolPoint(data);
     }
     void Start()
     {
-        
+        ani = gameObject.GetComponentInChildren<AIAnimater>();   
         //抓取HP腳本
         hp = gameObject.GetComponent<HealthPoint>();
     }
@@ -47,7 +45,7 @@ public class AITest : PlayerInput
     void Update()
     {
         
-        /*
+        
         //防止抓不到腳本
         if (hp == null)
         {
@@ -74,9 +72,19 @@ public class AITest : PlayerInput
             {
                 if (EnterInto.AttackDistance(data, data.m_vTarget) == true)
                 {
-                   
+
+                    if (AttackTime <= 0)
+                    {
+                        AttackTime -= Time.deltaTime;
+
+                    }
+                    else
+                    {
                         ani.EnemyAttack(data, AIAnimater.EnemyAni.ATTACK1);
-                       // Debug.Log("Attack");
+                        AttackTime = 3f;
+
+                    }
+                    // Debug.Log("Attack");
                 } 
                 else
                 {//前方是否有障礙物
@@ -129,7 +137,7 @@ public class AITest : PlayerInput
             }
             //撥放死亡動畫
             ani.EnemyAnimater(AIAnimater.EnemyAni.DIE, data);
-        }*/
+        }
     }
 
 
@@ -190,19 +198,16 @@ public class AITest : PlayerInput
         ClearTime = 3f;
         data.AttRange = 4f;
         IdleTime = Random.Range(1f, 3f);
+        AttackTime = 3f;
     }
 
-     bool Timer() 
+
+    bool Timer()
     {
-        float fTheTimer = 3f;
-        if (fTheTimer <= 0) 
-        {
-            fTheTimer -= Time.deltaTime;
-        
-        }
+       
+       
         return true;
 
     }
-   
 
 }
