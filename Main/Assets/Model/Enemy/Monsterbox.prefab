@@ -244,42 +244,42 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMaxSpeed
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMinSpeed
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fRadius
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fProbeLenght
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fThinkTime
-      value: 0.30647567
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_iAttackRandom
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fAttDis
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -449,42 +449,42 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMaxSpeed
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMinSpeed
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fRadius
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fProbeLenght
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fThinkTime
-      value: 0.30647567
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_iAttackRandom
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fAttDis
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -654,42 +654,42 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMaxSpeed
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMinSpeed
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fRadius
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fProbeLenght
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fThinkTime
-      value: 0.30647567
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_iAttackRandom
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fAttDis
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -859,42 +859,42 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMaxSpeed
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMinSpeed
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fRadius
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fProbeLenght
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fThinkTime
-      value: 0.30647567
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_iAttackRandom
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fAttDis
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -1064,42 +1064,42 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMaxSpeed
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMinSpeed
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fRadius
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fProbeLenght
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fThinkTime
-      value: 0.30647567
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_iAttackRandom
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fAttDis
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -1269,42 +1269,42 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMaxSpeed
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMinSpeed
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fRadius
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fProbeLenght
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fThinkTime
-      value: 0.30647567
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_iAttackRandom
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fAttDis
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -1474,42 +1474,42 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMaxSpeed
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMinSpeed
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fRadius
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fProbeLenght
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fThinkTime
-      value: 0.30647567
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_iAttackRandom
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fAttDis
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -1679,42 +1679,42 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMaxSpeed
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMinSpeed
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fRadius
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fProbeLenght
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fThinkTime
-      value: 0.30647567
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_iAttackRandom
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fAttDis
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -1974,42 +1974,42 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMaxSpeed
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMinSpeed
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fRadius
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fProbeLenght
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fThinkTime
-      value: 0.30647567
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_iAttackRandom
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fAttDis
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -2179,42 +2179,42 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMaxSpeed
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMinSpeed
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fRadius
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fProbeLenght
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fThinkTime
-      value: 0.30647567
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_iAttackRandom
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fAttDis
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -2384,42 +2384,42 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMaxSpeed
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fMinSpeed
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fRadius
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fProbeLenght
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fThinkTime
-      value: 0.30647567
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_iAttackRandom
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fAttDis
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}

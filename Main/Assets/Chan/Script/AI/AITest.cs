@@ -10,6 +10,7 @@ public class AITest : PlayerInput
     private StateManager sm;
     private ActorManager am;
     private HealthPoint hp;
+    public bool isPlayerDie;
     [Header("------ClearTime------")]
 
     public float ClearTime;
@@ -31,12 +32,14 @@ public class AITest : PlayerInput
         data.ArrTarget = GameObject.FindGameObjectsWithTag("Player");
         //抓取第一次移動點
         WanderPoint = Decision.LookingPatrolPoint(data);
+        ani = gameObject.GetComponentInChildren<AIAnimater>();
+
     }
     void Start()
     {
-        ani = gameObject.GetComponentInChildren<AIAnimater>();   
         //抓取HP腳本
         hp = gameObject.GetComponent<HealthPoint>();
+        Initialization();
     }
 
 
@@ -44,86 +47,87 @@ public class AITest : PlayerInput
 
     void Update()
     {
-        
-        
+
+
         //防止抓不到腳本
         if (hp == null)
         {
             Start();
             //初始化數值
-            Initialization();
         }
 
 
         data.fHP = hp.HP;
 
-        if (Input.GetKeyDown(KeyCode.Keypad0)) 
+        if (Input.GetKeyDown(KeyCode.Keypad0))
         {
             hp.HP -= 10;
-            ani.EnemyAnimater(data,AIAnimater.EnemyAni.HIT);
+            ani.EnemyAnimater(data, AIAnimater.EnemyAni.HIT);
 
         }
         CheackScope.LockTarget(data);
+        isPlayerDie = data.ArrTarget[data.m_fID].GetComponent<StateManager>().isDie;
+
+
+        //怪物HP>0
         if (data.fHP > 0)
         {
-
-            //目標是否在範圍內
-            if (EnterInto.EnterRange(data) == true)
+            //Player Die 了沒
+            if (isPlayerDie == false)
             {
-                if (EnterInto.AttackDistance(data, data.m_vTarget) == true)
+                //目標是否在範圍內
+                if (EnterInto.EnterRange(data) == true)
                 {
-                    // 攻擊時間判斷
-                    if (AttackTime >= 0)
+                    //攻擊距離是否成立
+                    if (EnterInto.AttackDistance(data, data.m_vTarget) == true)
                     {
-                        AttackTime -= Time.deltaTime;
-                        ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
-                    }
-                    else
-                    {
-                        ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
-                        AttackTime = Random.Range(2,5);
-
-                    }
-                    // Debug.Log("Attack");
-                } 
-                else
-                {//前方是否有障礙物
-                    if (SteeringBehaviour.CollisionAvoid(data) == false)
-                    {
-                        SteeringBehaviour.Seek(data, data.ArrTarget[data.m_fID].transform.position);
-                    }
-                    //追擊判定
-                    SteeringBehaviour.Move(data);
-                    ani.EnemyAnimater(data,AIAnimater.EnemyAni.RUN);
-                }
-            }
-            else
-            {
-                //WanderPoint的位子與怪物位子相等時重新獲取下個WanderPoint
-                if ((data.m_ObjEnemy.transform.position - WanderPoint.transform.position).magnitude <= 1)
-                {
-                    WanderPoint = Decision.LookingPatrolPoint(data);
-                    IdleTime = Random.Range(1f, 3f);
-
-                }
-                else
-                {
-                    if (IdleTime <= 0)
-                    {
-                        if (SteeringBehaviour.CollisionAvoid(data) == false)
+                        // 攻擊時間判斷
+                        if (AttackTime >= 0)
                         {
-                            SteeringBehaviour.Seek(data, WanderPoint.transform.position);
+                            AttackTime -= Time.deltaTime;
+                            //怪物IDLE
+                            ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
                         }
-                        ani.EnemyAnimater(data,AIAnimater.EnemyAni.WALK);
-                        SteeringBehaviour.Move(data);
+                        else
+                        {
+                            //怪物攻擊判定內部判定要甚麼攻擊狀態
+                            ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
+                            //攻擊時間
+                            AttackTime = Random.Range(2, 4);
+                        }
+                        // Debug.Log("Attack");
                     }
                     else
                     {
-                        IdleTime -= Time.deltaTime;
-                        ani.EnemyAnimater(data,AIAnimater.EnemyAni.IDLE);
+                        if (IdleTime <= 0)
+                        {
+                            //前方是否有障礙物
+                            if (SteeringBehaviour.CollisionAvoid(data) == false)
+                            {
+                                SteeringBehaviour.Seek(data, data.ArrTarget[data.m_fID].transform.position);
+                            }
+                            //追擊判定
+                            SteeringBehaviour.Move(data);
+                            ani.EnemyAnimater(data, AIAnimater.EnemyAni.RUN);
+                        }
+                        else
+                        {
+                            IdleTime -= Time.deltaTime;
+                            ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
+                        }
                     }
+
+                }
+                else
+                {
+                    EnemyPatrol();
                 }
             }
+            else if(isPlayerDie==true)//以下為巡邏
+            {
+                EnemyPatrol();
+            }
+
         }
         else if (data.fHP <= 0)
         {
@@ -136,7 +140,7 @@ public class AITest : PlayerInput
                 ClearTime -= Time.deltaTime;
             }
             //撥放死亡動畫
-            ani.EnemyAnimater(data,AIAnimater.EnemyAni.DIE);
+            ani.EnemyAnimater(data, AIAnimater.EnemyAni.DIE);
         }
     }
 
@@ -176,13 +180,17 @@ public class AITest : PlayerInput
 
 
     }
+
     public void ClearEnemy()
     {
         Destroy(data.m_ObjEnemy);
     }
 
+
+    //初始化設定
     private void Initialization()
     {
+        //數值得初始化
         data.fHP = hp.MaxHP;
         NextHp = data.fHP;
         data.m_fMaxSpeed = 0.15f;
@@ -198,10 +206,40 @@ public class AITest : PlayerInput
         ClearTime = 3f;
         data.AttRange = 4f;
         IdleTime = Random.Range(1f, 3f);
-        AttackTime = Random.Range(1f,3f);
+        AttackTime = Random.Range(1f, 3f);
+        hp.MaxHP = 40;
     }
 
 
-   
+    //巡邏
+    void EnemyPatrol()
+    {
+        //WanderPoint的位子與怪物位子距離<=1時重新獲取下個WanderPoint
+        if ((data.m_ObjEnemy.transform.position - WanderPoint.transform.position).magnitude <= 1)
+        {
+            WanderPoint = Decision.LookingPatrolPoint(data);
+            IdleTime = Random.Range(1f, 3f);
+
+        }
+        else
+        {
+            if (IdleTime <= 0)
+            {
+                if (SteeringBehaviour.CollisionAvoid(data) == false)
+                {
+                    SteeringBehaviour.Seek(data, WanderPoint.transform.position);
+                }
+                ani.EnemyAnimater(data, AIAnimater.EnemyAni.WALK);
+                SteeringBehaviour.Move(data);
+            }
+            else
+            {
+                IdleTime -= Time.deltaTime;
+                ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
+            }
+        }
+    }
+
+
 
 }
