@@ -26,12 +26,12 @@ public class LoginManager : MonoBehaviour
 
     }
 
-    private void Start()
-    {
-        Button button = GameObject.Find("LoginButton").GetComponent<Button>();
-        button.onClick.AddListener(() => Login());
+    //private void Start()
+    //{
+    //    Button button = GameObject.Find("LoginButton").GetComponent<Button>();
+    //    button.onClick.AddListener(() => Login());
 
-    }
+    //}
 
     private void FixedUpdate()
     {
@@ -91,11 +91,7 @@ public class LoginManager : MonoBehaviour
         //local
         connectSucceed = client.Connect("127.0.0.1", 4099);
 
-        //做假事件
-        client.tranmitter.Register(0, (tranmitter, message) => { });
-        client.tranmitter.Register(1, (tranmitter, message) => { });
-        client.tranmitter.Register(2, (tranmitter, message) => { });
-        client.tranmitter.Register(3, (tranmitter, message) => { });
+        ResetDelegate();
 
         if (connectSucceed)
         {
@@ -107,10 +103,23 @@ public class LoginManager : MonoBehaviour
         }
     }
 
+    private void ResetDelegate()
+    {
+        //做假事件
+        client.tranmitter.Register(0, (tranmitter, message) => { });
+        client.tranmitter.Register(1, (tranmitter, message) => { });
+        client.tranmitter.Register(2, (tranmitter, message) => { });
+        client.tranmitter.Register(3, (tranmitter, message) => { });
+    }
+
     public void Logout()
     {
-        client.tranmitter.mMessage.msgType = 1;
-        client.tranmitter.Send();
+        if (client != null)
+        {
+            client.tranmitter.mMessage.msgType = 1;
+            client.tranmitter.Send();
+        }
+
     }
 
     /// <summary>
@@ -118,7 +127,7 @@ public class LoginManager : MonoBehaviour
     /// </summary>
     public void SetAttack(bool _attack)
     {
-        //client.tranmitter.mMessage.msgType = 3;
+        client.tranmitter.mMessage.msgType = 3;
         //Debug.Log("sendAttack");
         client.tranmitter.mMessage.myAttackStatus = _attack;
         client.tranmitter.Send();
@@ -138,10 +147,11 @@ public class LoginManager : MonoBehaviour
         }
         client.tranmitter.mMessage.myHp = (int)_hp;
         client.tranmitter.mMessage.myAtkDamage = (int)_atk;
+        Debug.Log("設定血量");
     }
 
 
-    public int GetMPlayerHP()
+    public float GetMPlayerHP()
     {
         if (client != null)
         {
@@ -171,6 +181,13 @@ public class LoginManager : MonoBehaviour
     }
 
 
+    public void GoToEndGamePanel()
+    {
+        Logout();
+        ResetDelegate();
+        //client.tranmitter.Close();
+    }
+
     public void ScenceFadeIn()
     {
         ScenceFade.FadeIn();
@@ -179,6 +196,28 @@ public class LoginManager : MonoBehaviour
     public void ScenceFadeOut()
     {
         ScenceFade.FadeOut();
+    }
+
+    /// <summary>
+    /// 更新血量和攻擊力
+    /// </summary>
+    /// <param name="_index"></param>
+    /// <param name="_atk"></param>
+    /// <param name="_hitDamage"></param>
+    public void GetHitUpdateHpAndAtk(int _index, int _hitDamage)
+    {
+        if (_index == -1)
+        {
+            client.tranmitter.mMessage.myHp -= _hitDamage;
+            //Debug.Log("my hp is " + client.tranmitter.mMessage.myHp);
+        }
+        else
+        {
+            client.tranmitter.mMessage.friend[_index].hp -= _hitDamage;
+            //Debug.Log(_index + " HP IS " + client.tranmitter.mMessage.friend[_index].hp);
+        }
+        client.tranmitter.mMessage.msgType = 4;
+        client.tranmitter.Send();
     }
 
 }

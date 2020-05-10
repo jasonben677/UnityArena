@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class ServerUserInput : PlayerInput
 {
+
+    public StateManager stateManager;
+
     Animator anim;
-    HealthPoint health;
-    StateManager stateManager;
+
+    int myIndex = -1;
+    float nextHp = 0;
+    float nextAtk = 0;
 
     private void Awake()
     {
         anim = transform.GetChild(0).GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        UpdateHpAndATK();
     }
 
     public void SetDir(Vector3 _dir)
@@ -46,27 +56,29 @@ public class ServerUserInput : PlayerInput
     }
 
 
-    public void UpdatePlayerState(float _hp, float _atk)
+    public void UpdatePlayerState(int _index, float _hp, float _atk)
     {
-        //if (health == null)
-        //{
-        //    health = GetComponent<HealthPoint>();
-        //}
-        //else
-        //{
-        //    health.HP = _hp;
-        //}
+        myIndex = _index;
+        nextHp = _hp;
+        nextAtk = _atk;
+        Debug.Log( transform.name + " HP = " + _hp);
+        UpdateHpAndATK();
 
+    }
 
-        //if (stateManager == null)
-        //{
-        //    stateManager = GetComponent<StateManager>();
-        //}
-        //else
-        //{
-        //    stateManager.ATK = _atk;
-        //}
-        
+    public void UpdateHpAndATK()
+    {
+        if (myIndex > -1)
+        {
+            if (stateManager.playerHP == null)
+            {
+                Debug.Log("還沒生成hp");
+                return;
+            }
+            stateManager.ATK = nextAtk;
+            stateManager.playerHP.SetCurrentHP(nextHp);
+            //Debug.Log(gameObject.name + " hp: " + stateManager.playerHP.HP + " atk : " + stateManager.ATK);
+        }
     }
 
 }

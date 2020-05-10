@@ -4,6 +4,7 @@ using System.Net;
 using System.Collections.Generic;
 using TestDll;
 using System.Linq;
+using UnityEngine;
 
 namespace Common
 {
@@ -46,6 +47,8 @@ namespace Common
 
 		public bool IsConnect()
 		{
+			if (mClient == null) return false;
+
 			if (!mClient.Connected) return false;
 
 			try
@@ -68,11 +71,19 @@ namespace Common
 		{
 			mClient.Close();
 			mClient.Dispose();
+			mClient = null;
+		}
+
+		public void LogoutClose()
+		{
+			mClient.Close();
+			mClient.Dispose();
 		}
 
 		public void Send()
 		{
-			serialManager.SerializeClass(mClient, mMessage);
+			if (mClient != null || mClient.Connected != false)
+				serialManager.SerializeClass(mClient, mMessage);
 		}
 
 		public void Register(int _type, Action<Tranmitter, Message03> _action)
@@ -82,7 +93,7 @@ namespace Common
 
 		public void Run()
 		{
-			if (mClient.Available > 0)
+			if (mClient?.Available > 0)
 			{
 				HandleReceiveMessage();
 			}
@@ -92,6 +103,7 @@ namespace Common
 		{
 			mMessage = serialManager.DeserializeClass(mClient);
 			int num = mMessage.msgType;
+			Debug.LogError(num);
 			try
 			{
 				if (num == -1)
