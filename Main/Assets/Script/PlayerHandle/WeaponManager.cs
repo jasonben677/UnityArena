@@ -20,6 +20,25 @@ public class WeaponManager : MonoBehaviour
     private GameObject objFXC; //普攻C刀光特效
     private Animator anim;
     private float lerpWarp;
+    
+    [Space]
+    [SerializeField]
+    private Material ghostMaterial;
+
+    [Space]
+
+    [Header("==== Particles ====")]
+    [SerializeField]
+    private ParticleSystem redTrail;
+    [SerializeField]
+    private ParticleSystem whiteTrail;
+
+    [Space]
+
+    [Header("==== Prefabs ====")]
+    [SerializeField]
+    private GameObject slashHitParticle;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -139,41 +158,40 @@ public class WeaponManager : MonoBehaviour
         Destroy(objFXC.gameObject);
     }
 
-
     /// <summary>
     /// slash技能
     /// </summary>
     public void OnWarp()
     {
-        //GameObject prefabModel = Resources.Load("Ninjia") as GameObject;
-        //GameObject NinjiaModel = Instantiate(prefabModel);
-        //NinjiaModel.transform.position = transform.position;
-        //NinjiaModel.transform.rotation = transform.rotation;
-        //Destroy(NinjiaModel.GetComponent<WeaponManager>().whR.gameObject);
-        //Destroy(NinjiaModel.GetComponent<Animator>());
-        //Destroy(NinjiaModel.GetComponent<WeaponManager>());
+        GameObject NinjiaClone = Instantiate(gameObject, transform.position, transform.rotation);
+        Destroy(NinjiaClone.GetComponent<WeaponManager>().whR.gameObject);
+        Destroy(NinjiaClone.GetComponent<Animator>());
+        Destroy(NinjiaClone.GetComponent<WeaponManager>());
 
-        //SkinnedMeshRenderer[] skinMeshList = NinjiaModel.GetComponentsInChildren<SkinnedMeshRenderer>();
-        //foreach (SkinnedMeshRenderer smr in skinMeshList)
-        //{
-        //    smr.material = ; //shader
-        //    smr.material. ;//DOTween....().OnComplete(()=>Destroy(NinjiaModel));
-        //}
+
+        SkinnedMeshRenderer[] skinMeshList = NinjiaClone.GetComponentsInChildren<SkinnedMeshRenderer>();
+        foreach (SkinnedMeshRenderer smr in skinMeshList)
+        {
+            //Debug.Log("materail changed");
+            smr.material = ghostMaterial; 
+            smr.material.DOFloat(3f, "_RimPower", 5f).OnComplete(() => Destroy(NinjiaClone));            
+        }
 
         RevealModel(false);
         anim.speed = 0;
-
-        //DOTween...
+                
         am.transform.DOMove(am.ac.camcon.lockTarget.transform.position, warpDuration).SetEase(Ease.InExpo).OnComplete(()=>FinishWarp());
         //am.transform.position = Vector3.Lerp(am.transform.position, am.ac.camcon.lockTarget.transform.position, lerpWarp);
         //if (am.transform.position == am.ac.camcon.lockTarget.transform.position)
         //{
         //    Debug.Log("FinishWarp Enter");
         //    FinishWarp();
-        //}
+        //}    
 
-        //FX1.Play();
-        //FX2.Play();...
+        //Particles
+        //Instantiate(redTrail, whR.transform.position, Quaternion.identity);
+        redTrail.Play();
+        whiteTrail.Play();
     }
 
     private void FinishWarp()
@@ -187,15 +205,16 @@ public class WeaponManager : MonoBehaviour
         //    material.....shader
         //}
 
-        am.ac.camcon.lockTarget.GetComponentInChildren<Animator>().SetTrigger("stunned");
-        //DOTween...
-        //am.ac.camcon.lockTarget.transform.DOMove(am.ac.camcon.lockTarget.transform.position + transform.forward, 0.5f);
+        Instantiate(slashHitParticle, whR.transform.position, Quaternion.identity);
 
+        am.ac.camcon.lockTarget.GetComponentInChildren<Animator>().SetTrigger("stunned");
+        
+        //am.ac.camcon.lockTarget.transform.DOMove(am.ac.camcon.lockTarget.transform.position + transform.forward, 0.5f);
         //用Lerp位移敵人NPC位置，避免向量是0的情況
-        am.ac.camcon.lockTarget.transform.position = Vector3.Lerp(am.ac.camcon.lockTarget.transform.position, am.ac.camcon.lockTarget.transform.position + transform.forward * 0.8f, 0.8f);
+        am.ac.camcon.lockTarget.transform.position = Vector3.Lerp(am.ac.camcon.lockTarget.transform.position, am.ac.camcon.lockTarget.transform.position + transform.forward *0.95f, 0.8f);
 
         StartCoroutine(PlayAnimation());
-        //StartCoroutine(StopParticles());
+        StartCoroutine(StopParticles());
     }
 
     IEnumerator PlayAnimation()
@@ -206,9 +225,10 @@ public class WeaponManager : MonoBehaviour
 
     IEnumerator StopParticles()
     {
+        //Debug.Log("stopParticles");
         yield return new WaitForSeconds(0.2f);
-        //FX1.Stop();
-        //FX2.Stop();
+        redTrail.Stop();
+        whiteTrail.Stop();
     }
 
     private void RevealModel(bool _state)
