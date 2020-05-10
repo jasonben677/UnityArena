@@ -10,16 +10,26 @@ public class ScenceFade : MonoBehaviour
 
     public void LoadScence()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (SceneManager.GetActiveScene().buildIndex < 2)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
+
     }
 
     public void FadeIn()
     {
+        anim.ResetTrigger("FadeOut");
         anim.SetTrigger("FadeIn");
     }
 
     public void FadeOut()
     {
+        anim.SetTrigger("FadeIn");
         anim.SetTrigger("FadeOut");
     }
 }

@@ -1513,7 +1513,6 @@ GameObject:
   - component: {fileID: 563182342}
   - component: {fileID: 563182345}
   - component: {fileID: 563182343}
-  - component: {fileID: 563182344}
   m_Layer: 0
   m_Name: kachujin_g_rosales
   m_TagString: Untagged
@@ -1550,7 +1549,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 8ab43f43264252d40b64c15369916e0d, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 1
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1572,18 +1571,6 @@ MonoBehaviour:
   whR: {fileID: 114493910}
   wcR: {fileID: 0}
   warpDuration: 0.25
---- !u!114 &563182344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563182341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9d4fb6b2b05c7c49bf4a4576f8e2d3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &586765771
 GameObject:
   m_ObjectHideFlags: 0
@@ -5940,6 +5927,7 @@ MonoBehaviour:
   isAI: 1
   trackDirection: 0
   camcon: {fileID: 0}
+  stateManager: {fileID: 4221921663522083701}
 --- !u!1 &196943098644903372
 GameObject:
   m_ObjectHideFlags: 0
@@ -7330,7 +7318,6 @@ GameObject:
   - component: {fileID: 8959914715166437171}
   - component: {fileID: 5523393048315877857}
   - component: {fileID: 3119083944073426943}
-  - component: {fileID: 4253830249466042179}
   m_Layer: 0
   m_Name: kachujin_g_rosales
   m_TagString: Untagged
@@ -7364,10 +7351,10 @@ Animator:
   m_GameObject: {fileID: 1039961098703660621}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3ab6dd19084b47e44afd627b34e33d7e, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e6bf55faba0aba440bf8bda26c0aa888, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 1
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -7389,18 +7376,6 @@ MonoBehaviour:
   whR: {fileID: 7389527334391430461}
   wcR: {fileID: 0}
   warpDuration: 0.25
---- !u!114 &4253830249466042179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039961098703660621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9d4fb6b2b05c7c49bf4a4576f8e2d3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1062698243018140063
 GameObject:
   m_ObjectHideFlags: 0
@@ -16019,6 +15994,7 @@ MonoBehaviour:
   isAI: 1
   trackDirection: 0
   camcon: {fileID: 0}
+  stateManager: {fileID: 8188401838564828759}
 --- !u!1 &4753543239433196126
 GameObject:
   m_ObjectHideFlags: 0
@@ -23271,7 +23247,6 @@ GameObject:
   - component: {fileID: 6172834204998923650}
   - component: {fileID: 8021931035863443821}
   - component: {fileID: 7673877161398338870}
-  - component: {fileID: 4395406288441872712}
   m_Layer: 0
   m_Name: kachujin_g_rosales
   m_TagString: Untagged
@@ -23305,10 +23280,10 @@ Animator:
   m_GameObject: {fileID: 9048167687531929641}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3ab6dd19084b47e44afd627b34e33d7e, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e6bf55faba0aba440bf8bda26c0aa888, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 1
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -23330,18 +23305,6 @@ MonoBehaviour:
   whR: {fileID: 229908126533594872}
   wcR: {fileID: 0}
   warpDuration: 0.25
---- !u!114 &4395406288441872712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9048167687531929641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9d4fb6b2b05c7c49bf4a4576f8e2d3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9134203040113025156
 GameObject:
   m_ObjectHideFlags: 0
@@ -23820,12 +23783,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5793c1fffad12fd47b57878f06af1475, type: 3}
---- !u!4 &1759245981 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400106, guid: 5793c1fffad12fd47b57878f06af1475,
-    type: 3}
-  m_PrefabInstance: {fileID: 1759374455}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1759246025 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400062, guid: 5793c1fffad12fd47b57878f06af1475,
@@ -23835,6 +23792,12 @@ Transform:
 --- !u!1 &1759275903 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100104, guid: 5793c1fffad12fd47b57878f06af1475,
+    type: 3}
+  m_PrefabInstance: {fileID: 1759374455}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1759245981 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400106, guid: 5793c1fffad12fd47b57878f06af1475,
     type: 3}
   m_PrefabInstance: {fileID: 1759374455}
   m_PrefabAsset: {fileID: 0}
@@ -23923,6 +23886,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ab6dd19084b47e44afd627b34e33d7e, type: 3}
+--- !u!1 &2132753405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100008, guid: 3ab6dd19084b47e44afd627b34e33d7e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2132720981}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2132322201 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400076, guid: 3ab6dd19084b47e44afd627b34e33d7e,
@@ -23932,12 +23901,6 @@ Transform:
 --- !u!4 &2132322269 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400008, guid: 3ab6dd19084b47e44afd627b34e33d7e,
-    type: 3}
-  m_PrefabInstance: {fileID: 2132720981}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2132753405 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100008, guid: 3ab6dd19084b47e44afd627b34e33d7e,
     type: 3}
   m_PrefabInstance: {fileID: 2132720981}
   m_PrefabAsset: {fileID: 0}

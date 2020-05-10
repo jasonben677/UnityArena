@@ -19,6 +19,6 @@ public class DummyIUserInput : PlayerInput
     // Update is called once per frame
     void Update()
     {
-        UpdateDmagDvec(Dup, Dright);
+       // UpdateDmagDvec(Dup, Dright);
     }
 }

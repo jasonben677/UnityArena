@@ -407,6 +407,7 @@ public class ActorController : MonoBehaviour
     {
         anim.SetTrigger(triggerName);
     }
+
 }
 
 

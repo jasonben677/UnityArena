@@ -28,7 +28,6 @@ public class BattleManager : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         //Debug.Log(col.name);
-        Debug.Log(gameObject.name + "  touch by  " + col.name);
         WeaponController targetWc = col.GetComponentInParent<WeaponController>();
 
         GameObject attacker = targetWc.wm.am.gameObject;

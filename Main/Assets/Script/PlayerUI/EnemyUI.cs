@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 namespace PlayerUI
 {
@@ -56,10 +56,40 @@ namespace PlayerUI
             {
                 Image enemyHp = healthBar.transform.GetChild(0).GetChild(0).GetComponent<Image>();
                 Text enemyName = healthBar.transform.GetChild(2).GetChild(0).GetComponent<Text>();
+                TextMeshProUGUI hpText = healthBar.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
 
                 float hpRate = (float)System.Math.Round((_player.HP / _player.MaxHP), 2);
 
                 enemyHp.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
+
+                hpText.text = _player.HP.ToString();
+
+                enemyName.text = Name;
+
+
+                if (hpRate <= 0.02f)
+                {
+                    IsUse = false;
+                }
+            }
+
+        }
+
+        public void ShowHP(int _index)
+        {
+            if (enemy != null && healthBar != null)
+            {
+                TestDll.Player enemy = LoginManager.instance.client.tranmitter.mMessage.friend[_index];
+
+                Image enemyHp = healthBar.transform.GetChild(0).GetChild(0).GetComponent<Image>();
+                Text enemyName = healthBar.transform.GetChild(2).GetChild(0).GetComponent<Text>();
+                TextMeshProUGUI hpText = healthBar.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
+
+                float hpRate = (float)System.Math.Round((double)(enemy.hp / enemy.maxHp), 2);
+
+                enemyHp.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
+
+                hpText.text = enemy.hp.ToString();
 
                 enemyName.text = Name;
 

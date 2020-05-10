@@ -35,11 +35,36 @@ public class StateManager : MonoBehaviour
     {
         am = gameObject.GetComponent<ActorManager>();
         playerHP = gameObject.AddComponent<HealthPoint>();
-        playerHP.MaxHP = 80f;
-        playerHP.HP = 15f;
-        playerHP.HP = playerHP.MaxHP;
+
+        if (gameObject.tag == "ServerSYNC")
+        {
+            playerHP.SetMaxHp(LoginManager.instance.client.tranmitter.mMessage.friend[transform.GetSiblingIndex()].maxHp);
+            ATK = LoginManager.instance.client.tranmitter.mMessage.friend[transform.GetSiblingIndex()].atkDamage;
+            playerHP.SetCurrentHP(LoginManager.instance.client.tranmitter.mMessage.friend[transform.GetSiblingIndex()].hp);
+        }
+        else if (gameObject.tag == "Player")
+        {
+            if (LoginManager.instance != null)
+            {
+                playerHP.SetMaxHp(LoginManager.instance.client.tranmitter.mMessage.myMaxHp);
+                ATK = LoginManager.instance.client.tranmitter.mMessage.myAtkDamage;
+                playerHP.SetCurrentHP(LoginManager.instance.client.tranmitter.mMessage.myHp);
+            }
+            else
+            {
+                playerHP.SetHP(80f, 80f);
+                ATK = 15f;
+            }
+
+        }
+        else
+        {
+            playerHP.SetHP(80f,80f);
+            ATK = 15f;
+        }
+
         //UI顯示
-        PlayerUI.UIManager.instance.ShowPlayerHp(playerHP);
+        PlayerUI.UIManager.instance.ShowPlayerHp();
     }
     private void Update()
     {

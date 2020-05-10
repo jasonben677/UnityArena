@@ -37,19 +37,17 @@ public class ActorManager : MonoBehaviour
         //sm.am = this;
 
         //Lom = gameObject.AddComponent<LoginManager>();
-       
     }
 
     // Update is called once per frame
     void Update()
     {
         //sm.Test();
-        LoginManager.instance?.SetMPlayerHP(transform, sm.playerHP.HP, wm.wcR.GetATK());
+        //LoginManager.instance?.SetMPlayerHP(transform, sm.playerHP.HP, wm.wcR.GetATK());
 
-        if (LoginManager.instance != null)
+        if (LoginManager.instance != null && gameObject.tag == "Player")
         {
-            //Debug.Log(LoginManager.instance?.GetMPlayerHP());
-            //sm.playerHP.HP = (int)LoginManager.instance?.GetMPlayerHP();
+            sm.playerHP.SetCurrentHP(LoginManager.instance.GetMPlayerHP());
         }
     }
 
@@ -78,10 +76,10 @@ public class ActorManager : MonoBehaviour
         {
             //Do nothing
         }
-        else if (sm.isDefense) //防禦狀態
-        {
-            Blocked();
-        }
+        //else if (sm.isDefense) //防禦狀態
+        //{
+        //    Blocked();
+        //}
         else
         {
             if (attackValid)
@@ -101,11 +99,35 @@ public class ActorManager : MonoBehaviour
         {
             if (sm.playerHP.HP <= 0)
             {
+                if (ac.CheckState("die"))
+                {
+                    Debug.Log("死亡");
+                }
+                else
+                {
+                    Die();
+                    if (gameObject.tag == "Player")
+                    {
+                        LoginManager.instance.ScenceFadeOut();
+                    }
+
+                }
                 //Already dead
             }
             else
             {
-                sm.playerHP.AddHP(-1 * targetWc.GetATK());
+                if (gameObject.tag == "ServerSYNC")
+                {
+                    LoginManager.instance.GetHitUpdateHpAndAtk(transform.GetSiblingIndex(), (int)targetWc.GetATK());
+                }
+                else if (gameObject.tag == "Player")
+                {
+                    //LoginManager.instance.GetHitUpdateHpAndAtk(-1, (int)targetWc.GetATK());
+                }
+                else
+                {
+                    sm.playerHP.AddHP(-1 * targetWc.GetATK());
+                }
 
                 if (sm.playerHP.HP > 0)
                 {
@@ -117,6 +139,7 @@ public class ActorManager : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log(transform.name + " IS DEAD");
                     Die();
                 }
 

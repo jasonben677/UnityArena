@@ -61,7 +61,8 @@ public class AITest : PlayerInput
 
         if (Input.GetKeyDown(KeyCode.Keypad0))
         {
-            hp.HP -= 10;
+            //hp.HP -= 10;
+            hp.AddHP(-10);
             ani.EnemyAnimater(data, AIAnimater.EnemyAni.HIT);
 
         }
@@ -207,7 +208,7 @@ public class AITest : PlayerInput
         data.AttRange = 4f;
         IdleTime = Random.Range(1f, 3f);
         AttackTime = Random.Range(1f, 3f);
-        hp.MaxHP = 40;
+        hp.SetMaxHp(40);
     }
 
 

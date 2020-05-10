@@ -50,6 +50,11 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (camcon == null)
+        {
+            return;
+        }
+
         if (camcon.lockTarget == null)
         {
             cameraForward = Camera.main.transform.forward;

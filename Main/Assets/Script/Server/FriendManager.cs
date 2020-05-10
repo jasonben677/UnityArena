@@ -26,6 +26,7 @@ public class FriendManager : MonoBehaviour
             LoginManager.instance.client.tranmitter.Register(1, FriendLogout);
             LoginManager.instance.client.tranmitter.Register(2, GetNextPos);
             LoginManager.instance.client.tranmitter.Register(3, GetAttackStatus);
+            LoginManager.instance.client.tranmitter.Register(4, GetHpStatus);
         }
         catch (System.Exception e)
         {
@@ -53,6 +54,13 @@ public class FriendManager : MonoBehaviour
         _tranmitter.mMessage = _player;
         curMessage = _tranmitter.mMessage;
         Debug.Log("attack");
+    }
+
+    public void GetHpStatus(Common.Tranmitter _tranmitter, TestDll.Message03 _player)
+    {
+        _tranmitter.mMessage = _player;
+        curMessage = _tranmitter.mMessage;
+        Debug.Log("get hp");
     }
 
     public void UpdateFriend()
@@ -88,7 +96,7 @@ public class FriendManager : MonoBehaviour
                     serverUser[i].SetAnim(tempFriend.moveStatus[0], tempFriend.attackStatus,
                         new Vector3(tempFriend.position[0], tempFriend.position[1], tempFriend.position[2]));
 
-                    serverUser[i].UpdatePlayerState(tempFriend.hp, tempFriend.atkDamage);
+                    serverUser[i].UpdatePlayerState(i, tempFriend.hp, tempFriend.atkDamage);
                     friend[i].SetActive(true);
                 }
             }
