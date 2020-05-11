@@ -89,7 +89,9 @@ public class AITest : PlayerInput
                     else 
                     {
                         RunAttTime -= Time.deltaTime;
-                        ani.EnemyAnimater(data,AIAnimater.EnemyAni.IDLE);
+                        Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - data.m_ObjEnemy.transform.position, Vector3.up);
+                        data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);
+                        ani.EnemyAnimater(data,AIAnimater.EnemyAni.ANGER);
                         IdleTime = Random.Range(0.5f, 1f);
 
                     }

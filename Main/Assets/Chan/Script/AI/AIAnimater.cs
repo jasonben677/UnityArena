@@ -26,6 +26,7 @@ public class AIAnimater : MonoBehaviour
 
                 break;
             case EnemyAni.RUN:
+                ani.Play("ground");
                 ani.SetFloat("right", 0);
                 ani.SetFloat("forward", 2);
                 if (data.m_fMaxSpeed <= 0.15)
