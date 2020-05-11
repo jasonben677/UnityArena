@@ -805,7 +805,7 @@ MonoBehaviour:
   whR: {fileID: 2142792455}
   wcR: {fileID: 0}
   warpDuration: 0.25
-  Test: {fileID: 0}
+  slashFX: {fileID: 0}
   ghostMaterial: {fileID: 0}
   redTrail: {fileID: 0}
   whiteTrail: {fileID: 0}
@@ -2165,7 +2165,7 @@ MonoBehaviour:
   whR: {fileID: 2120821334}
   wcR: {fileID: 0}
   warpDuration: 0.25
-  Test: {fileID: 0}
+  slashFX: {fileID: 0}
   ghostMaterial: {fileID: 0}
   redTrail: {fileID: 0}
   whiteTrail: {fileID: 0}
@@ -8492,7 +8492,7 @@ MonoBehaviour:
   whR: {fileID: 718301560}
   wcR: {fileID: 0}
   warpDuration: 0.25
-  Test: {fileID: 0}
+  slashFX: {fileID: 0}
   ghostMaterial: {fileID: 0}
   redTrail: {fileID: 0}
   whiteTrail: {fileID: 0}
@@ -9887,7 +9887,7 @@ MonoBehaviour:
   whR: {fileID: 1647967046}
   wcR: {fileID: 0}
   warpDuration: 0.25
-  Test: {fileID: 0}
+  slashFX: {fileID: 0}
   ghostMaterial: {fileID: 0}
   redTrail: {fileID: 0}
   whiteTrail: {fileID: 0}
@@ -10006,7 +10006,7 @@ MonoBehaviour:
   whR: {fileID: 1674765018}
   wcR: {fileID: 0}
   warpDuration: 0.25
-  Test: {fileID: 0}
+  slashFX: {fileID: 0}
   ghostMaterial: {fileID: 0}
   redTrail: {fileID: 0}
   whiteTrail: {fileID: 0}
@@ -19194,7 +19194,7 @@ MonoBehaviour:
   whR: {fileID: 2127238777}
   wcR: {fileID: 0}
   warpDuration: 0.25
-  Test: {fileID: 0}
+  slashFX: {fileID: 0}
   ghostMaterial: {fileID: 0}
   redTrail: {fileID: 0}
   whiteTrail: {fileID: 0}
@@ -22875,7 +22875,7 @@ MonoBehaviour:
   whR: {fileID: 903803666}
   wcR: {fileID: 0}
   warpDuration: 0.25
-  Test: {fileID: 0}
+  slashFX: {fileID: 0}
   ghostMaterial: {fileID: 0}
   redTrail: {fileID: 0}
   whiteTrail: {fileID: 0}
@@ -23373,7 +23373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1963376631}
   m_Layer: 11
-  m_Name: Test
+  m_Name: SlashFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24753,7 +24753,7 @@ MonoBehaviour:
   whR: {fileID: 2107303561}
   wcR: {fileID: 0}
   warpDuration: 0.25
-  Test: {fileID: 1963376630}
+  slashFX: {fileID: 1963376630}
   ghostMaterial: {fileID: 2100000, guid: c5f4f9452f7ba464093862dac2d85608, type: 2}
   redTrail: {fileID: 1155783349}
   whiteTrail: {fileID: 1088823023}
@@ -25833,6 +25833,21 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverDistance.scalar
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 182505837568286372, guid: 25c862e82642a184885b3df62d90d3fc,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.5377358
+      objectReference: {fileID: 0}
+    - target: {fileID: 182505837568286372, guid: 25c862e82642a184885b3df62d90d3fc,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.16270523
+      objectReference: {fileID: 0}
+    - target: {fileID: 182505837568286372, guid: 25c862e82642a184885b3df62d90d3fc,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.15472585
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25c862e82642a184885b3df62d90d3fc, type: 3}
 --- !u!1001 &1538520492464359996
@@ -26286,6 +26301,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1963376631}
     m_Modifications:
+    - target: {fileID: 7025227609800027309, guid: 970dcc4d089695a4e97f8e19a16eac0d,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7025227609800027310, guid: 970dcc4d089695a4e97f8e19a16eac0d,
         type: 3}
       propertyPath: m_Name
