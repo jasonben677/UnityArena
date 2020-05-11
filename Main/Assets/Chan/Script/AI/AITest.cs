@@ -49,7 +49,7 @@ public class AITest : PlayerInput
     //                  Update改名NpcUpdate
     //                  Update改名NpcUpdate
 
-    public void Update()
+    public void NpcUpdate()
     {
         //防止抓不到腳本
         if (hp == null)
