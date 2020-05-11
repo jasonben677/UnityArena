@@ -15,8 +15,9 @@ public class AIAnimater : MonoBehaviour
             case EnemyAni.IDLE:
                 ani.SetFloat("right",0);
                 ani.SetFloat("forward", 0);
-                data.m_fMaxSpeed = 0;
-                data.m_fThinkTime = Random.Range(0.2f, 0.5f);
+                data.m_fMaxSpeed = 0.0f;
+                data.m_fSpeed = 0.0f;
+               // data.m_fThinkTime = Random.Range(0.2f, 0.5f);
                 break;
             case EnemyAni.WALK:
                 ani.SetFloat("right", 0);
@@ -65,7 +66,8 @@ public class AIAnimater : MonoBehaviour
 
             case EnemyAni.ATTACK:
                 int i = Random.Range(1, 3);
-                data.m_fMaxSpeed = 0;
+                data.m_fMaxSpeed = 0.0f;
+                data.m_fSpeed = 0.0f;
                 EnemyAttack(i);
                 break;
         }

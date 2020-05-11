@@ -44,19 +44,19 @@ public class AITest : PlayerInput
     }
 
 
+    //-------------------------重點---------------------------很重要所以要說三次
+    //                  Update改名NpcUpdate
+    //                  Update改名NpcUpdate
+    //                  Update改名NpcUpdate
 
-
-   public   void NpcUpdate()
+    public void Update()
     {
-
-
         //防止抓不到腳本
         if (hp == null)
         {
             Start();
             //初始化數值
         }
-
 
         data.fHP = hp.HP;
 
@@ -80,13 +80,26 @@ public class AITest : PlayerInput
                 //目標是否在範圍內
                 if (EnterInto.EnterRange(data) == true)
                 {
-                    //攻擊距離是否成立
-                    AttackStatus();
+                    if (RunAttTime <= 0)
+                    {
+                        //攻擊距離是否成立
+                        AttackStatus();
+
+                    }
+                    else 
+                    {
+                        RunAttTime -= Time.deltaTime;
+                        ani.EnemyAnimater(data,AIAnimater.EnemyAni.IDLE);
+                        IdleTime = Random.Range(0.5f, 1f);
+
+                    }
 
                 }
                 else
                 {
+                   //巡邏判定
                     EnemyPatrol();
+                    RunAttTime = Random.Range(1f, 3f);
                 }
             }
             else if (isPlayerDie == true)//以下為巡邏
@@ -166,7 +179,7 @@ public class AITest : PlayerInput
         data.m_fProbeLenght = 1;
         data.m_fPursuitRange = 20f;
         data.m_fAngle = 180;
-        data.m_fThinkTime = Random.Range(0.2f, 0.5f);
+      //  data.m_fThinkTime = Random.Range(0.2f, 0.5f);
         data.m_iAttackRandom = Random.Range(1, 3);
         data.m_fAttDis = 2f;
         ClearTime = 3f;
@@ -174,6 +187,7 @@ public class AITest : PlayerInput
         IdleTime = Random.Range(1f, 3f);
         AttackTime = Random.Range(1f, 3f);
         hp.SetMaxHp(40);
+        RunAttTime = Random.Range(1f, 3f);
     }
 
 
@@ -210,6 +224,8 @@ public class AITest : PlayerInput
     {
         if (EnterInto.AttackDistance(data, data.m_vTarget) == true)
         {
+            IdleTime = Random.Range(0.5f, 1f);
+
             // 攻擊時間判斷
             if (AttackTime >= 0)
             {
@@ -245,4 +261,5 @@ public class AITest : PlayerInput
             }
         }
     }
+
 }

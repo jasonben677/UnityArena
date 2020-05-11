@@ -8,7 +8,6 @@ public class AIData
     //怪物HP量
     public float fHP;
 
-    public float PlayerHP;
     //怪物
     public GameObject m_ObjEnemy;
 
@@ -21,7 +20,7 @@ public class AIData
     //所有目標
     public GameObject[] ArrTarget;
 
-   //速度
+    //速度
     public float m_fSpeed;
 
     //最大速度
@@ -38,7 +37,7 @@ public class AIData
     //半徑
     public float m_fRadius;
 
-   
+
 
     //攻擊範圍
     public float AttRange;
@@ -53,21 +52,24 @@ public class AIData
     public float m_fAngle;
 
     //思考時間
-    public float m_fThinkTime;
+    //public float m_fThinkTime;
 
     //是否死亡
     public bool m_bdie;
 
-    //追擊確認
-    public bool m_bChase;
+
     //攻擊動作決定
     public int m_iAttackRandom;
-    //攻擊判斷
-    public bool m_bAttack;
+
     //攻擊距離
     public float m_fAttDis;
 
-    //
+    //追擊確認
+     public bool m_bChase;
+
+    //攻擊判斷
+
+   // public bool m_bAttack;
 
 
 
