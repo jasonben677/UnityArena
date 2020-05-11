@@ -4,11 +4,11 @@
     "DEF": 7
   },
   "katana02": {
-    "ATK": 10,
+    "ATK": 12,
     "DEF": 10
   },
   "katana03": {
-    "ATK": 12,
+    "ATK": 10,
     "DEF": 6
   }
 }
