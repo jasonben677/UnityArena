@@ -204,7 +204,7 @@ public class LoginManager : MonoBehaviour
     /// <param name="_index"></param>
     /// <param name="_atk"></param>
     /// <param name="_hitDamage"></param>
-    public void GetHitUpdateHpAndAtk(int _index, int _hitDamage)
+    public void GetHitUpdateHpAndAtk(int _index, float _hitDamage)
     {
         if (_index == -1)
         {
@@ -220,7 +220,7 @@ public class LoginManager : MonoBehaviour
         client.tranmitter.Send();
     }
 
-    public void AttackNpc(int _index, int _hitDamage)
+    public void AttackNpc(int _index, float _hitDamage)
     {
         client.tranmitter.mMessage.myEnemy[_index].hp -= _hitDamage;
     }

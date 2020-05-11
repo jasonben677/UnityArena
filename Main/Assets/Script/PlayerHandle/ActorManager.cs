@@ -42,9 +42,6 @@ public class ActorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //sm.Test();
-        //LoginManager.instance?.SetMPlayerHP(transform, sm.playerHP.HP, wm.wcR.GetATK());
-
         if (LoginManager.instance != null && gameObject.tag == "Player")
         {
             sm.playerHP.SetCurrentHP(LoginManager.instance.GetMPlayerHP());
@@ -116,23 +113,8 @@ public class ActorManager : MonoBehaviour
             }
             else
             {
-                if (gameObject.tag == "ServerSYNC")
-                {
-                    LoginManager.instance.GetHitUpdateHpAndAtk(transform.GetSiblingIndex(), (int)targetWc.GetATK());
-                }
-                else if (gameObject.tag == "Player")
-                {
-                    Debug.Log(targetWc.tag);
-                    //LoginManager.instance.GetHitUpdateHpAndAtk(-1, (int)targetWc.GetATK());
-                }
-                else if (gameObject.tag == "Npc")
-                {
-                    Debug.Log("attack npc");
-                }
-                else
-                {
-                    sm.playerHP.AddHP(-1 * targetWc.GetATK());
-                }
+
+                _CheckHit(targetWc);
 
                 if (sm.playerHP.HP > 0)
                 {
@@ -152,6 +134,38 @@ public class ActorManager : MonoBehaviour
             }
         }  
     }
+
+    /// <summary>
+    /// 檢查被打到的是誰
+    /// </summary>
+    private void _CheckHit(WeaponController targetWc)
+    {
+        if (gameObject.tag == "ServerSYNC")
+        {
+            LoginManager.instance.GetHitUpdateHpAndAtk(transform.GetSiblingIndex(), targetWc.GetATK());
+        }
+        else if (gameObject.tag == "Player")
+        {
+            Debug.Log(targetWc.tag);
+            //LoginManager.instance.GetHitUpdateHpAndAtk(-1, (int)targetWc.GetATK());
+        }
+        else if (gameObject.tag == "Npc")
+        {
+            if (LoginManager.instance != null)
+            {
+                LoginManager.instance.AttackNpc(transform.GetSiblingIndex(), targetWc.GetATK());
+            }
+            else
+            {
+                sm.playerHP.AddHP(-1 * targetWc.GetATK());
+            }
+        }
+        else
+        {
+            
+        }
+    }
+
 
     public void Stunned()
     {
