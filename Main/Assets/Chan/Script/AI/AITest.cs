@@ -16,6 +16,7 @@ public class AITest : PlayerInput
     public float ClearTime;
     public float IdleTime;
     public float AttackTime;
+    public float RunAttTime;
     [Header("------AIData------")]
     public AIData data;
 
@@ -45,7 +46,7 @@ public class AITest : PlayerInput
 
 
 
-    void Update()
+   public   void NpcUpdate()
     {
 
 
