@@ -48,8 +48,8 @@ public class AITest : PlayerInput
     //                  Update改名NpcUpdate
     //                  Update改名NpcUpdate
     //                  Update改名NpcUpdate
-
-    public void NpcUpdate()
+    //public void Update()//<-------------開啟自測試用
+    public void NpcUpdate() 
     {
         //防止抓不到腳本
         if (hp == null)
@@ -92,7 +92,7 @@ public class AITest : PlayerInput
                         Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - data.m_ObjEnemy.transform.position, Vector3.up);
                         data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);
                         ani.EnemyAnimater(data,AIAnimater.EnemyAni.ANGER);
-                        IdleTime = Random.Range(0.5f, 1f);
+                        IdleTime = Random.Range(0.2f, 0.5f);
 
                     }
 
@@ -161,36 +161,14 @@ public class AITest : PlayerInput
 
 
     }
-
+    //刪除死亡怪物
     public void ClearEnemy()
     {
         Destroy(data.m_ObjEnemy);
     }
 
 
-    //初始化設定
-    private void Initialization()
-    {
-        //數值得初始化
-        data.fHP = hp.MaxHP;
-        NextHp = data.fHP;
-        data.m_fMaxSpeed = 0.15f;
-        data.m_fMinSpeed = 0.02f;
-        data.m_fMaxRot = 0.1f;
-        data.m_fRadius = 1;
-        data.m_fProbeLenght = 1;
-        data.m_fPursuitRange = 20f;
-        data.m_fAngle = 180;
-      //  data.m_fThinkTime = Random.Range(0.2f, 0.5f);
-        data.m_iAttackRandom = Random.Range(1, 3);
-        data.m_fAttDis = 2f;
-        ClearTime = 3f;
-        data.AttRange = 4f;
-        IdleTime = Random.Range(1f, 3f);
-        AttackTime = Random.Range(1f, 3f);
-        hp.SetMaxHp(40);
-        RunAttTime = Random.Range(1f, 3f);
-    }
+    
 
 
     //巡邏
@@ -222,6 +200,10 @@ public class AITest : PlayerInput
             }
         }
     }
+
+
+    /// 
+    /// 攻擊判斷
     void AttackStatus() 
     {
         if (EnterInto.AttackDistance(data, data.m_vTarget) == true)
@@ -231,6 +213,8 @@ public class AITest : PlayerInput
             // 攻擊時間判斷
             if (AttackTime >= 0)
             {
+
+                //這裡可以做出怪物的警戒
                 AttackTime -= Time.deltaTime;
                 //怪物IDLE
                 ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
@@ -264,4 +248,28 @@ public class AITest : PlayerInput
         }
     }
 
+
+    
+    private void Initialization()
+    {
+        //數值得初始化
+        data.fHP = hp.MaxHP;
+        NextHp = data.fHP;
+        data.m_fMaxSpeed = 0.15f;
+        data.m_fMinSpeed = 0.02f;
+        data.m_fMaxRot = 0.1f;
+        data.m_fRadius = 1;
+        data.m_fProbeLenght = 1;
+        data.m_fPursuitRange = 20f;
+        data.m_fAngle = 180;
+        //  data.m_fThinkTime = Random.Range(0.2f, 0.5f);
+        data.m_iAttackRandom = Random.Range(1, 3);
+        data.m_fAttDis = 2f;
+        ClearTime = 3f;
+        data.AttRange = 4f;
+        IdleTime = Random.Range(1f, 3f);
+        AttackTime = 0;
+        hp.SetMaxHp(40);
+        RunAttTime = Random.Range(1f, 3f);
+    }
 }

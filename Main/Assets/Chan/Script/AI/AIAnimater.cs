@@ -53,8 +53,9 @@ public class AIAnimater : MonoBehaviour
 
             case EnemyAni.WALKINGBACK:
                 ani.SetFloat("right", 0);
-                ani.SetFloat("forward", 1);
-                data.m_fMaxSpeed = -0.02f;
+                ani.SetFloat("forward", -1);
+                data.m_fMaxSpeed = -0.05f;
+                data.m_fMinSpeed = -0.05f;
                 data.m_fSpeed = data.m_fMaxSpeed;
                 break;
 
