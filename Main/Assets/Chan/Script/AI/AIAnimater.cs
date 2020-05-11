@@ -53,7 +53,8 @@ public class AIAnimater : MonoBehaviour
             case EnemyAni.WALKINGBACK:
                 ani.SetFloat("right", 0);
                 ani.SetFloat("forward", 1);
-
+                data.m_fMaxSpeed = -0.02f;
+                data.m_fSpeed = data.m_fMaxSpeed;
                 break;
 
             case EnemyAni.HIT:
@@ -69,6 +70,13 @@ public class AIAnimater : MonoBehaviour
                 data.m_fMaxSpeed = 0.0f;
                 data.m_fSpeed = 0.0f;
                 EnemyAttack(i);
+                break;
+
+            case EnemyAni.ANGER:
+                ani.Play("angry");
+                
+                data.m_fMaxSpeed = 0.0f;
+                data.m_fSpeed = 0.0f;
                 break;
         }
 
@@ -114,7 +122,8 @@ public class AIAnimater : MonoBehaviour
         HIT,
         MOVINGLEFT,
         MOVINGRIGHT,
-        DIE
+        DIE,
+        ANGER
 
     }
 }
