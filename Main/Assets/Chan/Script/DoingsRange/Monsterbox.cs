@@ -7,6 +7,7 @@ public class Monsterbox : MonoBehaviour
     public int m_iamount;
     public int radius;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class Monsterbox : MonoBehaviour
 
 
     }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

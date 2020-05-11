@@ -220,4 +220,9 @@ public class LoginManager : MonoBehaviour
         client.tranmitter.Send();
     }
 
+    public void AttackNpc(int _index, int _hitDamage)
+    {
+        client.tranmitter.mMessage.myEnemy[_index].hp -= _hitDamage;
+    }
+
 }

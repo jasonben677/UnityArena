@@ -122,7 +122,12 @@ public class ActorManager : MonoBehaviour
                 }
                 else if (gameObject.tag == "Player")
                 {
+                    Debug.Log(targetWc.tag);
                     //LoginManager.instance.GetHitUpdateHpAndAtk(-1, (int)targetWc.GetATK());
+                }
+                else if (gameObject.tag == "Npc")
+                {
+                    Debug.Log("attack npc");
                 }
                 else
                 {

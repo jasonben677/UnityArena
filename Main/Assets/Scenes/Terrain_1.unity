@@ -1702,66 +1702,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3778378937944420236, guid: 61059f45919b16e47b5b194a74613da4,
-        type: 3}
-      propertyPath: friend
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3778378937963627944, guid: 61059f45919b16e47b5b194a74613da4,
-        type: 3}
-      propertyPath: friend
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3778378937973446255, guid: 61059f45919b16e47b5b194a74613da4,
-        type: 3}
-      propertyPath: friend
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3778378938243796861, guid: 61059f45919b16e47b5b194a74613da4,
-        type: 3}
-      propertyPath: friend
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3778378938283414101, guid: 61059f45919b16e47b5b194a74613da4,
-        type: 3}
-      propertyPath: friend
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3778378938548987459, guid: 61059f45919b16e47b5b194a74613da4,
-        type: 3}
-      propertyPath: friend
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3778378938555470007, guid: 61059f45919b16e47b5b194a74613da4,
-        type: 3}
-      propertyPath: friend
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3778378938958074596, guid: 61059f45919b16e47b5b194a74613da4,
-        type: 3}
-      propertyPath: friend
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3778378939307473845, guid: 61059f45919b16e47b5b194a74613da4,
-        type: 3}
-      propertyPath: friend
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3778378939366919475, guid: 61059f45919b16e47b5b194a74613da4,
-        type: 3}
-      propertyPath: friend
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3778378939465736697, guid: 61059f45919b16e47b5b194a74613da4,
-        type: 3}
-      propertyPath: friend
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3778378939573337946, guid: 61059f45919b16e47b5b194a74613da4,
-        type: 3}
-      propertyPath: friend
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4942133918353544122, guid: 61059f45919b16e47b5b194a74613da4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1832,11 +1772,6 @@ PrefabInstance:
       propertyPath: data.ArrWanderPoint.Array.data[1]
       value: 
       objectReference: {fileID: 1685263556}
-    - target: {fileID: 6625873425901567176, guid: 61059f45919b16e47b5b194a74613da4,
-        type: 3}
-      propertyPath: WanderPoint
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6625873425915529806, guid: 61059f45919b16e47b5b194a74613da4,
         type: 3}
       propertyPath: data.ArrWanderPoint.Array.data[0]
@@ -7581,6 +7516,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 134968178, guid: d8320019a28c58d43803db0012573944, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 295281947268418515, guid: d8320019a28c58d43803db0012573944,
         type: 3}
       propertyPath: m_Name
@@ -7640,6 +7579,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 998274581313339193, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: orthographic size
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8320019a28c58d43803db0012573944, type: 3}

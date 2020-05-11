@@ -103,7 +103,7 @@ namespace Common
 		{
 			mMessage = serialManager.DeserializeClass(mClient);
 			int num = mMessage.msgType;
-			Debug.LogError(num);
+			//Debug.LogError(num);
 			try
 			{
 				if (num == -1)

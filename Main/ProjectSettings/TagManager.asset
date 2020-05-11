@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - ServerSYNC
   - WanderPoint
+  - Npc
   layers:
   - Default
   - TransparentFX
