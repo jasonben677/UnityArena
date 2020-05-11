@@ -274,13 +274,14 @@ public class ActorController : MonoBehaviour
     {
         //Debug.Log("is on ground");
         anim.SetBool("isGround", true);
-        model.SendMessage("WeaponDisable");
+        
     }
 
     public void IsNotGround()
     {
         //Debug.Log("is not on ground");
         anim.SetBool("isGround", false);
+        model.SendMessage("WeaponDisable");
     }
 
     public void OnGroundEnter()
@@ -291,6 +292,7 @@ public class ActorController : MonoBehaviour
         canDenfese = true;
         col.material = frictionOne;
         pi.trackDirection = false;
+        model.SendMessage("WeaponDisable");
     }
 
     public void OnGroundExist()
@@ -301,8 +303,7 @@ public class ActorController : MonoBehaviour
     public void OnFallEnter()
     {
         pi.inputEnable = false;
-        lockplanar = true;
-        model.SendMessage("WeaponDisable");
+        lockplanar = true;        
     }
 
     public void OnRollEnter()
@@ -310,8 +311,7 @@ public class ActorController : MonoBehaviour
         //thrustVec = new Vector3(0, rollVelocity, 0);
         pi.inputEnable = false;
         lockplanar = true;
-        pi.trackDirection = true;
-        model.SendMessage("WeaponDisable");
+        pi.trackDirection = true;        
     }
 
     public void OnRollUpdate()
@@ -322,8 +322,7 @@ public class ActorController : MonoBehaviour
     public void OnJabEnter()
     {
         pi.inputEnable = false;
-        lockplanar = true;
-        model.SendMessage("WeaponDisable");
+        lockplanar = true;        
     }
 
     public void OnJabUpdate()
