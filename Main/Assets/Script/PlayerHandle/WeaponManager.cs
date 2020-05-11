@@ -18,6 +18,7 @@ public class WeaponManager : MonoBehaviour
     private GameObject objFXA; //普攻A刀光特效
     private GameObject objFXB; //普攻B刀光特效
     private GameObject objFXC; //普攻C刀光特效
+    private GameObject objFXD; //普攻D刀光特效
     private Animator anim;
     private float lerpWarp;
 
@@ -165,6 +166,22 @@ public class WeaponManager : MonoBehaviour
     public void OnFXDisableC()
     {
         Destroy(objFXC.gameObject);
+    }
+
+    public GameObject OnFXEnableD()
+    {
+        GameObject prefabFX = Resources.Load("FX004") as GameObject;
+        objFXD = GameObject.Instantiate(prefabFX);
+        objFXD.transform.parent = whR.transform;
+        objFXD.transform.localPosition = Vector3.zero;
+        objFXD.transform.localRotation = Quaternion.identity;
+
+        return objFXD;
+    }
+
+    public void OnFXDisableD()
+    {
+        Destroy(objFXD.gameObject);
     }
 
     /// <summary>
