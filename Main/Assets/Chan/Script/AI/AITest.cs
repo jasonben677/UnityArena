@@ -80,43 +80,7 @@ public class AITest : PlayerInput
                 if (EnterInto.EnterRange(data) == true)
                 {
                     //攻擊距離是否成立
-                    if (EnterInto.AttackDistance(data, data.m_vTarget) == true)
-                    {
-                        // 攻擊時間判斷
-                        if (AttackTime >= 0)
-                        {
-                            AttackTime -= Time.deltaTime;
-                            //怪物IDLE
-                            ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
-                        }
-                        else
-                        {
-                            //怪物攻擊判定內部判定要甚麼攻擊狀態
-                            ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
-                            //攻擊時間
-                            AttackTime = Random.Range(2, 4);
-                        }
-                        // Debug.Log("Attack");
-                    }
-                    else
-                    {
-                        if (IdleTime <= 0)
-                        {
-                            //前方是否有障礙物
-                            if (SteeringBehaviour.CollisionAvoid(data) == false)
-                            {
-                                SteeringBehaviour.Seek(data, data.ArrTarget[data.m_fID].transform.position);
-                            }
-                            //追擊判定
-                            SteeringBehaviour.Move(data);
-                            ani.EnemyAnimater(data, AIAnimater.EnemyAni.RUN);
-                        }
-                        else
-                        {
-                            IdleTime -= Time.deltaTime;
-                            ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
-                        }
-                    }
+                    AttackStatus();
 
                 }
                 else
@@ -124,7 +88,7 @@ public class AITest : PlayerInput
                     EnemyPatrol();
                 }
             }
-            else if(isPlayerDie==true)//以下為巡邏
+            else if (isPlayerDie == true)//以下為巡邏
             {
                 EnemyPatrol();
             }
@@ -237,10 +201,47 @@ public class AITest : PlayerInput
             {
                 IdleTime -= Time.deltaTime;
                 ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
+            
             }
         }
     }
-
-
-
+    void AttackStatus() 
+    {
+        if (EnterInto.AttackDistance(data, data.m_vTarget) == true)
+        {
+            // 攻擊時間判斷
+            if (AttackTime >= 0)
+            {
+                AttackTime -= Time.deltaTime;
+                //怪物IDLE
+                ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
+            }
+            else
+            {
+                //怪物攻擊判定內部判定要甚麼攻擊狀態
+                ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
+                //攻擊時間
+                AttackTime = Random.Range(2, 4);
+            }
+        }
+        else
+        {
+            if (IdleTime <= 0)
+            {
+                //前方是否有障礙物
+                if (SteeringBehaviour.CollisionAvoid(data) == false)
+                {
+                    SteeringBehaviour.Seek(data, data.ArrTarget[data.m_fID].transform.position);
+                }
+                //追擊判定
+                SteeringBehaviour.Move(data);
+                ani.EnemyAnimater(data, AIAnimater.EnemyAni.RUN);
+            }
+            else
+            {
+                IdleTime -= Time.deltaTime;
+                ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
+            }
+        }
+    }
 }
