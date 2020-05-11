@@ -61,7 +61,11 @@ public class WeaponManager : MonoBehaviour
     private void FixedUpdate()
     {
         lerpWarp += 0.3f * Time.fixedDeltaTime;
-        slashFX.transform.position = am.transform.position;
+
+        if (am.ac.pi.isAI == false)
+        {
+            slashFX.transform.position = am.transform.position;
+        }        
     }
 
     /// <summary>

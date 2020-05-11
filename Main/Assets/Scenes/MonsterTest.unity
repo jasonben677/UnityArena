@@ -809,7 +809,8 @@ MonoBehaviour:
   ghostMaterial: {fileID: 0}
   redTrail: {fileID: 0}
   whiteTrail: {fileID: 0}
-  slashHitParticle: {fileID: 0}
+  slashHitParticle: {fileID: 7688861489516894986, guid: a4eaebfe3a2721a4d8c1e84e679739be,
+    type: 3}
 --- !u!95 &100420972
 Animator:
   serializedVersion: 3
@@ -26242,6 +26243,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SlashFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009810006997776100, guid: 1f60d42d122f86b4395bcb0ebc260964,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9009810006997776101, guid: 1f60d42d122f86b4395bcb0ebc260964,
         type: 3}

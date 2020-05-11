@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9009810006997776101}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: SlashFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,8 +23,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9009810006997776100}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 192.18991, y: 9.998169, z: 237.87608}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0076956223, y: 0, z: 11.712461}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9009810006735442849}
@@ -48,6 +48,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TrailParticle2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025227609800027310, guid: 970dcc4d089695a4e97f8e19a16eac0d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7025227609800027311, guid: 970dcc4d089695a4e97f8e19a16eac0d,
         type: 3}
@@ -178,6 +183,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TrailParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 182505837568286371, guid: 25c862e82642a184885b3df62d90d3fc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 182505837568286372, guid: 25c862e82642a184885b3df62d90d3fc,
         type: 3}
