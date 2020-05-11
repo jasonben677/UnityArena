@@ -178,8 +178,8 @@ public class WeaponManager : MonoBehaviour
         }
 
         RevealModel(false);
-        anim.speed = 0;
-                
+        anim.speed = 0;        
+
         am.transform.DOMove(am.ac.camcon.lockTarget.transform.position, warpDuration).SetEase(Ease.InExpo).OnComplete(()=>FinishWarp());
         //am.transform.position = Vector3.Lerp(am.transform.position, am.ac.camcon.lockTarget.transform.position, lerpWarp);
         //if (am.transform.position == am.ac.camcon.lockTarget.transform.position)
@@ -188,8 +188,7 @@ public class WeaponManager : MonoBehaviour
         //    FinishWarp();
         //}    
 
-        //Particles
-        //Instantiate(redTrail, whR.transform.position, Quaternion.identity);
+        //Particles        
         redTrail.Play();
         whiteTrail.Play();
     }

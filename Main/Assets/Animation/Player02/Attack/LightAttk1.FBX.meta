@@ -280,14 +280,14 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.22272728
+      - time: 0.15026835
         functionName: WeaponEnable
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.28572643
+      - time: 0.3237925
         functionName: WeaponDisable
         data: 
         objectReferenceParameter: {instanceID: 0}
