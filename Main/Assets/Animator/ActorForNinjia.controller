@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnterMassages:
-  - OndieEnter
+  - OnDieEnter
 --- !u!114 &114024475612585976
 MonoBehaviour:
   m_ObjectHideFlags: 1
