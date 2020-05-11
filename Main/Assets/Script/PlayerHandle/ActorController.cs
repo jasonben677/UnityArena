@@ -260,7 +260,8 @@ public class ActorController : MonoBehaviour
         thrustVec = new Vector3(0, jumpVelocity, 0);
         pi.inputEnable = false;
         lockplanar = true;  //此時角色不會有平面方向的旋轉
-        pi.trackDirection = true;
+        pi.trackDirection = true; 
+        model.SendMessage("WeaponDisable");
     }
 
     //public void OnJumpExist()
@@ -273,6 +274,7 @@ public class ActorController : MonoBehaviour
     {
         //Debug.Log("is on ground");
         anim.SetBool("isGround", true);
+        model.SendMessage("WeaponDisable");
     }
 
     public void IsNotGround()
@@ -300,6 +302,7 @@ public class ActorController : MonoBehaviour
     {
         pi.inputEnable = false;
         lockplanar = true;
+        model.SendMessage("WeaponDisable");
     }
 
     public void OnRollEnter()
@@ -308,6 +311,7 @@ public class ActorController : MonoBehaviour
         pi.inputEnable = false;
         lockplanar = true;
         pi.trackDirection = true;
+        model.SendMessage("WeaponDisable");
     }
 
     public void OnRollUpdate()
@@ -319,6 +323,7 @@ public class ActorController : MonoBehaviour
     {
         pi.inputEnable = false;
         lockplanar = true;
+        model.SendMessage("WeaponDisable");
     }
 
     public void OnJabUpdate()

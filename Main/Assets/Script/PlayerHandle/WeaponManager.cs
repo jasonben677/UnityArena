@@ -20,6 +20,10 @@ public class WeaponManager : MonoBehaviour
     private GameObject objFXC; //普攻C刀光特效
     private Animator anim;
     private float lerpWarp;
+
+
+    [SerializeField]
+    private GameObject Test;
     
     [Space]
     [SerializeField]
@@ -57,6 +61,7 @@ public class WeaponManager : MonoBehaviour
     private void FixedUpdate()
     {
         lerpWarp += 0.3f * Time.fixedDeltaTime;
+        Test.transform.position = am.transform.position + new Vector3(0, 1.2f, 0);
     }
 
     /// <summary>
@@ -186,11 +191,13 @@ public class WeaponManager : MonoBehaviour
         //{
         //    Debug.Log("FinishWarp Enter");
         //    FinishWarp();
-        //}    
+        //}   
+               
 
         //Particles        
         redTrail.Play();
         whiteTrail.Play();
+
     }
 
     private void FinishWarp()
@@ -213,7 +220,7 @@ public class WeaponManager : MonoBehaviour
         am.ac.camcon.lockTarget.transform.position = Vector3.Lerp(am.ac.camcon.lockTarget.transform.position, am.ac.camcon.lockTarget.transform.position + transform.forward *0.95f, 0.8f);
 
         StartCoroutine(PlayAnimation());
-        StartCoroutine(StopParticles());
+        //StartCoroutine(StopParticles());
     }
 
     IEnumerator PlayAnimation()
