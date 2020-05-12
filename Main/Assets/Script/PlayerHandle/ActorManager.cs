@@ -151,10 +151,10 @@ public class ActorManager : MonoBehaviour
         {
             LoginManager.instance.GetHitUpdateHpAndAtk(transform.GetSiblingIndex(), targetWc.GetATK());
         }
-        else if (gameObject.tag == "Player")
+        else if (gameObject.tag == "Player" && targetWc.wm.am.tag == "Npc")
         {
-            Debug.Log(targetWc.tag);
-            //LoginManager.instance.GetHitUpdateHpAndAtk(-1, (int)targetWc.GetATK());
+            //Debug.Log(targetWc.tag);
+            LoginManager.instance.GetHitUpdateHpAndAtk(-1, (int)targetWc.GetATK());
         }
         else if (gameObject.tag == "Npc")
         {

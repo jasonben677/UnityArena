@@ -1214,7 +1214,6 @@ MonoBehaviour:
   RunAttTime: 0
   data:
     fHP: 0
-    PlayerHP: 0
     m_ObjEnemy: {fileID: 3131467376261711516}
     NeighborEnemys: []
     ArrWanderPoint: []
@@ -1225,16 +1224,14 @@ MonoBehaviour:
     m_fRot: 0
     m_fMaxRot: 0
     m_fRadius: 0
-    AttRange: 4
+    m_fAlertDis: 0
     m_fProbeLenght: 0
     m_fPursuitRange: 0
     m_fAngle: 0
-    m_fThinkTime: 0
     m_bdie: 0
-    m_bChase: 0
     m_iAttackRandom: 0
-    m_bAttack: 0
     m_fAttDis: 0
+    m_bChase: 0
     m_fID: 0
     m_vTarget: {x: 0, y: 0, z: 0}
     m_vCurrentVector: {x: 0.00000006101641, y: 0.00000050233206, z: 1}
@@ -1287,6 +1284,7 @@ MonoBehaviour:
   isHit: 0
   isDie: 0
   isBlocked: 0
+  isStunned: 0
   isDefense: 0
   isCounterBack: 0
   isCounterBackEnable: 0
@@ -2061,7 +2059,7 @@ GameObject:
   - component: {fileID: 3007520272404812311}
   - component: {fileID: 872604955}
   m_Layer: 12
-  m_Name: Cylinder
+  m_Name: Colider
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
