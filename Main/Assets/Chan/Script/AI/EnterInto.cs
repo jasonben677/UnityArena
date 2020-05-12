@@ -102,7 +102,7 @@ public class EnterInto
 
         if (m_fVec <= distance)
         {
-            data.m_fMaxSpeed = 0.0f;
+           // data.m_fMaxSpeed = 0.0f;
             //玩家在範圍移動，怪物持續鎖定玩家
             Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - data.m_ObjEnemy.transform.position, Vector3.up);
             data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);

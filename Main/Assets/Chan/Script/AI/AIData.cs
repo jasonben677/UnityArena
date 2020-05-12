@@ -67,7 +67,7 @@ public class AIData
 
     //攻擊判斷
 
-   // public bool m_bAttack;
+    public bool m_bAttack;
 
 
 

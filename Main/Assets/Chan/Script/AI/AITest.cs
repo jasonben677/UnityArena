@@ -52,11 +52,11 @@ public class AITest : PlayerInput
     //                  Update改名NpcUpdate
     //public void Update()//<-------------開啟自測試用
 
-        //個人測試時開啟
-    //public void Update()
-    //{
-    //    NpcUpdate();
-    //}
+    //個人測試時開啟
+    public void Update()
+    {
+        NpcUpdate();
+    }
 
 
 
@@ -100,7 +100,7 @@ public class AITest : PlayerInput
                     {
                         //攻擊距離是否成立
                         AttackStatus();
-                        //AttackTest();
+                       // AttackTest();
 
                     }
                     else
@@ -183,7 +183,7 @@ public class AITest : PlayerInput
     //刪除死亡怪物
     public void ClearEnemy()
     {
-        Destroy(data.m_ObjEnemy);
+        data.m_ObjEnemy.SetActive(false);
     }
     #endregion
 
@@ -269,22 +269,50 @@ public class AITest : PlayerInput
         //怪物進入警戒圈
         if (EnterInto.Distance(data, data.m_vTarget, data.m_fAlertDis) == true)
         {
-            //警界時間=idletime
-            if (IdleTime <= 0)
-            {
+            //警界時間=AttackTime 進入攻擊
+            //if (AttackTime <= 0)
+            //{
                 //判斷是否在攻擊範圍內
                 if (EnterInto.Distance(data, data.m_vTarget, data.m_fAttDis) == true)
                 {
-                    //玩家在攻擊範圍
-                    ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
+
+                    if (AttackTime <= 0)
+                    {
+                        //怪物攻擊判定內部判定要甚麼攻擊狀態
+                        ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
+                        //攻擊時間
+                        AttackTime = Random.Range(2, 4);
+
+                    }
+                    else
+                    { 
+                        //這裡可以做出怪物的警戒
+                        AttackTime -= Time.deltaTime;
+                        //怪物IDLE
+                        ani.EnemyAnimater(data, AIAnimater.EnemyAni.WALKINGBACK);
+                        SteeringBehaviour.Seek(data, data.m_vTarget);
+                        SteeringBehaviour.Move(data);
+
+                }
                 }
                 else
                 {
                     //往前移動到攻擊範圍
+                    SteeringBehaviour.Seek(data, data.m_vTarget);
                     SteeringBehaviour.Move(data);
                     ani.EnemyAnimater(data, AIAnimater.EnemyAni.RUN);
+
                 }
-            }
+            //}
+            //else
+            //{
+
+            //    //這裡可以新增鎖定玩家左右走動
+            //    //如果沒有
+            //    ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
+            //    AttackTime -= Time.deltaTime;
+            //}
+
         }
         else
         {//否則繼續巡邏
@@ -329,6 +357,7 @@ public class AITest : PlayerInput
         AttackTime = 0;
         //hp.SetMaxHp(40);
         RunAttTime = Random.Range(0.6f, 1f);
+        data.m_fAlertDis = 4f;
     }
     #endregion
 }
