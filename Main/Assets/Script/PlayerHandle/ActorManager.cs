@@ -42,9 +42,16 @@ public class ActorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (LoginManager.instance != null && gameObject.tag == "Player")
+        if (LoginManager.instance != null )
         {
-            sm.playerHP.SetCurrentHP(LoginManager.instance.GetMPlayerHP());
+            if (gameObject.tag == "Player")
+            {
+                sm.playerHP.SetCurrentHP(LoginManager.instance.GetMPlayerHP());
+            }
+            else if(gameObject.tag == "Npc")
+            {
+                sm.playerHP.SetCurrentHP(LoginManager.instance.GetNpcHp(transform.GetSiblingIndex()));
+            }
         }
     }
 
