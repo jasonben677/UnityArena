@@ -372,6 +372,11 @@ public class ActorController : MonoBehaviour
         model.SendMessage("WeaponDisable");
     }
 
+    public void OnHitUpdate()
+    {
+        thrustVec = model.transform.forward * anim.GetFloat("hitVelocity");
+    }
+
     public void OnDieEnter()
     {
         pi.inputEnable = false;

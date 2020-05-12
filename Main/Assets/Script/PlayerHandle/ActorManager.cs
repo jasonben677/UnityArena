@@ -169,7 +169,7 @@ public class ActorManager : MonoBehaviour
 
     public void Stunned()
     {
-        Debug.Log("stunned");
+        //Debug.Log("stunned");
         ac.IssueTrigger("stunned");
     }
 

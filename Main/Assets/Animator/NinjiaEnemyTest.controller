@@ -51,6 +51,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: hitVelocity
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   - m_Name: stunnedVelocity
     m_Type: 1
     m_DefaultFloat: 0
@@ -400,6 +406,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onUpdateMessages:
   - OnRollUpdate
+--- !u!114 &114585730813387696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9f07bb7e5491f47a810e8174e9ac02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onUpdateMessages:
+  - OnHitUpdate
 --- !u!114 &114681915767853358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1878,7 +1898,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 80ff4fc68b836aa4cb55e2640e8f404d, type: 3}
+  m_Motion: {fileID: 7400000, guid: 1d252779b113df445b6f4fec9eccfd02, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -2067,12 +2087,13 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: hit
-  m_Speed: 2
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101093873190041782}
   m_StateMachineBehaviours:
   - {fileID: 114458200713098458}
+  - {fileID: 114585730813387696}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -2081,7 +2102,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: fd6e93cc2af4564489dcce14171a1400, type: 3}
+  m_Motion: {fileID: 7400000, guid: 6a19c5496663e664ab51ca20fe3cefc5, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -2108,7 +2129,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c149d348fb3a6964986bba01df51ff39, type: 3}
+  m_Motion: {fileID: 7400000, guid: 9ad54a5ab9f342744857e8842dd3b7d0, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -2122,7 +2143,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: stunned
-  m_Speed: 1.5
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101032156672828334}
@@ -2137,7 +2158,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cb747c87ef7b5e648a2e55c8240277f9, type: 3}
+  m_Motion: {fileID: 7400000, guid: 659cf3268cbf40647855c4460f5c9031, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

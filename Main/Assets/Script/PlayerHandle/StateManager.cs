@@ -58,7 +58,7 @@ public class StateManager : MonoBehaviour
         isStunned = am.ac.CheckState("stunned");
         //isDefense = am.ac.CheckState("defenseR", "defense");
         isCounterBack = am.ac.CheckState("counterBack");
-        isCounterBackSuccess = isCounterBackEnable;
+        isCounterBackSuccess = isCounterBack && isCounterBackEnable && am.ac.pi.defense;
         isCounterBackFailure = isCounterBack && !isCounterBackEnable;
 
         isAllowDefense = isGround || isBlocked;
