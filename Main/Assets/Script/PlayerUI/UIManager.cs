@@ -105,10 +105,11 @@ namespace PlayerUI
         {
             HealthPoint temp = _player.GetComponent<HealthPoint>();
 
-            Debug.Log(_player.name);
-
+            //enemy layer
             if (_player.layer == 10)
             {
+                Debug.LogError(_player.name);
+                Debug.LogError(_player.tag);
                 if (!enemyUIMatch.ContainsKey(_player))
                 {
                     enemyUIMatch.Add(_player, new EnemyUI());
@@ -119,6 +120,11 @@ namespace PlayerUI
                 {
                     enemyUIMatch[_player].Name = LoginManager.instance.ShowFriendName(_player.transform.GetSiblingIndex());
                     enemyUIMatch[_player].ShowHP(_player.transform.GetSiblingIndex());
+                }
+                else if (_player.tag == "Npc")
+                {
+                    enemyUIMatch[_player].Name = "雜魚";
+                    enemyUIMatch[_player].ShowNpcHp(_player.transform.GetSiblingIndex());
                 }
                 else
                 {

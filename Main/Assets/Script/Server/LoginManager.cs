@@ -162,6 +162,19 @@ public class LoginManager : MonoBehaviour
             return -1;
         }
     }
+
+    public float GetNpcHp(int _index)
+    {
+        if (client != null)
+        {
+            return client.tranmitter.mMessage.myEnemy[_index].hp;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
     public void NoServerEnter()
     {
         ScenceFadeOut();
@@ -223,6 +236,7 @@ public class LoginManager : MonoBehaviour
     public void AttackNpc(int _index, float _hitDamage)
     {
         client.tranmitter.mMessage.myEnemy[_index].hp -= _hitDamage;
+        //Debug.Log(client.tranmitter.mMessage.myEnemy[_index].hp);
     }
 
 }
