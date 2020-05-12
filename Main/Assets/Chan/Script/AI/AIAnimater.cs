@@ -76,7 +76,6 @@ public class AIAnimater : MonoBehaviour
 
             case EnemyAni.ANGER:
                 ani.Play("angry");
-                
                 data.m_fMaxSpeed = 0.0f;
                 data.m_fSpeed = 0.0f;
                 break;

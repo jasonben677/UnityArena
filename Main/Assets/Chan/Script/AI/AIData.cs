@@ -37,11 +37,9 @@ public class AIData
     //半徑
     public float m_fRadius;
 
-
-
-    //攻擊範圍
-    public float AttRange;
-
+    //警戒範圍
+    public float m_fAlertDis;
+     
     //探針長度
     public float m_fProbeLenght;
 
