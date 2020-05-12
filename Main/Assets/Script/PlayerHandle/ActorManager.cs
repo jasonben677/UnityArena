@@ -73,10 +73,10 @@ public class ActorManager : MonoBehaviour
         {
             //Do nothing
         }
-        //else if (sm.isDefense) //防禦狀態
-        //{
-        //    Blocked();
-        //}
+        else if (sm.isDefense) //防禦狀態
+        {
+            Blocked();
+        }
         else
         {
             if (attackValid)
@@ -169,7 +169,7 @@ public class ActorManager : MonoBehaviour
 
     public void Stunned()
     {
-        //Debug.Log("stunned");
+        Debug.Log("stunned");
         ac.IssueTrigger("stunned");
     }
 

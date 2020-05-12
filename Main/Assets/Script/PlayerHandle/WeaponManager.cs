@@ -20,7 +20,7 @@ public class WeaponManager : MonoBehaviour
     private GameObject objFXC; //普攻C刀光特效
     private GameObject objFXD; //普攻D刀光特效
     private Animator anim;
-    private float lerpWarp;
+    //private float lerpWarp;
 
     [Space]
     [SerializeField]
@@ -61,7 +61,7 @@ public class WeaponManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        lerpWarp += 0.3f * Time.fixedDeltaTime;
+        //lerpWarp += 0.3f * Time.fixedDeltaTime;
 
         if (am.ac.pi.isAI == false)
         {
@@ -234,7 +234,7 @@ public class WeaponManager : MonoBehaviour
 
         Instantiate(slashHitParticle, whR.transform.position, Quaternion.identity);
 
-        am.ac.camcon.lockTarget.GetComponentInChildren<Animator>().SetTrigger("stunned");
+        //am.ac.camcon.lockTarget.GetComponentInChildren<Animator>().SetTrigger("stunned");
         
         //am.ac.camcon.lockTarget.transform.DOMove(am.ac.camcon.lockTarget.transform.position + transform.forward, 0.5f);
         //用Lerp位移敵人NPC位置，避免向量是0的情況

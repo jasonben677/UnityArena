@@ -7795,6 +7795,7 @@ MonoBehaviour:
   isHit: 0
   isDie: 0
   isBlocked: 0
+  isStunned: 0
   isDefense: 0
   isCounterBack: 0
   isCounterBackEnable: 0
@@ -8808,6 +8809,7 @@ MonoBehaviour:
   isHit: 0
   isDie: 0
   isBlocked: 0
+  isStunned: 0
   isDefense: 0
   isCounterBack: 0
   isCounterBackEnable: 0
@@ -10515,6 +10517,7 @@ MonoBehaviour:
   isHit: 0
   isDie: 0
   isBlocked: 0
+  isStunned: 0
   isDefense: 0
   isCounterBack: 0
   isCounterBackEnable: 0
@@ -11149,6 +11152,7 @@ MonoBehaviour:
   isHit: 0
   isDie: 0
   isBlocked: 0
+  isStunned: 0
   isDefense: 0
   isCounterBack: 0
   isCounterBackEnable: 0
@@ -18999,6 +19003,7 @@ MonoBehaviour:
   isHit: 0
   isDie: 0
   isBlocked: 0
+  isStunned: 0
   isDefense: 0
   isCounterBack: 0
   isCounterBackEnable: 0

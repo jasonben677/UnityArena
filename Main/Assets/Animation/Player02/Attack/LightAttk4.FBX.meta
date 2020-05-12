@@ -232,29 +232,15 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.023136184
+      - time: 0
         functionName: CounterBackEnable
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.8020566
+      - time: 0.96926713
         functionName: CounterBackDisable
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.118251935
-        functionName: WeaponEnable
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.74807197
-        functionName: WeaponDisable
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

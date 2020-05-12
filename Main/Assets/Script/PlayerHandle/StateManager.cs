@@ -22,6 +22,7 @@ public class StateManager : MonoBehaviour
     public bool isHit;
     public bool isDie;
     public bool isBlocked;
+    public bool isStunned;
     public bool isDefense;
     public bool isCounterBack;    //related to state
     public bool isCounterBackEnable;  //related to animation event
@@ -54,6 +55,7 @@ public class StateManager : MonoBehaviour
         isHit = am.ac.CheckState("hit");
         isDie = am.ac.CheckState("die");
         isBlocked = am.ac.CheckState("blocked");
+        isStunned = am.ac.CheckState("stunned");
         //isDefense = am.ac.CheckState("defenseR", "defense");
         isCounterBack = am.ac.CheckState("counterBack");
         isCounterBackSuccess = isCounterBackEnable;
