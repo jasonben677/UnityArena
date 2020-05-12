@@ -66,7 +66,7 @@ public class ActorManager : MonoBehaviour
         {
             if (counterValid)
             {
-                targetWc.wm.am.Stunned();
+                targetWc.wm.am.Stunned();                
             }
         }
         else if (sm.isCounterBackFailure) //反擊失敗

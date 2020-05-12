@@ -232,14 +232,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.13711584
+      - time: 0
         functionName: CounterBackEnable
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.749409
+      - time: 0.81323874
         functionName: CounterBackDisable
         data: 
         objectReferenceParameter: {instanceID: 0}

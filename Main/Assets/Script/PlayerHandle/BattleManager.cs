@@ -41,7 +41,7 @@ public class BattleManager : MonoBehaviour
         float counterAngle2 = Vector3.Angle(attacker.transform.forward, receiver.transform.forward); //should be close to 180 degrees
 
         bool attackValid = (attackingAngle1 < 180);
-        bool counterValid = (counterAngle1 < 120 && Mathf.Abs(counterAngle2 - 30) < 180);
+        bool counterValid = (counterAngle1 < 160 && Mathf.Abs(counterAngle2 - 30) < 180);
 
         if (col.tag == "Weapon")
         {            
