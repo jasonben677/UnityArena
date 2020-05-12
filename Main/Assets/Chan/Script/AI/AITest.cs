@@ -53,10 +53,10 @@ public class AITest : PlayerInput
     //public void Update()//<-------------開啟自測試用
 
     //個人測試時開啟
-    public void Update()
-    {
-        NpcUpdate();
-    }
+    //public void Update()
+    //{
+    //    NpcUpdate();
+    //}
 
 
 
