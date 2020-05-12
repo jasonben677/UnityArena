@@ -40,12 +40,12 @@ public class NpcManager : MonoBehaviour
                 timer = 0;
             }
 
-            Debug.Log("I'm npc server");
+            //Debug.Log("I'm npc server");
             _RunNpcAI();
         }
         else
         {
-            Debug.Log("UpdateNpc");
+            //Debug.Log("UpdateNpc");
         }
     }
 
@@ -55,7 +55,7 @@ public class NpcManager : MonoBehaviour
         int counts = (message.myEnemy.Length <= npcObjs.Length) ? message.myEnemy.Length : npcObjs.Length;
         for (int i = 0; i < counts; i++)
         {
-            message.myEnemy[i].name = "雜魚";
+            message.myEnemy[i].name = npcObjs[i].name;
             message.myEnemy[i].maxHp = 100;
             message.myEnemy[i].hp = npcObjs[i].data.fHP;
         }

@@ -234,7 +234,7 @@ public class ActorController : MonoBehaviour
             sendTime = 0;
         }
 
-        friend?.UpdateFriend();
+        friend?.FixedUpdateFriend();
     }
 
     public bool CheckState(string stateName, string LayerName = "Base Layer")
