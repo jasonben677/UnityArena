@@ -66,7 +66,7 @@ public class NpcManager : MonoBehaviour
     {
         foreach (AITest npc in npcObjs)
         {
-            //npc.NpcUpdate();
+            npc.NpcUpdate();
         }
     }
 

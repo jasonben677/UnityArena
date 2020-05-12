@@ -87,7 +87,7 @@ public class EnterInto
     }
 
 
-    static public bool AttackDistance(AIData data, Vector3 vTarget)
+    static public bool Distance(AIData data, Vector3 vTarget, float distance)
     {
         //抓取怪物位置
         Transform ObjEnemy = data.m_ObjEnemy.transform;
@@ -98,10 +98,9 @@ public class EnterInto
         float m_fVec = vec.magnitude;
         
 
-        Transform m_tEnemy = data.m_ObjEnemy.transform;
 
 
-        if (m_fVec <= data.m_fAttDis)
+        if (m_fVec <= distance)
         {
             data.m_fMaxSpeed = 0.0f;
             //玩家在範圍移動，怪物持續鎖定玩家
@@ -116,4 +115,8 @@ public class EnterInto
 
 
     }
+
+
+   
+
 }
