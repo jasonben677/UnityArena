@@ -15,6 +15,8 @@ public class WeaponManager : MonoBehaviour
 
     public float warpDuration = 0.25f;
 
+    private GameObject playerHandle;
+
     private GameObject objFXA; //普攻A刀光特效
     private GameObject objFXB; //普攻B刀光特效
     private GameObject objFXC; //普攻C刀光特效
@@ -56,7 +58,11 @@ public class WeaponManager : MonoBehaviour
 
         wcR = whR.GetComponent<WeaponController>();
 
-        anim = transform.gameObject.GetComponent<Animator>();        
+        anim = transform.gameObject.GetComponent<Animator>();
+
+        am = transform.gameObject.GetComponentInParent<ActorManager>();
+
+        playerHandle = am.transform.gameObject;
     }
 
     private void FixedUpdate()
@@ -202,23 +208,23 @@ public class WeaponManager : MonoBehaviour
             smr.material = ghostMaterial; 
             smr.material.DOFloat(3f, "_RimPower", 5f).OnComplete(() => Destroy(NinjiaClone));            
         }
+        
+            RevealModel(false);
+            anim.speed = 0;
 
-        RevealModel(false);
-        anim.speed = 0;        
+            playerHandle.transform.DOMove(am.ac.camcon.lockTarget.transform.position, warpDuration).SetEase(Ease.InExpo).OnComplete(() => FinishWarp());
 
-        am.transform.DOMove(am.ac.camcon.lockTarget.transform.position, warpDuration).SetEase(Ease.InExpo).OnComplete(()=>FinishWarp());
-        //am.transform.position = Vector3.Lerp(am.transform.position, am.ac.camcon.lockTarget.transform.position, lerpWarp);
-        //if (am.transform.position == am.ac.camcon.lockTarget.transform.position)
-        //{
-        //    Debug.Log("FinishWarp Enter");
-        //    FinishWarp();
-        //}   
-               
+            //am.transform.DOMove(am.ac.camcon.lockTarget.transform.position, warpDuration).SetEase(Ease.InExpo).OnComplete(()=>FinishWarp());
+            //am.transform.position = Vector3.Lerp(am.transform.position, am.ac.camcon.lockTarget.transform.position, lerpWarp);
+            //if (am.transform.position == am.ac.camcon.lockTarget.transform.position)
+            //{
+            //    Debug.Log("FinishWarp Enter");
+            //    FinishWarp();
+            //}   
 
-        //Particles        
-        redTrail.Play();
-        whiteTrail.Play();
-
+            //Particles        
+            redTrail.Play();
+            whiteTrail.Play(); 
     }
 
     private void FinishWarp()
