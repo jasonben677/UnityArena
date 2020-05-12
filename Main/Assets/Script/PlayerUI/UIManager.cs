@@ -92,6 +92,11 @@ namespace PlayerUI
                     imgPlayerHP.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
                     playerHPText.text = LoginManager.instance.client?.tranmitter.mMessage.myHp.ToString();
                 }
+                else
+                {
+                    imgPlayerHP.fillAmount = 0;
+                    playerHPText.text = 0.ToString();
+                }
             }
 
 
