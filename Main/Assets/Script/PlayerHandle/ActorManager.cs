@@ -47,8 +47,9 @@ public class ActorManager : MonoBehaviour
             if (gameObject.tag == "Player")
             {
                 sm.playerHP.SetCurrentHP(LoginManager.instance.GetMPlayerHP());
+                //Debug.Log(sm.playerHP.HP);
             }
-            else if(gameObject.tag == "Npc")
+            else if (gameObject.tag == "Npc")
             {
                 sm.playerHP.SetCurrentHP(LoginManager.instance.GetNpcHp(transform.GetSiblingIndex()));
             }
@@ -101,18 +102,21 @@ public class ActorManager : MonoBehaviour
         }
         else
         {
-            if (sm.playerHP.HP <= 0)
+
+            _CheckHit(targetWc);
+
+            if (sm.playerHP.HP < 0)
             {
                 if (ac.CheckState("die"))
                 {
-                    Debug.Log("死亡");
+                    
                 }
                 else
                 {
                     Die();
                     if (gameObject.tag == "Player")
                     {
-                        LoginManager.instance.ScenceFadeOut();
+                        StartCoroutine(DeadDelay());
                     }
 
                 }
@@ -120,8 +124,6 @@ public class ActorManager : MonoBehaviour
             }
             else
             {
-
-                _CheckHit(targetWc);
 
                 if (sm.playerHP.HP > 0)
                 {
@@ -131,14 +133,9 @@ public class ActorManager : MonoBehaviour
                     }
                     //do some VFX, like splatter blood...
                 }
-                else
-                {
-                    Debug.Log(transform.name + " IS DEAD");
-                    Die();
-                }
-
-                PlayerUI.UIManager.instance.HitPlayer(gameObject);
             }
+
+            PlayerUI.UIManager.instance.HitPlayer(gameObject);
         }  
     }
 
@@ -149,12 +146,14 @@ public class ActorManager : MonoBehaviour
     {
         if (gameObject.tag == "ServerSYNC")
         {
-            LoginManager.instance.GetHitUpdateHpAndAtk(transform.GetSiblingIndex(), targetWc.GetATK());
+            sm.playerHP.SetCurrentHP(LoginManager.instance.GetHitUpdateHpAndAtk(transform.GetSiblingIndex(), targetWc.GetATK()));
+            
         }
+        //操控玩家被npc打
         else if (gameObject.tag == "Player" && targetWc.wm.am.tag == "Npc")
         {
             //Debug.Log(targetWc.tag);
-            LoginManager.instance.GetHitUpdateHpAndAtk(-1, (int)targetWc.GetATK());
+            sm.playerHP.SetCurrentHP(LoginManager.instance.GetHitUpdateHpAndAtk(-1, (int)targetWc.GetATK()));
         }
         else if (gameObject.tag == "Npc")
         {
@@ -167,12 +166,14 @@ public class ActorManager : MonoBehaviour
                 sm.playerHP.AddHP(-1 * targetWc.GetATK());
             }
         }
-        else
-        {
-            
-        }
     }
 
+
+    public IEnumerator DeadDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+        LoginManager.instance.ScenceFadeOut();
+    }
 
     public void Stunned()
     {

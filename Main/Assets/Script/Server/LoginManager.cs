@@ -88,8 +88,9 @@ public class LoginManager : MonoBehaviour
         //虛擬機
         //connectSucceed = client.Connect("34.80.167.143", 4099);
 
+        connectSucceed = client.Connect("192.168.32.6", 4099);
         //local
-        connectSucceed = client.Connect("127.0.0.1", 4099);
+        //connectSucceed = client.Connect("127.0.0.1", 4099);
 
         ResetDelegate();
 
@@ -163,6 +164,18 @@ public class LoginManager : MonoBehaviour
         }
     }
 
+    public float GetServerPlayerHP(int _index)
+    {
+        if (client != null)
+        {
+            return client.tranmitter.mMessage.friend[_index].hp;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
     public float GetNpcHp(int _index)
     {
         if (client != null)
@@ -217,20 +230,24 @@ public class LoginManager : MonoBehaviour
     /// <param name="_index"></param>
     /// <param name="_atk"></param>
     /// <param name="_hitDamage"></param>
-    public void GetHitUpdateHpAndAtk(int _index, float _hitDamage)
+    public float GetHitUpdateHpAndAtk(int _index, float _hitDamage)
     {
+        float result = 0;
         if (_index == -1)
         {
             client.tranmitter.mMessage.myHp -= _hitDamage;
-            //Debug.Log("my hp is " + client.tranmitter.mMessage.myHp);
+            result = client.tranmitter.mMessage.myHp;
+            Debug.Log("my hp is " + client.tranmitter.mMessage.myHp);
         }
         else
         {
             client.tranmitter.mMessage.friend[_index].hp -= _hitDamage;
+            result = client.tranmitter.mMessage.friend[_index].hp;
             //Debug.Log(_index + " HP IS " + client.tranmitter.mMessage.friend[_index].hp);
         }
         client.tranmitter.mMessage.msgType = 4;
         client.tranmitter.Send();
+        return result;
     }
 
     public void AttackNpc(int _index, float _hitDamage)

@@ -9,6 +9,8 @@ public class ServerUserInput : PlayerInput
 
     Animator anim;
 
+    float timer = 0;
+
     int myIndex = -1;
     float nextHp = 0;
     float nextAtk = 0;
@@ -44,15 +46,23 @@ public class ServerUserInput : PlayerInput
         }
         else
         {
-            anim.SetFloat("forward", 1);
+            float speed = (_walk > 1.01f) ? 2.0f : 1.0f;
+            anim.SetFloat("forward", speed);
         }
-
 
         if (_attack)
         {
+            Debug.Log(_attack);
             anim.SetTrigger("attack");
         }
-        
+        else
+        { 
+            
+        }
+        //else
+        //{ 
+
+        //}
     }
 
 
@@ -76,7 +86,7 @@ public class ServerUserInput : PlayerInput
                 return;
             }
             stateManager.ATK = nextAtk;
-            stateManager.playerHP.SetCurrentHP(nextHp);
+            //stateManager.playerHP.SetCurrentHP(nextHp);
             //Debug.Log(gameObject.name + " hp: " + stateManager.playerHP.HP + " atk : " + stateManager.ATK);
         }
     }

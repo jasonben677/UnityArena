@@ -63,7 +63,7 @@ public class FriendManager : MonoBehaviour
         Debug.Log("get hp");
     }
 
-    public void UpdateFriend()
+    public void FixedUpdateFriend()
     {
         if (curMessage == null)
         {
