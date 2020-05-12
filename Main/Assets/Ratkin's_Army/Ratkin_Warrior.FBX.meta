@@ -248,7 +248,7 @@ ModelImporter:
     7400248: Ratkin_1H_Die_knocked_forward
     7400250: Ratkin_1H_Dying_A
     7400252: Ratkin_1H_Dying_B
-    7400254: Ratkin_1H_Knocked_backward
+    7400254: Deepstun
     7400256: Ratkin_1H_Down_back
     7400258: Ratkin_1H_Recover_from_knocked_backward
     7400260: Ratkin_1H_Knocked_forward
@@ -2042,7 +2042,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_1H_Knocked_backward
+      name: Deepstun
       takeName: 
       firstFrame: 2917
       lastFrame: 2957
@@ -2054,9 +2054,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
+      loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
