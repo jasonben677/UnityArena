@@ -19,6 +19,9 @@ namespace PlayerUI
         Dictionary<GameObject, EnemyUI> enemyUIMatch = new Dictionary<GameObject, EnemyUI>();
         List<GameObject> temp;
 
+        [SerializeField] GameObject bossUI;
+
+
         [Header("玩家UI")]
         [SerializeField] Image imgPlayerHP;
         [SerializeField] TextMeshProUGUI  playerHPText;
@@ -100,7 +103,7 @@ namespace PlayerUI
 
             //exp
             float expRate = (player.fCurrExp / player.fNextLevelExp);
-            xpBar.fillAmount = expRate;
+            xpBar.fillAmount = Mathf.Lerp(xpBar.fillAmount, expRate , 0.2f) ;
             levelText.text = player.iLevel.ToString();
 
         }
@@ -124,7 +127,10 @@ namespace PlayerUI
                 {
                     enemyUIMatch[_player].ShowNpcHp(_player.transform.GetSiblingIndex());
                 }
-
+                else if (_player.tag == "Boss")
+                {
+                    UpdateBoss();
+                }
             }
         }
 
@@ -135,7 +141,7 @@ namespace PlayerUI
         public GameObject CheckUIPool()
         {
             GameObject obj;
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 10; i++)
             {
                 obj = transform.GetChild(0).GetChild(i).gameObject;
 
@@ -145,6 +151,36 @@ namespace PlayerUI
                 }
             }
             return null;
+        }
+
+
+        public void UpdateBoss()
+        {
+            PlayerInfo enemy = NumericalManager.instance.GetBoss();
+
+            Image enemyHp = bossUI.transform.GetChild(0).GetChild(0).GetComponent<Image>();
+            TextMeshProUGUI enemyName = bossUI.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI hpText = bossUI.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI enemyLevel = bossUI.transform.GetChild(1).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
+
+            float hpRate = (float)System.Math.Round((double)(enemy.fPlayerHp / enemy.fPlayerMaxHp), 2);
+
+            enemyHp.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
+
+            hpText.text = enemy.fPlayerHp + "/" + enemy.fPlayerMaxHp.ToString();
+
+            enemyName.text = enemy.sName;
+
+            enemyLevel.text = enemy.iLevel.ToString();
+
+            if (hpRate <= 0.02f)
+            {
+                bossUI.SetActive(false);
+            }
+            else
+            {
+                bossUI.SetActive(true);
+            }
         }
 
     }

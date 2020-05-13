@@ -59,7 +59,11 @@ public class Monsterbox : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            myMouseNpc[i].NpcUpdate();
+            if (myMouseNpc[i].gameObject.activeSelf == true)
+            {
+                myMouseNpc[i].NpcUpdate();
+            }
+
         }
     }
 }

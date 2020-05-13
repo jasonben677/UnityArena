@@ -107,13 +107,13 @@ public class ActorManager : MonoBehaviour
         else
         {
 
-            _CheckHit(targetWc);
+           _CheckHit(targetWc);
 
             if (sm.playerHP.HP < 0)
             {
                 if (ac.CheckState("die"))
                 {
-                    
+
                 }
                 else
                 {
@@ -126,6 +126,10 @@ public class ActorManager : MonoBehaviour
                     else if (gameObject.tag == "Npc")
                     {
                         NumericalManager.instance.GetExp(transform.GetSiblingIndex());
+                    }
+                    else if (gameObject.tag == "Boss")
+                    {
+                        NumericalManager.instance.GetExp();
                     }
                 }
                 //Already dead
@@ -166,15 +170,21 @@ public class ActorManager : MonoBehaviour
         {
             enemy = NumericalManager.instance.GetMainPlayer();
             enemy.fPlayerHp -= targetWc.GetATK();
+            sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
         }
-        
+        else if (gameObject.tag == "Boss")
+        {
+            enemy = NumericalManager.instance.GetBoss();
+            enemy.fPlayerHp -= targetWc.GetATK();
+            sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
+        }
     }
 
 
     public IEnumerator DeadDelay()
     {
-        yield return new WaitForSeconds(1.0f);
-        NumericalManager.instance.ScenceFadeOut();
+        yield return new WaitForSeconds(1.0f);    
+        NumericalManager.instance.ScenceFadeOut(2);
     }
 
     public void Stunned()

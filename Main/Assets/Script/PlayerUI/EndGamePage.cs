@@ -5,18 +5,22 @@ using TMPro;
 
 public class EndGamePage : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI playerLeft;
-    [SerializeField] TextMeshProUGUI titleInfo;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         NumericalManager.instance.ScenceFadeIn();
+        NumericalManager.instance.ResetPlayerInfo();
     }
 
 
     public void BackToLogin()
     {
-        NumericalManager.instance.ScenceFadeOut();
+        NumericalManager.instance.ScenceFadeOut(0);
+    }
+
+    public void BackToGame()
+    {
+        NumericalManager.instance.ScenceFadeOut(1);
     }
 
 }

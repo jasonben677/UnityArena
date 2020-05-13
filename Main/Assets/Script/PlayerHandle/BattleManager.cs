@@ -12,13 +12,17 @@ public class BattleManager : MonoBehaviour
     //Start is called before the first frame update
     void Start()
     {
-        defenseCol = GetComponent<CapsuleCollider>();
-        defenseCol.center = Vector3.up * 1.0f;
-        defenseCol.height = 2.0f;
-        defenseCol.radius = 0.3f;
-        defenseCol.isTrigger = true;
+        if (transform.tag != "Boss")
+        {
+            defenseCol = GetComponent<CapsuleCollider>();
+            defenseCol.center = Vector3.up * 1.0f;
+            defenseCol.height = 2.0f;
+            defenseCol.radius = 0.3f;
+            defenseCol.isTrigger = true;
 
-        bloodFXPositionHieght = defenseCol.height;
+            bloodFXPositionHieght = defenseCol.height;
+        }
+
 
     }
 
@@ -47,8 +51,8 @@ public class BattleManager : MonoBehaviour
         bool counterValid = (counterAngle1 < 160 && Mathf.Abs(counterAngle2 - 30) < 180);
 
         if (col.tag == "Weapon")
-        {            
-            am.TryDoDamage(targetWc, attackValid, counterValid);         
+        {
+            am.TryDoDamage(targetWc, attackValid, counterValid);
         }
     }
 }

@@ -7,18 +7,12 @@ public class ScenceFade : MonoBehaviour
 {
     public Animator anim;
 
+    private int iNextScenceIndex = 0;
+
 
     public void LoadScence()
     {
-        if (SceneManager.GetActiveScene().buildIndex < 2)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-        else
-        {
-            SceneManager.LoadScene(0);
-        }
-
+        SceneManager.LoadScene(iNextScenceIndex);
     }
 
     public void FadeIn()
@@ -27,8 +21,9 @@ public class ScenceFade : MonoBehaviour
         anim.SetTrigger("FadeIn");
     }
 
-    public void FadeOut()
+    public void FadeOut(int _scenceIndex)
     {
+        iNextScenceIndex = _scenceIndex;
         anim.SetTrigger("FadeIn");
         anim.SetTrigger("FadeOut");
     }

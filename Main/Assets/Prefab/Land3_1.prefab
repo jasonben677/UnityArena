@@ -3937,7 +3937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1716983299
 Transform:
   m_ObjectHideFlags: 0
@@ -13588,7 +13588,7 @@ Camera:
   far clip plane: 1000
   field of view: 68
   orthographic: 1
-  orthographic size: 30
+  orthographic size: 65
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2

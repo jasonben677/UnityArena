@@ -8,6 +8,8 @@ public class NumericalManager : MonoBehaviour
 
     private PlayerInfo gameInfo;
 
+    private PlayerInfo bossInfo;
+
     private PlayerInfo[] npcs;
 
     [SerializeField] ScenceFade ScenceFade;
@@ -40,14 +42,35 @@ public class NumericalManager : MonoBehaviour
         return npcs[_index];
     }
 
+    public PlayerInfo GetBoss()
+    {
+        return bossInfo;
+    }
+
+    /// <summary>
+    /// 打死小怪
+    /// </summary>
+    /// <param name="_index">小怪編號 </param>
     public void GetExp(int _index)
     {
         gameInfo.fCurrExp += npcs[_index].fCurrExp;
         if (gameInfo.fCurrExp >= gameInfo.fNextLevelExp)
         {
-            _PlayerLevelUp();
+            StartCoroutine(_PlayerLevelUp());
         }
         //PlayerUI.UIManager.instance.UpdatePlayerUI();
+    }
+
+    /// <summary>
+    /// 打死boss
+    /// </summary>
+    public void GetExp()
+    {
+        gameInfo.fCurrExp += bossInfo.fCurrExp;
+        if (gameInfo.fCurrExp >= gameInfo.fNextLevelExp)
+        {
+            StartCoroutine(_PlayerLevelUp());
+        }
     }
 
 
@@ -56,9 +79,9 @@ public class NumericalManager : MonoBehaviour
         ScenceFade.FadeIn();
     }
 
-    public void ScenceFadeOut()
+    public void ScenceFadeOut(int _index)
     {
-        ScenceFade.FadeOut();
+        ScenceFade.FadeOut(_index);
     }
 
     public void SetMouseNpc(int _count)
@@ -69,7 +92,7 @@ public class NumericalManager : MonoBehaviour
         {
             npcs[i] = new PlayerInfo();
             npcs[i].sName = "老鼠怪";
-            npcs[i].iLevel += 1;
+            npcs[i].iLevel = 1;
             npcs[i].fPlayerMaxHp = 80;
             npcs[i].fPlayerHp = 80;
 
@@ -77,9 +100,27 @@ public class NumericalManager : MonoBehaviour
             npcs[i].fPlayerMp = 0;
               
             npcs[i].fAtk = 15;
-            npcs[i].fCurrExp = 300;
+            npcs[i].fCurrExp = 200;
             npcs[i].fNextLevelExp = 0;
         }
+    }
+
+    public void SetBoss()
+    {
+        bossInfo = new PlayerInfo()
+        {
+            iLevel = 10,
+            sName = "蜘蛛王",
+            fPlayerMaxHp = 1000,
+            fPlayerHp = 1000,
+
+            fPlayerMaxMp = 0,
+            fPlayerMp = 0,
+
+            fAtk = 65,
+            fCurrExp = 1200,
+            fNextLevelExp = 0
+        };
     }
 
     public bool UseSkill()
@@ -95,9 +136,34 @@ public class NumericalManager : MonoBehaviour
         }
     }
 
+    public void ResetPlayerInfo()
+    {
+        PlayerInfo player = gameInfo;
+        player.fPlayerHp = player.fPlayerMaxHp;
+
+        player.fPlayerMp = player.fPlayerMaxMp;
+    }
+
+    public void ResertEnemy()
+    {
+        for (int i = 0; i < npcs.Length; i++)
+        {
+            npcs[i].sName = "老鼠怪";
+            npcs[i].iLevel = 1;
+            npcs[i].fPlayerMaxHp = 80;
+            npcs[i].fPlayerHp = 80;
+
+            npcs[i].fPlayerMaxMp = 0;
+            npcs[i].fPlayerMp = 0;
+
+            npcs[i].fAtk = 15;
+            npcs[i].fCurrExp = 200;
+            npcs[i].fNextLevelExp = 0;
+        }
+    }
+
     private void _InitInformation()
     {
-
         //MainPlayer
         gameInfo = new PlayerInfo()
         {
@@ -117,9 +183,10 @@ public class NumericalManager : MonoBehaviour
 
     }
 
-    private void _PlayerLevelUp()
+    private IEnumerator _PlayerLevelUp()
     {
         PlayerInfo player = gameInfo;
+        yield return new WaitForSeconds(0.3f);
         player.iLevel += 1;
 
         player.fPlayerMaxHp += 10;
@@ -135,6 +202,8 @@ public class NumericalManager : MonoBehaviour
         player.fNextLevelExp = exp * player.iLevel;
 
     }
+
+    
 
 }
 
