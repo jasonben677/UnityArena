@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   am: {fileID: 0}
+  bloodFXPositionHieght: 0
 --- !u!1 &27559140163316458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,7 +1175,6 @@ MonoBehaviour:
   jumpVelocity: 2
   rollVelocity: 1.5
   camcon: {fileID: 0}
-  friend: {fileID: 0}
   frictionOne: {fileID: 13400000, guid: ebbd2e6b6925d07448243d28c94c929d, type: 2}
   frictionZero: {fileID: 13400000, guid: 8262362b21d86c04e8ac2eff1e831a99, type: 2}
 --- !u!114 &6625873427433717271
@@ -1232,6 +1232,7 @@ MonoBehaviour:
     m_iAttackRandom: 0
     m_fAttDis: 0
     m_bChase: 0
+    m_bAttack: 0
     m_fID: 0
     m_vTarget: {x: 0, y: 0, z: 0}
     m_vCurrentVector: {x: 0.00000006101641, y: 0.00000050233206, z: 1}
@@ -1259,6 +1260,8 @@ MonoBehaviour:
   bm: {fileID: 0}
   wm: {fileID: 0}
   sm: {fileID: 833741238873092104}
+  bloodParticle: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
+    type: 3}
 --- !u!114 &833741238873092104
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -138,7 +138,7 @@ public class ActorManager : MonoBehaviour
                     }
                     //do some VFX, like splatter blood...
 
-                    Instantiate(bloodParticle, transform.position + new Vector3(0, bm.bloodFXPositionHieght * 0.8f, 0), Quaternion.identity);                    
+                    Instantiate(bloodParticle, transform.position + new Vector3(0, bm.bloodFXPositionHieght * 0.6f, 0), Quaternion.identity);                    
                 }
             }
 

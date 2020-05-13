@@ -4223,7 +4223,7 @@ MonoBehaviour:
   bm: {fileID: 0}
   wm: {fileID: 0}
   sm: {fileID: 1716983301}
-  bloodParticle: {fileID: 6948407554170385017, guid: 2c5ce2223d312614a8116631766b7edc,
+  bloodParticle: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
     type: 3}
 --- !u!114 &1716983301
 MonoBehaviour:
@@ -4454,7 +4454,7 @@ MonoBehaviour:
   bm: {fileID: 0}
   wm: {fileID: 0}
   sm: {fileID: 6217129251873150726}
-  bloodParticle: {fileID: 6948407554170385017, guid: 2c5ce2223d312614a8116631766b7edc,
+  bloodParticle: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
     type: 3}
 --- !u!114 &6217129251873150726
 MonoBehaviour:
@@ -6106,7 +6106,7 @@ MonoBehaviour:
   bm: {fileID: 0}
   wm: {fileID: 0}
   sm: {fileID: 4922869406750519714}
-  bloodParticle: {fileID: 6948407554170385017, guid: 2c5ce2223d312614a8116631766b7edc,
+  bloodParticle: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
     type: 3}
 --- !u!114 &4922869406750519714
 MonoBehaviour:
