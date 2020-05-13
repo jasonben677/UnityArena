@@ -42,17 +42,14 @@ public class ActorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (LoginManager.instance != null )
+        if (gameObject.tag == "Player")
         {
-            if (gameObject.tag == "Player")
-            {
-                sm.playerHP.SetCurrentHP(LoginManager.instance.GetMPlayerHP());
-                //Debug.Log(sm.playerHP.HP);
-            }
-            else if (gameObject.tag == "Npc")
-            {
-                sm.playerHP.SetCurrentHP(LoginManager.instance.GetNpcHp(transform.GetSiblingIndex()));
-            }
+            PlayerInfo player = NumericalManager.instance.GetMainPlayer();
+
+            sm.ATK = player.fAtk;
+
+            sm.playerHP.SetCurrentHP(player.fPlayerHp);
+            sm.playerHP.SetMaxHp(player.fPlayerMaxHp);
         }
     }
 
@@ -114,11 +111,15 @@ public class ActorManager : MonoBehaviour
                 else
                 {
                     Die();
+
                     if (gameObject.tag == "Player")
                     {
                         StartCoroutine(DeadDelay());
                     }
-
+                    else if (gameObject.tag == "Npc")
+                    {
+                        NumericalManager.instance.GetExp(transform.GetSiblingIndex());
+                    }
                 }
                 //Already dead
             }
@@ -144,35 +145,27 @@ public class ActorManager : MonoBehaviour
     /// </summary>
     private void _CheckHit(WeaponController targetWc)
     {
-        if (gameObject.tag == "ServerSYNC")
+        PlayerInfo enemy;
+
+        if (gameObject.tag == "Npc")
         {
-            sm.playerHP.SetCurrentHP(LoginManager.instance.GetHitUpdateHpAndAtk(transform.GetSiblingIndex(), targetWc.GetATK()));
-            
+            enemy = NumericalManager.instance.GetNpc(transform.GetSiblingIndex());
+            enemy.fPlayerHp -= targetWc.GetATK();
+            sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
         }
-        //操控玩家被npc打
-        else if (gameObject.tag == "Player" && targetWc.wm.am.tag == "Npc")
+        else if (gameObject.tag == "Player")
         {
-            //Debug.Log(targetWc.tag);
-            sm.playerHP.SetCurrentHP(LoginManager.instance.GetHitUpdateHpAndAtk(-1, (int)targetWc.GetATK()));
+            enemy = NumericalManager.instance.GetMainPlayer();
+            enemy.fPlayerHp -= targetWc.GetATK();
         }
-        else if (gameObject.tag == "Npc")
-        {
-            if (LoginManager.instance != null)
-            {
-                LoginManager.instance.AttackNpc(transform.GetSiblingIndex(), targetWc.GetATK());
-            }
-            else
-            {
-                sm.playerHP.AddHP(-1 * targetWc.GetATK());
-            }
-        }
+        
     }
 
 
     public IEnumerator DeadDelay()
     {
         yield return new WaitForSeconds(1.0f);
-        LoginManager.instance.ScenceFadeOut();
+        NumericalManager.instance.ScenceFadeOut();
     }
 
     public void Stunned()
