@@ -12,6 +12,8 @@ public class ActorManager : MonoBehaviour
     [Header("==== Prefabs ====")]
     [SerializeField]
     private GameObject bloodParticle;
+    [SerializeField]
+    private GameObject blockParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -85,6 +87,7 @@ public class ActorManager : MonoBehaviour
         else if (sm.isDefense) //防禦狀態
         {
             Blocked();
+            Instantiate(blockParticle, transform.position + new Vector3(0, bm.bloodFXPositionHieght * 0.6f, 0), Quaternion.identity);
         }
         else
         {
