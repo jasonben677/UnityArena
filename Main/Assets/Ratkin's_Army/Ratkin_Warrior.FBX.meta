@@ -198,10 +198,10 @@ ModelImporter:
     7400148: Ratkin_Stretching
     7400150: Ratkin_Talking_A
     7400152: Ratkin_Talking_B
-    7400154: Ratkin_Jump_standing
+    7400154: standing
     7400156: Ratkin_Climbing_wall
     7400158: Ratkin_Crawling
-    7400160: Ratkin_falling_down
+    7400160: fall
     7400162: WalkingBwk
     7400164: Walk
     7400166: Ratkin_1H_Cautious_walk
@@ -600,9 +600,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_Jump_standing
+      name: standing
       takeName: 
-      firstFrame: 892
+      firstFrame: 937
       lastFrame: 967
       wrapMode: 2
       orientationOffsetY: 0
@@ -611,10 +611,10 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -684,10 +684,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_falling_down
+      name: fall
       takeName: 
       firstFrame: 1042
-      lastFrame: 1082
+      lastFrame: 1065
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
@@ -696,9 +696,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1

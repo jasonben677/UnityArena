@@ -112,7 +112,7 @@ public class AITest : PlayerInput
                         ani.EnemyAnimater(data, AIAnimater.EnemyAni.ANGER);
 
                         IdleTime = Random.Range(0.2f, 0.5f);
-
+                        data.m_fPursuitRange = data.m_fPursuitRange * 3;
                     }
 
                 }
@@ -226,7 +226,7 @@ public class AITest : PlayerInput
     {
         if (EnterInto.Distance(data, data.m_vTarget, data.m_fAttDis) == true)
         {
-            IdleTime = Random.Range(1f, 2f);
+            IdleTime = Random.Range(1f, 2.5f);
 
             // 攻擊時間判斷
             if (AttackTime >= 0)
