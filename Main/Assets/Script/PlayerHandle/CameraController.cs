@@ -75,7 +75,7 @@ public class CameraController : MonoBehaviour
         {
             if (pi.isAI == false)
             {
-                lockDot.rectTransform.position = mainCamera.WorldToScreenPoint(lockTarget.transform.position + new Vector3(0, enemyCol.bounds.extents.y, 0));
+                lockDot.rectTransform.position = mainCamera.WorldToScreenPoint(lockTarget.transform.position + new Vector3(0, enemyCol.bounds.extents.y * 2.5f, 0));
             }
             //Debug.Log(enemyCol.bounds.extents.y); //halfHeight
 
