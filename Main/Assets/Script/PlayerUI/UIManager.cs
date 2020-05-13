@@ -22,8 +22,12 @@ namespace PlayerUI
         [Header("玩家UI")]
         [SerializeField] Image imgPlayerHP;
         [SerializeField] TextMeshProUGUI  playerHPText;
+
         [SerializeField] Image playerMP;
-        [SerializeField] Text texPlayerLeft;
+        [SerializeField] TextMeshProUGUI playerMPText;
+
+        [SerializeField] Image xpBar;
+        [SerializeField] TextMeshProUGUI levelText;
 
         private void Awake()
         {
@@ -33,12 +37,7 @@ namespace PlayerUI
 
         private void Start()
         {
-            if (LoginManager.instance != null)
-            {
-                LoginManager.instance.ScenceFadeIn();
-                playerHPText.text = LoginManager.instance.client?.tranmitter.mMessage.myHp.ToString();
-            }
-               
+            NumericalManager.instance.ScenceFadeIn();
         }
 
         private void Update()
@@ -61,8 +60,7 @@ namespace PlayerUI
             {
                 enemyUIMatch.Remove(item);
             }
-            UpdatePlayerCount();
-            ShowPlayerHp();
+            UpdatePlayerUI();
         }
 
 
@@ -78,28 +76,32 @@ namespace PlayerUI
         /// <summary>
         /// 玩家UI更新
         /// </summary>
-        public void ShowPlayerHp()
+        public void UpdatePlayerUI()
         {
-            TestDll.Message03 player;
+            PlayerInfo player = NumericalManager.instance.GetMainPlayer();
 
-            if (LoginManager.instance != null)
+            if (player.fPlayerHp >= 0)
             {
-                player = LoginManager.instance.client.tranmitter.mMessage;
+                float hpRate = (player.fPlayerHp / player.fPlayerMaxHp);
 
-                if (player.myHp >= 0)
-                {
-                    float hpRate = (player.myHp / player.myMaxHp);
-                    imgPlayerHP.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
-                    playerHPText.text = LoginManager.instance.client?.tranmitter.mMessage.myHp.ToString();
-                }
-                else
-                {
-                    imgPlayerHP.fillAmount = 0;
-                    playerHPText.text = 0.ToString();
-                }
+                imgPlayerHP.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
+                playerHPText.text = player.fPlayerHp + "/" + player.fPlayerMaxHp;
+            }
+            else
+            {
+                imgPlayerHP.fillAmount = 0;
+                playerHPText.text = 0.ToString();
             }
 
+            //mp
+            float mpRate = (player.fPlayerMp / player.fPlayerMaxMp);
+            playerMP.fillAmount = Mathf.Clamp(mpRate, 0.05f, 1f);
+            playerMPText.text = player.fPlayerMp + "/" + player.fPlayerMaxMp;
 
+            //exp
+            float expRate = (player.fCurrExp / player.fNextLevelExp);
+            xpBar.fillAmount = expRate;
+            levelText.text = player.iLevel.ToString();
 
         }
 
@@ -108,34 +110,21 @@ namespace PlayerUI
         /// </summary>
         public void HitPlayer(GameObject _player)
         {
-            HealthPoint temp = _player.GetComponent<HealthPoint>();
-
             //enemy layer
             if (_player.layer == 10)
             {
-                Debug.LogError(_player.name);
-                Debug.LogError(_player.tag);
+
                 if (!enemyUIMatch.ContainsKey(_player))
                 {
                     enemyUIMatch.Add(_player, new EnemyUI());
                     enemyUIMatch[_player].GetHealthBar(_player.transform, CheckUIPool());
                 }
 
-                if (_player.tag == "ServerSYNC")
+                if (_player.tag == "Npc")
                 {
-                    enemyUIMatch[_player].Name = LoginManager.instance.ShowFriendName(_player.transform.GetSiblingIndex());
-                    enemyUIMatch[_player].ShowHP(_player.transform.GetSiblingIndex());
-                }
-                else if (_player.tag == "Npc")
-                {
-                    enemyUIMatch[_player].Name = "雜魚";
                     enemyUIMatch[_player].ShowNpcHp(_player.transform.GetSiblingIndex());
                 }
-                else
-                {
-                    enemyUIMatch[_player].Name = "雜魚";
-                    enemyUIMatch[_player].ShowHP(temp);
-                }
+
             }
         }
 
@@ -156,30 +145,6 @@ namespace PlayerUI
                 }
             }
             return null;
-        }
-
-        public void UpdatePlayerCount()
-        {
-            if (LoginManager.instance == null)
-            {
-                return;
-            }
-
-            if (LoginManager.instance.client == null)
-            {
-                return;
-            }
-
-            int leftPlayer = LoginManager.instance.client.tranmitter.mMessage.playerLeft;
-            texPlayerLeft.text = leftPlayer.ToString();
-            if (LoginManager.instance.client.tranmitter.mMessage.gameStart)
-            {
-                Debug.Log("還剩 " + leftPlayer + "人");
-                if (leftPlayer <= 1)
-                {
-                    LoginManager.instance.ScenceFadeOut();
-                }
-            }
         }
 
     }

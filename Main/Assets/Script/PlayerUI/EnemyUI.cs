@@ -8,8 +8,6 @@ namespace PlayerUI
 {
     public class EnemyUI
     {
-        public string Name;
-
         public Transform enemy
         {
             get;
@@ -50,76 +48,26 @@ namespace PlayerUI
 
         }
 
-        public void ShowHP(HealthPoint _player)
-        {
-            if (enemy != null && healthBar != null)
-            {
-                Image enemyHp = healthBar.transform.GetChild(0).GetChild(0).GetComponent<Image>();
-                Text enemyName = healthBar.transform.GetChild(2).GetChild(0).GetComponent<Text>();
-                TextMeshProUGUI hpText = healthBar.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
-
-                float hpRate = (float)System.Math.Round((_player.HP / _player.MaxHP), 2);
-
-                enemyHp.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
-
-                hpText.text = _player.HP.ToString();
-
-                enemyName.text = Name;
-
-
-                if (hpRate <= 0.02f)
-                {
-                    IsUse = false;
-                }
-            }
-
-        }
-
-        public void ShowHP(int _index)
-        {
-            if (enemy != null && healthBar != null)
-            {
-                TestDll.Player enemy = LoginManager.instance.client.tranmitter.mMessage.friend[_index];
-
-                Image enemyHp = healthBar.transform.GetChild(0).GetChild(0).GetComponent<Image>();
-                Text enemyName = healthBar.transform.GetChild(2).GetChild(0).GetComponent<Text>();
-                TextMeshProUGUI hpText = healthBar.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
-
-                float hpRate = (float)System.Math.Round((double)(enemy.hp / enemy.maxHp), 2);
-
-                enemyHp.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
-
-                hpText.text = enemy.hp.ToString();
-
-                enemyName.text = Name;
-
-
-                if (hpRate <= 0.02f)
-                {
-                    IsUse = false;
-                }
-            }
-
-        }
-
         public void ShowNpcHp(int _index)
         {
             if (enemy != null && healthBar != null)
             {
-                TestDll.Player enemy = LoginManager.instance.client.tranmitter.mMessage.myEnemy[_index];
+                PlayerInfo enemy = NumericalManager.instance.GetNpc(_index);
 
                 Image enemyHp = healthBar.transform.GetChild(0).GetChild(0).GetComponent<Image>();
-                Text enemyName = healthBar.transform.GetChild(2).GetChild(0).GetComponent<Text>();
+                TextMeshProUGUI enemyName = healthBar.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>();
                 TextMeshProUGUI hpText = healthBar.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
+                TextMeshProUGUI enemyLevel = healthBar.transform.GetChild(1).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
 
-                float hpRate = (float)System.Math.Round((double)(enemy.hp / enemy.maxHp), 2);
+                float hpRate = (float)System.Math.Round((double)(enemy.fPlayerHp / enemy.fPlayerMaxHp), 2);
 
                 enemyHp.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
 
-                hpText.text = enemy.hp.ToString();
+                hpText.text = enemy.fPlayerHp.ToString();
 
-                enemyName.text = Name;
+                enemyName.text = enemy.sName;
 
+                enemyLevel.text = enemy.iLevel.ToString();
 
                 if (hpRate <= 0.02f)
                 {

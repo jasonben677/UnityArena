@@ -118,7 +118,7 @@ public class PlayerInput : MonoBehaviour
 
         //defense= Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl); //防禦觸發設定       
         defense = Input.GetMouseButton(1);
-        Debug.Log(transform.name);
+
         bool newJump = Input.GetKeyDown(KeyCode.Space); //跳躍觸發設定       
         if(newJump != lastJump && newJump == true)
         {
@@ -140,22 +140,6 @@ public class PlayerInput : MonoBehaviour
         else
         {
             attack = false;
-            if (gameObject.layer == 11)
-            {
-                try
-                {
-                    if (LoginManager.instance.client.tranmitter.mMessage.myAttackStatus)
-                    {
-                        LoginManager.instance.SetAttack(attack);
-                    }
-
-                }
-                catch (System.Exception)
-                {
-                    Debug.Log("NotInServer");
-                }
-
-            }
         }
         lastAttack = newAttack;
 

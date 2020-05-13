@@ -41,7 +41,7 @@ public class StateManager : MonoBehaviour
         _InitPlayHpAndAtk();
 
         //UI顯示
-        PlayerUI.UIManager.instance.ShowPlayerHp();
+        //PlayerUI.UIManager.instance.UpdatePlayerUI();
     }
     private void Update()
     {
@@ -83,40 +83,18 @@ public class StateManager : MonoBehaviour
     /// </summary>
     private void _InitPlayHpAndAtk()
     {
-        if (gameObject.tag == "ServerSYNC")
+        if (gameObject.tag == "Player")
         {
-            playerHP.SetMaxHp(LoginManager.instance.client.tranmitter.mMessage.friend[transform.GetSiblingIndex()].maxHp);
-            ATK = LoginManager.instance.client.tranmitter.mMessage.friend[transform.GetSiblingIndex()].atkDamage;
-            playerHP.SetCurrentHP(LoginManager.instance.client.tranmitter.mMessage.friend[transform.GetSiblingIndex()].hp);
-        }
-        else if (gameObject.tag == "Player")
-        {
-            if (LoginManager.instance != null)
-            {
-                playerHP.SetMaxHp(LoginManager.instance.client.tranmitter.mMessage.myMaxHp);
-                ATK = LoginManager.instance.client.tranmitter.mMessage.myAtkDamage;
-                playerHP.SetCurrentHP(LoginManager.instance.client.tranmitter.mMessage.myHp);
-            }
-            else
-            {
-                playerHP.SetHP(80f, 80f);
-                ATK = 15f;
-            }
+            PlayerInfo tempPlayer = NumericalManager.instance.GetMainPlayer();
+            playerHP.SetHP(tempPlayer.fPlayerMaxHp, tempPlayer.fPlayerHp);
+            ATK = NumericalManager.instance.GetMainPlayer().fAtk;
 
         }
         else if (gameObject.tag == "Npc")
         {
-            if (LoginManager.instance != null)
-            {
-                playerHP.SetMaxHp(LoginManager.instance.client.tranmitter.mMessage.myEnemy[transform.GetSiblingIndex()].maxHp);
-                ATK = LoginManager.instance.client.tranmitter.mMessage.myEnemy[transform.GetSiblingIndex()].atkDamage;
-                playerHP.SetCurrentHP(LoginManager.instance.client.tranmitter.mMessage.myEnemy[transform.GetSiblingIndex()].hp);
-            }
-            else
-            {
-                playerHP.SetHP(80f, 80f);
-                ATK = 15f;
-            }
+            PlayerInfo tempNpc = NumericalManager.instance.GetNpc(transform.GetSiblingIndex());
+            playerHP.SetHP(tempNpc.fPlayerMaxHp, tempNpc.fPlayerHp);
+            ATK = tempNpc.fAtk;
         }
         else
         {

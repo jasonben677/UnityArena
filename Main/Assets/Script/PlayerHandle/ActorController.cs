@@ -16,7 +16,6 @@ public class ActorController : MonoBehaviour
 
     // server
     private bool useServer = false;
-    [SerializeField] FriendManager friend;
     // 發送時間
     private float sendTime = 0.0f;
 
@@ -47,25 +46,6 @@ public class ActorController : MonoBehaviour
         rigid = GetComponent<Rigidbody>(); //rigidbody!=null
         col = GetComponent<CapsuleCollider>();
         camcon = pi.camcon;
-
-        //判斷server
-        try
-        {
-            if (LoginManager.instance.client.tranmitter != null && gameObject.layer == 11)
-            {
-                useServer = true;
-            }
-            else
-            {
-                useServer = false;
-            }
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogWarning(e.ToString());
-            useServer = false;
-        }
-
     }
 
     // Update is called once per frame
@@ -115,12 +95,6 @@ public class ActorController : MonoBehaviour
         {
             if (pi.attack) //普通攻擊
             {
-                if (gameObject.layer == 11 && useServer)
-                {
-                    Debug.Log("attack");
-                    LoginManager.instance.SetAttack(pi.attack);
-                }
-
                 anim.SetTrigger("attack");
             }
 
@@ -131,7 +105,14 @@ public class ActorController : MonoBehaviour
 
             if (pi.slash && camcon.lockTarget != null) //技能攻擊
             {
-                anim.SetTrigger("slash");
+                if (NumericalManager.instance.UseSkill())
+                {
+                    anim.SetTrigger("slash");
+                }
+                else
+                {
+                    Debug.LogError("MP不足");
+                }
                 //pi.RotateTowards(camcon.lockTarget);
             }            
         }
@@ -224,17 +205,6 @@ public class ActorController : MonoBehaviour
         rigid.velocity = new Vector3(planarVec.x, rigid.velocity.y, planarVec.z) + thrustVec;
         thrustVec = Vector3.zero;
         deltaPos = Vector3.zero;
-
-        //發送角色位置
-        sendTime += Time.fixedDeltaTime;
-        if (sendTime >= 0.25f && useServer)
-        {
-            Vector2 moveStatus = new Vector2(anim.GetFloat("forward"), anim.GetFloat("right"));
-            LoginManager.instance.SendPos(transform.position, model.transform.forward, moveStatus);
-            sendTime = 0;
-        }
-
-        friend?.FixedUpdateFriend();
     }
 
     public bool CheckState(string stateName, string LayerName = "Base Layer")

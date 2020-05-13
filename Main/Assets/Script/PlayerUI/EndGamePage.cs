@@ -10,26 +10,13 @@ public class EndGamePage : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
-        LoginManager.instance.ScenceFadeIn();
-        int _playerLeft = LoginManager.instance.client.tranmitter.mMessage.playerLeft;
-        playerLeft.text = _playerLeft.ToString();
-
-        if (_playerLeft <= 1)
-        {
-            titleInfo.text = "恭喜 你是贏家";
-        }
-        else
-        {
-            titleInfo.text = "";
-        }
-
-        LoginManager.instance.GoToEndGamePanel();
+        NumericalManager.instance.ScenceFadeIn();
     }
 
 
     public void BackToLogin()
     {
-        LoginManager.instance.ScenceFadeOut();
+        NumericalManager.instance.ScenceFadeOut();
     }
 
 }
