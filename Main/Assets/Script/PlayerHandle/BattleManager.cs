@@ -6,6 +6,7 @@ using UnityEngine;
 public class BattleManager : MonoBehaviour
 {
     public ActorManager am;
+    public float bloodFXPositionHieght;
 
     private CapsuleCollider defenseCol;
     //Start is called before the first frame update
@@ -16,6 +17,8 @@ public class BattleManager : MonoBehaviour
         defenseCol.height = 2.0f;
         defenseCol.radius = 0.3f;
         defenseCol.isTrigger = true;
+
+        bloodFXPositionHieght = defenseCol.height;
 
     }
 

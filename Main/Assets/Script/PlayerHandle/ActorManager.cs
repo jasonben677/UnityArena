@@ -9,6 +9,10 @@ public class ActorManager : MonoBehaviour
     public WeaponManager wm;
     public StateManager sm;
 
+    [Header("==== Prefabs ====")]
+    [SerializeField]
+    private GameObject bloodParticle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -132,6 +136,8 @@ public class ActorManager : MonoBehaviour
                         Hit();
                     }
                     //do some VFX, like splatter blood...
+
+                    Instantiate(bloodParticle, transform.position + new Vector3(0, bm.bloodFXPositionHieght * 0.8f, 0), Quaternion.identity);                    
                 }
             }
 

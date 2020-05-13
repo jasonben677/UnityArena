@@ -961,6 +961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   am: {fileID: 0}
+  bloodFXPositionHieght: 0
 --- !u!1 &418382230
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,6 +2026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   am: {fileID: 0}
+  bloodFXPositionHieght: 0
 --- !u!1 &694380329
 GameObject:
   m_ObjectHideFlags: 0
@@ -4392,6 +4394,8 @@ MonoBehaviour:
   bm: {fileID: 0}
   wm: {fileID: 0}
   sm: {fileID: 1716983301}
+  bloodParticle: {fileID: 6948407554170385017, guid: 2c5ce2223d312614a8116631766b7edc,
+    type: 3}
 --- !u!114 &1716983301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4622,6 +4626,8 @@ MonoBehaviour:
   bm: {fileID: 0}
   wm: {fileID: 0}
   sm: {fileID: 6217129251873150726}
+  bloodParticle: {fileID: 6948407554170385017, guid: 2c5ce2223d312614a8116631766b7edc,
+    type: 3}
 --- !u!114 &6217129251873150726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5889,6 +5895,7 @@ MonoBehaviour:
   bm: {fileID: 0}
   wm: {fileID: 0}
   sm: {fileID: 4221921663522083701}
+  bloodParticle: {fileID: 0}
 --- !u!114 &4221921663522083701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6260,6 +6267,8 @@ MonoBehaviour:
   bm: {fileID: 0}
   wm: {fileID: 0}
   sm: {fileID: 1799468648668461412}
+  bloodParticle: {fileID: 6948407554170385017, guid: 2c5ce2223d312614a8116631766b7edc,
+    type: 3}
 --- !u!114 &1799468648668461412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6491,6 +6500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   am: {fileID: 0}
+  bloodFXPositionHieght: 0
 --- !u!1 &385493234546322098
 GameObject:
   m_ObjectHideFlags: 0
@@ -8169,6 +8179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   am: {fileID: 0}
+  bloodFXPositionHieght: 0
 --- !u!1 &2111615350792837750
 GameObject:
   m_ObjectHideFlags: 0
@@ -9266,6 +9277,8 @@ MonoBehaviour:
   bm: {fileID: 0}
   wm: {fileID: 0}
   sm: {fileID: 4922869406750519714}
+  bloodParticle: {fileID: 6948407554170385017, guid: 2c5ce2223d312614a8116631766b7edc,
+    type: 3}
 --- !u!114 &4922869406750519714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15443,6 +15456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   am: {fileID: 0}
+  bloodFXPositionHieght: 0
 --- !u!1 &4584275423261558824
 GameObject:
   m_ObjectHideFlags: 0
@@ -16003,6 +16017,7 @@ MonoBehaviour:
   bm: {fileID: 0}
   wm: {fileID: 0}
   sm: {fileID: 8188401838564828759}
+  bloodParticle: {fileID: 0}
 --- !u!114 &8188401838564828759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22200,6 +22215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   am: {fileID: 0}
+  bloodFXPositionHieght: 0
 --- !u!1 &7795303857168779768
 GameObject:
   m_ObjectHideFlags: 0
