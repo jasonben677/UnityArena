@@ -61,6 +61,7 @@ public class AIData
     //是否死亡
     public bool m_bdie;
 
+    public bool OnTag;
 
     //攻擊動作決定
     public int m_iAttackRandom;

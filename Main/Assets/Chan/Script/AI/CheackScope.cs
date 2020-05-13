@@ -72,24 +72,27 @@ public class CheackScope : MonoBehaviour
         foreach (GameObject Npc in data.OnTreeEnemys)
         {
 
-
-            Vector3 TreeEnemy = Npc.transform.position;
-            TreeEnemy.y = 0;
-            Vector3 vEnemy = data.m_ObjEnemy.transform.position;
-
-            float fDis = Vector3.Distance(TreeEnemy, vEnemy);
-
-            Debug.Log(Npc.name);
-            if (fDis < data.CallRange)
+            if (data.OnTag != true)
             {
-                Npc.SetActive(true);
+                Vector3 TreeEnemy = Npc.transform.position;
+                TreeEnemy.y = 0;
+                Vector3 vTarget = data.m_vTarget;
 
-                Npc.tag = "Npc";
+                float fDis = Vector3.Distance(TreeEnemy, vTarget);
+
                 Debug.Log(Npc.name);
+                if (fDis < data.CallRange && data.OnTag == false)
+                {
+
+                    data.OnTag = true;
+                    Npc.SetActive(data.OnTag);
+
+                    Npc.tag = "Npc";
+                    Debug.Log(Npc.name);
+                }
+
+                data.m_fPursuitRange = data.m_fPursuitRange * 3;
             }
-
-            data.m_fPursuitRange = data.m_fPursuitRange * 3;
-
 
 
 

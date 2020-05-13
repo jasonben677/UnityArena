@@ -34,6 +34,7 @@ public class AITest : PlayerInput
         //獲取所有Tag為Player的目標
         data.ArrTarget = GameObject.FindGameObjectsWithTag("Player");
         //抓取第一次移動點
+        data.OnTreeEnemys = GameObject.FindGameObjectsWithTag("Npc");
         WanderPoint = Decision.LookingPatrolPoint(data);
         ani = gameObject.GetComponentInChildren<AIAnimater>();
 
@@ -109,6 +110,7 @@ public class AITest : PlayerInput
                         Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - data.m_ObjEnemy.transform.position, Vector3.up);
                         data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);
                         ani.EnemyAnimater(data, AIAnimater.EnemyAni.ANGER);
+
                         IdleTime = Random.Range(0.2f, 0.5f);
 
                     }
@@ -360,6 +362,7 @@ public class AITest : PlayerInput
         RunAttTime = Random.Range(0.6f, 1f);
         data.m_fAlertDis = 4f;
         data.CallRange = 30f;
+        this.data.m_ObjEnemy.SetActive(data.OnTag);
     }
     #endregion
 }
