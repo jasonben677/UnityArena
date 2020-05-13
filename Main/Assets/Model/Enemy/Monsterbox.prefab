@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4942133918353544124}
   - component: {fileID: 4942133918353544125}
   - component: {fileID: 4942133918353544126}
-  - component: {fileID: 8767095571770279815}
   m_Layer: 0
   m_Name: Monsterbox
   m_TagString: Untagged
@@ -120,18 +119,6 @@ MonoBehaviour:
   target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
   m_iamount: 0
   radius: 100
---- !u!114 &8767095571770279815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4942133918353544127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aaa96a1e3604b046805513f5ce5b6e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &359414978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -203,6 +190,18 @@ PrefabInstance:
       propertyPath: isAttack
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodParticle
+      value: 
+      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+        type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: blockParticle
+      value: 
+      objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -408,6 +407,18 @@ PrefabInstance:
       propertyPath: isAttack
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodParticle
+      value: 
+      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+        type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: blockParticle
+      value: 
+      objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -613,6 +624,18 @@ PrefabInstance:
       propertyPath: isAttack
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodParticle
+      value: 
+      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+        type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: blockParticle
+      value: 
+      objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -818,6 +841,18 @@ PrefabInstance:
       propertyPath: isAttack
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: blockParticle
+      value: 
+      objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+        type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodParticle
+      value: 
+      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -1023,6 +1058,18 @@ PrefabInstance:
       propertyPath: isAttack
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: blockParticle
+      value: 
+      objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+        type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodParticle
+      value: 
+      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -1228,6 +1275,18 @@ PrefabInstance:
       propertyPath: isAttack
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodParticle
+      value: 
+      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+        type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: blockParticle
+      value: 
+      objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -1433,6 +1492,18 @@ PrefabInstance:
       propertyPath: isAttack
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodParticle
+      value: 
+      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+        type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: blockParticle
+      value: 
+      objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -1638,6 +1709,18 @@ PrefabInstance:
       propertyPath: isAttack
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodParticle
+      value: 
+      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+        type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: blockParticle
+      value: 
+      objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -1834,6 +1917,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodParticle
+      value: 
+      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+        type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: blockParticle
+      value: 
+      objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+        type: 3}
     - target: {fileID: 1090895448480644934, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_RootOrder
@@ -1938,6 +2033,18 @@ PrefabInstance:
       propertyPath: isAttack
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodParticle
+      value: 
+      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+        type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: blockParticle
+      value: 
+      objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -2143,6 +2250,18 @@ PrefabInstance:
       propertyPath: isAttack
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodParticle
+      value: 
+      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+        type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: blockParticle
+      value: 
+      objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -2348,6 +2467,18 @@ PrefabInstance:
       propertyPath: isAttack
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodParticle
+      value: 
+      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+        type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: blockParticle
+      value: 
+      objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller

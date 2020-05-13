@@ -105,16 +105,16 @@ public class ActorController : MonoBehaviour
 
             if (pi.slash && camcon.lockTarget != null) //技能攻擊
             {
-                if (NumericalManager.instance.UseSkill())
-                {
+                //if (NumericalManager.instance.UseSkill())
+                //{
                     anim.SetTrigger("slash");
-                }
-                else
-                {
-                    Debug.LogError("MP不足");
-                }
-                //pi.RotateTowards(camcon.lockTarget);
-            }            
+                //}
+                //else
+                //{
+                //    Debug.LogError("MP不足");
+                //}
+                ////pi.RotateTowards(camcon.lockTarget);
+            }
         }
 
         //if (pi.defense)

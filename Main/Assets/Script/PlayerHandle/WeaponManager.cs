@@ -205,25 +205,32 @@ public class WeaponManager : MonoBehaviour
         foreach (SkinnedMeshRenderer smr in skinMeshList)
         {
             //Debug.Log("materail changed");
-            smr.material = ghostMaterial; 
-            smr.material.DOFloat(3f, "_RimPower", 5f).OnComplete(() => Destroy(NinjiaClone));            
+            smr.material = ghostMaterial;
+            smr.material.DOFloat(3f, "_RimPower", 5f).OnComplete(() => Destroy(NinjiaClone));
         }
-        
-            RevealModel(false);
-            anim.speed = 0;
 
+        RevealModel(false);
+        anim.speed = 0;
+
+        if (am.ac.camcon.lockTarget != null)
+        {
+            Debug.Log("OnWarpEnter");
             playerHandle.transform.DOMove(am.ac.camcon.lockTarget.transform.position, warpDuration).SetEase(Ease.InExpo).OnComplete(() => FinishWarp());
+        }
+        else
+        {
+            FinishWarp();
+        }
+        //am.transform.DOMove(am.ac.camcon.lockTarget.transform.position, warpDuration).SetEase(Ease.InExpo).OnComplete(()=>FinishWarp());
+        //am.transform.position = Vector3.Lerp(am.transform.position, am.ac.camcon.lockTarget.transform.position, lerpWarp);
+        //if (am.transform.position == am.ac.camcon.lockTarget.transform.position)
+        //{
+        //    Debug.Log("FinishWarp Enter");
+        //    FinishWarp();
+        //}   
 
-            //am.transform.DOMove(am.ac.camcon.lockTarget.transform.position, warpDuration).SetEase(Ease.InExpo).OnComplete(()=>FinishWarp());
-            //am.transform.position = Vector3.Lerp(am.transform.position, am.ac.camcon.lockTarget.transform.position, lerpWarp);
-            //if (am.transform.position == am.ac.camcon.lockTarget.transform.position)
-            //{
-            //    Debug.Log("FinishWarp Enter");
-            //    FinishWarp();
-            //}   
-
-            //Particles        
-            redTrail.Play();
+        //Particles        
+        redTrail.Play();
             whiteTrail.Play(); 
     }
 
