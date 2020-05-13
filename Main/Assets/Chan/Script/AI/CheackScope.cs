@@ -67,7 +67,35 @@ public class CheackScope : MonoBehaviour
 
 
 
+    static public void EnemyPitch(AIData data)
+    {
+        foreach (GameObject Npc in data.OnTreeEnemys)
+        {
 
+
+            Vector3 TreeEnemy = Npc.transform.position;
+            TreeEnemy.y = 0;
+            Vector3 vEnemy = data.m_ObjEnemy.transform.position;
+
+            float fDis = Vector3.Distance(TreeEnemy, vEnemy);
+
+            Debug.Log(Npc.name);
+            if (fDis < data.CallRange)
+            {
+                Npc.SetActive(true);
+
+                Npc.tag = "Npc";
+                Debug.Log(Npc.name);
+            }
+
+            data.m_fPursuitRange = data.m_fPursuitRange * 3;
+
+
+
+
+
+        }
+    }
 
 
 

@@ -224,7 +224,7 @@ public class AITest : PlayerInput
     {
         if (EnterInto.Distance(data, data.m_vTarget, data.m_fAttDis) == true)
         {
-            IdleTime = Random.Range(0.5f, 1f);
+            IdleTime = Random.Range(1f, 2f);
 
             // 攻擊時間判斷
             if (AttackTime >= 0)
@@ -260,6 +260,7 @@ public class AITest : PlayerInput
             {
                 IdleTime -= Time.deltaTime;
                 ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
+                AttackTime = 0f;
             }
         }
     }
@@ -358,6 +359,7 @@ public class AITest : PlayerInput
         //hp.SetMaxHp(40);
         RunAttTime = Random.Range(0.6f, 1f);
         data.m_fAlertDis = 4f;
+        data.CallRange = 30f;
     }
     #endregion
 }

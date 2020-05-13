@@ -20,6 +20,9 @@ public class AIData
     //所有目標
     public GameObject[] ArrTarget;
 
+    //影藏的怪物
+    public GameObject[] OnTreeEnemys;
+
     //速度
     public float m_fSpeed;
 
@@ -33,6 +36,9 @@ public class AIData
     public float m_fRot;
     //最大轉向力
     public float m_fMaxRot;
+
+    //怪物呼叫的範圍
+    public float CallRange;
 
     //半徑
     public float m_fRadius;
