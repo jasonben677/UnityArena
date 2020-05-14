@@ -79,12 +79,12 @@ public class ActorManager : MonoBehaviour
         }
         else if (sm.isCounterBackFailure) //反擊失敗
         {
+            Instantiate(counterBackParticle, wm.whR.transform.position, Quaternion.identity);
+
             if (attackValid)
             {
                 HitOrDie(targetWc, true);
-            }
-            Instantiate(counterBackParticle, targetWc.wm.transform.position + new Vector3(0, targetWc.wm.am.bm.bloodFXPositionHieght * 0.6f, 0), Quaternion.identity);
-            //Instantiate(counterBackParticle, wm.whR.transform.position, Quaternion.identity);
+            }         
         }
         else if (sm.isImmortal) //無敵狀態
         {
