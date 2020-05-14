@@ -116,20 +116,22 @@ namespace PlayerUI
             //enemy layer
             if (_player.layer == 10)
             {
-
-                if (!enemyUIMatch.ContainsKey(_player))
-                {
-                    enemyUIMatch.Add(_player, new EnemyUI());
-                    enemyUIMatch[_player].GetHealthBar(_player.transform, CheckUIPool());
-                }
-
-                if (_player.tag == "Npc")
-                {
-                    enemyUIMatch[_player].ShowNpcHp(_player.transform.GetSiblingIndex());
-                }
-                else if (_player.tag == "Boss")
+                if (_player.tag == "Boss")
                 {
                     UpdateBoss();
+                }
+                else
+                {
+                    if (!enemyUIMatch.ContainsKey(_player))
+                    {
+                        enemyUIMatch.Add(_player, new EnemyUI());
+                        enemyUIMatch[_player].GetHealthBar(_player.transform, CheckUIPool());
+                    }
+
+                    if (_player.tag == "Npc")
+                    {
+                        enemyUIMatch[_player].ShowNpcHp(_player.transform.GetSiblingIndex());
+                    }
                 }
             }
         }
