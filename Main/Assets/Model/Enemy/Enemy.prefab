@@ -1148,13 +1148,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3131467376261711516}
   serializedVersion: 2
-  m_Mass: 100
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &3778378937781975402
 MonoBehaviour:
@@ -1212,23 +1212,30 @@ MonoBehaviour:
   IdleTime: 3
   AttackTime: 0
   RunAttTime: 0
+  AttaniTime: 0
   data:
     fHP: 0
     m_ObjEnemy: {fileID: 3131467376261711516}
     NeighborEnemys: []
-    ArrWanderPoint: []
+    ArrWanderPoint:
+    - {fileID: 0}
+    - {fileID: 0}
     ArrTarget: []
+    OnTreeEnemys: []
     m_fSpeed: 0
     m_fMaxSpeed: 0
     m_fMinSpeed: 0
     m_fRot: 0
     m_fMaxRot: 0
+    CallRange: 0
     m_fRadius: 0
     m_fAlertDis: 0
     m_fProbeLenght: 0
-    m_fPursuitRange: 0
+    m_fPursuitRange: 30
     m_fAngle: 0
+    bAnger: 0
     m_bdie: 0
+    OnTag: 0
     m_iAttackRandom: 0
     m_fAttDis: 0
     m_bChase: 0
@@ -1261,6 +1268,10 @@ MonoBehaviour:
   wm: {fileID: 0}
   sm: {fileID: 833741238873092104}
   bloodParticle: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
+    type: 3}
+  blockParticle: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+    type: 3}
+  counterBackParticle: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
     type: 3}
 --- !u!114 &833741238873092104
 MonoBehaviour:

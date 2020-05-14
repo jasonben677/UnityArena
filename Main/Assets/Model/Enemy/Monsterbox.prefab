@@ -52,6 +52,7 @@ Transform:
   - {fileID: 66937274286413457}
   - {fileID: 66937275430838461}
   - {fileID: 66937275516204276}
+  - {fileID: 1815685564609669495}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -203,7 +204,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -211,12 +212,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 4b645edb0d3f4bc44a872c9ba1d9d6f4,
         type: 2}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Name
@@ -290,7 +307,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -361,6 +378,21 @@ PrefabInstance:
         type: 3}
       propertyPath: data.OnTag
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
@@ -445,7 +477,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -453,12 +485,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 4b645edb0d3f4bc44a872c9ba1d9d6f4,
         type: 2}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Name
@@ -532,7 +580,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -583,6 +631,21 @@ PrefabInstance:
         type: 3}
       propertyPath: data.m_fTargetDistance
       value: 295.36136
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
@@ -912,13 +975,19 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: blockParticle
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+        type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
         type: 3}
     - target: {fileID: 999591176377457399, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -1230,6 +1299,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.00000008961066
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 3049152291949596700, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -2149,7 +2228,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -2260,6 +2339,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     - target: {fileID: 7593928859106612812, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -2880,7 +2974,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -2888,10 +2982,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+        type: 3}
     - target: {fileID: 1090895448480644934, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -2932,6 +3042,21 @@ PrefabInstance:
         type: 3}
       propertyPath: data.ArrWanderPoint.Array.data[1]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
@@ -3016,7 +3141,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -3024,12 +3149,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 4b645edb0d3f4bc44a872c9ba1d9d6f4,
         type: 2}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Name
@@ -3103,7 +3244,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -3154,6 +3295,21 @@ PrefabInstance:
         type: 3}
       propertyPath: data.m_fTargetDistance
       value: 295.36136
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
@@ -3229,7 +3385,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -3237,10 +3393,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+        type: 3}
     - target: {fileID: 1090895448480644934, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -3281,6 +3453,21 @@ PrefabInstance:
         type: 3}
       propertyPath: data.ArrWanderPoint.Array.data[1]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
@@ -3371,7 +3558,13 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
+        type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
         type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -3379,6 +3572,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: 4b645edb0d3f4bc44a872c9ba1d9d6f4,
         type: 2}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Name
@@ -3452,7 +3655,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -3503,6 +3706,21 @@ PrefabInstance:
         type: 3}
       propertyPath: data.m_fTargetDistance
       value: 295.36136
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
@@ -3593,7 +3811,13 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
+        type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
         type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -3601,6 +3825,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: 4b645edb0d3f4bc44a872c9ba1d9d6f4,
         type: 2}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Name
@@ -3674,7 +3908,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -3725,6 +3959,21 @@ PrefabInstance:
         type: 3}
       propertyPath: data.m_fTargetDistance
       value: 295.36136
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
@@ -3809,7 +4058,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -3817,12 +4066,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 4b645edb0d3f4bc44a872c9ba1d9d6f4,
         type: 2}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Name
@@ -3896,7 +4161,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -3947,6 +4212,21 @@ PrefabInstance:
         type: 3}
       propertyPath: data.m_fTargetDistance
       value: 295.36136
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
@@ -4031,7 +4311,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -4039,12 +4319,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 4b645edb0d3f4bc44a872c9ba1d9d6f4,
         type: 2}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Name
@@ -4118,7 +4414,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -4170,6 +4466,21 @@ PrefabInstance:
       propertyPath: data.m_fTargetDistance
       value: 295.36136
       objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
 --- !u!4 &66937274691490442 stripped
@@ -4177,6 +4488,98 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
   m_PrefabInstance: {fileID: 910712617}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1370640207
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4942133918353544122}
+    m_Modifications:
+    - target: {fileID: 1930906214, guid: ec8c6a6bed4ffd346b77fa0763657915, type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+        type: 3}
+    - target: {fileID: 1930906215, guid: ec8c6a6bed4ffd346b77fa0763657915, type: 3}
+      propertyPath: data.ArrWanderPoint.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930906215, guid: ec8c6a6bed4ffd346b77fa0763657915, type: 3}
+      propertyPath: data.ArrWanderPoint.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930906218, guid: ec8c6a6bed4ffd346b77fa0763657915, type: 3}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815685565978207800, guid: ec8c6a6bed4ffd346b77fa0763657915,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -88.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815685565978207800, guid: ec8c6a6bed4ffd346b77fa0763657915,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815685565978207800, guid: ec8c6a6bed4ffd346b77fa0763657915,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -225.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815685565978207800, guid: ec8c6a6bed4ffd346b77fa0763657915,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815685565978207800, guid: ec8c6a6bed4ffd346b77fa0763657915,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815685565978207800, guid: ec8c6a6bed4ffd346b77fa0763657915,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815685565978207800, guid: ec8c6a6bed4ffd346b77fa0763657915,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815685565978207800, guid: ec8c6a6bed4ffd346b77fa0763657915,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815685565978207800, guid: ec8c6a6bed4ffd346b77fa0763657915,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815685565978207800, guid: ec8c6a6bed4ffd346b77fa0763657915,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815685565978207800, guid: ec8c6a6bed4ffd346b77fa0763657915,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815685565978207803, guid: ec8c6a6bed4ffd346b77fa0763657915,
+        type: 3}
+      propertyPath: m_Name
+      value: Ratkin_Warlord
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ec8c6a6bed4ffd346b77fa0763657915, type: 3}
+--- !u!4 &1815685564609669495 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1815685565978207800, guid: ec8c6a6bed4ffd346b77fa0763657915,
+    type: 3}
+  m_PrefabInstance: {fileID: 1370640207}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1579559822
 PrefabInstance:
@@ -4253,7 +4656,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -4261,12 +4664,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 4b645edb0d3f4bc44a872c9ba1d9d6f4,
         type: 2}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Name
@@ -4340,7 +4759,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -4391,6 +4810,21 @@ PrefabInstance:
         type: 3}
       propertyPath: data.m_fTargetDistance
       value: 295.36136
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
@@ -4475,7 +4909,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -4483,12 +4917,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 4b645edb0d3f4bc44a872c9ba1d9d6f4,
         type: 2}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Name
@@ -4562,7 +5012,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -4628,6 +5078,21 @@ PrefabInstance:
         type: 3}
       propertyPath: data.ArrWanderPoint.Array.data[2]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
@@ -4701,50 +5166,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
-      propertyPath: bloodParticle
+      propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
         type: 3}
-    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
-      propertyPath: blockParticle
-      value: 
-      objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
-    - target: {fileID: 1090895448480644934, guid: 4406f9e3c21c42d40bb13e09d19db152,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
+      propertyPath: m_Center.y
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 3778378937781975402, guid: 4406f9e3c21c42d40bb13e09d19db152,
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
-      propertyPath: friend
-      value: 
+      propertyPath: m_LocalPosition.x
+      value: -0.335
       objectReference: {fileID: 0}
-    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
-      propertyPath: m_TagString
-      value: Untagged
+      propertyPath: m_LocalPosition.y
+      value: -0.039
       objectReference: {fileID: 0}
-    - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
-      propertyPath: m_Constraints
-      value: 116
-      objectReference: {fileID: 0}
-    - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
-        type: 3}
-      propertyPath: data.ArrWanderPoint.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
-        type: 3}
-      propertyPath: WanderPoint
-      value: 
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
@@ -4829,7 +5283,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -4837,12 +5291,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 4b645edb0d3f4bc44a872c9ba1d9d6f4,
         type: 2}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Name
@@ -4916,7 +5386,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -4967,6 +5437,21 @@ PrefabInstance:
         type: 3}
       propertyPath: data.m_fTargetDistance
       value: 295.36136
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
@@ -5051,7 +5536,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -5059,12 +5544,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 4b645edb0d3f4bc44a872c9ba1d9d6f4,
         type: 2}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Name
@@ -5138,7 +5639,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -5189,6 +5690,21 @@ PrefabInstance:
         type: 3}
       propertyPath: data.m_fTargetDistance
       value: 295.36136
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
@@ -5518,13 +6034,19 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: blockParticle
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+        type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
         type: 3}
     - target: {fileID: 999591176377457399, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -5836,6 +6358,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.00000008961066
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 3049152291949596700, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -6755,7 +7287,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -6866,6 +7398,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     - target: {fileID: 7593928859106612812, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -7495,7 +8042,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -7503,12 +8050,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 4b645edb0d3f4bc44a872c9ba1d9d6f4,
         type: 2}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Name
@@ -7582,7 +8145,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -7653,6 +8216,21 @@ PrefabInstance:
         type: 3}
       propertyPath: data.OnTag
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
@@ -7737,7 +8315,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -7745,12 +8323,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 4b645edb0d3f4bc44a872c9ba1d9d6f4,
         type: 2}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Name
@@ -7824,7 +8418,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -7895,6 +8489,21 @@ PrefabInstance:
         type: 3}
       propertyPath: data.OnTag
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
@@ -7979,7 +8588,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -7987,12 +8596,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 4b645edb0d3f4bc44a872c9ba1d9d6f4,
         type: 2}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Name
@@ -8066,7 +8691,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -8137,6 +8762,21 @@ PrefabInstance:
         type: 3}
       propertyPath: data.OnTag
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
@@ -8221,7 +8861,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -8229,12 +8869,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 4b645edb0d3f4bc44a872c9ba1d9d6f4,
         type: 2}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Name
@@ -8308,7 +8964,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -8379,6 +9035,21 @@ PrefabInstance:
         type: 3}
       propertyPath: data.OnTag
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
@@ -8463,7 +9134,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bloodParticle
       value: 
-      objectReference: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+      objectReference: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
         type: 3}
     - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -8471,12 +9142,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: counterBackParticle
+      value: 
+      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+        type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: 4b645edb0d3f4bc44a872c9ba1d9d6f4,
         type: 2}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 3131467376261711516, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Name
@@ -8550,7 +9237,7 @@ PrefabInstance:
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.m_fPursuitRange
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -8621,6 +9308,21 @@ PrefabInstance:
         type: 3}
       propertyPath: data.OnTag
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488128036242008596, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
