@@ -87,16 +87,20 @@ public class AIAnimater : MonoBehaviour
     //簡易的攻擊動作切換
     private void EnemyAttack(int i)
     {
+        float a = Random.Range(0.8f, 1.5f);
 
         switch (i)
         {
             case 1:
+                ani.SetFloat("AttackTime",a);
                 ani.Play("attack1hA");
                 break;
             case 2:
+                ani.SetFloat("AttackTime", a);
                 ani.Play("attack1hB");
                 break;
             case 3:
+                ani.SetFloat("AttackTime", a);
                 ani.Play("attack1hC");
                 break;
         }

@@ -116,7 +116,7 @@ public class AITest : PlayerInput
                         data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);
                         ani.EnemyAnimater(data, AIAnimater.EnemyAni.ANGER);
 
-                        IdleTime = Random.Range(0.2f, 0.5f);
+                        IdleTime = Random.Range(1f, 3f);
                         data.m_fPursuitRange = data.m_fPursuitRange * 3;
                     }
 
@@ -239,7 +239,7 @@ public class AITest : PlayerInput
     {
         if (EnterInto.Distance(data, data.m_vTarget, data.m_fAttDis) == true)
         {
-            IdleTime = Random.Range(1f, 3f);
+            IdleTime = Random.Range(2f, 4f);
 
             // 攻擊時間判斷
             if (AttackTime >= 0)
@@ -255,7 +255,7 @@ public class AITest : PlayerInput
                 //怪物攻擊判定內部判定要甚麼攻擊狀態
                 ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
                 //攻擊時間
-                AttackTime = Random.Range(2.5f, 4);
+                AttackTime = Random.Range(2.5f, 5f);
             }
         }
         else
