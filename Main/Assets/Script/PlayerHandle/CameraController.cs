@@ -51,6 +51,7 @@ public class CameraController : MonoBehaviour
         cameraHandle = transform.parent.gameObject;
         playerHandle = pi.transform.gameObject;
         cameraHandle.transform.position = playerHandle.transform.position + new Vector3(0, 1.6f, 0);
+        tempEulerY = -90;
         tempEulerX = 20;        
         model = playerHandle.GetComponent<ActorController>().model;
         cameraCol = cameraHandle.GetComponent<Collider>();
