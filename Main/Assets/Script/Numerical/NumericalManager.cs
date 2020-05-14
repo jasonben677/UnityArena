@@ -195,7 +195,7 @@ public class NumericalManager : MonoBehaviour
         player.fPlayerMaxMp += 5;
         player.fPlayerMp = gameInfo.fPlayerMaxMp;
 
-        player.fAtk += 3;
+        player.fAtk += 5;
 
         player.fCurrExp = Mathf.Clamp((player.fCurrExp - player.fNextLevelExp), 0, player.fNextLevelExp);
         float exp = 300;

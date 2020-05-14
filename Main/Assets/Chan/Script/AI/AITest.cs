@@ -86,6 +86,7 @@ public class AITest : PlayerInput
 
         }
         CheackScope.LockTarget(data);
+
         isPlayerDie = data.ArrTarget[data.m_fID].GetComponent<StateManager>().isDie;
 
         #endregion

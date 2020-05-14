@@ -96,6 +96,12 @@ public class StateManager : MonoBehaviour
             playerHP.SetHP(tempNpc.fPlayerMaxHp, tempNpc.fPlayerHp);
             ATK = tempNpc.fAtk;
         }
+        else if (gameObject.tag == "Boss")
+        {
+            PlayerInfo tempNpc = NumericalManager.instance.GetBoss();
+            playerHP.SetHP(tempNpc.fPlayerMaxHp, tempNpc.fPlayerHp);
+            ATK = tempNpc.fAtk;
+        }
         else
         {
             playerHP.SetHP(80f, 80f);

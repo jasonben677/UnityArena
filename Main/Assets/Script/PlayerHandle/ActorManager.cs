@@ -182,7 +182,7 @@ public class ActorManager : MonoBehaviour
         else if (gameObject.tag == "Boss")
         {
             enemy = NumericalManager.instance.GetBoss();
-            enemy.fPlayerHp -= targetWc.GetATK();
+            enemy.fPlayerHp = Mathf.Clamp((enemy.fPlayerHp - targetWc.GetATK()), 0, 1000);   
             sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
         }
     }

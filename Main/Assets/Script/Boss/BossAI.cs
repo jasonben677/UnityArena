@@ -28,74 +28,42 @@ public class BossAI : PlayerInput
             dev.y = 0;
             float degree = Vector3.Dot(dev, transform.forward);
 
-            rotationTime -= Time.fixedDeltaTime;
-            if (rotationTime <= 0)
+            //rotationTime -= Time.fixedDeltaTime;
+
+            //if (rotationTime <= 0)
+            //{
+            //    rotationTime = 5.0f;
+
+            //    transform.forward = (-dev);
+            //}
+
+
+            if (spiderAnim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
             {
-                rotationTime = 5.0f;
-
-                transform.forward = (-dev);
-            }
-
-
-
-            if (dis < 7f)
-            {
-                spiderAnim.SetBool("walk", false);              
-                rotationTime -= Time.fixedDeltaTime;
-
-                if (degree <= -0.9)
+                if (dis < 7f)
                 {
-                    waitTime -= Time.fixedDeltaTime;
-                    Debug.Log("CanAttack");
-
-                    if (waitTime <= 0)
-                    {
-                        waitTime = Random.Range(1.0f, 1.2f);
-                        spiderAnim.SetBool("attack", true);
-                    }
-                    else
-                    {
-                        spiderAnim.SetBool("attack", false);
-                    }
-
+                    spiderAnim.SetBool("walk", false);
+                    transform.forward = (-dev);
+                    spiderAnim.SetTrigger("attack");
                 }
                 else
                 {
-                    spiderAnim.SetBool("attack", false);
+                    spiderAnim.ResetTrigger("attack");
+                    spiderAnim.SetBool("walk", true);
                 }
 
             }
-            else
+            else if (spiderAnim.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
             {
-                if (dis > 8.0f)
+                if (dis < 7f)
                 {
-                    transform.forward = (-dev);
+                    spiderAnim.SetBool("walk", false);
+                    spiderAnim.SetTrigger("attack");
                 }
-
-                transform.position += dev * 5.0f * Time.fixedDeltaTime;
-                spiderAnim.SetBool("attack", false);
-                spiderAnim.SetBool("walk", true);
-
             }
-        }
-        else
-        {
-            float dis = Vector3.Distance(transform.position, originPos);
-            Vector3 dev = (originPos - transform.position).normalized;
-            dev.y = 0;
-            if (dis > 0.5f)
+            else if (spiderAnim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             {
-
-                transform.position += dev * 5.0f * Time.fixedDeltaTime;
-                transform.forward = (-dev);
-
-                spiderAnim.SetBool("attack", false);
-                spiderAnim.SetBool("walk", true);
-            }
-            else
-            {
-                spiderAnim.SetBool("attack", false);
-                spiderAnim.SetBool("walk", false);
+                spiderAnim.ResetTrigger("attack");
             }
 
 
