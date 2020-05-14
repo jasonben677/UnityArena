@@ -51,9 +51,8 @@ public class ActorManager : MonoBehaviour
         if (gameObject.tag == "Player")
         {
             PlayerInfo player = NumericalManager.instance.GetMainPlayer();
-
-            //玩家自身攻擊力取亂數
-            sm.ATK = player.fAtk * Random.Range(0.2f, 1f); 
+                        
+            sm.ATK = player.fAtk; 
 
             sm.playerHP.SetCurrentHP(player.fPlayerHp);
             sm.playerHP.SetMaxHp(player.fPlayerMaxHp);

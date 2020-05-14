@@ -15,7 +15,8 @@ public class WeaponController : MonoBehaviour
 
     public float GetATK()
     {
-        return wdata.ATK + wm.am.sm.ATK;
+        float totalATK = Mathf.Round((wdata.ATK + wm.am.sm.ATK) * Random.Range(0.2f, 1f));
+        return totalATK ;
     }
 
     //// Update is called once per frame
