@@ -4052,7 +4052,7 @@ MonoBehaviour:
   bm: {fileID: 0}
   wm: {fileID: 0}
   sm: {fileID: 1716983301}
-  bloodParticle: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
+  bloodParticle: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
     type: 3}
   blockParticle: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
     type: 3}
@@ -4285,9 +4285,10 @@ MonoBehaviour:
   bm: {fileID: 0}
   wm: {fileID: 0}
   sm: {fileID: 6217129251873150726}
-  bloodParticle: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
+  bloodParticle: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
     type: 3}
-  blockParticle: {fileID: 0}
+  blockParticle: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+    type: 3}
 --- !u!114 &6217129251873150726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5402,7 +5403,7 @@ MonoBehaviour:
   bm: {fileID: 0}
   wm: {fileID: 0}
   sm: {fileID: 1799468648668461412}
-  bloodParticle: {fileID: 6948407554170385017, guid: 2c5ce2223d312614a8116631766b7edc,
+  bloodParticle: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
     type: 3}
   blockParticle: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
     type: 3}
@@ -5940,7 +5941,7 @@ MonoBehaviour:
   bm: {fileID: 0}
   wm: {fileID: 0}
   sm: {fileID: 4922869406750519714}
-  bloodParticle: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
+  bloodParticle: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
     type: 3}
   blockParticle: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
     type: 3}
