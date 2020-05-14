@@ -14,6 +14,8 @@ public class ActorManager : MonoBehaviour
     private GameObject bloodParticle;
     [SerializeField]
     private GameObject blockParticle;
+    [SerializeField]
+    private GameObject counterBackParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +74,8 @@ public class ActorManager : MonoBehaviour
             {
                 targetWc.wm.am.Stunned();                
             }
+            Instantiate(counterBackParticle, targetWc.wm.transform.position + new Vector3(0, targetWc.wm.am.bm.bloodFXPositionHieght * 0.6f, 0), Quaternion.identity);
+            //Instantiate(counterBackParticle, wm.whR.transform.position, Quaternion.identity);
         }
         else if (sm.isCounterBackFailure) //反擊失敗
         {
@@ -79,6 +83,8 @@ public class ActorManager : MonoBehaviour
             {
                 HitOrDie(targetWc, true);
             }
+            Instantiate(counterBackParticle, targetWc.wm.transform.position + new Vector3(0, targetWc.wm.am.bm.bloodFXPositionHieght * 0.6f, 0), Quaternion.identity);
+            //Instantiate(counterBackParticle, wm.whR.transform.position, Quaternion.identity);
         }
         else if (sm.isImmortal) //無敵狀態
         {
@@ -145,7 +151,8 @@ public class ActorManager : MonoBehaviour
                     }
                     //do some VFX, like splatter blood...
 
-                    Instantiate(bloodParticle, transform.position + new Vector3(0, bm.bloodFXPositionHieght * 0.6f, 0), Quaternion.identity);                    
+                    //Instantiate(bloodParticle, transform.position + new Vector3(0, bm.bloodFXPositionHieght * 0.6f, 0), Quaternion.identity);
+                    Instantiate(bloodParticle, transform.position + new Vector3(0, bm.bloodFXPositionHieght * 0.6f, 0), Quaternion.Euler(-90f, 0f, 0f));
                 }
             }
 

@@ -22,8 +22,6 @@ public class BattleManager : MonoBehaviour
 
             bloodFXPositionHieght = defenseCol.height;
         }
-
-
     }
 
     //// Update is called once per frame

@@ -117,32 +117,25 @@ public class ActorController : MonoBehaviour
             }
         }
 
-        //if (pi.defense)
-        //{
+        
             if(CheckState("ground") || CheckState("blocked") && canDenfese)
             {
                 if (pi.defense)
                 {
-                    anim.SetBool("defense", pi.defense);
-                //anim.SetTrigger("defense");
+                    anim.SetBool("defense", pi.defense);                
                     anim.SetLayerWeight(anim.GetLayerIndex("defense"), 1);
                 }
                 else
                 {
                     anim.SetLayerWeight(anim.GetLayerIndex("defense"), 0);
-                }
-                
+                }                
             }
             else
             {
                 anim.SetBool("defense", false);
                 anim.SetLayerWeight ( anim.GetLayerIndex("defense"), 0);
             }
-        //}
-        //else
-        //{
-        //    anim.SetLayerWeight(anim.GetLayerIndex("defense"), 0);
-        //}
+        
 
         //玩家角色面向判定
         if (pi.isAI == false)

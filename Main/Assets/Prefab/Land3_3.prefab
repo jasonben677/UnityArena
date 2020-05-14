@@ -913,9 +913,11 @@ MonoBehaviour:
   bm: {fileID: 0}
   wm: {fileID: 0}
   sm: {fileID: 6615187644658228391}
-  bloodParticle: {fileID: 2577712704434384109, guid: 649fcec691e1ba144b321a13c677be1e,
+  bloodParticle: {fileID: 1000012909287652, guid: abb9f519b142e304d9c45b56afa768bc,
     type: 3}
   blockParticle: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
+    type: 3}
+  counterBackParticle: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
     type: 3}
 --- !u!114 &6615187644658228391
 MonoBehaviour:
