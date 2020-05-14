@@ -232,6 +232,11 @@ PrefabInstance:
       propertyPath: friend
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Mass
@@ -468,6 +473,11 @@ PrefabInstance:
         type: 3}
       propertyPath: friend
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -1630,6 +1640,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.0000005103646
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4465119749397740780, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -2888,6 +2903,16 @@ PrefabInstance:
       propertyPath: friend
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.ArrWanderPoint.Array.size
@@ -3019,6 +3044,11 @@ PrefabInstance:
         type: 3}
       propertyPath: friend
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -3222,6 +3252,16 @@ PrefabInstance:
       propertyPath: friend
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.ArrWanderPoint.Array.size
@@ -3353,6 +3393,11 @@ PrefabInstance:
         type: 3}
       propertyPath: friend
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -3571,6 +3616,11 @@ PrefabInstance:
       propertyPath: friend
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Mass
@@ -3787,6 +3837,11 @@ PrefabInstance:
         type: 3}
       propertyPath: friend
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -4005,6 +4060,11 @@ PrefabInstance:
       propertyPath: friend
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Mass
@@ -4221,6 +4281,11 @@ PrefabInstance:
         type: 3}
       propertyPath: friend
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -4439,6 +4504,11 @@ PrefabInstance:
       propertyPath: friend
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Mass
@@ -4656,6 +4726,16 @@ PrefabInstance:
       propertyPath: friend
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 6625873427433717271, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: data.ArrWanderPoint.Array.size
@@ -4777,6 +4857,11 @@ PrefabInstance:
         type: 3}
       propertyPath: friend
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -4994,6 +5079,11 @@ PrefabInstance:
         type: 3}
       propertyPath: friend
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -6156,6 +6246,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.0000005103646
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4465119749397740780, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -7429,6 +7524,11 @@ PrefabInstance:
       propertyPath: friend
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Mass
@@ -7665,6 +7765,11 @@ PrefabInstance:
         type: 3}
       propertyPath: friend
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
@@ -7903,6 +8008,11 @@ PrefabInstance:
       propertyPath: friend
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Mass
@@ -8140,6 +8250,11 @@ PrefabInstance:
       propertyPath: friend
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Mass
@@ -8376,6 +8491,11 @@ PrefabInstance:
         type: 3}
       propertyPath: friend
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436807594668503445, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4541603436301273941, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}

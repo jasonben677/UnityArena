@@ -169,13 +169,13 @@ public class NumericalManager : MonoBehaviour
         {
             iLevel = 1,
 
-            fPlayerMaxHp = 100,
-            fPlayerHp = 100,
+            fPlayerMaxHp = 600,
+            fPlayerHp = 600,
 
             fPlayerMaxMp = 50,
             fPlayerMp = 50,
 
-            fAtk = 20,
+            fAtk = 30,
             fCurrExp = 0,
             fNextLevelExp = 300
         };

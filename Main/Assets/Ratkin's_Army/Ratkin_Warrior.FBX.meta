@@ -1323,7 +1323,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.5722436
+      - time: 0.5867996
         functionName: WeaponEnable
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -1813,14 +1813,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.40033847
+      - time: 0.41343892
         functionName: WeaponEnable
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.53987455
+      - time: 0.5253185
         functionName: WeaponDisable
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -1911,14 +1911,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.36762187
+      - time: 0.43457967
         functionName: WeaponEnable
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.5876875
+      - time: 0.5542086
         functionName: WeaponDisable
         data: 
         objectReferenceParameter: {instanceID: 0}

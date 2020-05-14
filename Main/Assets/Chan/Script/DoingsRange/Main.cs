@@ -8,17 +8,20 @@ public class Main : MonoBehaviour
 
     public List<Obstacle> m_Obstacles;
     public GameObject m_Player;
+    GameObject[] gos;
     // Start is called before the first frame update
 
     private void Awake()
     {
         m_Instance = this;
+        m_Obstacles = new List<Obstacle>();
+
+        gos= GameObject.FindGameObjectsWithTag("Obstacle");
+
     }
 
     void Start()
     {
-        m_Obstacles = new List<Obstacle>();
-        GameObject[] gos = GameObject.FindGameObjectsWithTag("Obstacle");
         if (gos != null || gos.Length > 0) 
         {
             foreach (GameObject go in gos) 

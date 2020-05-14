@@ -87,7 +87,7 @@ public class AITest : PlayerInput
         isPlayerDie = data.ArrTarget[data.m_fID].GetComponent<StateManager>().isDie;
 
         #endregion
-        
+
         //怪物HP>0
         if (data.fHP > 0)
         {
@@ -100,14 +100,19 @@ public class AITest : PlayerInput
                     if (RunAttTime <= 0)
                     {
                         //攻擊距離是否成立
+                        Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - data.m_ObjEnemy.transform.position, Vector3.up);
+                        targetRotation.x = 0;
+
+                        data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);
                         AttackStatus();
-                       // AttackTest();
+                        // AttackTest();
 
                     }
                     else
                     {
                         RunAttTime -= Time.deltaTime;
                         Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - data.m_ObjEnemy.transform.position, Vector3.up);
+                        targetRotation.x = 0;
                         data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);
                         ani.EnemyAnimater(data, AIAnimater.EnemyAni.ANGER);
 
@@ -125,7 +130,15 @@ public class AITest : PlayerInput
             }
             else if (isPlayerDie == true)//以下為巡邏
             {
-                EnemyPatrol();
+                if (IdleTime <= 0)
+                {
+                    EnemyPatrol();
+                }
+                else 
+                {
+                    ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
+                    IdleTime -= Time.deltaTime;
+                }
             }
 
         }
@@ -226,7 +239,7 @@ public class AITest : PlayerInput
     {
         if (EnterInto.Distance(data, data.m_vTarget, data.m_fAttDis) == true)
         {
-            IdleTime = Random.Range(1f, 2.5f);
+            IdleTime = Random.Range(1f, 3f);
 
             // 攻擊時間判斷
             if (AttackTime >= 0)
@@ -242,7 +255,7 @@ public class AITest : PlayerInput
                 //怪物攻擊判定內部判定要甚麼攻擊狀態
                 ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
                 //攻擊時間
-                AttackTime = Random.Range(2, 4);
+                AttackTime = Random.Range(2.5f, 4);
             }
         }
         else
@@ -275,37 +288,40 @@ public class AITest : PlayerInput
             //警界時間=AttackTime 進入攻擊
             //if (AttackTime <= 0)
             //{
-                //判斷是否在攻擊範圍內
-                if (EnterInto.Distance(data, data.m_vTarget, data.m_fAttDis) == true)
+            //判斷是否在攻擊範圍內
+            if (EnterInto.Distance(data, data.m_vTarget, data.m_fAttDis) == true)
+            {
+
+                if (AttackTime <= 0)
                 {
+                    //怪物攻擊判定內部判定要甚麼攻擊狀態
+                    ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
+                    //攻擊時間
+                    AttackTime = Random.Range(2, 4);
 
-                    if (AttackTime <= 0)
-                    {
-                        //怪物攻擊判定內部判定要甚麼攻擊狀態
-                        ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
-                        //攻擊時間
-                        AttackTime = Random.Range(2, 4);
-
-                    }
-                    else
-                    { 
-                        //這裡可以做出怪物的警戒
-                        AttackTime -= Time.deltaTime;
-                        //怪物IDLE
-                        ani.EnemyAnimater(data, AIAnimater.EnemyAni.WALKINGBACK);
-                        SteeringBehaviour.Seek(data, data.m_vTarget);
-                        SteeringBehaviour.Move(data);
-
-                }
                 }
                 else
                 {
-                    //往前移動到攻擊範圍
+                    //這裡可以做出怪物的警戒
+                    AttackTime -= Time.deltaTime;
+                    //怪物IDLE
+                    ani.EnemyAnimater(data, AIAnimater.EnemyAni.WALKINGBACK);
                     SteeringBehaviour.Seek(data, data.m_vTarget);
                     SteeringBehaviour.Move(data);
-                    ani.EnemyAnimater(data, AIAnimater.EnemyAni.RUN);
 
                 }
+            }
+            else
+            {
+                //往前移動到攻擊範圍
+                if (SteeringBehaviour.CollisionAvoid(data) == false)
+                {
+                    SteeringBehaviour.Seek(data, data.m_vTarget);
+                }
+                SteeringBehaviour.Move(data);
+                ani.EnemyAnimater(data, AIAnimater.EnemyAni.RUN);
+
+            }
             //}
             //else
             //{
@@ -350,11 +366,11 @@ public class AITest : PlayerInput
         data.m_fMaxRot = 0.1f;
         data.m_fRadius = 1;
         data.m_fProbeLenght = 1;
-        data.m_fPursuitRange = 20f;
+        data.m_fPursuitRange = 30f;
         data.m_fAngle = 180;
         //  data.m_fThinkTime = Random.Range(0.2f, 0.5f);
         data.m_iAttackRandom = Random.Range(1, 3);
-        data.m_fAttDis = 2f;
+        data.m_fAttDis = 2.3f;
         ClearTime = 3f;
         IdleTime = Random.Range(1f, 3f);
         AttackTime = 0;
