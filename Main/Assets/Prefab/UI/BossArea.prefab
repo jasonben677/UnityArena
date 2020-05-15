@@ -306,8 +306,10 @@ MonoBehaviour:
     type: 3}
   blockParticle: {fileID: 790828412470156991, guid: 5d2624b28d2cba8439edc1d47e437aab,
     type: 3}
-  counterBackParticle: {fileID: 7688861489516894986, guid: a4eaebfe3a2721a4d8c1e84e679739be,
+  counterBackParticle: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
     type: 3}
+  katanaSound: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+  bloodSound: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
 --- !u!114 &6169540288498815746
 MonoBehaviour:
   m_ObjectHideFlags: 0

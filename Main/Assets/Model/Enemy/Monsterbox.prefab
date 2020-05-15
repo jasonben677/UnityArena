@@ -215,8 +215,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -488,8 +498,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -986,8 +1006,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 999591176377457399, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -2985,8 +3015,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 1090895448480644934, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_RootOrder
@@ -3152,8 +3192,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -3396,8 +3446,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 1090895448480644934, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_RootOrder
@@ -3563,8 +3623,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -3816,8 +3886,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -4069,8 +4149,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -4322,8 +4412,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -4575,8 +4675,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -4828,8 +4938,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -5075,8 +5195,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 3007520272404812311, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Height
@@ -5202,8 +5332,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -5455,8 +5595,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -5953,8 +6103,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 999591176377457399, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -7961,8 +8121,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -8234,8 +8404,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -8507,8 +8687,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -8780,8 +8970,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
@@ -9053,8 +9253,18 @@ PrefabInstance:
         type: 3}
       propertyPath: counterBackParticle
       value: 
-      objectReference: {fileID: 7903926759559694406, guid: 5c620b7fcb9c0444aaefa6722b792bd1,
+      objectReference: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
         type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: katanaSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+    - target: {fileID: 882072491714673669, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: bloodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
     - target: {fileID: 2181385952285206707, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Controller
