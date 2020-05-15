@@ -6,6 +6,7 @@ public class testTrigger : MonoBehaviour
 {
     GameObject[] Enemy;
     public GameObject vfxult;
+    int a = 2;
     private void Awake()
     {
         Enemy = GameObject.FindGameObjectsWithTag("Npc");
@@ -43,12 +44,19 @@ public class testTrigger : MonoBehaviour
                     Npc.SetActive(true);
                    Instantiate(vfxult, TreeEnemy, Npc.transform.rotation,Npc.transform);
 
+                    if (a <= 2) 
+                    {
+                        vfxult.SetActive(false);
+                    }
                 }
             }
         }
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(this.transform.position, 10);
+        Gizmos.DrawWireSphere(this.transform.position, 15);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.transform.position, 30);
+
     }
 }
