@@ -17,6 +17,8 @@ public class AITest : PlayerInput
     public float IdleTime;
     public float AttackTime;
     public float RunAttTime;
+
+    public float AttaniTime;
     [Header("------AIData------")]
     public AIData data;
 
@@ -84,6 +86,7 @@ public class AITest : PlayerInput
 
         }
         CheackScope.LockTarget(data);
+
         isPlayerDie = data.ArrTarget[data.m_fID].GetComponent<StateManager>().isDie;
 
         #endregion
@@ -115,16 +118,25 @@ public class AITest : PlayerInput
                         targetRotation.x = 0;
                         data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);
                         ani.EnemyAnimater(data, AIAnimater.EnemyAni.ANGER);
-
+                        
                         IdleTime = Random.Range(1f, 3f);
                         data.m_fPursuitRange = data.m_fPursuitRange * 3;
+                        if (data.bAnger == true) 
+                        {
+                            data.bAnger = false;
+                            return;
+
+                        }
+                    
                     }
 
                 }
                 else
                 {
                     //巡邏判定
-                    EnemyPatrol();
+                    ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
+
+                    //EnemyPatrol();
                     RunAttTime = Random.Range(0.6f, 1f);
                 }
             }
@@ -132,7 +144,9 @@ public class AITest : PlayerInput
             {
                 if (IdleTime <= 0)
                 {
-                    EnemyPatrol();
+                    ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
+
+                    //EnemyPatrol();
                 }
                 else 
                 {
@@ -171,13 +185,13 @@ public class AITest : PlayerInput
 
             //最近的範圍
             Gizmos.color = Color.white;
-            Gizmos.DrawWireSphere(this.transform.position, data.m_fPursuitRange * 0.3f);
+          //  Gizmos.DrawWireSphere(this.transform.position, data.m_fPursuitRange );
             //最遠的範圍
-            Gizmos.color = Color.white;
-            CheackScope.LookRange(data, 45, 135f, 1f);
-            //中間的範圍
-            Gizmos.color = Color.yellow;
-            CheackScope.LookRange(data, -10, 190f, 0.8f);
+            //Gizmos.color = Color.white;
+            ////CheackScope.LookRange(data, 45, 135f, 1f);
+            ////中間的範圍
+            //Gizmos.color = Color.yellow;
+            //CheackScope.LookRange(data, -10, 190f, 0.8f);
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(this.transform.position, data.m_fAttDis);
             Vector3 vLeftStart = this.transform.position - this.transform.right * data.m_fRadius;
@@ -239,7 +253,7 @@ public class AITest : PlayerInput
     {
         if (EnterInto.Distance(data, data.m_vTarget, data.m_fAttDis) == true)
         {
-            IdleTime = Random.Range(2f, 4f);
+            IdleTime = Random.Range(1f, 3f);
 
             // 攻擊時間判斷
             if (AttackTime >= 0)
@@ -249,13 +263,23 @@ public class AITest : PlayerInput
                 AttackTime -= Time.deltaTime;
                 //怪物IDLE
                 ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
+            
             }
             else
             {
                 //怪物攻擊判定內部判定要甚麼攻擊狀態
                 ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
                 //攻擊時間
-                AttackTime = Random.Range(2.5f, 5f);
+                    if (data.m_bAttack == true)
+                    {
+                        AttackTime = Random.Range(3f, 5f);
+                        data.m_bAttack = false;
+
+                        return;
+                    }
+               
+
+                
             }
         }
         else
@@ -267,15 +291,16 @@ public class AITest : PlayerInput
                 {
                     SteeringBehaviour.Seek(data, data.ArrTarget[data.m_fID].transform.position);
                 }
+                
                 //追擊判定
                 SteeringBehaviour.Move(data);
                 ani.EnemyAnimater(data, AIAnimater.EnemyAni.RUN);
+                AttackTime = 0;
             }
             else
             {
                 IdleTime -= Time.deltaTime;
                 ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
-                AttackTime = 0f;
             }
         }
     }
@@ -358,15 +383,17 @@ public class AITest : PlayerInput
     #region 初始化設定
     private void Initialization()
     {
-        //數值得初始化
-        data.fHP = hp.MaxHP;
+        if (hp != null)
+        {
+            //數值得初始化
+            data.fHP = hp.MaxHP;
+        }
         NextHp = data.fHP;
         data.m_fMaxSpeed = 0.15f;
         data.m_fMinSpeed = 0.02f;
         data.m_fMaxRot = 0.1f;
         data.m_fRadius = 1;
         data.m_fProbeLenght = 1;
-        data.m_fPursuitRange = 30f;
         data.m_fAngle = 180;
         //  data.m_fThinkTime = Random.Range(0.2f, 0.5f);
         data.m_iAttackRandom = Random.Range(1, 3);

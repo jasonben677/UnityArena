@@ -188,8 +188,8 @@ ModelImporter:
     4300004: Shamkin_staff
     4300006: Shamkin_body
     4300008: Shamkin_Armor
-    7400126: Shamkin_IDLE
-    7400128: Shamkin_anger
+    7400126: IDLE
+    7400128: Anger
     7400130: Shamkin_Eating
     7400132: Shamkin_Looking_around
     7400134: Shamkin_Pick_object
@@ -204,37 +204,37 @@ ModelImporter:
     7400152: Shamkin_Climbing_wall
     7400154: Shamkin_Crawling
     7400156: Shamkin_falling_down
-    7400158: SH_combat_mode_A
+    7400158: Attidle
     7400160: SH_dodge_to_left
     7400162: SH_dodge_to_right
     7400164: SH_magic_helix_spell
-    7400166: SH_staf_block
+    7400166: AttackA
     7400168: SH_staff_Hit
-    7400170: SH_straight_down_hit
+    7400170: AttackC
     7400172: SH_swing_right
     7400174: SH_combat_mode_B
     7400176: SH_duck_below_swing
     7400178: SH_magic_light_spell
-    7400180: SH_magic_shot_stright
+    7400180: AttackB
     7400182: Shamkin_Staff_Dodge_Jump_Backward
     7400184: Shamkin_Staff_Dodge_Jump_Left
     7400186: Shamkin_Staff_Dodge_Jump_Right
-    7400188: Shamkin_Staff_Knocked_backward
+    7400188: Dead
     7400190: Shamkin_Staff_Down_back
     7400192: Shamkin_Staff_Recover_from_knocked_backward
     7400194: Shamkin_Staff_Knocked_forward
     7400196: Shamkin_Staff_Down_forward
     7400198: Shamkin_Staff_Recover_from_knocked_forward
     7400200: Shamkin_Staff_Hit_from_back
-    7400202: Shamkin_Staff_Hit_from_front
+    7400202: HitFormFront
     7400204: Shamkin_Staff_Hit_from_left
     7400206: Shamkin_Staff_Hit_from_righ
-    7400208: Shamkin_Staff_Moving_left
-    7400210: Shamkin_Staff_Moving_right
+    7400208: walkL
+    7400210: WalkR
     7400212: Shamkin_Staff_Tracking
     7400214: Shamkin_Staff_warning
     7400216: Shamkin_Staff_Dying_A
-    7400218: Shamkin_Staff_Dying_B
+    7400218: Die
     7400220: Shamkin_Staff_Die_knocked_backward
     7400222: Shamkin_Staff_Die_knocked_forward
     7400224: SH_combat_mode_C
@@ -248,8 +248,8 @@ ModelImporter:
     7400240: Shamkin_Staff_Cautious_walk
     7400242: Shamkin_Staff_combat_run
     7400244: Shamkin_Staff_Jump_runing
-    7400246: Shamkin_Staff_run
-    7400248: Shamkin_Walking_back_A
+    7400246: run
+    7400248: Walkback
     9500000: //RootNode
     11100000: //RootNode
     13700000: Shamkin_Armor
@@ -316,7 +316,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Shamkin_IDLE
+      name: IDLE
       takeName: 
       firstFrame: 0
       lastFrame: 100
@@ -328,9 +328,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -344,7 +344,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Shamkin_anger
+      name: Anger
       takeName: 
       firstFrame: 101
       lastFrame: 151
@@ -356,9 +356,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -764,7 +764,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: SH_combat_mode_A
+      name: Attidle
       takeName: 
       firstFrame: 1179
       lastFrame: 1254
@@ -776,9 +776,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -876,7 +876,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: SH_staf_block
+      name: AttackA
       takeName: 
       firstFrame: 1398
       lastFrame: 1433
@@ -888,9 +888,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -932,7 +932,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: SH_straight_down_hit
+      name: AttackC
       takeName: 
       firstFrame: 1470
       lastFrame: 1505
@@ -944,9 +944,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -1072,7 +1072,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: SH_magic_shot_stright
+      name: AttackB
       takeName: 
       firstFrame: 1709
       lastFrame: 1744
@@ -1084,9 +1084,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -1184,7 +1184,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Shamkin_Staff_Knocked_backward
+      name: Dead
       takeName: 
       firstFrame: 1823
       lastFrame: 1863
@@ -1196,9 +1196,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
+      loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -1380,7 +1380,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Shamkin_Staff_Hit_from_front
+      name: HitFormFront
       takeName: 
       firstFrame: 2085
       lastFrame: 2120
@@ -1392,9 +1392,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -1464,7 +1464,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Shamkin_Staff_Moving_left
+      name: walkL
       takeName: 
       firstFrame: 2193
       lastFrame: 2213
@@ -1476,9 +1476,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -1492,7 +1492,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Shamkin_Staff_Moving_right
+      name: WalkR
       takeName: 
       firstFrame: 2214
       lastFrame: 2234
@@ -1504,9 +1504,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -1604,7 +1604,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Shamkin_Staff_Dying_B
+      name: Die
       takeName: 
       firstFrame: 2542
       lastFrame: 2582
@@ -1616,9 +1616,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -1996,7 +1996,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Shamkin_Staff_run
+      name: run
       takeName: 
       firstFrame: 3190
       lastFrame: 3216
@@ -2008,9 +2008,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -2024,7 +2024,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Shamkin_Walking_back_A
+      name: Walkback
       takeName: 
       firstFrame: 3221
       lastFrame: 3256
@@ -2036,9 +2036,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1

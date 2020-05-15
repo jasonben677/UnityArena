@@ -58,6 +58,9 @@ public class AIData
     //思考時間
     //public float m_fThinkTime;
 
+    //anger
+    public bool bAnger;
+
     //是否死亡
     public bool m_bdie;
 

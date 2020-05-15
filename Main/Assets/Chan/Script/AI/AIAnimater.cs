@@ -71,11 +71,12 @@ public class AIAnimater : MonoBehaviour
                 int i = Random.Range(1, 3);
                 data.m_fMaxSpeed = 0.0f;
                 data.m_fSpeed = 0.0f;
-                EnemyAttack(i);
+                EnemyAttack(data,i);
                 break;
 
             case EnemyAni.ANGER:
                 ani.Play("angry");
+                data.bAnger = true;
                 data.m_fMaxSpeed = 0.0f;
                 data.m_fSpeed = 0.0f;
                 break;
@@ -85,7 +86,7 @@ public class AIAnimater : MonoBehaviour
     }
 
     //簡易的攻擊動作切換
-    private void EnemyAttack(int i)
+    private void EnemyAttack(AIData data, int i)
     {
         float a = Random.Range(0.8f, 1.5f);
 
@@ -94,14 +95,17 @@ public class AIAnimater : MonoBehaviour
             case 1:
                 ani.SetFloat("AttackTime",a);
                 ani.Play("attack1hA");
+                data.m_bAttack = true;
                 break;
             case 2:
                 ani.SetFloat("AttackTime", a);
                 ani.Play("attack1hB");
+                data.m_bAttack = true;
                 break;
             case 3:
                 ani.SetFloat("AttackTime", a);
                 ani.Play("attack1hC");
+                data.m_bAttack = true;
                 break;
         }
 

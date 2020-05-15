@@ -188,8 +188,8 @@ ModelImporter:
     4300008: kings_axe
     4300010: Warlord_body
     4300012: Warlord_Armor
-    7400134: Ratking_W_IDLE
-    7400136: Ratking_W_anger
+    7400134: IDLE
+    7400136: anger
     7400138: Ratking_W_Eating
     7400140: Ratking_W_Looking_around
     7400142: Ratking_W_Pick_object
@@ -209,14 +209,14 @@ ModelImporter:
     7400170: Ratkin_2W_moveTOblock
     7400172: Ratkin_2W_block
     7400174: Ratkin_2W_moveFROMblock
-    7400176: Ratkin_2W_Combo_360_Smash
+    7400176: rgdasfa
     7400178: Ratkin_2W_Dodge_Jump_Backward
     7400180: Ratkin_2W_Dodge_Jump_Left
     7400182: Ratkin_2W_Dodge_Jump_Right
     7400184: Ratkin_2W_duck_below_high_swing
-    7400186: Ratkin_2W_Heavy_Smash
+    7400186: adfadf
     7400188: Ratkin_2W_Hit_from_back
-    7400190: Ratkin_2W_Hit_from_front
+    7400190: Hit
     7400192: Ratkin_2W_Hit_from_left
     7400194: Ratkin_2W_Hit_from_righ
     7400196: Ratkin_2W_L_parry_high_left
@@ -225,14 +225,14 @@ ModelImporter:
     7400202: Ratkin_2W_L_swing_left
     7400204: Ratkin_2W_L_swing_right
     7400206: Ratkin_2W_L_thrust
-    7400208: Ratkin_2W_Moving_left
-    7400210: Ratkin_2W_Moving_right
+    7400208: WalkL
+    7400210: WalkR
     7400212: Ratkin_2W_R_parry_high_right
     7400214: Ratkin_2W_R_parry_mid_front
-    7400216: Ratkin_2W_R_swing_high_straight_down
-    7400218: Ratkin_2W_R_swing_left
-    7400220: Ratkin_2W_R_swing_right
-    7400222: Ratkin_2W_R_thrust_mid
+    7400216: AttackA
+    7400218: AttackB
+    7400220: AttackC
+    7400222: AttackC
     7400224: Ratkin_2W_Scissors_Blow
     7400226: Ratkin_2W_Smash Frenzy
     7400228: Ratkin_2W_Tracking
@@ -244,7 +244,7 @@ ModelImporter:
     7400240: Ratkin_2W_Knocked_forward
     7400242: Ratkin_2W_Down_forward
     7400244: Ratkin_2W_Recover_from_knocked_forward
-    7400246: Ratkin_2W_Die_knocked_backward
+    7400246: Die
     7400248: Ratkin_2W_Die_knocked_forward
     7400250: Ratkin_2W_Dying_A
     7400252: Ratkin_2W_Dying_B
@@ -252,8 +252,8 @@ ModelImporter:
     7400256: Ratkin_2W_Cautious_walk
     7400258: Ratkin_2W_combat_run
     7400260: Ratkin_2W_Jump_runing
-    7400262: Ratkin_2W_run
-    7400264: Ratkin_2W_Walking_back_A
+    7400262: Run
+    7400264: WalkBack
     9500000: //RootNode
     11100000: //RootNode
     13700000: Warlord_Armor
@@ -320,7 +320,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Ratking_W_IDLE
+      name: IDLE
       takeName: 
       firstFrame: 0
       lastFrame: 100
@@ -332,9 +332,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -348,7 +348,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratking_W_anger
+      name: anger
       takeName: 
       firstFrame: 101
       lastFrame: 151
@@ -358,11 +358,11 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -908,7 +908,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_2W_Combo_360_Smash
+      name: rgdasfa
       takeName: 
       firstFrame: 1322
       lastFrame: 1407
@@ -920,9 +920,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -1048,7 +1048,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_2W_Heavy_Smash
+      name: adfadf
       takeName: 
       firstFrame: 1522
       lastFrame: 1562
@@ -1060,9 +1060,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -1070,7 +1070,21 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.43082184
+        functionName: NewEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.45166725
+        functionName: WeaponDisable
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 0
       maskSource: {instanceID: 0}
@@ -1104,7 +1118,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_2W_Hit_from_front
+      name: Hit
       takeName: 
       firstFrame: 1599
       lastFrame: 1634
@@ -1116,9 +1130,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -1356,7 +1370,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_2W_Moving_left
+      name: WalkL
       takeName: 
       firstFrame: 1924
       lastFrame: 1944.0001
@@ -1368,9 +1382,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -1384,7 +1398,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_2W_Moving_right
+      name: WalkR
       takeName: 
       firstFrame: 1945.0001
       lastFrame: 1965
@@ -1396,9 +1410,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -1468,7 +1482,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_2W_R_swing_high_straight_down
+      name: AttackA
       takeName: 
       firstFrame: 2038
       lastFrame: 2073
@@ -1480,9 +1494,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -1490,13 +1504,27 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.43117508
+        functionName: WeaponEnable
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.46347365
+        functionName: WeaponDisable
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_2W_R_swing_left
+      name: AttackB
       takeName: 
       firstFrame: 2074
       lastFrame: 2109
@@ -1508,9 +1536,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -1518,13 +1546,27 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.36785075
+        functionName: WeaponEnable
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.4392681
+        functionName: WeaponDisable
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_2W_R_swing_right
+      name: AttackC
       takeName: 
       firstFrame: 2110
       lastFrame: 2145
@@ -1536,9 +1578,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -1552,7 +1594,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_2W_R_thrust_mid
+      name: AttackC
       takeName: 
       firstFrame: 2146
       lastFrame: 2181
@@ -1564,9 +1606,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -1574,7 +1616,21 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.43031842
+        functionName: WeaponEnable
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5197002
+        functionName: WeaponDisable
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 0
       maskSource: {instanceID: 0}
@@ -1888,7 +1944,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_2W_Die_knocked_backward
+      name: Die
       takeName: 
       firstFrame: 2873
       lastFrame: 2890
@@ -1900,9 +1956,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
+      loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -2112,7 +2168,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_2W_run
+      name: Run
       takeName: 
       firstFrame: 3190
       lastFrame: 3216
@@ -2124,9 +2180,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
@@ -2140,7 +2196,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ratkin_2W_Walking_back_A
+      name: WalkBack
       takeName: 
       firstFrame: 3221
       lastFrame: 3256
@@ -2152,9 +2208,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
