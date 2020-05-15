@@ -294,15 +294,8 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0
-        functionName: OnFireRingEnable
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.925
-        functionName: OnFireRingDisable
+      - time: 0.25384614
+        functionName: OnAttackFXEnable
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

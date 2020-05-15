@@ -22,7 +22,8 @@ public class WeaponManager : MonoBehaviour
     private GameObject objFXC; //普攻C刀光特效
     private GameObject objFXD; //普攻C刀光特效
     private GameObject objFXE; //普功特效
-    private GameObject objFireRingFX;
+    //private GameObject objFireRingFX;
+    private GameObject objAttackFX;
     private Animator anim;
     //private float lerpWarp;
 
@@ -208,20 +209,31 @@ public class WeaponManager : MonoBehaviour
         Destroy(objFXE.gameObject);
     }
 
-    public GameObject OnFireRingEnable()
-    {
-        GameObject prefabFX = Resources.Load("FireRing") as GameObject;
-        objFireRingFX = GameObject.Instantiate(prefabFX);
-        objFireRingFX.transform.parent = playerHandle.transform;
-        objFireRingFX.transform.localPosition = Vector3.zero;
-        objFireRingFX.transform.localRotation = Quaternion.identity;
+    //public GameObject OnFireRingEnable()
+    //{
+    //    GameObject prefabFX = Resources.Load("FireRing") as GameObject;
+    //    objFireRingFX = GameObject.Instantiate(prefabFX);
+    //    objFireRingFX.transform.parent = playerHandle.transform;
+    //    objFireRingFX.transform.localPosition = Vector3.zero;
+    //    objFireRingFX.transform.localRotation = Quaternion.identity;
 
-        return objFireRingFX;
-    }
+    //    return objFireRingFX;
+    //}
 
-    public void OnFireRingDisable()
+    //public void OnFireRingDisable()
+    //{
+    //    Destroy(objFireRingFX.gameObject);
+    //}
+
+    public GameObject OnAttackFXEnable()
     {
-        Destroy(objFireRingFX.gameObject);
+        GameObject prefabFX = Resources.Load("AttackDauguan") as GameObject;
+        objAttackFX = GameObject.Instantiate(prefabFX);
+        objAttackFX.transform.parent = whR.transform;
+        objAttackFX.transform.localPosition = Vector3.zero;
+        objAttackFX.transform.localRotation = Quaternion.identity;
+
+        return objAttackFX;
     }
 
 

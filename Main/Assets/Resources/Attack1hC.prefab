@@ -41,7 +41,7 @@ PrefabInstance:
     - target: {fileID: 1006674671291663904, guid: ef6e070bff0b0ae48a66f2724ecc6268,
         type: 3}
       propertyPath: stopAction
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1006792078017436582, guid: ef6e070bff0b0ae48a66f2724ecc6268,
         type: 3}
@@ -51,17 +51,32 @@ PrefabInstance:
     - target: {fileID: 1006792078017436582, guid: ef6e070bff0b0ae48a66f2724ecc6268,
         type: 3}
       propertyPath: stopAction
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1006993119206549710, guid: ef6e070bff0b0ae48a66f2724ecc6268,
         type: 3}
       propertyPath: stopAction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006993119206549710, guid: ef6e070bff0b0ae48a66f2724ecc6268,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 0.64772415
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006993119206549710, guid: ef6e070bff0b0ae48a66f2724ecc6268,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1007021195273568818, guid: ef6e070bff0b0ae48a66f2724ecc6268,
+        type: 3}
+      propertyPath: stopAction
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1007286131954268564, guid: ef6e070bff0b0ae48a66f2724ecc6268,
         type: 3}
       propertyPath: stopAction
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1092214938916042130, guid: ef6e070bff0b0ae48a66f2724ecc6268,
         type: 3}

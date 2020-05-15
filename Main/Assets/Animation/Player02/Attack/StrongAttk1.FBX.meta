@@ -308,15 +308,22 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.99615383
+      - time: 0.36346155
+        functionName: OnFXEnableE
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8403846
         functionName: OnFXDisableE
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.36346155
-        functionName: OnFXEnableE
+      - time: 0.33076924
+        functionName: OnAttackFXEnable
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
