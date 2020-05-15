@@ -185,13 +185,13 @@ public class AITest : PlayerInput
 
             //最近的範圍
             Gizmos.color = Color.white;
-            Gizmos.DrawWireSphere(this.transform.position, data.m_fPursuitRange * 0.3f);
+          //  Gizmos.DrawWireSphere(this.transform.position, data.m_fPursuitRange );
             //最遠的範圍
-            Gizmos.color = Color.white;
-            CheackScope.LookRange(data, 45, 135f, 1f);
-            //中間的範圍
-            Gizmos.color = Color.yellow;
-            CheackScope.LookRange(data, -10, 190f, 0.8f);
+            //Gizmos.color = Color.white;
+            ////CheackScope.LookRange(data, 45, 135f, 1f);
+            ////中間的範圍
+            //Gizmos.color = Color.yellow;
+            //CheackScope.LookRange(data, -10, 190f, 0.8f);
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(this.transform.position, data.m_fAttDis);
             Vector3 vLeftStart = this.transform.position - this.transform.right * data.m_fRadius;
@@ -253,7 +253,7 @@ public class AITest : PlayerInput
     {
         if (EnterInto.Distance(data, data.m_vTarget, data.m_fAttDis) == true)
         {
-            IdleTime = Random.Range(2f, 4f);
+            IdleTime = Random.Range(1f, 3f);
 
             // 攻擊時間判斷
             if (AttackTime >= 0)

@@ -38,7 +38,7 @@ public class testTrigger : MonoBehaviour
 
                 
                     Debug.Log(fDis);
-                    if (fDis < 15 )
+                    if (fDis < 30 )
                     {
 
                         Npc.SetActive(true);
@@ -49,6 +49,6 @@ public class testTrigger : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(this.transform.position, 15);
+        Gizmos.DrawWireSphere(this.transform.position, 10);
     }
 }
