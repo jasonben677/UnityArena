@@ -28,11 +28,7 @@ public class Monsterbox : MonoBehaviour
         _NpcUpdate();
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, radius);
-    }
+
 
     void Ins_Obj() 
     {
