@@ -5,8 +5,7 @@ using UnityEngine;
 public class testTrigger : MonoBehaviour
 {
     GameObject[] Enemy;
-
-
+    public GameObject vfxult;
     private void Awake()
     {
         Enemy = GameObject.FindGameObjectsWithTag("Npc");
@@ -30,20 +29,21 @@ public class testTrigger : MonoBehaviour
             {
 
                     Vector3 TreeEnemy = Npc.transform.position;
-                    TreeEnemy.y = 0;
+                    TreeEnemy.y +=1;
+                TreeEnemy.z += 1f;
                     Vector3 vTarget = this.transform.position;
 
                     float fDis = Vector3.Distance(TreeEnemy, vTarget);
 
-
-                
                     Debug.Log(fDis);
-                    if (fDis < 30 )
-                    {
+                if (fDis < 30)
+                {
 
-                        Npc.SetActive(true);
 
-                    }
+                    Npc.SetActive(true);
+                   Instantiate(vfxult, TreeEnemy, Npc.transform.rotation,Npc.transform);
+
+                }
             }
         }
     }
