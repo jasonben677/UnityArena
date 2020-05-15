@@ -23,7 +23,7 @@ public class ActorController : MonoBehaviour
     [Header("==== Friction Settings ====")]
     public PhysicMaterial frictionOne;
     public PhysicMaterial frictionZero;
-
+        
     private Animator anim;
     private Rigidbody rigid;
     private Vector3 planarVec;

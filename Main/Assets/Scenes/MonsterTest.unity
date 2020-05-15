@@ -2995,6 +2995,7 @@ GameObject:
   - component: {fileID: 835577233}
   - component: {fileID: 835577232}
   - component: {fileID: 835577231}
+  - component: {fileID: 835577234}
   m_Layer: 0
   m_Name: kachujin_g_rosales
   m_TagString: Untagged
@@ -3059,6 +3060,21 @@ Transform:
   m_Father: {fileID: 1352139596}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &835577234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835577230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f4dc07648d7ee41bbc5fbd9137e398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swingSound: {fileID: 8300000, guid: 9a600c96365e56a4e8cc362189997882, type: 3}
+  explosionSound: {fileID: 8300000, guid: d2d70cd3d0bf99e47aed7c8f5455a98f, type: 3}
+  footStepSound: {fileID: 8300000, guid: fef4ee3f19dc88543b111a3849ac0098, type: 3}
 --- !u!1 &842719680
 GameObject:
   m_ObjectHideFlags: 0
@@ -4349,6 +4365,8 @@ MonoBehaviour:
   bloodParticle: {fileID: 0}
   blockParticle: {fileID: 0}
   counterBackParticle: {fileID: 0}
+  katanaSound: {fileID: 0}
+  bloodSound: {fileID: 0}
 --- !u!114 &1102799038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5685,6 +5703,8 @@ MonoBehaviour:
     type: 3}
   counterBackParticle: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
     type: 3}
+  katanaSound: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+  bloodSound: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
 --- !u!114 &1352139593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9268,6 +9288,8 @@ MonoBehaviour:
     type: 3}
   counterBackParticle: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
     type: 3}
+  katanaSound: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
+  bloodSound: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
 --- !u!114 &1999624742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9597,6 +9619,7 @@ GameObject:
   - component: {fileID: 2082932945}
   - component: {fileID: 2082932944}
   - component: {fileID: 2082932943}
+  - component: {fileID: 2082932946}
   m_Layer: 0
   m_Name: kachujin_g_rosales
   m_TagString: Untagged
@@ -9661,6 +9684,21 @@ Transform:
   m_Father: {fileID: 1999624746}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2082932946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082932942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f4dc07648d7ee41bbc5fbd9137e398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swingSound: {fileID: 8300000, guid: 9a600c96365e56a4e8cc362189997882, type: 3}
+  explosionSound: {fileID: 8300000, guid: d2d70cd3d0bf99e47aed7c8f5455a98f, type: 3}
+  footStepSound: {fileID: 8300000, guid: fef4ee3f19dc88543b111a3849ac0098, type: 3}
 --- !u!1001 &2084859694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10233,7 +10271,7 @@ PrefabInstance:
     - target: {fileID: 186565927396110902, guid: a28f1181232ecac4aafe6f0f6bae7111,
         type: 3}
       propertyPath: prewarm
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4304639246894155222, guid: a28f1181232ecac4aafe6f0f6bae7111,
         type: 3}

@@ -48,8 +48,7 @@ public class WeaponManager : MonoBehaviour
     [Header("==== Prefabs ====")]
     [SerializeField]
     private GameObject slashHitParticle;
-    
-
+        
     // Start is called before the first frame update
     void Start()
     {
@@ -199,7 +198,7 @@ public class WeaponManager : MonoBehaviour
         objFXE = GameObject.Instantiate(prefabFX);
         objFXE.transform.parent = whR.transform;
         objFXE.transform.localPosition = Vector3.zero;
-        objFXE.transform.localRotation = Quaternion.identity;
+        objFXE.transform.localRotation = Quaternion.identity;        
 
         return objFXE;
     }
@@ -208,6 +207,8 @@ public class WeaponManager : MonoBehaviour
     {
         Destroy(objFXE.gameObject);
     }
+
+    
 
     //public GameObject OnFireRingEnable()
     //{
@@ -234,8 +235,7 @@ public class WeaponManager : MonoBehaviour
         objAttackFX.transform.localRotation = Quaternion.identity;
 
         return objAttackFX;
-    }
-
+    }    
 
     /// <summary>
     /// slash技能

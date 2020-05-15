@@ -273,13 +273,6 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.41184208
-        functionName: OnFXDisableA
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.15026835
         functionName: WeaponEnable
         data: 
@@ -296,6 +289,20 @@ ModelImporter:
         messageOptions: 0
       - time: 0.25384614
         functionName: OnAttackFXEnable
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.37941176
+        functionName: OnFXDisableA
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.11145973
+        functionName: OnSwingSound
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

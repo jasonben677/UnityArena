@@ -17,6 +17,12 @@ public class ActorManager : MonoBehaviour
     [SerializeField]
     private GameObject counterBackParticle;
 
+    [Header("==== Audio ====")]
+    [SerializeField]
+    private AudioClip katanaSound;
+    [SerializeField]
+    private AudioClip bloodSound;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -94,6 +100,7 @@ public class ActorManager : MonoBehaviour
         {
             Blocked();
             Instantiate(blockParticle, transform.position + new Vector3(0, bm.bloodFXPositionHieght * 0.6f, 0), Quaternion.identity);
+            AudioSource.PlayClipAtPoint(katanaSound, wm.whR.transform.position, 1);
         }
         else
         {
@@ -153,6 +160,7 @@ public class ActorManager : MonoBehaviour
 
                     //Instantiate(bloodParticle, transform.position + new Vector3(0, bm.bloodFXPositionHieght * 0.6f, 0), Quaternion.identity);
                     Instantiate(bloodParticle, transform.position + new Vector3(0, bm.bloodFXPositionHieght * 0.6f, 0), Quaternion.Euler(-90f, 0f, 0f));
+                    AudioSource.PlayClipAtPoint(bloodSound, transform.position + new Vector3(0, bm.bloodFXPositionHieght * 0.6f, 0), 0.5f);
                 }
             }
 
