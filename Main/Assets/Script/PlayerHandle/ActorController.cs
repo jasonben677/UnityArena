@@ -91,7 +91,7 @@ public class ActorController : MonoBehaviour
             canDenfese = false;
         }
 
-        if ((CheckState("ground") || CheckStateTag("attackR")) && canAttack)
+        if ((CheckState("ground") || CheckStateTag("attackR")) || CheckStateTag("attackRX") && canAttack)
         {
             if (pi.attack) //普通攻擊
             {

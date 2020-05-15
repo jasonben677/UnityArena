@@ -50,7 +50,7 @@ public class StateManager : MonoBehaviour
         isFall = am.ac.CheckState("fall");
         isRoll = am.ac.CheckState("roll");
         isJab = am.ac.CheckState("jab");
-        isAttack = am.ac.CheckStateTag("attackR");
+        isAttack = am.ac.CheckStateTag("attackR") || am.ac.CheckStateTag("attackRX");
         isSlash = am.ac.CheckState("slash");
         isHit = am.ac.CheckState("hit");
         isDie = am.ac.CheckState("die");
@@ -63,7 +63,7 @@ public class StateManager : MonoBehaviour
 
         isAllowDefense = isGround || isBlocked;
         isDefense = isAllowDefense && am.ac.CheckState("defenseR", "defense") && am.ac.pi.defense;
-        isImmortal = isSlash || isRoll || isJab;
+        isImmortal = isSlash || isRoll || isJab || am.ac.CheckStateTag("attackRX");
     }
 
     //public void AddHP(float value)
