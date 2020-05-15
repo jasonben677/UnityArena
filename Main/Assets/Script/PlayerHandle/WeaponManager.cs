@@ -20,7 +20,9 @@ public class WeaponManager : MonoBehaviour
     private GameObject objFXA; //普攻A刀光特效
     private GameObject objFXB; //普攻B刀光特效
     private GameObject objFXC; //普攻C刀光特效
-    private GameObject objFXD; //普攻D刀光特效
+    private GameObject objFXD; //普攻C刀光特效
+    private GameObject objFXE; //普功特效
+    private GameObject objFireRingFX;
     private Animator anim;
     //private float lerpWarp;
 
@@ -189,6 +191,39 @@ public class WeaponManager : MonoBehaviour
     {
         Destroy(objFXD.gameObject);
     }
+
+    public GameObject OnFXEnableE()
+    {
+        GameObject prefabFX = Resources.Load("Attack1hC") as GameObject;
+        objFXE = GameObject.Instantiate(prefabFX);
+        objFXE.transform.parent = whR.transform;
+        objFXE.transform.localPosition = Vector3.zero;
+        objFXE.transform.localRotation = Quaternion.identity;
+
+        return objFXE;
+    }
+
+    public void OnFXDisableE()
+    {
+        Destroy(objFXE.gameObject);
+    }
+
+    public GameObject OnFireRingEnable()
+    {
+        GameObject prefabFX = Resources.Load("FireRing") as GameObject;
+        objFireRingFX = GameObject.Instantiate(prefabFX);
+        objFireRingFX.transform.parent = playerHandle.transform;
+        objFireRingFX.transform.localPosition = Vector3.zero;
+        objFireRingFX.transform.localRotation = Quaternion.identity;
+
+        return objFireRingFX;
+    }
+
+    public void OnFireRingDisable()
+    {
+        Destroy(objFireRingFX.gameObject);
+    }
+
 
     /// <summary>
     /// slash技能

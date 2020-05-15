@@ -62,7 +62,7 @@ public class CameraController : MonoBehaviour
             mainCamera = Camera.main;
             lockDot.enabled = false;
             //鼠標顯示與否
-            Cursor.lockState = CursorLockMode.Locked; 
+            //Cursor.lockState = CursorLockMode.Locked; 
             offset = (transform.position - cameraHandle.transform.position).magnitude;
             currentPos = transform.localPosition;
             calRadius = playerHandle.GetComponent<CapsuleCollider>().radius;
