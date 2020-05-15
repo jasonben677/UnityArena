@@ -115,7 +115,7 @@ public class ActorManager : MonoBehaviour
 
            _CheckHit(targetWc);
 
-            if (sm.playerHP.HP < 0)
+            if (sm.playerHP.HP <= 0)
             {
                 if (ac.CheckState("die"))
                 {

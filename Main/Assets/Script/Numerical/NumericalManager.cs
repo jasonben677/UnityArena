@@ -117,7 +117,7 @@ public class NumericalManager : MonoBehaviour
             fPlayerMaxMp = 0,
             fPlayerMp = 0,
 
-            fAtk = 65,
+            fAtk = 45,
             fCurrExp = 1200,
             fNextLevelExp = 0
         };

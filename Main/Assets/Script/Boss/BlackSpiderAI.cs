@@ -12,9 +12,14 @@ public class BlackSpiderAI : PlayerInput
     bool beginDeath;
     float times = 0.5f;
 
-    void Start()
+    private void Awake()
     {
         NumericalManager.instance.SetBoss();
+    }
+
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame
@@ -47,7 +52,7 @@ public class BlackSpiderAI : PlayerInput
                     times -= Time.deltaTime;
                     if (times <= 0)
                     {
-                        times = Random.Range(1.2f, 1.6f);
+                        times = Random.Range(1.8f, 2.4f);
                         transform.forward = (-dev);
                         _PlayAnimation("biteAggressive");
                     }
@@ -66,6 +71,7 @@ public class BlackSpiderAI : PlayerInput
 
     private void _PlayAnimation(string _name)
     {
+        animation[_name].speed = Random.Range(0.6f, 1.2f);
         animation.Play(_name);
     }
 }
