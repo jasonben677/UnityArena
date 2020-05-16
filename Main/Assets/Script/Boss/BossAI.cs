@@ -4,71 +4,122 @@ using UnityEngine;
 
 public class BossAI : PlayerInput
 {
-    public GameObject player;
+    public Transform player;
     public BossTrigger bossTrigger;
-    public Animator spiderAnim;
-    private Vector3 originPos;
+    public Animator BossAnim;
+    public BossAttack attackEnable;
 
-    private float waitTime = 0.8f;
-    private float rotationTime = 5.0f;
+    public ParticleSystem fire01;
+    public ParticleSystem fire02;
+
+
+    bool canTriggerAngry = true;
+    Rigidbody myrigi;
+    float AttackDelay = 0.5f;
 
 
     private void Awake()
     {
         NumericalManager.instance.SetBoss();
-        originPos = transform.position;
+        myrigi = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
     {
         if (bossTrigger.isBossFight)
         {
-            float dis = Vector3.Distance(transform.position, player.transform.position);
-            Vector3 dev = (player.transform.position - transform.position).normalized;
+            float dis = Vector3.Distance(transform.position, player.position);
+            Vector3 dev = (player.position - transform.position).normalized;
             dev.y = 0;
-            float degree = Vector3.Dot(dev, transform.forward);
+            //Debug.Log(dis);
 
-            //rotationTime -= Time.fixedDeltaTime;
-
-            //if (rotationTime <= 0)
-            //{
-            //    rotationTime = 5.0f;
-
-            //    transform.forward = (-dev);
-            //}
-
-
-            if (spiderAnim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+            if (NumericalManager.instance.GetBoss().fPlayerHp <= 0 && NumericalManager.instance.GetBoss().fPlayerHp >= -10)
             {
-                if (dis < 7f)
+            
+                Debug.Log("dead");
+                BossAnim.Play("Dying_A");
+                NumericalManager.instance.GetBoss().fPlayerHp = -15;
+            }
+            else if (NumericalManager.instance.GetBoss().fPlayerHp > 0)
+            {
+                if (dis > 5.5f)
                 {
-                    spiderAnim.SetBool("walk", false);
-                    transform.forward = (-dev);
-                    spiderAnim.SetTrigger("attack");
+                    BossAnim.Play("Run", 0);
+                    myrigi.position += dev * 10.0f * Time.deltaTime;
+
+                    AttackDelay = Random.Range(1.0f, 1.2f);
+
+                    //transform.position += dev * 5.0f * Time.deltaTime;
+                    transform.forward = dev;
+                    attackEnable.AttackDisable();
+                    //_PlayAnimNormalSpeed("walkNormal");
                 }
                 else
                 {
-                    spiderAnim.ResetTrigger("attack");
-                    spiderAnim.SetBool("walk", true);
+                    AttackDelay -= Time.deltaTime;
+
+                    if (AttackDelay <= 0)
+                    {
+                        AttackDelay = Random.Range(2.0f, 3.0f);
+                        transform.forward = dev;
+                        int attackIndex = canTriggerAngry ? Random.Range(0,5) : Random.Range(0,4);
+
+                        switch (attackIndex)
+                        {
+                            case 0:
+                                _NormalAttack();
+                                break;
+
+                            case 1:
+                                _NormalAttack();
+                                break;
+
+                            case 2:
+                                _ComboAttack();
+                                break;
+
+                            case 3:
+                                _NormalAttack();
+                                break;
+
+                            case 4:
+                                _GetAngry();
+                                break;
+
+                            default:
+                                break;
+                        }
+
+                    }
                 }
-
             }
-            else if (spiderAnim.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
+        }
+        else
+        {
+            if (NumericalManager.instance.GetBoss().fPlayerHp > 0)
             {
-                if (dis < 7f)
-                {
-                    spiderAnim.SetBool("walk", false);
-                    spiderAnim.SetTrigger("attack");
-                }
+               
             }
-            else if (spiderAnim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-            {
-                spiderAnim.ResetTrigger("attack");
-            }
-
-
         }
     }
 
+    private void _NormalAttack()
+    {
+        BossAnim.speed = Random.Range(0.8f, 1.2f);
+        BossAnim.Play("adfadf");
+    }
 
+    private void _ComboAttack()
+    {
+        BossAnim.speed = Random.Range(0.8f, 1.2f);
+        BossAnim.Play("rgdasfa");
+    }
+
+    private void _GetAngry()
+    {
+        BossAnim.Play("anger");
+        fire01.gameObject.SetActive(true);
+        fire02.gameObject.SetActive(true);
+        canTriggerAngry = false;
+    }
 }

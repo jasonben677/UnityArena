@@ -12,10 +12,19 @@ public class NumericalManager : MonoBehaviour
 
     private PlayerInfo[] npcs;
 
+    private PlayerInfo[] strongNpcs;
+
+    [System.NonSerialized]
+    public int rp = 5;
+    [System.NonSerialized]
+    public int bp = 3;
+
+
     [SerializeField] ScenceFade ScenceFade;
 
     private void Awake()
     {
+        Debug.Log("test");
         if (instance == null)
         {
             DontDestroyOnLoad(gameObject);
@@ -47,6 +56,11 @@ public class NumericalManager : MonoBehaviour
         return bossInfo;
     }
 
+    public PlayerInfo GetStrongNpc(int _index)
+    {
+        return strongNpcs[_index];
+    }
+
     /// <summary>
     /// 打死小怪
     /// </summary>
@@ -60,6 +74,13 @@ public class NumericalManager : MonoBehaviour
         }
         //PlayerUI.UIManager.instance.UpdatePlayerUI();
     }
+
+
+    public void LeaveGame()
+    {
+        Application.Quit();
+    }
+
 
     /// <summary>
     /// 打死boss
@@ -105,12 +126,33 @@ public class NumericalManager : MonoBehaviour
         }
     }
 
+    public void SetStrongNpc(int _count)
+    {
+        strongNpcs = new PlayerInfo[_count];
+
+        for (int i = 0; i < _count; i++)
+        {
+            strongNpcs[i] = new PlayerInfo();
+            strongNpcs[i].sName = "老鼠戰士";
+            strongNpcs[i].iLevel = 5;
+            strongNpcs[i].fPlayerMaxHp = 350;
+            strongNpcs[i].fPlayerHp = 350;
+
+            strongNpcs[i].fPlayerMaxMp = 0;
+            strongNpcs[i].fPlayerMp = 0;
+
+            strongNpcs[i].fAtk = 35;
+            strongNpcs[i].fCurrExp = 600;
+            strongNpcs[i].fNextLevelExp = 0;
+        }
+    }
+
     public void SetBoss()
     {
         bossInfo = new PlayerInfo()
         {
             iLevel = 10,
-            sName = "蜘蛛王",
+            sName = "老鼠酋長",
             fPlayerMaxHp = 1000,
             fPlayerHp = 1000,
 

@@ -18,6 +18,7 @@ namespace PlayerUI
 
         Dictionary<GameObject, EnemyUI> enemyUIMatch = new Dictionary<GameObject, EnemyUI>();
         List<GameObject> temp;
+        [SerializeField] TextMeshProUGUI[] attackText;
 
         [SerializeField] GameObject bossUI;
 
@@ -32,6 +33,8 @@ namespace PlayerUI
         [SerializeField] Image xpBar;
         [SerializeField] TextMeshProUGUI levelText;
 
+        [SerializeField] TextMeshProUGUI rpText;
+        [SerializeField] TextMeshProUGUI bpText;
         private void Awake()
         {
             instance = this;
@@ -106,6 +109,33 @@ namespace PlayerUI
             xpBar.fillAmount = Mathf.Lerp(xpBar.fillAmount, expRate , 0.2f) ;
             levelText.text = player.iLevel.ToString();
 
+            //rp
+            rpText.text = NumericalManager.instance.rp + "/5";
+            bpText.text = NumericalManager.instance.bp + "/3";
+
+            UsePotion();
+        }
+
+        private void UsePotion()
+        {
+            PlayerInfo player = NumericalManager.instance.GetMainPlayer();
+
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                if(player.fPlayerHp != player.fPlayerMaxHp && NumericalManager.instance.rp >= 1)
+                {
+                    NumericalManager.instance.rp--;
+                    player.fPlayerHp = Mathf.Clamp(player.fPlayerHp + 50, 0, player.fPlayerMaxHp);
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.F2))
+            {
+                if (player.fPlayerMp != player.fPlayerMaxMp && NumericalManager.instance.bp >= 1)
+                {
+                    NumericalManager.instance.bp--;
+                    player.fPlayerMp = Mathf.Clamp(player.fPlayerMp + 30, 0, player.fPlayerMaxMp);
+                }
+            }
         }
 
         /// <summary>
@@ -131,6 +161,10 @@ namespace PlayerUI
                     if (_player.tag == "Npc")
                     {
                         enemyUIMatch[_player].ShowNpcHp(_player.transform.GetSiblingIndex());
+                    }
+                    else if(_player.tag == "StrongNpc")
+                    {
+                        enemyUIMatch[_player].ShowStrongNpc(_player.transform.GetSiblingIndex());
                     }
                 }
             }
@@ -185,6 +219,54 @@ namespace PlayerUI
             }
         }
 
+
+        public void ShowAttack(GameObject _hit, float _number)
+        {
+            for (int i = 0; i < attackText.Length; i++)
+            {
+                if (!attackText[i].gameObject.activeSelf)
+                {
+                    Vector3 rnd; 
+
+                    if (_hit.tag == "Player")
+                    {
+                        attackText[i].color = new Color32(255, 0, 0, 255);
+                        rnd = new Vector3(Random.Range(0.2f, 0.5f), Random.Range(2.0f, 2.5f), Random.Range(0.2f, 0.5f));
+                    }
+                    else
+                    {
+                        attackText[i].color = new Color32(255, 255, 255, 255);
+                        rnd = new Vector3(Random.Range(0.2f, 0.5f), Random.Range(0.2f, 0.5f), Random.Range(0.2f, 0.5f));
+                    }
+
+                    attackText[i].transform.position = mainCamera.WorldToScreenPoint(_hit.transform.position + rnd);
+                    attackText[i].text = _number.ToString();
+
+                    StartCoroutine(AttackTextReturn(attackText[i].gameObject));
+                    return;
+                }
+            }
+
+        }
+
+
+
+        public void PauseGame()
+        {
+            Time.timeScale = 0;
+        }
+
+        public void ReturnGame()
+        {
+            Time.timeScale = 1;
+        }
+
+        IEnumerator AttackTextReturn(GameObject _text)
+        {
+            _text.SetActive(true);
+            yield return new WaitForSeconds(1.0f);
+            _text.SetActive(false);
+        }
     }
 }
 

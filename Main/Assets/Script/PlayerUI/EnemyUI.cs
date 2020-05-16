@@ -106,6 +106,34 @@ namespace PlayerUI
         }
 
 
+        public void ShowStrongNpc(int _index)
+        {
+            if (enemy != null && healthBar != null)
+            {
+                PlayerInfo enemy = NumericalManager.instance.GetStrongNpc(_index);
+
+                Image enemyHp = healthBar.transform.GetChild(0).GetChild(0).GetComponent<Image>();
+                TextMeshProUGUI enemyName = healthBar.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>();
+                TextMeshProUGUI hpText = healthBar.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
+                TextMeshProUGUI enemyLevel = healthBar.transform.GetChild(1).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
+
+                float hpRate = (float)System.Math.Round((double)(enemy.fPlayerHp / enemy.fPlayerMaxHp), 2);
+
+                enemyHp.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
+
+                hpText.text = enemy.fPlayerHp + "/" + enemy.fPlayerMaxHp.ToString();
+
+                enemyName.text = enemy.sName;
+
+                enemyLevel.text = enemy.iLevel.ToString();
+
+                if (hpRate <= 0.02f)
+                {
+                    IsUse = false;
+                }
+            }
+        }
+
         public void EnemyDisable()
         {
             enemy = null;

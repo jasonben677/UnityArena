@@ -178,21 +178,54 @@ public class ActorManager : MonoBehaviour
         if (gameObject.tag == "Npc")
         {
             enemy = NumericalManager.instance.GetNpc(transform.GetSiblingIndex());
-            enemy.fPlayerHp -= targetWc.GetATK();
+            float atk = targetWc.GetATK();
+            enemy.fPlayerHp -= atk;
             sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
+            if (enemy.fPlayerHp >= 0)
+            {
+                PlayerUI.UIManager.instance.ShowAttack(gameObject, atk);
+
+            }
+
         }
         else if (gameObject.tag == "Player")
         {
             enemy = NumericalManager.instance.GetMainPlayer();
-            enemy.fPlayerHp -= targetWc.GetATK();
+            float atk = targetWc.GetATK();
+            enemy.fPlayerHp -= atk;
             sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
+            if (enemy.fPlayerHp >= 0)
+            {
+                PlayerUI.UIManager.instance.ShowAttack(gameObject, atk);
+                
+            }
+        }
+        else if(gameObject.tag == "StrongNpc")
+        {
+            enemy = NumericalManager.instance.GetStrongNpc(transform.GetSiblingIndex());
+            float atk = targetWc.GetATK();
+            enemy.fPlayerHp -= atk;
+            sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
+            if (enemy.fPlayerHp >= 0)
+            {
+                PlayerUI.UIManager.instance.ShowAttack(gameObject, atk);
+                
+            }
         }
         else if (gameObject.tag == "Boss")
         {
             enemy = NumericalManager.instance.GetBoss();
-            enemy.fPlayerHp = Mathf.Clamp((enemy.fPlayerHp - targetWc.GetATK()), 0, 1000);   
+            float atk = targetWc.GetATK();
+            enemy.fPlayerHp = Mathf.Clamp((enemy.fPlayerHp - atk), -5, 1000);
             sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
+            if (enemy.fPlayerHp >= 0)
+            {
+                PlayerUI.UIManager.instance.ShowAttack(gameObject, atk);
+                
+            }
         }
+
+        
     }
 
 

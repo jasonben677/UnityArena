@@ -9,17 +9,18 @@ public class BlackSpiderAI : PlayerInput
     public BossTrigger bossTrigger;
     public Transform player;
 
-    bool beginDeath;
-    float times = 0.5f;
+    float AttackDelay = 0.5f;
+    float walkTime = 1.0f;
+    int walkIndex = 0;
 
     private void Awake()
     {
-        NumericalManager.instance.SetBoss();
+       
     }
 
     void Start()
     {
-        
+        NumericalManager.instance.SetBoss();
     }
 
     // Update is called once per frame
@@ -40,21 +41,60 @@ public class BlackSpiderAI : PlayerInput
             }
             else if (NumericalManager.instance.GetBoss().fPlayerHp > 0)
             {
-                if (dis > 5.0f)
+                if (dis > 3.5f)
                 {
-                    transform.position += dev * 5.0f * Time.deltaTime;
+                    switch (walkIndex)
+                    {
+                        case 0:
+                            _WalkForward(dev);
+                            break;
+
+                        case 1:
+                            _WalkBack(dev);
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    AttackDelay = Random.Range(1.0f, 1.2f);
+
+                    //transform.position += dev * 5.0f * Time.deltaTime;
                     transform.forward = (-dev);
-                    times = Random.Range(0.3f, 0.6f);
-                    _PlayAnimation("walkNormal");
+                    
+                    //_PlayAnimNormalSpeed("walkNormal");
                 }
                 else
                 {
-                    times -= Time.deltaTime;
-                    if (times <= 0)
+                    AttackDelay -= Time.deltaTime;
+                    if (AttackDelay <= 0)
                     {
-                        times = Random.Range(1.8f, 2.4f);
+                        AttackDelay = Random.Range(2.0f, 3.0f);
                         transform.forward = (-dev);
-                        _PlayAnimation("biteAggressive");
+                        int attackIndex = Random.Range(0, 4);
+
+                        switch (attackIndex)
+                        {
+                            case 0:
+                                _PlayAnimation("biteAggressive");
+                                break;
+
+                            case 1:
+                                _PlayAnimation("3HitComboAggressive");
+                                break;
+
+                            case 2:
+                                _PlayAnimation("jumpBiteNormal");
+                                break;
+
+                            case 3:
+                                _PlayAnimation("jumpBiteAggressive");
+                                break;
+
+                            default:
+                                break;
+                        }
+                   
                     }
                 }
             }
@@ -71,7 +111,62 @@ public class BlackSpiderAI : PlayerInput
 
     private void _PlayAnimation(string _name)
     {
-        animation[_name].speed = Random.Range(0.6f, 1.2f);
-        animation.Play(_name);
+        try
+        {
+            animation[_name].speed = Random.Range(0.6f, 1.2f);
+            animation.Play(_name);
+        }
+        catch (System.Exception)
+        {
+
+            Debug.LogError(_name);
+        }
+
     }
+
+    private void _PlayAnimNormalSpeed(string _name)
+    {
+        try
+        {
+            animation.Play(_name);
+        }
+        catch (System.Exception)
+        {
+
+            Debug.LogError(_name);
+        }
+
+
+
+    }
+
+    private void _WalkForward(Vector3 dev)
+    {
+
+        walkTime -= Time.deltaTime;
+
+        transform.position += dev * 5.0f * Time.deltaTime;
+        _PlayAnimNormalSpeed("walkNormal");
+
+        if (walkTime <= 0)
+        {
+            walkTime = 1;
+            walkIndex = Random.Range(0, 2);
+        }
+    }
+
+    private void _WalkBack(Vector3 dev)
+    {
+        walkTime -= Time.deltaTime;
+        _PlayAnimNormalSpeed("idleNormal1");
+
+        if (walkTime <= 0)
+        {
+            walkTime = 1;
+            walkIndex = Random.Range(0, 2);
+        }
+    }
+
+
+
 }

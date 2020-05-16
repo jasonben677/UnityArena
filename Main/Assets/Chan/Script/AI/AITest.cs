@@ -169,6 +169,7 @@ public class AITest : PlayerInput
             //撥放死亡動畫
             ani.EnemyAnimater(data, AIAnimater.EnemyAni.DIE);
         }
+
     }
 
     #region 畫範圍用
@@ -398,6 +399,10 @@ public class AITest : PlayerInput
         //  data.m_fThinkTime = Random.Range(0.2f, 0.5f);
         data.m_iAttackRandom = Random.Range(1, 3);
         data.m_fAttDis = 2.3f;
+        if (gameObject.tag == "StrongNpc")
+        {
+            data.m_fAttDis = 5.0f;
+        }
         ClearTime = 3f;
         IdleTime = Random.Range(1f, 3f);
         AttackTime = 0;

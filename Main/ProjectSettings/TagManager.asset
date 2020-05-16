@@ -12,6 +12,8 @@ TagManager:
   - Npc
   - Effect
   - Boss
+  - FxTemporaire
+  - StrongNpc
   layers:
   - Default
   - TransparentFX

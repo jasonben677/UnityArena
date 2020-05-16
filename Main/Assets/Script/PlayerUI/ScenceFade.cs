@@ -12,7 +12,16 @@ public class ScenceFade : MonoBehaviour
 
     public void LoadScence()
     {
-        SceneManager.LoadScene(iNextScenceIndex);
+        try
+        {
+            SceneManager.LoadScene(iNextScenceIndex);
+        }
+        catch (System.Exception)
+        {
+
+            Debug.LogError("LoadError");
+        }
+        
     }
 
     public void FadeIn()
