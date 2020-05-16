@@ -75,7 +75,9 @@ public class NumericalManager : MonoBehaviour
         //PlayerUI.UIManager.instance.UpdatePlayerUI();
     }
 
-
+    /// <summary>
+    /// 離開遊戲
+    /// </summary>
     public void LeaveGame()
     {
         Application.Quit();
@@ -95,16 +97,27 @@ public class NumericalManager : MonoBehaviour
     }
 
 
+
+    /// <summary>
+    /// 場景Fade in
+    /// </summary>
     public void ScenceFadeIn()
     {
         ScenceFade.FadeIn();
     }
 
+
+    /// <summary>
+    /// 場景Fade Out
+    /// </summary>
     public void ScenceFadeOut(int _index)
     {
         ScenceFade.FadeOut(_index);
     }
 
+    /// <summary>
+    /// 設定老鼠怪數值
+    /// </summary>
     public void SetMouseNpc(int _count)
     {
         //Npc
@@ -126,6 +139,10 @@ public class NumericalManager : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// 設定老鼠戰士數值
+    /// </summary>
     public void SetStrongNpc(int _count)
     {
         strongNpcs = new PlayerInfo[_count];
@@ -147,6 +164,10 @@ public class NumericalManager : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// 設定老鼠酋長數值
+    /// </summary>
     public void SetBoss()
     {
         bossInfo = new PlayerInfo()
@@ -165,6 +186,10 @@ public class NumericalManager : MonoBehaviour
         };
     }
 
+    /// <summary>
+    /// 使用技能
+    /// </summary>
+    /// <returns></returns>
     public bool UseSkill()
     {
         if (gameInfo.fPlayerMp >= 25f)
@@ -178,6 +203,9 @@ public class NumericalManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 重置玩家數值
+    /// </summary>
     public void ResetPlayerInfo()
     {
         PlayerInfo player = gameInfo;
@@ -186,6 +214,9 @@ public class NumericalManager : MonoBehaviour
         player.fPlayerMp = player.fPlayerMaxMp;
     }
 
+    /// <summary>
+    /// 重置老鼠怪數值
+    /// </summary>
     public void ResertEnemy()
     {
         for (int i = 0; i < npcs.Length; i++)

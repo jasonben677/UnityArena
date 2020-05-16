@@ -42,7 +42,7 @@ public class BossAI : PlayerInput
             }
             else if (NumericalManager.instance.GetBoss().fPlayerHp > 0)
             {
-                if (dis > 5.5f)
+                if (dis > 7.5f)
                 {
                     BossAnim.Play("Run", 0);
                     myrigi.position += dev * 10.0f * Time.deltaTime;
