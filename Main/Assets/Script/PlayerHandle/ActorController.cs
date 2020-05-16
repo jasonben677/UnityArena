@@ -51,7 +51,7 @@ public class ActorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lerpTargetDirect += 0.04f * Time.deltaTime;
+        lerpTargetDirect += 0.02f * Time.deltaTime;
         lerpTargetAnimation += 0.95f * Time.deltaTime;
 
         localDvec = model.transform.InverseTransformVector(pi.Dvec);
@@ -68,7 +68,7 @@ public class ActorController : MonoBehaviour
             {
                 float targetRunMulti = ((pi.run) ? 2.0f : 1.0f);
                 anim.SetFloat("forward", pi.Dmag * Mathf.Lerp(anim.GetFloat("forward"), targetRunMulti, lerpTargetAnimation)); //調整走跑相互切換的流暢度
-                anim.SetFloat("right", 0);
+                anim.SetFloat("right", 0);                
             }
             else
             {
