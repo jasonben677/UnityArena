@@ -7,8 +7,8 @@ public class CameraController : MonoBehaviour
 {
     public ActorManager am;
     public PlayerInput pi;
-    public float horizontalSpeed = 100.0f;
-    public float verticalSpeed = 100.0f;
+    public float horizontalSpeed = 90.0f;
+    public float verticalSpeed = 90.0f;
     public float cameraDampValue = 0.15f;
     
 

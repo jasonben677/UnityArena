@@ -1780,13 +1780,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   am: {fileID: 3393427908702691962}
   pi: {fileID: 5496476455433804976}
-  horizontalSpeed: 100
-  verticalSpeed: 100
+  horizontalSpeed: 90
+  verticalSpeed: 90
   cameraDampValue: 0.15
   lockDot: {fileID: 0}
   lockTarget: {fileID: 0}
   lockState: 0
-  miniOffset: 1
+  dir: {x: 0, y: 0, z: 0}
 --- !u!1 &5398843289269609313
 GameObject:
   m_ObjectHideFlags: 0
