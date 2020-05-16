@@ -7,15 +7,19 @@ public class EndGamePage : MonoBehaviour
 {
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.lockState = CursorLockMode.None;
         NumericalManager.instance.ScenceFadeIn();
         NumericalManager.instance.ResetPlayerInfo();
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 1;
     }
 
 
     public void BackToLogin()
     {
-        NumericalManager.instance.ScenceFadeOut(0);
+        NumericalManager.instance.LeaveGame();
     }
 
     public void BackToGame()

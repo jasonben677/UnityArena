@@ -9,18 +9,15 @@ public class BlackSpiderAI : PlayerInput
     public BossTrigger bossTrigger;
     public Transform player;
 
+    public bool isDead = false;
+
     float AttackDelay = 0.5f;
     float walkTime = 1.0f;
     int walkIndex = 0;
 
-    private void Awake()
-    {
-       
-    }
-
     void Start()
     {
-        NumericalManager.instance.SetBoss();
+        NumericalManager.instance.SetSpider();
     }
 
     // Update is called once per frame
@@ -31,15 +28,22 @@ public class BlackSpiderAI : PlayerInput
             float dis = Vector3.Distance(transform.position, player.position);
             Vector3 dev = (player.position - transform.position).normalized;
             dev.y = 0;
-
-            if (NumericalManager.instance.GetBoss().fPlayerHp <= 0 && NumericalManager.instance.GetBoss().fPlayerHp >= -10)
+            //Debug.LogError(dis);
+            if (NumericalManager.instance.GetSpider().fPlayerHp <= 0)
             {
-                _PlayAnimation("deathNormal");
-                Debug.Log("dead");
-                attackCol.enabled = false;
-                NumericalManager.instance.GetBoss().fPlayerHp = -15;
+                if (!isDead)
+                {
+                    _PlayAnimation("deathNormal");
+                    Debug.Log("dead");
+                    attackCol.enabled = false;
+                    bossTrigger.wall.isTrigger = true;
+                    StartCoroutine(BossDissapear());
+                    isDead = true;
+                }
+
+
             }
-            else if (NumericalManager.instance.GetBoss().fPlayerHp > 0)
+            else if (NumericalManager.instance.GetSpider().fPlayerHp > 0)
             {
                 if (dis > 3.5f)
                 {
@@ -101,7 +105,7 @@ public class BlackSpiderAI : PlayerInput
         }
         else
         {
-            if (NumericalManager.instance.GetBoss().fPlayerHp > 0)
+            if (NumericalManager.instance.GetSpider().fPlayerHp > 0)
             {
                 _PlayAnimation("idleNormal1");
             }
@@ -167,6 +171,11 @@ public class BlackSpiderAI : PlayerInput
         }
     }
 
+    private IEnumerator BossDissapear()
+    {
+        yield return new WaitForSeconds(2.0f);
+        gameObject.SetActive(false);
+    }
 
 
 }

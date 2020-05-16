@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossTrigger : MonoBehaviour
 {
     public bool isBossFight = false;
-    private Collider wall;
+    public Collider wall;
 
     private void Start()
     {
@@ -14,17 +14,14 @@ public class BossTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isBossFight)
-        {
-            isBossFight = false;
-            Debug.Log("離開戰鬥");
-        }
-        else
+
+        if (!isBossFight)
         {
             isBossFight = true;
 
             Debug.Log("開始戰鬥");
         }
+
     }
 
     public void OnTriggerExit(Collider other)

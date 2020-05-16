@@ -18,10 +18,21 @@ namespace PlayerUI
 
         Dictionary<GameObject, EnemyUI> enemyUIMatch = new Dictionary<GameObject, EnemyUI>();
         List<GameObject> temp;
+
+        public bool winGame;
+        private bool gameQuestInfo = false;
+        private float infoTime = 0;
+
+
         [SerializeField] TextMeshProUGUI[] attackText;
 
         [SerializeField] GameObject bossUI;
 
+        [SerializeField] GameObject spiderUI;
+
+        [SerializeField] GameObject optionPanel;
+
+        [SerializeField] GameObject questPanel;
 
         [Header("玩家UI")]
         [SerializeField] Image imgPlayerHP;
@@ -35,8 +46,13 @@ namespace PlayerUI
 
         [SerializeField] TextMeshProUGUI rpText;
         [SerializeField] TextMeshProUGUI bpText;
+
+
         private void Awake()
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
             instance = this;
             mainCamera = Camera.main;
         }
@@ -44,10 +60,30 @@ namespace PlayerUI
         private void Start()
         {
             NumericalManager.instance.ScenceFadeIn();
+
         }
 
         private void Update()
         {
+            if (!gameQuestInfo)
+            {
+                infoTime += Time.deltaTime;
+                if (infoTime >= 1.0f)
+                {
+                    questPanel.SetActive(true);
+                    infoTime = 0;
+                    gameQuestInfo = true;
+                    PauseGame();
+                }
+            }
+
+            if (winGame)
+            {
+                StartCoroutine(WinGame());
+                winGame = false;
+            }
+
+
             temp = new List<GameObject>();
 
             //更新UI位置
@@ -67,6 +103,10 @@ namespace PlayerUI
                 enemyUIMatch.Remove(item);
             }
             UpdatePlayerUI();
+
+            PressPauseButton();
+
+
         }
 
 
@@ -122,7 +162,7 @@ namespace PlayerUI
 
             if (Input.GetKeyDown(KeyCode.F1))
             {
-                if(player.fPlayerHp != player.fPlayerMaxHp && NumericalManager.instance.rp >= 1)
+                if (player.fPlayerHp != player.fPlayerMaxHp && NumericalManager.instance.rp >= 1)
                 {
                     NumericalManager.instance.rp--;
                     player.fPlayerHp = Mathf.Clamp(player.fPlayerHp + 50, 0, player.fPlayerMaxHp);
@@ -135,6 +175,10 @@ namespace PlayerUI
                     NumericalManager.instance.bp--;
                     player.fPlayerMp = Mathf.Clamp(player.fPlayerMp + 30, 0, player.fPlayerMaxMp);
                 }
+            }
+            else if (Input.GetKeyDown(KeyCode.F3))
+            {
+                player.fPlayerHp = player.fPlayerMaxHp;
             }
         }
 
@@ -150,6 +194,10 @@ namespace PlayerUI
                 {
                     UpdateBoss();
                 }
+                else if (_player.tag == "Spider")
+                {
+                    UpdateSpider();
+                }
                 else
                 {
                     if (!enemyUIMatch.ContainsKey(_player))
@@ -162,7 +210,7 @@ namespace PlayerUI
                     {
                         enemyUIMatch[_player].ShowNpcHp(_player.transform.GetSiblingIndex());
                     }
-                    else if(_player.tag == "StrongNpc")
+                    else if (_player.tag == "StrongNpc")
                     {
                         enemyUIMatch[_player].ShowStrongNpc(_player.transform.GetSiblingIndex());
                     }
@@ -220,6 +268,36 @@ namespace PlayerUI
         }
 
 
+        public void UpdateSpider()
+        {
+            PlayerInfo enemy = NumericalManager.instance.GetSpider();
+
+            Image enemyHp = spiderUI.transform.GetChild(0).GetChild(0).GetComponent<Image>();
+            TextMeshProUGUI enemyName = spiderUI.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI hpText = spiderUI.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI enemyLevel = spiderUI.transform.GetChild(1).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
+
+            float hpRate = (float)System.Math.Round((double)(enemy.fPlayerHp / enemy.fPlayerMaxHp), 2);
+
+            enemyHp.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
+
+            hpText.text = enemy.fPlayerHp + "/" + enemy.fPlayerMaxHp.ToString();
+
+            enemyName.text = enemy.sName;
+
+            enemyLevel.text = enemy.iLevel.ToString();
+
+            if (hpRate <= 0.02f)
+            {
+                spiderUI.SetActive(false);
+            }
+            else
+            {
+                spiderUI.SetActive(true);
+            }
+        }
+
+
         public void ShowAttack(GameObject _hit, float _number)
         {
             for (int i = 0; i < attackText.Length; i++)
@@ -251,14 +329,64 @@ namespace PlayerUI
 
 
 
+        public void PressPauseButton()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (optionPanel.activeSelf)
+                {
+                    optionPanel.SetActive(false);
+                    ReturnGame();
+                }
+                else
+                {
+                    optionPanel.SetActive(true);
+                    PauseGame();
+                }
+            }
+        }
+
         public void PauseGame()
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             Time.timeScale = 0;
         }
 
         public void ReturnGame()
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             Time.timeScale = 1;
+        }
+
+        /// <summary>
+        /// 給按鈕用的返回遊戲事件
+        /// </summary>
+        public void ReturnGameEvent()
+        {
+            optionPanel.SetActive(false);
+            ReturnGame();
+        }
+
+
+        public void ExitGame()
+        {
+            NumericalManager.instance.LeaveGame();
+        }
+
+
+        IEnumerator WinGame()
+        {
+            yield return new WaitForSeconds(3.0f);
+            questPanel.SetActive(true);
+
+            yield return new WaitForSeconds(2.0f);
+            questPanel.transform.GetChild(6).gameObject.SetActive(true);
+
+            yield return new WaitForSeconds(1.0f);
+
+            NumericalManager.instance.ScenceFadeOut(2);
         }
 
         IEnumerator AttackTextReturn(GameObject _text)

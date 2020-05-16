@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class SimpleCharacterMotor : MonoBehaviour
 {
-    public CursorLockMode cursorLockMode = CursorLockMode.Locked;
+    //public CursorLockMode cursorLockMode = CursorLockMode.Locked;
     public bool cursorVisible = false;
     [Header("Movement")]
     public float walkSpeed = 2;
@@ -30,8 +30,8 @@ public class SimpleCharacterMotor : MonoBehaviour
     void Awake()
     {
         controller = GetComponent<CharacterController>();
-        Cursor.lockState = cursorLockMode;
-        Cursor.visible = cursorVisible;
+        //Cursor.lockState = cursorLockMode;
+        //Cursor.visible = cursorVisible;
         targetRotation = targetPivotRotation = Quaternion.identity;
     }
 

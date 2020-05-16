@@ -55,14 +55,16 @@ public class CameraController : MonoBehaviour
         tempEulerX = 20;        
         model = playerHandle.GetComponent<ActorController>().model;
         cameraCol = cameraHandle.GetComponent<Collider>();
-        cameraColRadius = 0.1f;        
+        cameraColRadius = 0.1f;
 
         if (pi.isAI == false)
         {
             mainCamera = Camera.main;
             lockDot.enabled = false;
+
             //鼠標顯示與否
-            Cursor.lockState = CursorLockMode.Locked; 
+            //Cursor.lockState = CursorLockMode.Locked; 
+
             offset = (transform.position - cameraHandle.transform.position).magnitude;
             currentPos = transform.localPosition;
             calRadius = playerHandle.GetComponent<CapsuleCollider>().radius;

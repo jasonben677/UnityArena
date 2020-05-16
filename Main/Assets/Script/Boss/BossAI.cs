@@ -12,6 +12,7 @@ public class BossAI : PlayerInput
     public ParticleSystem fire01;
     public ParticleSystem fire02;
 
+    public bool isDead;
 
     bool canTriggerAngry = true;
     Rigidbody myrigi;
@@ -33,12 +34,17 @@ public class BossAI : PlayerInput
             dev.y = 0;
             //Debug.Log(dis);
 
-            if (NumericalManager.instance.GetBoss().fPlayerHp <= 0 && NumericalManager.instance.GetBoss().fPlayerHp >= -10)
+            if (NumericalManager.instance.GetBoss().fPlayerHp <= 0)
             {
             
                 Debug.Log("dead");
                 BossAnim.Play("Dying_A");
-                NumericalManager.instance.GetBoss().fPlayerHp = -15;
+                if (!PlayerUI.UIManager.instance.winGame)
+                {
+                    StartCoroutine(BossDisappear());
+                    PlayerUI.UIManager.instance.winGame = true;
+                }
+
             }
             else if (NumericalManager.instance.GetBoss().fPlayerHp > 0)
             {
@@ -121,5 +127,11 @@ public class BossAI : PlayerInput
         fire01.gameObject.SetActive(true);
         fire02.gameObject.SetActive(true);
         canTriggerAngry = false;
+    }
+
+    private IEnumerator BossDisappear()
+    {
+        yield return new WaitForSeconds(2.0f);
+        gameObject.SetActive(false);
     }
 }

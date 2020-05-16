@@ -10,9 +10,12 @@ public class NumericalManager : MonoBehaviour
 
     private PlayerInfo bossInfo;
 
+    private PlayerInfo spider;
+
     private PlayerInfo[] npcs;
 
     private PlayerInfo[] strongNpcs;
+
 
     [System.NonSerialized]
     public int rp = 5;
@@ -54,6 +57,11 @@ public class NumericalManager : MonoBehaviour
     public PlayerInfo GetBoss()
     {
         return bossInfo;
+    }
+
+    public PlayerInfo GetSpider()
+    {
+        return spider;
     }
 
     public PlayerInfo GetStrongNpc(int _index)
@@ -180,8 +188,26 @@ public class NumericalManager : MonoBehaviour
             fPlayerMaxMp = 0,
             fPlayerMp = 0,
 
-            fAtk = 45,
+            fAtk = 55,
             fCurrExp = 1200,
+            fNextLevelExp = 0
+        };
+    }
+
+    public void SetSpider()
+    {
+        spider = new PlayerInfo()
+        {
+            iLevel = 5,
+            sName = "漆黑蜘蛛",
+            fPlayerMaxHp = 450,
+            fPlayerHp = 450,
+
+            fPlayerMaxMp = 0,
+            fPlayerMp = 0,
+
+            fAtk = 35,
+            fCurrExp = 600,
             fNextLevelExp = 0
         };
     }

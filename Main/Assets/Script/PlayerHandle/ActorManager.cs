@@ -197,10 +197,10 @@ public class ActorManager : MonoBehaviour
             if (enemy.fPlayerHp >= 0)
             {
                 PlayerUI.UIManager.instance.ShowAttack(gameObject, atk);
-                
+
             }
         }
-        else if(gameObject.tag == "StrongNpc")
+        else if (gameObject.tag == "StrongNpc")
         {
             enemy = NumericalManager.instance.GetStrongNpc(transform.GetSiblingIndex());
             float atk = targetWc.GetATK();
@@ -209,7 +209,19 @@ public class ActorManager : MonoBehaviour
             if (enemy.fPlayerHp >= 0)
             {
                 PlayerUI.UIManager.instance.ShowAttack(gameObject, atk);
-                
+
+            }
+        }
+        else if (gameObject.tag == "Spider")
+        {
+            enemy = NumericalManager.instance.GetSpider();
+            float atk = targetWc.GetATK();
+            enemy.fPlayerHp = Mathf.Clamp((enemy.fPlayerHp - atk), -5, 1000);
+            sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
+            if (enemy.fPlayerHp >= 0)
+            {
+                PlayerUI.UIManager.instance.ShowAttack(gameObject, atk);
+
             }
         }
         else if (gameObject.tag == "Boss")
@@ -221,7 +233,7 @@ public class ActorManager : MonoBehaviour
             if (enemy.fPlayerHp >= 0)
             {
                 PlayerUI.UIManager.instance.ShowAttack(gameObject, atk);
-                
+
             }
         }
 
