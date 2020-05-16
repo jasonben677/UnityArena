@@ -35,14 +35,14 @@ public class CameraController : MonoBehaviour
     private Vector3 tempPos;
     private float offset; //初設的距離
     [SerializeField]
-    private float miniOffset = 1.0f;
+    //private float miniOffset = 1.0f;
     
     private Vector3 dir;
     private float calRadius;
     private bool rayTerrain;
-    private bool blockSight;
+    //private bool blockSight;
 
-    private bool isback;
+    //private bool isback;
     RaycastHit rayHit;
     
     // Start is called before the first frame update
@@ -62,7 +62,7 @@ public class CameraController : MonoBehaviour
             mainCamera = Camera.main;
             lockDot.enabled = false;
             //鼠標顯示與否
-            //Cursor.lockState = CursorLockMode.Locked; 
+            Cursor.lockState = CursorLockMode.Locked; 
             offset = (transform.position - cameraHandle.transform.position).magnitude;
             currentPos = transform.localPosition;
             calRadius = playerHandle.GetComponent<CapsuleCollider>().radius;
@@ -160,19 +160,19 @@ public class CameraController : MonoBehaviour
             if (rayHit.distance <= (transform.position - cameraHandle.transform.position).magnitude) //如果有障礙物夾在中間
             {
                 rayTerrain = true;
-                blockSight = true;
+                //blockSight = true;
             }
             else
             {
                 rayTerrain = true;
-                blockSight = false;
+                //blockSight = false;
             }
         }
         else
         {
             //Debug.Log("rayResult: " + rayResult);
             rayTerrain = false;
-            blockSight = false;
+            //blockSight = false;
         }        
     }
 

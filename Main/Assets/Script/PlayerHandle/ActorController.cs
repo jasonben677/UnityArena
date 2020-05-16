@@ -15,9 +15,9 @@ public class ActorController : MonoBehaviour
     public CameraController camcon;
 
     // server
-    private bool useServer = false;
+    //private bool useServer = false;
     // 發送時間
-    private float sendTime = 0.0f;
+    //private float sendTime = 0.0f;
 
     [Space(10)]
     [Header("==== Friction Settings ====")]
