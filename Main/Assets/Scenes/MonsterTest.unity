@@ -11894,7 +11894,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponShineFX
       objectReference: {fileID: 0}
-    - target: {fileID: 6414749271324138160, guid: 9fcfc9ac40b7de64aaa33a1a3dcc80c3,
+    - target: {fileID: 6463875884324872258, guid: 9fcfc9ac40b7de64aaa33a1a3dcc80c3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263271589938312041, guid: 9fcfc9ac40b7de64aaa33a1a3dcc80c3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600680584014975512, guid: 9fcfc9ac40b7de64aaa33a1a3dcc80c3,
         type: 3}
       propertyPath: m_IsActive
       value: 0

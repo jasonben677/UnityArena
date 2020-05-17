@@ -6,7 +6,7 @@ public class MagicCircleStageTrigger : MonoBehaviour
 {
     private ParticleSystem magicCircleFX;
 
-    [SerializeField] private GameObject treasureFX;
+    [SerializeField] private GameObject treasure;
     private float treasureStartHeight;
         
     private GameObject weaponShineFX;
@@ -17,7 +17,7 @@ public class MagicCircleStageTrigger : MonoBehaviour
     {
         magicCircleFX = GetComponentInChildren<ParticleSystem>();
         //Debug.Log(magicCircleFX.gameObject.name);
-        treasureStartHeight = treasureFX.transform.position.y;
+        treasureStartHeight = treasure.transform.position.y;
     }
 
     //// Update is called once per frame
@@ -74,15 +74,15 @@ public class MagicCircleStageTrigger : MonoBehaviour
 
     public void DropTreasure()
     {
-        if (treasureFX.transform.gameObject != null)
+        if (treasure.transform.gameObject != null)
         {
-            if (treasureFX.transform.position.y >= treasureStartHeight - 4f)
+            if (treasure.transform.position.y >= treasureStartHeight - 4f)
             {
-                treasureFX.transform.position = new Vector3(treasureFX.transform.position.x, treasureFX.transform.position.y - 0.1f, treasureFX.transform.position.z);
+                treasure.transform.position = new Vector3(treasure.transform.position.x, treasure.transform.position.y - 0.05f, treasure.transform.position.z);
             }
             else 
             {
-                Destroy(treasureFX.transform.gameObject, 2f);
+                Destroy(treasure.transform.gameObject, 2f);
             }
         }
     }
