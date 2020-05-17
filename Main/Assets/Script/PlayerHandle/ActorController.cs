@@ -108,12 +108,12 @@ public class ActorController : MonoBehaviour
                 if (NumericalManager.instance.UseSkill())
                 {
                     anim.SetTrigger("slash");
+                    //pi.RotateTowards(camcon.lockTarget);
                 }
                 else
                 {
                     Debug.LogError("MP不足");
-                }
-                //pi.RotateTowards(camcon.lockTarget);
+                }                
             }
         }
 

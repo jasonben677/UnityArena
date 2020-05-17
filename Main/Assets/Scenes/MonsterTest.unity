@@ -3441,6 +3441,7 @@ MonoBehaviour:
   swingSound: {fileID: 8300000, guid: 9a600c96365e56a4e8cc362189997882, type: 3}
   explosionSound: {fileID: 8300000, guid: d2d70cd3d0bf99e47aed7c8f5455a98f, type: 3}
   footStepSound: {fileID: 8300000, guid: fef4ee3f19dc88543b111a3849ac0098, type: 3}
+  slashSound: {fileID: 8300000, guid: 7c7c0a86e2d72ba4985f437397013dd6, type: 3}
 --- !u!1 &842719680
 GameObject:
   m_ObjectHideFlags: 0
@@ -11075,6 +11076,7 @@ MonoBehaviour:
   swingSound: {fileID: 8300000, guid: 9a600c96365e56a4e8cc362189997882, type: 3}
   explosionSound: {fileID: 8300000, guid: d2d70cd3d0bf99e47aed7c8f5455a98f, type: 3}
   footStepSound: {fileID: 8300000, guid: fef4ee3f19dc88543b111a3849ac0098, type: 3}
+  slashSound: {fileID: 8300000, guid: 7c7c0a86e2d72ba4985f437397013dd6, type: 3}
 --- !u!1001 &2084859694
 PrefabInstance:
   m_ObjectHideFlags: 0

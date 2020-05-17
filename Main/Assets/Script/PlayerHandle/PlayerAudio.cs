@@ -16,6 +16,9 @@ public class PlayerAudio : MonoBehaviour
     //[SerializeField]
     //private AudioClip runStepSound;
 
+    [SerializeField]
+    private AudioClip slashSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,12 @@ public class PlayerAudio : MonoBehaviour
     //{
 
     //}
+
+    public void OnSlashSound() 
+    {
+        Debug.Log("slashSound!!!!");
+        AudioSource.PlayClipAtPoint(slashSound, whR.transform.position, 1);
+    }
 
     public void OnFootStep()
     {

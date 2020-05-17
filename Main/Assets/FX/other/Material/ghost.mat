@@ -65,13 +65,13 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _InnerAlphaBase: 0.12
-    - _InnerColorPower: 0.22
+    - _InnerAlphaBase: 0.2
+    - _InnerColorPower: 0.28
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RimPower: 4
+    - _RimPower: 5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -80,5 +80,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _InnerColor: {r: 1, g: 0.14830509, b: 0, a: 0.5019608}
-    - _RimColor: {r: 0.23584908, g: 0, b: 0, a: 0.5019608}
+    - _InnerColor: {r: 0.735849, g: 0.15336615, b: 0.05206478, a: 0.5019608}
+    - _RimColor: {r: 0.33962262, g: 0.25471696, b: 0.25471696, a: 0.5019608}
