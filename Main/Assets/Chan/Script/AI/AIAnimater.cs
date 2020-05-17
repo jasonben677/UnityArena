@@ -68,7 +68,16 @@ public class AIAnimater : MonoBehaviour
                 break;
 
             case EnemyAni.ATTACK:
-                int i = Random.Range(1, 3);
+                int i ;
+
+                if (gameObject.tag == "StrongNpc")
+                {
+                    i = Random.Range(1, 3);
+                }
+                else
+                {
+                    i = 1;
+                }
                 data.m_fMaxSpeed = 0.0f;
                 data.m_fSpeed = 0.0f;
                 EnemyAttack(data,i);

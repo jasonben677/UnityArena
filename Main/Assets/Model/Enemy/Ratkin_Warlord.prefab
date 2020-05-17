@@ -225,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 1815685565978207803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 505.87173, y: 9.998169, z: 122.0481}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 1815685564310967267}
   - {fileID: 1865829684}
@@ -337,7 +337,7 @@ MonoBehaviour:
     m_fRadius: 0
     m_fAlertDis: 0
     m_fProbeLenght: 0
-    m_fPursuitRange: 80
+    m_fPursuitRange: 62.76
     m_fAngle: 0
     bAnger: 0
     m_bdie: 0
@@ -357,6 +357,7 @@ MonoBehaviour:
     m_fTargetDistance: 295.36136
   NextHp: 0
   WanderPoint: {fileID: 0}
+  fireWall: {fileID: 0}
 --- !u!114 &1930906213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,6 +528,10 @@ PrefabInstance:
     - target: {fileID: 100146, guid: b534877d0b7dd48479825282eea4671f, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 100152, guid: b534877d0b7dd48479825282eea4671f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400138, guid: b534877d0b7dd48479825282eea4671f, type: 3}
       propertyPath: m_LocalScale.x

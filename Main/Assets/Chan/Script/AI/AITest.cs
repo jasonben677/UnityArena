@@ -24,6 +24,7 @@ public class AITest : PlayerInput
 
     public float NextHp;
     public GameObject WanderPoint;
+    public GameObject fireWall;
 
     #region 抓取資料
     private void Awake()
@@ -103,10 +104,10 @@ public class AITest : PlayerInput
                     if (RunAttTime <= 0)
                     {
                         //攻擊距離是否成立
-                        Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - data.m_ObjEnemy.transform.position, Vector3.up);
-                        targetRotation.x = 0;
+                        //Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - data.m_ObjEnemy.transform.position, Vector3.up);
+                        //targetRotation.x = 0;
 
-                        data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);
+                        //data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);
                         AttackStatus();
                         // AttackTest();
 
@@ -114,12 +115,8 @@ public class AITest : PlayerInput
                     else
                     {
                         RunAttTime -= Time.deltaTime;
-                        Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - data.m_ObjEnemy.transform.position, Vector3.up);
-                        targetRotation.x = 0;
-                        data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);
+
                         ani.EnemyAnimater(data, AIAnimater.EnemyAni.ANGER);
-                        
-                        IdleTime = Random.Range(1f, 3f);
                         data.m_fPursuitRange = data.m_fPursuitRange * 3;
                         if (data.bAnger == true) 
                         {
@@ -158,6 +155,10 @@ public class AITest : PlayerInput
         }
         else if (data.fHP <= 0)
         {
+            if (gameObject.tag == "StrongNpc")
+            {
+                fireWall.SetActive(false);
+            }
             if (ClearTime <= 0)
             {
                 ClearEnemy();
@@ -186,7 +187,7 @@ public class AITest : PlayerInput
 
             //最近的範圍
             Gizmos.color = Color.white;
-          //  Gizmos.DrawWireSphere(this.transform.position, data.m_fPursuitRange );
+            Gizmos.DrawWireSphere(this.transform.position, data.m_fPursuitRange );
             //最遠的範圍
             //Gizmos.color = Color.white;
             ////CheackScope.LookRange(data, 45, 135f, 1f);
@@ -271,7 +272,10 @@ public class AITest : PlayerInput
                 //怪物攻擊判定內部判定要甚麼攻擊狀態
                 ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
                 //攻擊時間
-                    if (data.m_bAttack == true)
+                Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - data.m_ObjEnemy.transform.position, Vector3.up);
+                targetRotation.x = 0;
+                data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);
+                if (data.m_bAttack == true)
                     {
                         AttackTime = Random.Range(3f, 5f);
                         data.m_bAttack = false;
@@ -321,9 +325,18 @@ public class AITest : PlayerInput
                 if (AttackTime <= 0)
                 {
                     //怪物攻擊判定內部判定要甚麼攻擊狀態
-                    ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
                     //攻擊時間
+                   
+                        ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
+
+                    if (gameObject.tag == "StrongNpc")
+                    {
+                        AttackTime = Random.Range(2, 3);
+                    }
+                    else
+                    {
                     AttackTime = Random.Range(2, 4);
+                    }
 
                 }
                 else
@@ -398,10 +411,10 @@ public class AITest : PlayerInput
         data.m_fAngle = 180;
         //  data.m_fThinkTime = Random.Range(0.2f, 0.5f);
         data.m_iAttackRandom = Random.Range(1, 3);
-        data.m_fAttDis = 2.3f;
+        data.m_fAttDis = 3f;
         if (gameObject.tag == "StrongNpc")
         {
-            data.m_fAttDis = 5.0f;
+            data.m_fAttDis = 6.0f;
         }
         ClearTime = 3f;
         IdleTime = Random.Range(1f, 3f);

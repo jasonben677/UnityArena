@@ -15,6 +15,7 @@ TagManager:
   - FxTemporaire
   - StrongNpc
   - Spider
+  - fireWall
   layers:
   - Default
   - TransparentFX
