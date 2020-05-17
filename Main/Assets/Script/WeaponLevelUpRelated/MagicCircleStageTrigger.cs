@@ -78,7 +78,7 @@ public class MagicCircleStageTrigger : MonoBehaviour
         {
             if (treasure.transform.position.y >= treasureStartHeight - 4f)
             {
-                treasure.transform.position = new Vector3(treasure.transform.position.x, treasure.transform.position.y - 0.05f, treasure.transform.position.z);
+                treasure.transform.position = new Vector3(treasure.transform.position.x, treasure.transform.position.y - 0.07f, treasure.transform.position.z);
             }
             else 
             {

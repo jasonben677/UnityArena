@@ -4706,13 +4706,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1432855977736914, guid: 3be081639c09d214fa379f2072f6219a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1793004565219258, guid: 3be081639c09d214fa379f2072f6219a, type: 3}
       propertyPath: m_Name
       value: pf_vfx-ult_demo_psys_loop_weaponEffectElectricSwordOriginal
       objectReference: {fileID: 0}
     - target: {fileID: 1793004565219258, guid: 3be081639c09d214fa379f2072f6219a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4417535909644300, guid: 3be081639c09d214fa379f2072f6219a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11898,7 +11902,7 @@ PrefabInstance:
     - target: {fileID: 6414749271324138160, guid: 9fcfc9ac40b7de64aaa33a1a3dcc80c3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6463875884324872258, guid: 9fcfc9ac40b7de64aaa33a1a3dcc80c3,
         type: 3}
@@ -12441,75 +12445,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d2624b28d2cba8439edc1d47e437aab, type: 3}
---- !u!1001 &7091457860399813729
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7091457861457326668, guid: 1ef4f28e96b69e54289b64aaf5167cb3,
-        type: 3}
-      propertyPath: m_Name
-      value: WeaponDisplayStage
-      objectReference: {fileID: 0}
-    - target: {fileID: 7091457861457326671, guid: 1ef4f28e96b69e54289b64aaf5167cb3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 7091457861457326671, guid: 1ef4f28e96b69e54289b64aaf5167cb3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7091457861457326671, guid: 1ef4f28e96b69e54289b64aaf5167cb3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7091457861457326671, guid: 1ef4f28e96b69e54289b64aaf5167cb3,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7091457861457326671, guid: 1ef4f28e96b69e54289b64aaf5167cb3,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7091457861457326671, guid: 1ef4f28e96b69e54289b64aaf5167cb3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7091457861457326671, guid: 1ef4f28e96b69e54289b64aaf5167cb3,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7091457861457326671, guid: 1ef4f28e96b69e54289b64aaf5167cb3,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 39
-      objectReference: {fileID: 0}
-    - target: {fileID: 7091457861457326671, guid: 1ef4f28e96b69e54289b64aaf5167cb3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7091457861457326671, guid: 1ef4f28e96b69e54289b64aaf5167cb3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7091457861457326671, guid: 1ef4f28e96b69e54289b64aaf5167cb3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1ef4f28e96b69e54289b64aaf5167cb3, type: 3}
 --- !u!1001 &8499287587056056195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12651,7 +12586,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: LastAttack
       objectReference: {fileID: 0}
-    - target: {fileID: 5712095087003575759, guid: 770e779742ce7bf4dafb4ab2d169a082,
+    - target: {fileID: 4007106414463875884, guid: 770e779742ce7bf4dafb4ab2d169a082,
         type: 3}
       propertyPath: m_IsActive
       value: 0
