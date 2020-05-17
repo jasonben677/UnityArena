@@ -72,10 +72,10 @@ public class StateManager : MonoBehaviour
     //    playerHP.HP = Mathf.Clamp(playerHP.HP, 0, playerHP.MaxHP);        
     //}    
 
-    public void Test()
-    {
-        Debug.Log("sm test: HP is" + playerHP.HP);
-    }
+    //public void Test()
+    //{
+    //    Debug.Log("sm test: HP is" + playerHP.HP);
+    //}
 
 
     /// <summary>

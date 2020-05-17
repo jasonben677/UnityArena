@@ -80,10 +80,14 @@ public class MagicCircleStageTrigger : MonoBehaviour
             {
                 treasure.transform.position = new Vector3(treasure.transform.position.x, treasure.transform.position.y - 0.07f, treasure.transform.position.z);
             }
-            else 
+            else
             {
                 Destroy(treasure.transform.gameObject, 2f);
             }
+        }
+        else 
+        {
+            return;
         }
     }
 }

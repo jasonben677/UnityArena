@@ -34,34 +34,34 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OnSwitchWeapon();  
+        //OnSwitchWeapon();  
     }
 
-    
 
-    private void OnSwitchWeapon()    //切換武器功能
-    {
-        if (Input.GetKey(KeyCode.Z))
-        {
-            testWm.UnLoadWeapon();
-            testWm.UpdateWeaponCollider(weaponFact.CreateWeapon("katana01", testWm));
-        }
-        if (Input.GetKey(KeyCode.X))
-        {
-            testWm.UnLoadWeapon();
-            testWm.UpdateWeaponCollider(weaponFact.CreateWeapon("katana02", testWm));
-        }
-        if (Input.GetKey(KeyCode.C))
-        {
-            testWm.UnLoadWeapon();
-            testWm.UpdateWeaponCollider(weaponFact.CreateWeapon("katana03", testWm));
-        }
-        if (Input.GetKey(KeyCode.V))
-        {
-            testWm.UnLoadWeapon();
-        }
-    }
-    
+    //切換武器功能
+    //private void OnSwitchWeapon()    
+    //{
+    //    if (Input.GetKey(KeyCode.Z))
+    //    {
+    //        testWm.UnLoadWeapon();
+    //        testWm.UpdateWeaponCollider(weaponFact.CreateWeapon("katana01", testWm));
+    //    }
+    //    if (Input.GetKey(KeyCode.X))
+    //    {
+    //        testWm.UnLoadWeapon();
+    //        testWm.UpdateWeaponCollider(weaponFact.CreateWeapon("katana02", testWm));
+    //    }
+    //    if (Input.GetKey(KeyCode.C))
+    //    {
+    //        testWm.UnLoadWeapon();
+    //        testWm.UpdateWeaponCollider(weaponFact.CreateWeapon("katana03", testWm));
+    //    }
+    //    if (Input.GetKey(KeyCode.V))
+    //    {
+    //        testWm.UnLoadWeapon();
+    //    }
+    //}
+
     private void CheckGameObject()
     {
         if(tag == "GM")

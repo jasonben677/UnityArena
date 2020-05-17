@@ -205,10 +205,10 @@ public class WeaponManager : MonoBehaviour
 
     public void OnFXDisableE()
     {
-        //if (objFXE.gameObject != null) 
-        //{
-        //    Destroy(objFXE.gameObject);
-        //}        
+        if (objFXE.gameObject != null)
+        {
+            Destroy(objFXE.gameObject);
+        }
     }
 
     
