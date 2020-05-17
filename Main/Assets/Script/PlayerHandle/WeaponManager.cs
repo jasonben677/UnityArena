@@ -194,7 +194,7 @@ public class WeaponManager : MonoBehaviour
 
     public GameObject OnFXEnableE()
     {
-        GameObject prefabFX = Resources.Load("Attack1hC") as GameObject;
+        GameObject prefabFX = Resources.Load("LastAttack") as GameObject;
         objFXE = GameObject.Instantiate(prefabFX);
         objFXE.transform.parent = whR.transform;
         objFXE.transform.localPosition = Vector3.zero;
@@ -205,7 +205,10 @@ public class WeaponManager : MonoBehaviour
 
     public void OnFXDisableE()
     {
-        Destroy(objFXE.gameObject);
+        //if (objFXE.gameObject != null) 
+        //{
+        //    Destroy(objFXE.gameObject);
+        //}        
     }
 
     
@@ -267,8 +270,7 @@ public class WeaponManager : MonoBehaviour
         else
         {
             FinishWarp();
-        }
-        //am.transform.DOMove(am.ac.camcon.lockTarget.transform.position, warpDuration).SetEase(Ease.InExpo).OnComplete(()=>FinishWarp());
+        }        
         //am.transform.position = Vector3.Lerp(am.transform.position, am.ac.camcon.lockTarget.transform.position, lerpWarp);
         //if (am.transform.position == am.ac.camcon.lockTarget.transform.position)
         //{
@@ -278,7 +280,7 @@ public class WeaponManager : MonoBehaviour
 
         //Particles        
         redTrail.Play();
-            whiteTrail.Play(); 
+        whiteTrail.Play(); 
     }
 
     private void FinishWarp()
@@ -286,18 +288,8 @@ public class WeaponManager : MonoBehaviour
         //Debug.Log("finishWarp Enter");
         RevealModel(true);
 
-        //SkinnedMeshRenderer[] skinMeshList = GetComponentsInChildren<SkinnedMeshRenderer>();
-        //foreach (SkinnedMeshRenderer smr in skinMeshList)
-        //{
-        //    material.....shader
-        //}
+        Instantiate(slashHitParticle, whR.transform.position, Quaternion.identity);      
 
-        Instantiate(slashHitParticle, whR.transform.position, Quaternion.identity);
-
-        //am.ac.camcon.lockTarget.GetComponentInChildren<Animator>().SetTrigger("stunned");
-        
-        //am.ac.camcon.lockTarget.transform.DOMove(am.ac.camcon.lockTarget.transform.position + transform.forward, 0.5f);
-        //用Lerp位移敵人NPC位置，避免向量是0的情況
         am.ac.camcon.lockTarget.transform.position = Vector3.Lerp(am.ac.camcon.lockTarget.transform.position, am.ac.camcon.lockTarget.transform.position + transform.forward *0.95f, 0.8f);
 
         StartCoroutine(PlayAnimation());

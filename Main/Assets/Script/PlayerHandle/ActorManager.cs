@@ -172,7 +172,6 @@ public class ActorManager : MonoBehaviour
                         Hit();
                     }
                     //do some VFX, like splatter blood...
-
                     //Instantiate(bloodParticle, transform.position + new Vector3(0, bm.bloodFXPositionHieght * 0.6f, 0), Quaternion.identity);
                     Instantiate(bloodParticle, transform.position + new Vector3(0, bm.bloodFXPositionHieght * 0.6f, 0), Quaternion.Euler(-90f, 0f, 0f));
                     AudioSource.PlayClipAtPoint(bloodSound, transform.position + new Vector3(0, bm.bloodFXPositionHieght * 0.6f, 0), 0.5f);

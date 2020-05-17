@@ -45,6 +45,6 @@ public class PlayerAudio : MonoBehaviour
 
     public void OnExplosion() 
     {
-        AudioSource.PlayClipAtPoint(explosionSound, whR.transform.position, 0.3f);
+        //AudioSource.PlayClipAtPoint(explosionSound, whR.transform.position, 0.3f);
     }
 }
