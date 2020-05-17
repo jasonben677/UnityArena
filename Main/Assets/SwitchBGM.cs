@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class SwitchBGM : MonoBehaviour
 {
-
-    public AudioClip[] audios;
+    public static SwitchBGM instance = null;
+    public AudioClip[] audioClips;
+    public AudioSource audioSource;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
-        this.GetComponent<AudioSource>().clip = audios[0];
-        this.GetComponent<AudioSource>().Play();
+        audioSource = this.GetComponent<AudioSource>();
+        audioSource.clip = audioClips[0];
+        audioSource.Play();
+
+        //this.GetComponent<AudioSource>().clip = audioClips[0];
+        //this.GetComponent<AudioSource>().Play();
     }
 
     // Update is called once per frame

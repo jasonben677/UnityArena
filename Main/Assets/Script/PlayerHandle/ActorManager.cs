@@ -143,6 +143,9 @@ public class ActorManager : MonoBehaviour
                     else if (gameObject.tag == "Boss")
                     {
                         NumericalManager.instance.GetExp();
+                        //Boss死後，切換回原來的BGM
+                        //SwitchBGM.instance.audioSource.clip = SwitchBGM.instance.audioClips[0];
+                        //SwitchBGM.instance.audioSource.Play();
                     }
                 }
                 //Already dead
