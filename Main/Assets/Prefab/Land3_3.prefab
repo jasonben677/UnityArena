@@ -1763,8 +1763,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   am: {fileID: 3393427908702691962}
   pi: {fileID: 5496476455433804976}
-  horizontalSpeed: 88
-  verticalSpeed: 88
+  horizontalSpeed: 86
+  verticalSpeed: 86
   cameraDampValue: 0.15
   lockDot: {fileID: 0}
   lockTarget: {fileID: 0}
