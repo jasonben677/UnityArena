@@ -118,13 +118,13 @@ public class AITest : PlayerInput
 
                         ani.EnemyAnimater(data, AIAnimater.EnemyAni.ANGER);
                         data.m_fPursuitRange = data.m_fPursuitRange * 3;
-                        if (data.bAnger == true) 
+                        if (data.bAnger == true)
                         {
                             data.bAnger = false;
                             return;
 
                         }
-                    
+
                     }
 
                 }
@@ -145,7 +145,7 @@ public class AITest : PlayerInput
 
                     //EnemyPatrol();
                 }
-                else 
+                else
                 {
                     ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
                     IdleTime -= Time.deltaTime;
@@ -187,7 +187,7 @@ public class AITest : PlayerInput
 
             //最近的範圍
             Gizmos.color = Color.white;
-            Gizmos.DrawWireSphere(this.transform.position, data.m_fPursuitRange );
+            Gizmos.DrawWireSphere(this.transform.position, data.m_fPursuitRange);
             //最遠的範圍
             //Gizmos.color = Color.white;
             ////CheackScope.LookRange(data, 45, 135f, 1f);
@@ -256,36 +256,8 @@ public class AITest : PlayerInput
         if (EnterInto.Distance(data, data.m_vTarget, data.m_fAttDis) == true)
         {
             IdleTime = Random.Range(1f, 3f);
-
             // 攻擊時間判斷
-            if (AttackTime >= 0)
-            {
-
-                //這裡可以做出怪物的警戒
-                AttackTime -= Time.deltaTime;
-                //怪物IDLE
-                ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
-            
-            }
-            else
-            {
-                //怪物攻擊判定內部判定要甚麼攻擊狀態
-                ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
-                //攻擊時間
-                Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - data.m_ObjEnemy.transform.position, Vector3.up);
-                targetRotation.x = 0;
-                data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);
-                if (data.m_bAttack == true)
-                    {
-                        AttackTime = Random.Range(3f, 5f);
-                        data.m_bAttack = false;
-
-                        return;
-                    }
-               
-
-                
-            }
+            Attack();
         }
         else
         {
@@ -296,7 +268,7 @@ public class AITest : PlayerInput
                 {
                     SteeringBehaviour.Seek(data, data.ArrTarget[data.m_fID].transform.position);
                 }
-                
+
                 //追擊判定
                 SteeringBehaviour.Move(data);
                 ani.EnemyAnimater(data, AIAnimater.EnemyAni.RUN);
@@ -326,8 +298,8 @@ public class AITest : PlayerInput
                 {
                     //怪物攻擊判定內部判定要甚麼攻擊狀態
                     //攻擊時間
-                   
-                        ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
+
+                    ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
 
                     if (gameObject.tag == "StrongNpc")
                     {
@@ -335,7 +307,7 @@ public class AITest : PlayerInput
                     }
                     else
                     {
-                    AttackTime = Random.Range(2, 4);
+                        AttackTime = Random.Range(2, 4);
                     }
 
                 }
@@ -426,4 +398,37 @@ public class AITest : PlayerInput
         this.data.m_ObjEnemy.SetActive(data.OnTag);
     }
     #endregion
+
+    void Attack()
+    {
+        if (AttackTime >= 0)
+        {
+
+            //這裡可以做出怪物的警戒
+            AttackTime -= Time.deltaTime;
+            //怪物IDLE
+            ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
+
+        }
+        else
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(data.ArrTarget[data.m_fID].transform.position - data.m_ObjEnemy.transform.position, Vector3.up);
+            targetRotation.x = 0;
+            data.m_ObjEnemy.transform.rotation = Quaternion.Slerp(data.m_ObjEnemy.transform.rotation, targetRotation, 5f);
+            //怪物攻擊判定內部判定要甚麼攻擊狀態
+            ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
+            //攻擊時間
+            
+            if (data.m_bAttack == true)
+            {
+                AttackTime = Random.Range(3f, 5f);
+                data.m_bAttack = false;
+
+                return;
+            }
+
+
+
+        }
+    }
 }
