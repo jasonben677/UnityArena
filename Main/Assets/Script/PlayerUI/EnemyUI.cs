@@ -90,7 +90,7 @@ namespace PlayerUI
 
                 float hpRate = (float)System.Math.Round((double)(enemy.fPlayerHp / enemy.fPlayerMaxHp), 2);
 
-                enemyHp.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
+                enemyHp.fillAmount = hpRate;
 
                 hpText.text = enemy.fPlayerHp + "/" + enemy.fPlayerMaxHp.ToString();
 
@@ -98,7 +98,7 @@ namespace PlayerUI
 
                 enemyLevel.text = enemy.iLevel.ToString();
 
-                if (hpRate <= 0.02f)
+                if (hpRate <= 0f)
                 {
                     IsUse = false;
                 }
@@ -119,7 +119,7 @@ namespace PlayerUI
 
                 float hpRate = (float)System.Math.Round((double)(enemy.fPlayerHp / enemy.fPlayerMaxHp), 2);
 
-                enemyHp.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
+                enemyHp.fillAmount = hpRate;
 
                 hpText.text = enemy.fPlayerHp + "/" + enemy.fPlayerMaxHp.ToString();
 
@@ -127,7 +127,7 @@ namespace PlayerUI
 
                 enemyLevel.text = enemy.iLevel.ToString();
 
-                if (hpRate <= 0.02f)
+                if (hpRate <= 0f)
                 {
                     IsUse = false;
                 }

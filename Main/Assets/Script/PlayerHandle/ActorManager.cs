@@ -136,23 +136,29 @@ public class ActorManager : MonoBehaviour
                     {
                         StartCoroutine(DeadDelay());
                     }
-                    else if (gameObject.tag == "Npc")
-                    {
-                        NumericalManager.instance.GetExp(transform.GetSiblingIndex());
-                    } 
-                    else if (gameObject.tag == "Spider")
-                    {
-                        //Spider死後，切換回原來的BGM
-                        SwitchBGM.instance.audioSource.clip = SwitchBGM.instance.audioClips[0];
-                        SwitchBGM.instance.audioSource.Play();
-                    }
                     else if (gameObject.tag == "Boss")
                     {
-                        NumericalManager.instance.GetExp();
+                        NumericalManager.instance.GetExp(0, 0);
                         //Boss死後，切換回原來的BGM
                         SwitchBGM.instance.audioSource.clip = SwitchBGM.instance.audioClips[0];
                         SwitchBGM.instance.audioSource.Play();
                     }
+                    else if (gameObject.tag == "StrongNpc")
+                    {
+                        NumericalManager.instance.GetExp(transform.GetSiblingIndex(), 1);
+                    }
+                    else if (gameObject.tag == "Spider")
+                    {
+                        NumericalManager.instance.GetExp(0, 2);
+                        //Spider死後，切換回原來的BGM
+                        SwitchBGM.instance.audioSource.clip = SwitchBGM.instance.audioClips[0];
+                        SwitchBGM.instance.audioSource.Play();
+                    }
+                    else if (gameObject.tag == "Npc")
+                    {
+                        NumericalManager.instance.GetExp(transform.GetSiblingIndex(), 3);
+                    }
+
                 }
                 //Already dead
             }
@@ -188,62 +194,67 @@ public class ActorManager : MonoBehaviour
         {
             enemy = NumericalManager.instance.GetNpc(transform.GetSiblingIndex());
             float atk = targetWc.GetATK();
-            enemy.fPlayerHp -= atk;
-            sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
+
             if (enemy.fPlayerHp >= 0)
             {
                 PlayerUI.UIManager.instance.ShowAttack(gameObject, atk);
-
             }
+
+            enemy.fPlayerHp -= atk;
+            sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
 
         }
         else if (gameObject.tag == "Player")
         {
             enemy = NumericalManager.instance.GetMainPlayer();
             float atk = targetWc.GetATK();
-            enemy.fPlayerHp -= atk;
-            sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
+
             if (enemy.fPlayerHp >= 0)
             {
                 PlayerUI.UIManager.instance.ShowAttack(gameObject, atk);
-
             }
+
+            enemy.fPlayerHp -= atk;
+            sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
         }
         else if (gameObject.tag == "StrongNpc")
         {
             enemy = NumericalManager.instance.GetStrongNpc(transform.GetSiblingIndex());
             float atk = targetWc.GetATK();
-            enemy.fPlayerHp -= atk;
-            sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
+
             if (enemy.fPlayerHp >= 0)
             {
                 PlayerUI.UIManager.instance.ShowAttack(gameObject, atk);
-
             }
+
+            enemy.fPlayerHp -= atk;
+            sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
         }
         else if (gameObject.tag == "Spider")
         {
             enemy = NumericalManager.instance.GetSpider();
             float atk = targetWc.GetATK();
-            enemy.fPlayerHp = Mathf.Clamp((enemy.fPlayerHp - atk), -5, 1000);
-            sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
+
             if (enemy.fPlayerHp >= 0)
             {
                 PlayerUI.UIManager.instance.ShowAttack(gameObject, atk);
-
             }
+
+            enemy.fPlayerHp -= atk;
+            sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
         }
         else if (gameObject.tag == "Boss")
         {
             enemy = NumericalManager.instance.GetBoss();
             float atk = targetWc.GetATK();
-            enemy.fPlayerHp = Mathf.Clamp((enemy.fPlayerHp - atk), -5, 1000);
-            sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
+
             if (enemy.fPlayerHp >= 0)
             {
                 PlayerUI.UIManager.instance.ShowAttack(gameObject, atk);
-
             }
+
+            enemy.fPlayerHp -= atk;
+            sm.playerHP.SetCurrentHP(enemy.fPlayerHp);
         }
 
         

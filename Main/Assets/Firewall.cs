@@ -18,7 +18,7 @@ public class Firewall : MonoBehaviour
     void Update()
     {
          isBossDie= GuanZhu.GetComponent<StateManager>().isDie;
-        isBossDead = GuanZhu.GetComponent<BossAI>().isDead;
+        //isBossDead = GuanZhu.GetComponent<BossAI>().isDead;
         if (isBossDie == true || isBossDead == true) ;
         {
             gameObject.SetActive(true);

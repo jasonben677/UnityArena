@@ -15,9 +15,14 @@ public class BossAI : PlayerInput
     public bool isDead;
 
     bool canTriggerAngry = true;
-    Rigidbody myrigi;
-    float AttackDelay = 0.5f;
 
+    Rigidbody myrigi;
+
+
+    int attackIndex = -1;
+
+    float AttackDelay = 0.5f;
+    float walkDelay = 0f;
 
     private void Awake()
     {
@@ -36,7 +41,6 @@ public class BossAI : PlayerInput
 
             if (NumericalManager.instance.GetBoss().fPlayerHp <= 0)
             {
-            
                 Debug.Log("dead");
                 BossAnim.Play("Dying_A");
                 if (!PlayerUI.UIManager.instance.winGame)
@@ -48,17 +52,23 @@ public class BossAI : PlayerInput
             }
             else if (NumericalManager.instance.GetBoss().fPlayerHp > 0)
             {
-                if (dis > 7.5f)
+                if (dis >= 4.5f)
                 {
-                    BossAnim.Play("Run", 0);
-                    myrigi.position += dev * 10.0f * Time.deltaTime;
+                    walkDelay -= Time.deltaTime;
 
-                    AttackDelay = Random.Range(1.0f, 1.2f);
+                    if (walkDelay <= 0)
+                    {
+                        BossAnim.Play("Run", 0);
+                        myrigi.position += dev * 10.0f * Time.deltaTime;
 
-                    //transform.position += dev * 5.0f * Time.deltaTime;
+                        AttackDelay = 0;
+                        attackIndex = 3;
+                  
+                    }
+
                     transform.forward = dev;
                     attackEnable.AttackDisable();
-                    //_PlayAnimNormalSpeed("walkNormal");
+
                 }
                 else
                 {
@@ -66,30 +76,29 @@ public class BossAI : PlayerInput
 
                     if (AttackDelay <= 0)
                     {
-                        AttackDelay = Random.Range(2.0f, 3.0f);
+                        
                         transform.forward = dev;
-                        int attackIndex = canTriggerAngry ? Random.Range(0,5) : Random.Range(0,4);
 
                         switch (attackIndex)
                         {
                             case 0:
-                                _NormalAttack();
+                                //normal attack
+                                _AttackStateControl("adfadf", 2.5f, 3.0f, 2.0f);
                                 break;
 
                             case 1:
-                                _NormalAttack();
+                                //combo
+                                _AttackStateControl("rgdasfa", 2.5f, 3.0f, 3.5f);
                                 break;
 
                             case 2:
-                                _ComboAttack();
+                                //anger
+                                _AttackStateControl("anger", 2.5f, 3.0f, 3.0f);
                                 break;
 
                             case 3:
-                                _NormalAttack();
-                                break;
-
-                            case 4:
-                                _GetAngry();
+                                //idle
+                                _AttackStateControl("COMBAT_Mode", 0.6f, 0.8f, 1.0f);
                                 break;
 
                             default:
@@ -129,9 +138,28 @@ public class BossAI : PlayerInput
         canTriggerAngry = false;
     }
 
+    private void _AttackStateControl(string _name, float _attackTimeMin, float _attackTimeMax, float _walkDelay)
+    {
+        attackIndex = canTriggerAngry ? Random.Range(0, 3) : Random.Range(0, 2);
+        AttackDelay = Random.Range(_attackTimeMin, _attackTimeMax);
+        walkDelay = _walkDelay;
+
+        BossAnim.speed = Random.Range(0.8f, 1.2f);
+        BossAnim.Play(_name);
+
+        if (_name == "anger")
+        {
+            fire01.gameObject.SetActive(true);
+            fire02.gameObject.SetActive(true);
+            canTriggerAngry = false;
+        }
+
+    }
+
+
     private IEnumerator BossDisappear()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(3.0f);
         gameObject.SetActive(false);
     }
 }

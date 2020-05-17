@@ -9,15 +9,22 @@ public class BlackSpiderAI : PlayerInput
     public BossTrigger bossTrigger;
     public Transform player;
 
+    public GameObject bossBlock;
+
     public bool isDead = false;
 
     float AttackDelay = 0.5f;
-    float walkTime = 1.0f;
-    int walkIndex = 0;
+    float walkDelay = 0f;
 
-    void Start()
+    float walkTime = 1.0f;
+
+    int walkIndex = 0;
+    int attackIndex = -1;
+
+    void Awake()
     {
         NumericalManager.instance.SetSpider();
+        bossBlock.SetActive(true);
     }
 
     // Update is called once per frame
@@ -37,6 +44,7 @@ public class BlackSpiderAI : PlayerInput
                     Debug.Log("dead");
                     attackCol.enabled = false;
                     bossTrigger.wall.isTrigger = true;
+                    bossBlock.SetActive(false);
                     StartCoroutine(BossDissapear());
                     isDead = true;
                 }
@@ -45,54 +53,56 @@ public class BlackSpiderAI : PlayerInput
             }
             else if (NumericalManager.instance.GetSpider().fPlayerHp > 0)
             {
-                if (dis > 3.5f)
+                if (dis > 4.0f)
                 {
-                    switch (walkIndex)
+                    walkDelay -= Time.deltaTime;
+
+                    if (walkDelay <= 0)
                     {
-                        case 0:
-                            _WalkForward(dev);
-                            break;
+                        switch (walkIndex)
+                        {
+                            case 0:
+                                _WalkForward(dev);
+                                break;
 
-                        case 1:
-                            _WalkBack(dev);
-                            break;
+                            case 1:
+                                _Idle(dev);
+                                break;
 
-                        default:
-                            break;
+                            default:
+                                break;
+                        }
+
+                        AttackDelay = 0;
+                        transform.forward = (-dev);
+                        attackIndex = 3;
                     }
 
-                    AttackDelay = Random.Range(1.0f, 1.2f);
 
-                    //transform.position += dev * 5.0f * Time.deltaTime;
-                    transform.forward = (-dev);
-                    
-                    //_PlayAnimNormalSpeed("walkNormal");
                 }
                 else
                 {
                     AttackDelay -= Time.deltaTime;
                     if (AttackDelay <= 0)
-                    {
-                        AttackDelay = Random.Range(2.0f, 3.0f);
+                    {        
+                        
                         transform.forward = (-dev);
-                        int attackIndex = Random.Range(0, 4);
-
                         switch (attackIndex)
                         {
                             case 0:
-                                _PlayAnimation("biteAggressive");
+                                _AttackStateControl("biteAggressive", 2.0f, 3.0f, 3);
                                 break;
 
                             case 1:
-                                _PlayAnimation("3HitComboAggressive");
+                                _AttackStateControl("3HitComboAggressive", 2.0f, 3.0f, 3);
                                 break;
 
                             case 2:
-                                _PlayAnimation("jumpBiteNormal");
+                                _AttackStateControl("jumpBiteAggressive", 2.0f, 3.0f, 3);
                                 break;
 
                             case 3:
-                                _PlayAnimation("jumpBiteAggressive");
+                                _AttackStateControl("idleNormal1", 0.6f, 0.8f, 3);
                                 break;
 
                             default:
@@ -128,6 +138,24 @@ public class BlackSpiderAI : PlayerInput
 
     }
 
+    private void _AttackStateControl(string _name, float _attackTimeMin, float _attackTimeMax, int _attackIndex)
+    {
+        try
+        {
+            AttackDelay = Random.Range(_attackTimeMin, _attackTimeMax);
+            animation[_name].speed = Random.Range(0.8f, 1.2f);
+            animation.Play(_name);
+            attackIndex = Random.Range(0, _attackIndex);
+            walkDelay = 1.0f;
+        }
+        catch (System.Exception)
+        {
+
+            Debug.LogError(_name);
+        }
+    }
+
+
     private void _PlayAnimNormalSpeed(string _name)
     {
         try
@@ -151,15 +179,15 @@ public class BlackSpiderAI : PlayerInput
 
         transform.position += dev * 5.0f * Time.deltaTime;
         _PlayAnimNormalSpeed("walkNormal");
-
+        Debug.Log("Walk");
         if (walkTime <= 0)
         {
             walkTime = 1;
-            walkIndex = Random.Range(0, 2);
+            //walkIndex = Random.Range(0, 2);
         }
     }
 
-    private void _WalkBack(Vector3 dev)
+    private void _Idle(Vector3 dev)
     {
         walkTime -= Time.deltaTime;
         _PlayAnimNormalSpeed("idleNormal1");
@@ -173,7 +201,7 @@ public class BlackSpiderAI : PlayerInput
 
     private IEnumerator BossDissapear()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(3.0f);
         gameObject.SetActive(false);
     }
 

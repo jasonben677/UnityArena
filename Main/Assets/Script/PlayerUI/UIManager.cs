@@ -46,6 +46,7 @@ namespace PlayerUI
 
         [SerializeField] TextMeshProUGUI rpText;
         [SerializeField] TextMeshProUGUI bpText;
+        [SerializeField] GameObject levelNotification;
 
 
         private void Awake()
@@ -249,7 +250,7 @@ namespace PlayerUI
 
             float hpRate = (float)System.Math.Round((double)(enemy.fPlayerHp / enemy.fPlayerMaxHp), 2);
 
-            enemyHp.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
+            enemyHp.fillAmount = hpRate;
 
             hpText.text = enemy.fPlayerHp + "/" + enemy.fPlayerMaxHp.ToString();
 
@@ -257,7 +258,7 @@ namespace PlayerUI
 
             enemyLevel.text = enemy.iLevel.ToString();
 
-            if (hpRate <= 0.02f)
+            if (hpRate <= 0f)
             {
                 bossUI.SetActive(false);
             }
@@ -279,7 +280,7 @@ namespace PlayerUI
 
             float hpRate = (float)System.Math.Round((double)(enemy.fPlayerHp / enemy.fPlayerMaxHp), 2);
 
-            enemyHp.fillAmount = Mathf.Clamp(hpRate, 0.05f, 1f);
+            enemyHp.fillAmount = hpRate;
 
             hpText.text = enemy.fPlayerHp + "/" + enemy.fPlayerMaxHp.ToString();
 
@@ -287,7 +288,7 @@ namespace PlayerUI
 
             enemyLevel.text = enemy.iLevel.ToString();
 
-            if (hpRate <= 0.02f)
+            if (hpRate <= 0f)
             {
                 spiderUI.SetActive(false);
             }
@@ -333,6 +334,11 @@ namespace PlayerUI
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                if (questPanel.activeSelf)
+                {
+                    return;
+                }
+
                 if (optionPanel.activeSelf)
                 {
                     optionPanel.SetActive(false);
@@ -376,9 +382,20 @@ namespace PlayerUI
         }
 
 
+        public IEnumerator ShowLevelUpUI(int _level)
+        {
+            TextMeshProUGUI text = levelNotification.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
+
+            text.text = "Level " + _level;
+            levelNotification.SetActive(true);
+
+            yield return new WaitForSeconds(2.0f);
+            levelNotification.SetActive(false);
+        }
+
         IEnumerator WinGame()
         {
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(4.0f);
             questPanel.SetActive(true);
 
             yield return new WaitForSeconds(2.0f);
@@ -395,6 +412,8 @@ namespace PlayerUI
             yield return new WaitForSeconds(1.0f);
             _text.SetActive(false);
         }
+
+
     }
 }
 

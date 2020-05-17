@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341747048}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 100, z: 0}
+  m_LocalPosition: {x: 0, y: 200, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 6744780851153860929}
@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBossFight: 0
+  wall: {fileID: 0}
 --- !u!1 &6744780851153860930
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +414,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6744780851153860930}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 1.21, z: 0}
+  m_LocalPosition: {x: -9, y: 1.21, z: -9}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4336558446331517447}
@@ -564,6 +565,7 @@ MonoBehaviour:
   attackEnable: {fileID: 4492571741895844012}
   fire01: {fileID: 4624928065256522618}
   fire02: {fileID: 8209602785788163371}
+  isDead: 0
 --- !u!1 &6744780851290816908
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +576,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6744780851290816899}
   m_Layer: 0
-  m_Name: BossArea (2)
+  m_Name: MouseKing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

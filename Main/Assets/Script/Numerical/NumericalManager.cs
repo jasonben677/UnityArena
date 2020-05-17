@@ -24,6 +24,8 @@ public class NumericalManager : MonoBehaviour
 
 
     [SerializeField] ScenceFade ScenceFade;
+    [SerializeField] AudioClip[] audio; 
+
 
     private void Awake()
     {
@@ -73,24 +75,40 @@ public class NumericalManager : MonoBehaviour
     /// 打死小怪
     /// </summary>
     /// <param name="_index">小怪編號 </param>
-    public void GetExp(int _index)
+    /// <param name="_type">怪物類型 0: boss, 1: strongNpc, 2: spider, 3: npc </param>
+    public void GetExp(int _index, int _type)
     {
-        gameInfo.fCurrExp += npcs[_index].fCurrExp;
+        float exp = 0;
+
+        switch (_type)
+        {
+            case 0:
+                exp = bossInfo.fCurrExp;
+                break;
+
+            case 1:
+                exp = strongNpcs[_index].fCurrExp;
+                break;
+
+            case 2:
+                exp = spider.fCurrExp;
+                break;
+
+            case 3:
+                exp = npcs[_index].fCurrExp;
+                break;
+
+            default:
+                break;
+        }
+
+        gameInfo.fCurrExp += exp;
+
         if (gameInfo.fCurrExp >= gameInfo.fNextLevelExp)
         {
             StartCoroutine(_PlayerLevelUp());
         }
-        //PlayerUI.UIManager.instance.UpdatePlayerUI();
     }
-
-    /// <summary>
-    /// 離開遊戲
-    /// </summary>
-    public void LeaveGame()
-    {
-        Application.Quit();
-    }
-
 
     /// <summary>
     /// 打死boss
@@ -103,6 +121,17 @@ public class NumericalManager : MonoBehaviour
             StartCoroutine(_PlayerLevelUp());
         }
     }
+
+    /// <summary>
+    /// 離開遊戲
+    /// </summary>
+    public void LeaveGame()
+    {
+        Application.Quit();
+    }
+
+
+
 
 
 
@@ -207,7 +236,7 @@ public class NumericalManager : MonoBehaviour
             fPlayerMp = 0,
 
             fAtk = 35,
-            fCurrExp = 600,
+            fCurrExp = 700,
             fNextLevelExp = 0
         };
     }
@@ -285,6 +314,9 @@ public class NumericalManager : MonoBehaviour
     private IEnumerator _PlayerLevelUp()
     {
         PlayerInfo player = gameInfo;
+        AudioSource.PlayClipAtPoint(audio[0], PlayerUI.UIManager.instance.mainCamera.transform.position);
+        StartCoroutine(PlayerUI.UIManager.instance.ShowLevelUpUI(player.iLevel + 1));
+
         yield return new WaitForSeconds(0.3f);
         player.iLevel += 1;
 
