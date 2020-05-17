@@ -139,6 +139,12 @@ public class ActorManager : MonoBehaviour
                     else if (gameObject.tag == "Npc")
                     {
                         NumericalManager.instance.GetExp(transform.GetSiblingIndex());
+                    } 
+                    else if (gameObject.tag == "Spider")
+                    {
+                        //Spider死後，切換回原來的BGM
+                        SwitchBGM.instance.audioSource.clip = SwitchBGM.instance.audioClips[0];
+                        SwitchBGM.instance.audioSource.Play();
                     }
                     else if (gameObject.tag == "Boss")
                     {
