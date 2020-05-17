@@ -31,27 +31,27 @@ Transform:
   m_LocalPosition: {x: 265.1, y: 10.498169, z: 98.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1702020692}
-  - {fileID: 1579560709}
-  - {fileID: 630796956}
-  - {fileID: 1968833211}
-  - {fileID: 645705652}
-  - {fileID: 359413833}
-  - {fileID: 908422486}
-  - {fileID: 1720168658}
-  - {fileID: 2095307800}
-  - {fileID: 910711714}
-  - {fileID: 464605805}
-  - {fileID: 368470926}
-  - {fileID: 3513720621534061748}
-  - {fileID: 6721521339081781839}
-  - {fileID: 7998073425723136417}
-  - {fileID: 7887564273320477864}
-  - {fileID: 4241522071700891505}
-  - {fileID: 628958447}
-  - {fileID: 1583570873}
-  - {fileID: 440002965}
-  - {fileID: 118521308}
+  - {fileID: 66937273933008764}
+  - {fileID: 66937274290824749}
+  - {fileID: 66937275021884340}
+  - {fileID: 66937273667177363}
+  - {fileID: 66937274957096604}
+  - {fileID: 66937275276882273}
+  - {fileID: 66937274693395582}
+  - {fileID: 66937273898760698}
+  - {fileID: 66937273791518000}
+  - {fileID: 66937274691490442}
+  - {fileID: 66937275455445829}
+  - {fileID: 66937275283808934}
+  - {fileID: 3471977693362318748}
+  - {fileID: 6749324721996512103}
+  - {fileID: 7931703706570477705}
+  - {fileID: 7898063543304719744}
+  - {fileID: 4193175346763640409}
+  - {fileID: 66937275007462855}
+  - {fileID: 66937274286413457}
+  - {fileID: 66937275430838461}
+  - {fileID: 66937275516204276}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -405,7 +405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &118521308 stripped
+--- !u!4 &66937275516204276 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -668,7 +668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &359413833 stripped
+--- !u!4 &66937275276882273 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -2931,7 +2931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &368470926 stripped
+--- !u!4 &66937275283808934 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -3112,6 +3112,36 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.032
       objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Pitch
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: Priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: Pan2D
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9167230976864704027, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Enabled
@@ -3119,7 +3149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &440002965 stripped
+--- !u!4 &66937275430838461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -3382,7 +3412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &464605805 stripped
+--- !u!4 &66937275455445829 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -3550,7 +3580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &628958447 stripped
+--- !u!4 &66937275007462855 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -3841,6 +3871,36 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.032
       objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Pitch
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: Priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: Pan2D
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9167230976864704027, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Enabled
@@ -3848,7 +3908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &630796956 stripped
+--- !u!4 &66937275021884340 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -4124,6 +4184,36 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.032
       objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Pitch
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: Priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: Pan2D
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9167230976864704027, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Enabled
@@ -4131,7 +4221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &645705652 stripped
+--- !u!4 &66937274957096604 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -4394,7 +4484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &908422486 stripped
+--- !u!4 &66937274693395582 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -4657,7 +4747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &910711714 stripped
+--- !u!4 &66937274691490442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -4920,7 +5010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &1579560709 stripped
+--- !u!4 &66937274290824749 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -5200,7 +5290,7 @@ PrefabInstance:
     - {fileID: 9167230976864704027, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
     - {fileID: 9167230976864704027, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &1583570873 stripped
+--- !u!4 &66937274286413457 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -5316,7 +5406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &1702020692 stripped
+--- !u!4 &66937273933008764 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -5579,7 +5669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &1720168658 stripped
+--- !u!4 &66937273898760698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -5855,6 +5945,36 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.032
       objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Pitch
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: Priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: Pan2D
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9167230976864704027, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Enabled
@@ -5862,7 +5982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &1968833211 stripped
+--- !u!4 &66937273667177363 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -8125,7 +8245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &2095307800 stripped
+--- !u!4 &66937273791518000 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -8408,7 +8528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &3513720621534061748 stripped
+--- !u!4 &3471977693362318748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -8701,7 +8821,7 @@ PrefabInstance:
     - {fileID: 9167230976864704027, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
     - {fileID: 9167230976864704027, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &4241522071700891505 stripped
+--- !u!4 &4193175346763640409 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -8992,6 +9112,36 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.032
       objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: m_Pitch
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: Priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: Pan2D
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858164227418958327, guid: 4406f9e3c21c42d40bb13e09d19db152,
+        type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9167230976864704027, guid: 4406f9e3c21c42d40bb13e09d19db152,
         type: 3}
       propertyPath: m_Enabled
@@ -8999,7 +9149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &6721521339081781839 stripped
+--- !u!4 &6749324721996512103 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -9287,7 +9437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &7887564273320477864 stripped
+--- !u!4 &7898063543304719744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
@@ -9575,7 +9725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4406f9e3c21c42d40bb13e09d19db152, type: 3}
---- !u!4 &7998073425723136417 stripped
+--- !u!4 &7931703706570477705 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 66937275601145251, guid: 4406f9e3c21c42d40bb13e09d19db152,
     type: 3}
