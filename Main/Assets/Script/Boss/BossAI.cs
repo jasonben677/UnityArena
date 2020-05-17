@@ -12,7 +12,10 @@ public class BossAI : PlayerInput
     public ParticleSystem fire01;
     public ParticleSystem fire02;
 
-    public bool isDead;
+    public bool isDead = false;
+
+    [System.NonSerialized]
+    public bool isGetExp = false;
 
     bool canTriggerAngry = true;
 
