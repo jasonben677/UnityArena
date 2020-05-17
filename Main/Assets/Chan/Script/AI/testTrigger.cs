@@ -5,7 +5,6 @@ using UnityEngine;
 public class testTrigger : MonoBehaviour
 {
     GameObject[] Enemy;
-    public GameObject vfxult;
     int a = 2;
     private void Awake()
     {
@@ -42,13 +41,9 @@ public class testTrigger : MonoBehaviour
 
 
                     Npc.SetActive(true);
-                   Instantiate(vfxult, TreeEnemy, Npc.transform.rotation,Npc.transform);
 
-                    if (a <= 2) 
-                    {
-                        vfxult.SetActive(false);
-                    }
                 }
+                this.gameObject.SetActive(false);
             }
         }
     }
