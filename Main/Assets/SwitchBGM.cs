@@ -19,9 +19,6 @@ public class SwitchBGM : MonoBehaviour
         audioSource = this.GetComponent<AudioSource>();
         audioSource.clip = audioClips[0];
         audioSource.Play();
-
-        //this.GetComponent<AudioSource>().clip = audioClips[0];
-        //this.GetComponent<AudioSource>().Play();
     }
 
     // Update is called once per frame
