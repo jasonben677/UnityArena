@@ -100,7 +100,7 @@ public class ActorManager : MonoBehaviour
         {
             Blocked();
             Instantiate(blockParticle, transform.position + new Vector3(0, bm.bloodFXPositionHieght * 0.6f, 0), Quaternion.identity);
-            AudioSource.PlayClipAtPoint(katanaSound, wm.whR.transform.position, 1);
+            AudioSource.PlayClipAtPoint(katanaSound, wm.whR.transform.position, 1);            
         }
         else
         {

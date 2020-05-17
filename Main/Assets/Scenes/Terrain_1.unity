@@ -11270,11 +11270,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1802287261238208625, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802287261238208625, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.9
+      objectReference: {fileID: 0}
     - target: {fileID: 3655458464062163198, guid: d8320019a28c58d43803db0012573944,
         type: 3}
       propertyPath: testWm
       value: 
       objectReference: {fileID: 1541570900}
+    - target: {fileID: 5474154527018912758, guid: d8320019a28c58d43803db0012573944,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8320019a28c58d43803db0012573944, type: 3}
 --- !u!1 &1745244024 stripped

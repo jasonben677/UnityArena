@@ -33,9 +33,8 @@ public class MagicCircleStageTrigger : MonoBehaviour
             if (magicCircleFX != null) 
             {
                 Destroy(magicCircleFX.gameObject, 0.3f);
-            }
-            WeaponController.weaponLevelUp = true;
-            CreateShockFX();
+                CreateShockFX();
+            }    
         }
     }
 
@@ -43,7 +42,7 @@ public class MagicCircleStageTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            DropTreasure();
+            DropTreasure();            
         }
     }
 
@@ -58,7 +57,8 @@ public class MagicCircleStageTrigger : MonoBehaviour
             weaponShineFX.transform.parent = whR.transform;
             weaponShineFX.transform.localPosition = Vector3.zero;
             weaponShineFX.transform.localRotation = Quaternion.identity;
-        }                
+        }
+        WeaponController.weaponLevelUp = true;
     }
     
 
@@ -74,7 +74,11 @@ public class MagicCircleStageTrigger : MonoBehaviour
 
     public void DropTreasure()
     {
-        if (treasure.transform.gameObject != null)
+        if (treasure == null)
+        {
+            return;
+        }
+        else 
         {
             if (treasure.transform.position.y >= treasureStartHeight - 4f)
             {
@@ -82,12 +86,8 @@ public class MagicCircleStageTrigger : MonoBehaviour
             }
             else
             {
-                Destroy(treasure.transform.gameObject, 2f);
+                Destroy(treasure, 1f);
             }
-        }
-        else 
-        {
-            return;
         }
     }
 }
