@@ -13,6 +13,9 @@ public class BlackSpiderAI : PlayerInput
 
     public bool isDead = false;
 
+    [System.NonSerialized]
+    public bool isGetExp = false;
+
     float AttackDelay = 0.5f;
     float walkDelay = 0f;
 
@@ -90,19 +93,19 @@ public class BlackSpiderAI : PlayerInput
                         switch (attackIndex)
                         {
                             case 0:
-                                _AttackStateControl("biteAggressive", 2.0f, 3.0f, 3);
+                                _AttackStateControl("biteAggressive", 2.0f, 2.5f);
                                 break;
 
                             case 1:
-                                _AttackStateControl("3HitComboAggressive", 2.0f, 3.0f, 3);
+                                _AttackStateControl("3HitComboAggressive", 2.0f, 3.0f);
                                 break;
 
                             case 2:
-                                _AttackStateControl("jumpBiteAggressive", 2.0f, 3.0f, 3);
+                                _AttackStateControl("jumpBiteAggressive", 2.0f, 2.5f);
                                 break;
 
                             case 3:
-                                _AttackStateControl("idleNormal1", 0.6f, 0.8f, 3);
+                                _AttackStateControl("idleNormal1", 0.6f, 0.8f);
                                 break;
 
                             default:
@@ -138,14 +141,14 @@ public class BlackSpiderAI : PlayerInput
 
     }
 
-    private void _AttackStateControl(string _name, float _attackTimeMin, float _attackTimeMax, int _attackIndex)
+    private void _AttackStateControl(string _name, float _attackTimeMin, float _attackTimeMax)
     {
         try
         {
             AttackDelay = Random.Range(_attackTimeMin, _attackTimeMax);
             animation[_name].speed = Random.Range(0.8f, 1.2f);
             animation.Play(_name);
-            attackIndex = Random.Range(0, _attackIndex);
+            attackIndex = Random.Range(0, 3);
             walkDelay = 1.0f;
         }
         catch (System.Exception)

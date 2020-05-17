@@ -138,7 +138,15 @@ public class ActorManager : MonoBehaviour
                     }
                     else if (gameObject.tag == "Boss")
                     {
-                        NumericalManager.instance.GetExp(0, 0);
+                        BossAI bossAI = GetComponent<BossAI>();
+
+                        if (!bossAI.isGetExp)
+                        {
+                            NumericalManager.instance.GetExp(0, 0);
+                            bossAI.isGetExp = true;
+                        }
+                            
+
                         //Boss死後，切換回原來的BGM
                         SwitchBGM.instance.audioSource.clip = SwitchBGM.instance.audioClips[0];
                         SwitchBGM.instance.audioSource.Play();
@@ -149,6 +157,8 @@ public class ActorManager : MonoBehaviour
                     }
                     else if (gameObject.tag == "Spider")
                     {
+                        BlackSpiderAI blackSpiderAI = GetComponent<BlackSpiderAI>();
+
                         NumericalManager.instance.GetExp(0, 2);
                         //Spider死後，切換回原來的BGM
                         SwitchBGM.instance.audioSource.clip = SwitchBGM.instance.audioClips[0];

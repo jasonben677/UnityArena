@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Main/Assets/SFX/other/SceneRelated.meta
 guid: ca0c6d01d09d713499ebd11fa6d8ac8b
+=======
+guid: 3393c9192215fad44b058e7b5728ae65
+>>>>>>> 6fbbe6ea6ee4e313ee1c64f359d0f833801e54d3:Main/Assets/tempSky/Standard Assets/CrossPlatformInput.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

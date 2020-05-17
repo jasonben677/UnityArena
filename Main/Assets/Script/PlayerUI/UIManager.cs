@@ -166,7 +166,7 @@ namespace PlayerUI
                 if (player.fPlayerHp != player.fPlayerMaxHp && NumericalManager.instance.rp >= 1)
                 {
                     NumericalManager.instance.rp--;
-                    player.fPlayerHp = Mathf.Clamp(player.fPlayerHp + 50, 0, player.fPlayerMaxHp);
+                    player.fPlayerHp = Mathf.Clamp(player.fPlayerHp + 200, 0, player.fPlayerMaxHp);
                 }
             }
             else if (Input.GetKeyDown(KeyCode.F2))
@@ -174,7 +174,7 @@ namespace PlayerUI
                 if (player.fPlayerMp != player.fPlayerMaxMp && NumericalManager.instance.bp >= 1)
                 {
                     NumericalManager.instance.bp--;
-                    player.fPlayerMp = Mathf.Clamp(player.fPlayerMp + 30, 0, player.fPlayerMaxMp);
+                    player.fPlayerMp = Mathf.Clamp(player.fPlayerMp + 35, 0, player.fPlayerMaxMp);
                 }
             }
             else if (Input.GetKeyDown(KeyCode.F3))
@@ -248,7 +248,7 @@ namespace PlayerUI
             TextMeshProUGUI hpText = bossUI.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
             TextMeshProUGUI enemyLevel = bossUI.transform.GetChild(1).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
 
-            float hpRate = (float)System.Math.Round((double)(enemy.fPlayerHp / enemy.fPlayerMaxHp), 2);
+            float hpRate = (enemy.fPlayerHp / enemy.fPlayerMaxHp);
 
             enemyHp.fillAmount = hpRate;
 
@@ -278,7 +278,7 @@ namespace PlayerUI
             TextMeshProUGUI hpText = spiderUI.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
             TextMeshProUGUI enemyLevel = spiderUI.transform.GetChild(1).GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
 
-            float hpRate = (float)System.Math.Round((double)(enemy.fPlayerHp / enemy.fPlayerMaxHp), 2);
+            float hpRate = (enemy.fPlayerHp / enemy.fPlayerMaxHp);
 
             enemyHp.fillAmount = hpRate;
 
@@ -397,7 +397,6 @@ namespace PlayerUI
         {
             yield return new WaitForSeconds(4.0f);
             questPanel.SetActive(true);
-
             yield return new WaitForSeconds(2.0f);
             questPanel.transform.GetChild(6).gameObject.SetActive(true);
 
