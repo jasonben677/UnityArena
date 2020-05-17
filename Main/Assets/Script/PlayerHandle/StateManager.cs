@@ -108,6 +108,12 @@ public class StateManager : MonoBehaviour
             playerHP.SetHP(tempNpc.fPlayerMaxHp, tempNpc.fPlayerHp);
             ATK = tempNpc.fAtk;
         }
+        else if(gameObject.tag == "Spider")
+        {
+            PlayerInfo tempNpc = NumericalManager.instance.GetSpider();
+            playerHP.SetHP(tempNpc.fPlayerMaxHp, tempNpc.fPlayerHp);
+            ATK = tempNpc.fAtk;
+        }
         else
         {
             playerHP.SetHP(80f, 80f);
