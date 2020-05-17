@@ -23,7 +23,7 @@ public class WeaponController : MonoBehaviour
         else 
         {
             //Debug.Log("weaponLevelUp!!!!!");
-            wdata.ATK *= 1.5f;
+            wdata.ATK *= 1.1f;
         }
         float totalATK = Mathf.Round((this.wdata.ATK + wm.am.sm.ATK) * Random.Range(0.2f, 1f));          
         return totalATK;
