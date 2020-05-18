@@ -18,6 +18,7 @@ public class AITest : PlayerInput
     public float AttackTime;
     public float RunAttTime;
 
+    public float a=0.5f;
     public float AttaniTime;
     [Header("------AIData------")]
     public AIData data;
@@ -155,22 +156,32 @@ public class AITest : PlayerInput
         }
         else if (data.fHP <= 0)
         {
+
             if (gameObject.tag == "StrongNpc")
             {
                 fireWall.SetActive(false);
             }
-            if (ClearTime <= 0)
+            
+            else if (ClearTime <= 0)
             {
-                ClearEnemy();
+
+                
+
+                    ClearEnemy();
+                
+               
             }
             else
             {
+
+               
                 ClearTime -= Time.deltaTime;
+
             }
             //撥放死亡動畫
             ani.EnemyAnimater(data, AIAnimater.EnemyAni.DIE);
+            
         }
-
     }
 
     #region 畫範圍用
@@ -214,7 +225,10 @@ public class AITest : PlayerInput
     //刪除死亡怪物
     public void ClearEnemy()
     {
-        data.m_ObjEnemy.SetActive(false);
+       
+            data.m_ObjEnemy.SetActive(false);
+        
+     
     }
     #endregion
 
@@ -255,7 +269,7 @@ public class AITest : PlayerInput
     {
         if (EnterInto.Distance(data, data.m_vTarget, data.m_fAttDis) == true)
         {
-            IdleTime = Random.Range(1f, 3f);
+            IdleTime = Random.Range(1f, 2f);
             // 攻擊時間判斷
             Attack();
         }
@@ -282,7 +296,7 @@ public class AITest : PlayerInput
         }
     }
 
-    void AttackTest()
+    /*void AttackTest()
     {
         //怪物進入警戒圈
         if (EnterInto.Distance(data, data.m_vTarget, data.m_fAlertDis) == true)
@@ -303,11 +317,11 @@ public class AITest : PlayerInput
 
                     if (gameObject.tag == "StrongNpc")
                     {
-                        AttackTime = Random.Range(2, 3);
+                        AttackTime = Random.Range(1.5f, 2.5f);
                     }
                     else
                     {
-                        AttackTime = Random.Range(2, 4);
+                        AttackTime = Random.Range(1.5f, 2.5f);
                     }
 
                 }
@@ -363,7 +377,7 @@ public class AITest : PlayerInput
                 ani.EnemyAnimater(data, AIAnimater.EnemyAni.IDLE);
             }
         }
-    }
+    }*/
 
 
     #region 初始化設定
@@ -388,7 +402,7 @@ public class AITest : PlayerInput
         {
             data.m_fAttDis = 6.0f;
         }
-        ClearTime = 3f;
+        ClearTime = 1f;
         IdleTime = Random.Range(1f, 3f);
         AttackTime = 0;
         //hp.SetMaxHp(40);
@@ -418,17 +432,21 @@ public class AITest : PlayerInput
             //怪物攻擊判定內部判定要甚麼攻擊狀態
             ani.EnemyAnimater(data, AIAnimater.EnemyAni.ATTACK);
             //攻擊時間
-            
-            if (data.m_bAttack == true)
-            {
-                AttackTime = Random.Range(3f, 5f);
-                data.m_bAttack = false;
 
-                return;
+            if (gameObject.tag == "StrongNpc")
+            {
+                AttackTime = Random.Range(1.5f, 2.5f);
+            }
+            else
+            {
+                AttackTime = Random.Range(1.5f, 2.5f);
             }
 
 
 
         }
     }
+
+
+
 }

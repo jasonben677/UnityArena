@@ -1933,7 +1933,7 @@ ModelImporter:
       name: Dead
       takeName: 
       firstFrame: 2758
-      lastFrame: 2775
+      lastFrame: 2778
       wrapMode: 1
       orientationOffsetY: 0
       level: 0
@@ -1952,7 +1952,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.91752577
+        functionName: OpenDieEnemyFX
+        data: 
+        objectReferenceParameter: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 0
       maskSource: {instanceID: 0}

@@ -5,7 +5,8 @@ using UnityEngine;
 public class AIAnimater : MonoBehaviour
 {
     public Animator ani;
-    
+    public GameObject EnemyFX;
+
 
     //簡易的動作切換
     public void EnemyAnimater(AIData data,EnemyAni ANIMATER)
@@ -70,7 +71,7 @@ public class AIAnimater : MonoBehaviour
             case EnemyAni.ATTACK:
                 int i ;
 
-                if (gameObject.tag == "StrongNpc")
+                if (data.m_ObjEnemy.tag == "StrongNpc")
                 {
                     i = Random.Range(1, 3);
                 }
@@ -97,7 +98,7 @@ public class AIAnimater : MonoBehaviour
     //簡易的攻擊動作切換
     private void EnemyAttack(AIData data, int i)
     {
-        float a = Random.Range(0.8f, 1.5f);
+        float a = Random.Range(0.8f, 2f);
 
         switch (i)
         {
@@ -143,6 +144,29 @@ public class AIAnimater : MonoBehaviour
         DIE,
         ANGER
 
+    }
+
+    public void OpenDieEnemyFX()
+    {
+        float a = 2;
+        if (a <= 0)
+        {
+
+            return;
+        }
+        else
+        {
+            Instantiate(EnemyFX, this.gameObject.transform.position, this.gameObject.transform.rotation);
+            a -= Time.deltaTime;
+        }
+        CloseDieEnemyFX();
+
+
+    }
+
+    public void CloseDieEnemyFX()
+    {
+        Destroy(EnemyFX);
     }
 }
 

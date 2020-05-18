@@ -2696,11 +2696,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1272791528434574694, guid: 61059f45919b16e47b5b194a74613da4,
+    - target: {fileID: 483135087262533843, guid: 61059f45919b16e47b5b194a74613da4,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 3822722247200269117, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 3928710268287630900, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
     - target: {fileID: 4942133918353544122, guid: 61059f45919b16e47b5b194a74613da4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2761,16 +2774,114 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monsterbox
       objectReference: {fileID: 0}
-    - target: {fileID: 5011355864330001334, guid: 61059f45919b16e47b5b194a74613da4,
+    - target: {fileID: 6625873425901567176, guid: 61059f45919b16e47b5b194a74613da4,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5045004746370942655, guid: 61059f45919b16e47b5b194a74613da4,
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 6625873425915529806, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 6625873426172672039, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 6625873426278065796, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 6625873426856912165, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 6625873426861315481, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 6625873426973968384, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 6625873426976333427, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 6625873426993009960, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 6625873427262251326, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 6625873427264149450, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 6625873427552175936, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 6625873427772510482, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 6625873427780518613, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 6625873427869405961, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 6625873427877308657, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 7002883139917258221, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
+    - target: {fileID: 7723931261082951208, guid: 61059f45919b16e47b5b194a74613da4,
+        type: 3}
+      propertyPath: EnemyFX
+      value: 
+      objectReference: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61059f45919b16e47b5b194a74613da4, type: 3}
 --- !u!1 &433289588 stripped
