@@ -69,7 +69,7 @@ namespace PlayerUI
             if (!gameQuestInfo)
             {
                 infoTime += Time.deltaTime;
-                if (infoTime >= 3.0f)
+                if (infoTime >= 2.0f)
                 {
                     questPanel.SetActive(true);
                     infoTime = 0;

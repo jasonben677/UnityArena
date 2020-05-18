@@ -26,14 +26,14 @@ public class ScenceFade : MonoBehaviour
 
     public void FadeIn()
     {
-        //anim.ResetTrigger("FadeOut");
+        anim.ResetTrigger("FadeOut");
         anim.SetTrigger("FadeIn");
     }
 
     public void FadeOut(int _scenceIndex)
     {
         iNextScenceIndex = _scenceIndex;
-        //anim.ResetTrigger("FadeIn");
+        anim.ResetTrigger("FadeIn");
         anim.SetTrigger("FadeOut");
     }
 }
