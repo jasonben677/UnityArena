@@ -73,7 +73,7 @@ public class AIAnimater : MonoBehaviour
 
                 if (data.m_ObjEnemy.tag == "StrongNpc")
                 {
-                    i = Random.Range(1, 3);
+                    i = Random.Range(1, 4);
                 }
                 else
                 {
