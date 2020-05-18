@@ -11,6 +11,8 @@ public class MagicCircleStageTrigger : MonoBehaviour
         
     private GameObject weaponShineFX;
     private GameObject shockFX;
+    private GameObject prefabShockFX;
+    
 
     //Start is called before the first frame update
     void Start()
@@ -18,6 +20,7 @@ public class MagicCircleStageTrigger : MonoBehaviour
         magicCircleFX = GetComponentInChildren<ParticleSystem>();
         //Debug.Log(magicCircleFX.gameObject.name);
         treasureStartHeight = treasure.transform.position.y;
+        prefabShockFX = Resources.Load("ShockFX") as GameObject;
     }
 
     //// Update is called once per frame
@@ -32,7 +35,7 @@ public class MagicCircleStageTrigger : MonoBehaviour
         {
             if (magicCircleFX != null) 
             {
-                Destroy(magicCircleFX.gameObject, 0.3f);
+                Destroy(magicCircleFX.gameObject);
                 CreateShockFX();
             }    
         }
@@ -65,8 +68,9 @@ public class MagicCircleStageTrigger : MonoBehaviour
     private void CreateShockFX() 
     {
         //Debug.Log("shock!!!!");
-        GameObject prefabFX = Resources.Load("ShockFX") as GameObject;
-        shockFX = GameObject.Instantiate(prefabFX);
+        //GameObject prefabFX = Resources.Load("ShockFX") as GameObject;
+        //shockFX = GameObject.Instantiate(prefabFX);
+        shockFX = GameObject.Instantiate(prefabShockFX);
         shockFX.transform.parent = transform;
         shockFX.transform.localPosition = Vector3.zero;
         shockFX.transform.localRotation = Quaternion.identity;
@@ -74,15 +78,11 @@ public class MagicCircleStageTrigger : MonoBehaviour
 
     public void DropTreasure()
     {
-        if (treasure == null)
-        {
-            return;
-        }
-        else 
+        if (treasure != null)
         {
             if (treasure.transform.position.y >= treasureStartHeight - 4f)
             {
-                treasure.transform.position = new Vector3(treasure.transform.position.x, treasure.transform.position.y - 0.07f, treasure.transform.position.z);
+                treasure.transform.position = new Vector3(treasure.transform.position.x, treasure.transform.position.y - 0.06f, treasure.transform.position.z);
             }
             else
             {

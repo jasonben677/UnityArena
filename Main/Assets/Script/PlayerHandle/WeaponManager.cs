@@ -48,7 +48,8 @@ public class WeaponManager : MonoBehaviour
     [Header("==== Prefabs ====")]
     [SerializeField]
     private GameObject slashHitParticle;
-        
+    private GameObject prefabLastAttack;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +66,8 @@ public class WeaponManager : MonoBehaviour
         am = transform.gameObject.GetComponentInParent<ActorManager>();
 
         playerHandle = am.transform.gameObject;
+
+        prefabLastAttack = Resources.Load("LastAttack") as GameObject;
     }
 
     private void FixedUpdate()
@@ -194,8 +197,8 @@ public class WeaponManager : MonoBehaviour
 
     public GameObject OnFXEnableE()
     {
-        GameObject prefabFX = Resources.Load("LastAttack") as GameObject;
-        objFXE = GameObject.Instantiate(prefabFX);
+        //GameObject prefabFX = Resources.Load("LastAttack") as GameObject;
+        objFXE = GameObject.Instantiate(prefabLastAttack);
         objFXE.transform.parent = whR.transform;
         objFXE.transform.localPosition = Vector3.zero;
         objFXE.transform.localRotation = Quaternion.identity;        

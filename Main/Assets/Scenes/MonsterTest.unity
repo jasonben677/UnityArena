@@ -10796,7 +10796,7 @@ PrefabInstance:
     - target: {fileID: 7091457861457326668, guid: 1ef4f28e96b69e54289b64aaf5167cb3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7091457861457326671, guid: 1ef4f28e96b69e54289b64aaf5167cb3,
         type: 3}
@@ -11987,21 +11987,6 @@ PrefabInstance:
       value: WeaponShineFX
       objectReference: {fileID: 0}
     - target: {fileID: 6414749271324138160, guid: 9fcfc9ac40b7de64aaa33a1a3dcc80c3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6463875884324872258, guid: 9fcfc9ac40b7de64aaa33a1a3dcc80c3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7263271589938312041, guid: 9fcfc9ac40b7de64aaa33a1a3dcc80c3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8600680584014975512, guid: 9fcfc9ac40b7de64aaa33a1a3dcc80c3,
         type: 3}
       propertyPath: m_IsActive
       value: 0
