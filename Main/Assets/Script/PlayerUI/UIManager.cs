@@ -69,7 +69,7 @@ namespace PlayerUI
             if (!gameQuestInfo)
             {
                 infoTime += Time.deltaTime;
-                if (infoTime >= 1.0f)
+                if (infoTime >= 3.0f)
                 {
                     questPanel.SetActive(true);
                     infoTime = 0;
@@ -378,6 +378,7 @@ namespace PlayerUI
 
         public void ExitGame()
         {
+            Time.timeScale = 1.0f;
             NumericalManager.instance.ScenceFadeOut(0);
         }
 

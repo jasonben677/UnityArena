@@ -44,6 +44,7 @@ public class NumericalManager : MonoBehaviour
     private void Start()
     {
         _InitInformation();
+        //ScenceFadeIn();
     }
 
     public PlayerInfo GetMainPlayer()

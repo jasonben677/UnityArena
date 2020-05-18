@@ -10,6 +10,13 @@ public class LoginPage : MonoBehaviour
 
     private void Start()
     {
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 1;
+
+        NumericalManager.instance.ScenceFadeIn();
+        
         enterGame.onClick.RemoveAllListeners();
         leaveGame.onClick.RemoveAllListeners();
 

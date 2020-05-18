@@ -2080,6 +2080,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 668020117242596196, guid: b4f214cbc460d6848934ac24166f1beb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 668020117242596196, guid: b4f214cbc460d6848934ac24166f1beb,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 668020117529807410, guid: b4f214cbc460d6848934ac24166f1beb,
         type: 3}
       propertyPath: audio.Array.size
