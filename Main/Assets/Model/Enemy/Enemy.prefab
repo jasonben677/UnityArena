@@ -1694,7 +1694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ani: {fileID: 2181385952285206707}
-  EnemyFX: {fileID: 4886425603465432307, guid: 512f77f63ea120e4bb2254bf339539a4, type: 3}
+  EnemyFX: {fileID: 4886425603465432307, guid: debb811a87b644e40a3604cdd57bddb1, type: 3}
 --- !u!1 &4457020552039300330
 GameObject:
   m_ObjectHideFlags: 0

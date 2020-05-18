@@ -146,25 +146,16 @@ public class AIAnimater : MonoBehaviour
 
     }
 
-    public void OpenDieEnemyFX()
+     void OpenDieEnemyFX()
     {
-        float a = 2;
-        if (a <= 0)
-        {
-
-            return;
-        }
-        else
-        {
-            Instantiate(EnemyFX, this.gameObject.transform.position, this.gameObject.transform.rotation);
-            a -= Time.deltaTime;
-        }
-        CloseDieEnemyFX();
+    
+            Instantiate(EnemyFX, this.gameObject.transform.position+this.transform.forward*-0.5f, this.gameObject.transform.rotation);
+       
 
 
     }
 
-    public void CloseDieEnemyFX()
+     void CloseDieEnemyFX()
     {
         Destroy(EnemyFX);
     }

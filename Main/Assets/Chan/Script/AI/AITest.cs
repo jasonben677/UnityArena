@@ -402,7 +402,7 @@ public class AITest : PlayerInput
         {
             data.m_fAttDis = 6.0f;
         }
-        ClearTime = 1f;
+        ClearTime = 3f;
         IdleTime = Random.Range(1f, 3f);
         AttackTime = 0;
         //hp.SetMaxHp(40);
