@@ -184,7 +184,7 @@ public class NumericalManager : MonoBehaviour
         {
             strongNpcs[i] = new PlayerInfo();
             strongNpcs[i].sName = "老鼠戰士";
-            strongNpcs[i].iLevel = 5;
+            strongNpcs[i].iLevel = 4;
             strongNpcs[i].fPlayerMaxHp = 550;
             strongNpcs[i].fPlayerHp = 550;
 
@@ -205,7 +205,7 @@ public class NumericalManager : MonoBehaviour
     {
         bossInfo = new PlayerInfo()
         {
-            iLevel = 10,
+            iLevel = 8,
             sName = "老鼠酋長",
             fPlayerMaxHp = 1100,
             fPlayerHp = 1100,
@@ -223,7 +223,7 @@ public class NumericalManager : MonoBehaviour
     {
         spider = new PlayerInfo()
         {
-            iLevel = 7,
+            iLevel = 6,
             sName = "漆黑蜘蛛",
             fPlayerMaxHp = 770,
             fPlayerHp = 770,

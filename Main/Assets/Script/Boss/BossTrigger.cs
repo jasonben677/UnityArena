@@ -28,7 +28,7 @@ public class BossTrigger : MonoBehaviour
     {
         if (isBossFight && other.tag == "Player")
         {
-            wall.isTrigger = false;
+            //wall.isTrigger = false;
         }
     }
 

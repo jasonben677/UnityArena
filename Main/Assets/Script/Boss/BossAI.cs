@@ -146,26 +146,29 @@ public class BossAI : PlayerInput
 
     private void _AttackStateControl(string _name, float _attackTimeMin, float _attackTimeMax, float _walkDelay)
     {
-        attackIndex = canTriggerAngry ? Random.Range(0, 3) : Random.Range(0, 2);
-        AttackDelay = Random.Range(_attackTimeMin, _attackTimeMax);
-        walkDelay = _walkDelay;
-
-        BossAnim.speed = Random.Range(0.8f, 1.2f);
-        BossAnim.Play(_name);
-
+        float speed = 1;
         if (_name == "anger")
         {
             fire01.gameObject.SetActive(true);
             fire02.gameObject.SetActive(true);
+            mouseWeaponData.ATK = 20;
+            speed = 1.1f;
             canTriggerAngry = false;
         }
+
+        attackIndex = canTriggerAngry ? Random.Range(0, 3) : Random.Range(0, 2);
+        AttackDelay = Random.Range(_attackTimeMin, _attackTimeMax);
+        walkDelay = _walkDelay;
+
+        BossAnim.speed = Random.Range(0.6f, 0.8f) * speed; ;
+        BossAnim.Play(_name);
 
     }
 
 
     private IEnumerator BossDisappear()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(4.0f);
         gameObject.SetActive(false);
     }
 }

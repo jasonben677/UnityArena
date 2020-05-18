@@ -146,7 +146,7 @@ public class BlackSpiderAI : PlayerInput
         try
         {
             AttackDelay = Random.Range(_attackTimeMin, _attackTimeMax);
-            animation[_name].speed = Random.Range(0.8f, 1.2f);
+            animation[_name].speed = Random.Range(0.8f, 1.0f);
             animation.Play(_name);
             attackIndex = Random.Range(0, 3);
             walkDelay = 1.0f;

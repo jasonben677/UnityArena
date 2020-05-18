@@ -378,7 +378,7 @@ namespace PlayerUI
 
         public void ExitGame()
         {
-            NumericalManager.instance.LeaveGame();
+            NumericalManager.instance.ScenceFadeOut(0);
         }
 
 

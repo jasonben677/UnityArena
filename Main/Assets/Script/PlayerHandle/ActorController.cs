@@ -112,7 +112,7 @@ public class ActorController : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError("MP不足");
+                    Debug.Log("MP不足");
                 }                
             }
         }
