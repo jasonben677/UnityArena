@@ -116,7 +116,7 @@ namespace PlayerUI
             Vector3 newMinimapPos = player.transform.position;
             newMinimapPos.y = MiniMapCamera.transform.position.y;
             MiniMapCamera.transform.position = newMinimapPos;
-            MiniMapCamera.transform.rotation = Quaternion.Euler(90f, mainCamera.transform.eulerAngles.y, 0);
+            MiniMapCamera.transform.GetChild(0).transform.rotation = Quaternion.Euler(90f, mainCamera.transform.eulerAngles.y, 0);
         }
 
 
