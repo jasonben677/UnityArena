@@ -166,8 +166,8 @@ public class NumericalManager : MonoBehaviour
             npcs[i].fPlayerMaxMp = 0;
             npcs[i].fPlayerMp = 0;
               
-            npcs[i].fAtk = 23;
-            npcs[i].fCurrExp = 200;
+            npcs[i].fAtk = 24;
+            npcs[i].fCurrExp = 250;
             npcs[i].fNextLevelExp = 0;
         }
     }
@@ -185,14 +185,14 @@ public class NumericalManager : MonoBehaviour
             strongNpcs[i] = new PlayerInfo();
             strongNpcs[i].sName = "老鼠戰士";
             strongNpcs[i].iLevel = 5;
-            strongNpcs[i].fPlayerMaxHp = 525;
-            strongNpcs[i].fPlayerHp = 525;
+            strongNpcs[i].fPlayerMaxHp = 550;
+            strongNpcs[i].fPlayerHp = 550;
 
             strongNpcs[i].fPlayerMaxMp = 0;
             strongNpcs[i].fPlayerMp = 0;
 
-            strongNpcs[i].fAtk = 53;
-            strongNpcs[i].fCurrExp = 750;
+            strongNpcs[i].fAtk = 54;
+            strongNpcs[i].fCurrExp = 800;
             strongNpcs[i].fNextLevelExp = 0;
         }
     }
@@ -207,14 +207,14 @@ public class NumericalManager : MonoBehaviour
         {
             iLevel = 10,
             sName = "老鼠酋長",
-            fPlayerMaxHp = 1600,
-            fPlayerHp = 1600,
+            fPlayerMaxHp = 1100,
+            fPlayerHp = 1100,
 
             fPlayerMaxMp = 0,
             fPlayerMp = 0,
 
             fAtk = 65,
-            fCurrExp = 1200,
+            fCurrExp = 1500,
             fNextLevelExp = 0
         };
     }
@@ -223,16 +223,16 @@ public class NumericalManager : MonoBehaviour
     {
         spider = new PlayerInfo()
         {
-            iLevel = 5,
+            iLevel = 7,
             sName = "漆黑蜘蛛",
-            fPlayerMaxHp = 675,
-            fPlayerHp = 675,
+            fPlayerMaxHp = 770,
+            fPlayerHp = 770,
 
             fPlayerMaxMp = 0,
             fPlayerMp = 0,
 
-            fAtk = 50,
-            fCurrExp = 800,
+            fAtk = 45,
+            fCurrExp = 1000,
             fNextLevelExp = 0
         };
     }
@@ -274,14 +274,14 @@ public class NumericalManager : MonoBehaviour
         {
             npcs[i].sName = "老鼠怪";
             npcs[i].iLevel = 1;
-            npcs[i].fPlayerMaxHp = 100;
-            npcs[i].fPlayerHp = 100;
+            npcs[i].fPlayerMaxHp = 110;
+            npcs[i].fPlayerHp = 110;
 
             npcs[i].fPlayerMaxMp = 0;
             npcs[i].fPlayerMp = 0;
 
-            npcs[i].fAtk = 23;
-            npcs[i].fCurrExp = 200;
+            npcs[i].fAtk = 24;
+            npcs[i].fCurrExp = 250;
             npcs[i].fNextLevelExp = 0;
         }
     }
@@ -293,15 +293,15 @@ public class NumericalManager : MonoBehaviour
         {
             iLevel = 1,
 
-            fPlayerMaxHp = 600,
-            fPlayerHp = 600,
+            fPlayerMaxHp = 400,
+            fPlayerHp = 400,
 
             fPlayerMaxMp = 50,
             fPlayerMp = 50,
 
-            fAtk = 20,
+            fAtk = 10,
             fCurrExp = 0,
-            fNextLevelExp = 300
+            fNextLevelExp = 600
         };
 
 
@@ -316,7 +316,7 @@ public class NumericalManager : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         player.iLevel += 1;
 
-        player.fPlayerMaxHp += 20;
+        player.fPlayerMaxHp += 60;
         player.fPlayerHp = gameInfo.fPlayerMaxHp;
 
         player.fPlayerMaxMp += 10;

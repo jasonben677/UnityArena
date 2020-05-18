@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edefa93cab65ecf4fb2e7b062fccf6d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ATK: 20
+  ATK: 10
 --- !u!114 &2221025776831486003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,6 +566,7 @@ MonoBehaviour:
   fire01: {fileID: 4624928065256522618}
   fire02: {fileID: 8209602785788163371}
   isDead: 0
+  mouseWeaponData: {fileID: 1093006289368530942}
 --- !u!1 &6744780851290816908
 GameObject:
   m_ObjectHideFlags: 0

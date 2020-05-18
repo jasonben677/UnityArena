@@ -19,7 +19,7 @@ public class EndGamePage : MonoBehaviour
 
     public void BackToLogin()
     {
-        NumericalManager.instance.LeaveGame();
+        NumericalManager.instance.ScenceFadeOut(0);
     }
 
     public void BackToGame()

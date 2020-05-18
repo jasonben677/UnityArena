@@ -189,18 +189,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226933695}
   m_CullTransparentMesh: 0
---- !u!114 &512740844 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 668020117529807410, guid: b4f214cbc460d6848934ac24166f1beb,
-    type: 3}
-  m_PrefabInstance: {fileID: 668020117503870942}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3972e56d5d7e43a4a9e8f5d990a28451, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519774850
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,8 +360,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8, y: 293}
-  m_SizeDelta: {x: 610, y: 150}
+  m_AnchoredPosition: {x: 228, y: 328}
+  m_SizeDelta: {x: 980, y: 187}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &650603675
 MonoBehaviour:
@@ -422,6 +410,7 @@ GameObject:
   - component: {fileID: 788016145}
   - component: {fileID: 788016144}
   - component: {fileID: 788016143}
+  - component: {fileID: 788016147}
   m_Layer: 5
   m_Name: LoginPage
   m_TagString: Untagged
@@ -514,6 +503,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &788016147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788016142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc51ef363ab1c5b49a102ef409a35733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterGame: {fileID: 1012500496}
+  leaveGame: {fileID: 1132632327}
 --- !u!1 &972896296
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,18 +752,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1012500497}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 512740844}
-        m_MethodName: ScenceFadeOut
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1012500497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1125,18 +1117,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1132632328}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 512740844}
-        m_MethodName: LeaveGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1132632328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2113,6 +2094,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NumericalManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 668020117529807412, guid: b4f214cbc460d6848934ac24166f1beb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 668020117529807413, guid: b4f214cbc460d6848934ac24166f1beb,
         type: 3}

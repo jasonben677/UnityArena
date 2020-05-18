@@ -15,7 +15,7 @@ public class BossTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (!isBossFight)
+        if (!isBossFight && other.tag == "Player")
         {
             isBossFight = true;
 
@@ -26,7 +26,7 @@ public class BossTrigger : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        if (isBossFight)
+        if (isBossFight && other.tag == "Player")
         {
             wall.isTrigger = false;
         }

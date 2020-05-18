@@ -17,6 +17,8 @@ public class BossAI : PlayerInput
     [System.NonSerialized]
     public bool isGetExp = false;
 
+    [SerializeField] WeaponData mouseWeaponData;
+
     bool canTriggerAngry = true;
 
     Rigidbody myrigi;
@@ -138,6 +140,7 @@ public class BossAI : PlayerInput
         BossAnim.Play("anger");
         fire01.gameObject.SetActive(true);
         fire02.gameObject.SetActive(true);
+        mouseWeaponData.ATK = 20;
         canTriggerAngry = false;
     }
 
