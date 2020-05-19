@@ -16,6 +16,7 @@ public class BlackSpiderAI : PlayerInput
     [System.NonSerialized]
     public bool isGetExp = false;
 
+    StateManager spiderState;
     float AttackDelay = 0.5f;
     float walkDelay = 0f;
 
@@ -26,6 +27,7 @@ public class BlackSpiderAI : PlayerInput
 
     void Awake()
     {
+        spiderState = GetComponent<StateManager>();
         NumericalManager.instance.SetSpider();
         bossBlock.SetActive(true);
     }
@@ -45,6 +47,7 @@ public class BlackSpiderAI : PlayerInput
                 {
                     _PlayAnimation("deathNormal");
                     Debug.Log("dead");
+                    spiderState.isDie = true;
                     attackCol.enabled = false;
                     bossTrigger.wall.isTrigger = true;
                     bossBlock.SetActive(false);
