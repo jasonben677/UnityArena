@@ -262,8 +262,10 @@ public class NumericalManager : MonoBehaviour
     {
         PlayerInfo player = gameInfo;
         player.fPlayerHp = player.fPlayerMaxHp;
+        rp = 5;
 
         player.fPlayerMp = player.fPlayerMaxMp;
+        bp = 3;
     }
 
     /// <summary>

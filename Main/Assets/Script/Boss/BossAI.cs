@@ -19,20 +19,22 @@ public class BossAI : PlayerInput
 
     [SerializeField] WeaponData mouseWeaponData;
 
-    bool canTriggerAngry = true;
+    private StateManager bossState;
+    private bool canTriggerAngry = true;
 
-    Rigidbody myrigi;
+    private Rigidbody myrigi;
 
+    // 動畫控制
+    private int attackIndex = -1;
 
-    int attackIndex = -1;
-
-    float AttackDelay = 0.5f;
-    float walkDelay = 0f;
+    private float AttackDelay = 0.5f;
+    private float walkDelay = 0f;
 
     private void Awake()
     {
         NumericalManager.instance.SetBoss();
         myrigi = GetComponent<Rigidbody>();
+        bossState = GetComponent<StateManager>();
     }
 
     private void FixedUpdate()
@@ -48,6 +50,8 @@ public class BossAI : PlayerInput
             {
                 Debug.Log("dead");
                 BossAnim.Play("Dying_A");
+                bossState.isDie = true;
+                attackEnable.AttackDisable();
                 if (!PlayerUI.UIManager.instance.winGame)
                 {
                     StartCoroutine(BossDisappear());

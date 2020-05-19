@@ -162,7 +162,7 @@ public class AITest : PlayerInput
                 fireWall.SetActive(false);
             }
             
-            else if (ClearTime <= 0)
+             if (ClearTime <= 0)
             {
 
                 

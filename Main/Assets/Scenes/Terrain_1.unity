@@ -3004,6 +3004,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1298652268}
+    - target: {fileID: 1110554801, guid: 8a69807a33332ad4d8ab46ed1b0ba5ef, type: 3}
+      propertyPath: attackCol
+      value: 
+      objectReference: {fileID: 485636272}
     - target: {fileID: 6744780851290816899, guid: 8a69807a33332ad4d8ab46ed1b0ba5ef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3066,6 +3070,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a69807a33332ad4d8ab46ed1b0ba5ef, type: 3}
+--- !u!135 &485636272 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 2562290105961988324, guid: 8a69807a33332ad4d8ab46ed1b0ba5ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 485636271}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &485918678 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 99c51a992fe5d8a488b752d8c296c713,
