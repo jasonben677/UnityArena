@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +22,10 @@ public class TryDeadShader : MonoBehaviour
         {
             foreach (var smr in smrList)
             {
+                GameObject clone = Instantiate(gameObject, transform.position, transform.rotation);
                 smr.material = dead;
+                smr.material.DOFloat(0f, "_Step", 1f).OnComplete(() => Destroy(clone));
+
             }
         }
     }
