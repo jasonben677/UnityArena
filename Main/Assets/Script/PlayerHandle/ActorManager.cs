@@ -165,7 +165,12 @@ public class ActorManager : MonoBehaviour
                     {
                         BlackSpiderAI blackSpiderAI = GetComponent<BlackSpiderAI>();
 
-                        NumericalManager.instance.GetExp(0, 2);
+                        if (!blackSpiderAI.isGetExp)
+                        {
+                            NumericalManager.instance.GetExp(0, 2);
+                            blackSpiderAI.isGetExp = true;
+                        }
+                        
                         //Spider死後，切換回原來的BGM
                         SwitchBGM.instance.audioSource.clip = SwitchBGM.instance.audioClips[0];
                         SwitchBGM.instance.audioSource.Play();

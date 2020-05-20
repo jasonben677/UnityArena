@@ -7206,6 +7206,16 @@ PrefabInstance:
       propertyPath: lockDot
       value: 
       objectReference: {fileID: 1321636247}
+    - target: {fileID: 3724260373075558813, guid: e88fff8fd58e452418a215c1a49eee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 465.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724260373075558813, guid: e88fff8fd58e452418a215c1a49eee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 105.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4332465442254183074, guid: e88fff8fd58e452418a215c1a49eee85,
         type: 3}
       propertyPath: m_Name
