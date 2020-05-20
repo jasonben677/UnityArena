@@ -174,15 +174,17 @@ public class ActorManager : MonoBehaviour
                     {
                         NumericalManager.instance.GetExp(transform.GetSiblingIndex(), 3);
                     }
-
-                    //死亡Shader
-                    foreach (var smr in smrList)
+                    
+                    if (gameObject.layer == 10) 
                     {
-                        //GameObject clone = Instantiate(gameObject, transform.position, transform.rotation);
-                        smr.material = dead;
-                        //smr.material.DOFloat(1f, "_Step", 2.5f).OnComplete(() => Destroy(clone));
-                        smr.material.DOFloat(1f, "_Step", 2.5f);
-                    }
+                        foreach (var smr in smrList)
+                        {
+                            //GameObject clone = Instantiate(gameObject, transform.position, transform.rotation);
+                            smr.material = dead;
+                            //smr.material.DOFloat(1f, "_Step", 2.5f).OnComplete(() => Destroy(clone));
+                            smr.material.DOFloat(1f, "_Step", 3.5f);
+                        }
+                    }                    
                 }
                 //Already dead
             }
