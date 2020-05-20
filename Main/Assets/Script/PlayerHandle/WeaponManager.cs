@@ -260,7 +260,7 @@ public class WeaponManager : MonoBehaviour
             //Debug.Log("materail changed");
             smr.material = ghostMaterial;
             //smr.material.DOFloat(4f, "_RimPower", 5f).OnComplete(() => Destroy(NinjiaClone));
-            smr.material.DOFloat(5f, "_AllPower", 1f).OnComplete(() => Destroy(NinjiaClone));
+            smr.material.DOFloat(0f, "_InnerAlphaBase", 2f).OnComplete(() => Destroy(NinjiaClone));
         }
 
         RevealModel(false);
