@@ -390,7 +390,7 @@ MonoBehaviour:
   counterBackParticle: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
     type: 3}
   katanaSound: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
-  bloodSound: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
+  bloodSound: {fileID: 8300000, guid: f7ea1dc8333b91d46ac4dcba0868cbfc, type: 3}
   dead: {fileID: 2100000, guid: 5dcfac99180c9e64ab01960fea53cf80, type: 2}
 --- !u!114 &6169540288498815746
 MonoBehaviour:

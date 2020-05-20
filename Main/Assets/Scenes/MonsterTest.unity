@@ -4910,6 +4910,7 @@ MonoBehaviour:
   counterBackParticle: {fileID: 0}
   katanaSound: {fileID: 0}
   bloodSound: {fileID: 0}
+  dead: {fileID: 0}
 --- !u!114 &1102799038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6321,7 +6322,8 @@ MonoBehaviour:
   counterBackParticle: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
     type: 3}
   katanaSound: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
-  bloodSound: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
+  bloodSound: {fileID: 8300000, guid: f7ea1dc8333b91d46ac4dcba0868cbfc, type: 3}
+  dead: {fileID: 0}
 --- !u!114 &1352139593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10668,7 +10670,8 @@ MonoBehaviour:
   counterBackParticle: {fileID: 2092233979981403786, guid: 9fcf485cb86bf544fab29bac638c89d5,
     type: 3}
   katanaSound: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
-  bloodSound: {fileID: 8300000, guid: 76717d8899d181249a46e43c8c5f2e0b, type: 3}
+  bloodSound: {fileID: 8300000, guid: f7ea1dc8333b91d46ac4dcba0868cbfc, type: 3}
+  dead: {fileID: 0}
 --- !u!114 &1999624742
 MonoBehaviour:
   m_ObjectHideFlags: 0

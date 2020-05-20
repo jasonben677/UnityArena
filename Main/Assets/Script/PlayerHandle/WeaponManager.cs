@@ -210,7 +210,7 @@ public class WeaponManager : MonoBehaviour
     {
         if (objFXE.gameObject != null)
         {
-            Destroy(objFXE.gameObject);
+            Destroy(objFXE.gameObject, 1.5f);
         }
     }
 
