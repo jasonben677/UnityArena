@@ -175,7 +175,7 @@ public class ActorManager : MonoBehaviour
                         NumericalManager.instance.GetExp(transform.GetSiblingIndex(), 3);
                     }
                     
-                    if (gameObject.layer == 10) 
+                    if (gameObject.tag == "Npc" || gameObject.tag == "StrongNpc") 
                     {
                         foreach (var smr in smrList)
                         {

@@ -22,9 +22,10 @@ public class TryDeadShader : MonoBehaviour
         {
             foreach (var smr in smrList)
             {
-                GameObject clone = Instantiate(gameObject, transform.position, transform.rotation);
+                //GameObject clone = Instantiate(gameObject, transform.position, transform.rotation);
                 smr.material = dead;
-                smr.material.DOFloat(1f, "_Step", 2.5f).OnComplete(() => Destroy(clone));
+                //smr.material.DOFloat(1f, "_Step", 2.5f).OnComplete(() => Destroy(clone));
+                smr.material.DOFloat(1f, "_Step", 2.5f).OnComplete(() => gameObject.SetActive(false));
             }
         }
     }
