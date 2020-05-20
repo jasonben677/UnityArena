@@ -248,26 +248,26 @@ public class WeaponManager : MonoBehaviour
     /// </summary>
     public void OnWarp()
     {
-        GameObject NinjiaClone = Instantiate(gameObject, transform.position, transform.rotation);
-        Destroy(NinjiaClone.GetComponent<WeaponManager>().whR.gameObject);
-        Destroy(NinjiaClone.GetComponent<Animator>());
-        Destroy(NinjiaClone.GetComponent<WeaponManager>());
-
-
-        SkinnedMeshRenderer[] skinMeshList = NinjiaClone.GetComponentsInChildren<SkinnedMeshRenderer>();
-        foreach (SkinnedMeshRenderer smr in skinMeshList)
-        {
-            //Debug.Log("materail changed");
-            smr.material = ghostMaterial;
-            //smr.material.DOFloat(4f, "_RimPower", 5f).OnComplete(() => Destroy(NinjiaClone));
-            smr.material.DOFloat(0f, "_InnerAlphaBase", 2f).OnComplete(() => Destroy(NinjiaClone));
-        }
-
-        RevealModel(false);
-        anim.speed = 0;
-
         if (am.ac.camcon.lockTarget != null)
         {
+            GameObject NinjiaClone = Instantiate(gameObject, transform.position, transform.rotation);
+            Destroy(NinjiaClone.GetComponent<WeaponManager>().whR.gameObject);
+            Destroy(NinjiaClone.GetComponent<Animator>());
+            Destroy(NinjiaClone.GetComponent<WeaponManager>());
+
+
+            SkinnedMeshRenderer[] skinMeshList = NinjiaClone.GetComponentsInChildren<SkinnedMeshRenderer>();
+            foreach (SkinnedMeshRenderer smr in skinMeshList)
+            {
+                //Debug.Log("materail changed");
+                smr.material = ghostMaterial;                
+                smr.material.DOFloat(0f, "_InnerAlphaBase", 2f).OnComplete(() => Destroy(NinjiaClone));
+            }
+
+            RevealModel(false);
+            anim.speed = 0;
+
+
             Debug.Log("OnWarpEnter");
             playerHandle.transform.DOMove(am.ac.camcon.lockTarget.transform.position, warpDuration).SetEase(Ease.InExpo).OnComplete(() => FinishWarp());
         }

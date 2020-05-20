@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,7 +23,12 @@ public class ActorManager : MonoBehaviour
     private AudioClip katanaSound;
     [SerializeField]
     private AudioClip bloodSound;
-    
+
+    [Header("==== Material ====")]
+    [SerializeField]
+    private Material dead;
+    private SkinnedMeshRenderer[] smrList;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +57,8 @@ public class ActorManager : MonoBehaviour
         //sm.am = this;
 
         //Lom = gameObject.AddComponent<LoginManager>();
+
+        smrList = transform.gameObject.GetComponentsInChildren<SkinnedMeshRenderer>();
     }
 
     // Update is called once per frame
@@ -144,9 +152,7 @@ public class ActorManager : MonoBehaviour
                         {
                             NumericalManager.instance.GetExp(0, 0);
                             bossAI.isGetExp = true;
-                        }
-                            
-
+                        }                      
                         //Boss死後，切換回原來的BGM
                         SwitchBGM.instance.audioSource.clip = SwitchBGM.instance.audioClips[0];
                         SwitchBGM.instance.audioSource.Play();
@@ -169,6 +175,14 @@ public class ActorManager : MonoBehaviour
                         NumericalManager.instance.GetExp(transform.GetSiblingIndex(), 3);
                     }
 
+                    //死亡Shader
+                    foreach (var smr in smrList)
+                    {
+                        //GameObject clone = Instantiate(gameObject, transform.position, transform.rotation);
+                        smr.material = dead;
+                        //smr.material.DOFloat(1f, "_Step", 2.5f).OnComplete(() => Destroy(clone));
+                        smr.material.DOFloat(1f, "_Step", 2.5f);
+                    }
                 }
                 //Already dead
             }

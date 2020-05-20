@@ -25,7 +25,6 @@ public class TryDeadShader : MonoBehaviour
                 GameObject clone = Instantiate(gameObject, transform.position, transform.rotation);
                 smr.material = dead;
                 smr.material.DOFloat(1f, "_Step", 2.5f).OnComplete(() => Destroy(clone));
-
             }
         }
     }
