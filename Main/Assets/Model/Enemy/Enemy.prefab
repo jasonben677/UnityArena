@@ -1279,6 +1279,7 @@ MonoBehaviour:
     type: 3}
   katanaSound: {fileID: 8300000, guid: 002e97e8e60e22d419818ddd4ca4c9b0, type: 3}
   bloodSound: {fileID: 8300000, guid: f7ea1dc8333b91d46ac4dcba0868cbfc, type: 3}
+  hitSound: {fileID: 8300000, guid: 9f076dc23028c074fa1040531a47e7ed, type: 3}
   dead: {fileID: 2100000, guid: 5dcfac99180c9e64ab01960fea53cf80, type: 2}
 --- !u!114 &833741238873092104
 MonoBehaviour:

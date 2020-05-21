@@ -7206,6 +7206,11 @@ PrefabInstance:
       propertyPath: lockDot
       value: 
       objectReference: {fileID: 1321636247}
+    - target: {fileID: 3393427908702691962, guid: e88fff8fd58e452418a215c1a49eee85,
+        type: 3}
+      propertyPath: hitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9f076dc23028c074fa1040531a47e7ed, type: 3}
     - target: {fileID: 3724260373075558813, guid: e88fff8fd58e452418a215c1a49eee85,
         type: 3}
       propertyPath: m_LocalPosition.x
