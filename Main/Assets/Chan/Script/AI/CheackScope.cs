@@ -129,8 +129,8 @@ public class CheackScope : MonoBehaviour
         {
             Vector3 vR = -ObjEnemy.transform.right;
             Vector3 vTemp = Quaternion.Euler(0.0f, 1 * i, 0.0f) * vR;
-            Vector3 Start = ObjEnemy.transform.position + vLastTemp * (data.m_fPursuitRange * z);
-            Vector3 End = ObjEnemy.transform.position + vTemp * (data.m_fPursuitRange * z);
+            Vector3 Start = (ObjEnemy.transform.position +ObjEnemy.transform.up*0.5f)+ vLastTemp * (data.m_fPursuitRange * z);
+            Vector3 End = (ObjEnemy.transform.position+ObjEnemy.transform.up*0.5f) + vTemp * (data.m_fPursuitRange * z);
             vLastTemp = vTemp;
             Gizmos.DrawLine(Start, End);
         }

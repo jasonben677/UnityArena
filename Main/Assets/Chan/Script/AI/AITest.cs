@@ -157,6 +157,10 @@ public class AITest : PlayerInput
         else if (data.fHP <= 0)
         {
 
+            data.m_ObjEnemy.GetComponent<CapsuleCollider>().enabled = false;
+
+
+
             if (gameObject.tag == "StrongNpc")
             {
                 fireWall.SetActive(false);
@@ -197,23 +201,23 @@ public class AITest : PlayerInput
 
 
             //最近的範圍
-            Gizmos.color = Color.white;
-            Gizmos.DrawWireSphere(this.transform.position, data.m_fPursuitRange);
+            //Gizmos.color = Color.white;
+            //Gizmos.DrawWireSphere(this.transform.position, data.m_fPursuitRange);
             //最遠的範圍
             //Gizmos.color = Color.white;
             ////CheackScope.LookRange(data, 45, 135f, 1f);
             ////中間的範圍
-            //Gizmos.color = Color.yellow;
-            //CheackScope.LookRange(data, -10, 190f, 0.8f);
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(this.transform.position, data.m_fAttDis);
-            Vector3 vLeftStart = this.transform.position - this.transform.right * data.m_fRadius;
-            Vector3 vLeftEnd = vLeftStart + this.transform.forward * data.m_fProbeLenght;
-            Gizmos.DrawLine(vLeftStart, vLeftEnd);
-            Vector3 vRightStart = this.transform.position + this.transform.right * data.m_fRadius;
-            Vector3 vRightEnd = vRightStart + this.transform.forward * data.m_fProbeLenght;
-            Gizmos.DrawLine(vRightStart, vRightEnd);
-            Gizmos.DrawLine(vRightEnd, vLeftEnd);
+            Gizmos.color = Color.yellow;
+            CheackScope.LookRange(data, 0, 360f, 1);
+            //Gizmos.color = Color.red;
+            //Gizmos.DrawWireSphere(this.transform.position, data.m_fAttDis);
+            //Vector3 vLeftStart = this.transform.position - this.transform.right * data.m_fRadius;
+            //Vector3 vLeftEnd = vLeftStart + this.transform.forward * data.m_fProbeLenght;
+            //Gizmos.DrawLine(vLeftStart, vLeftEnd);
+            //Vector3 vRightStart = this.transform.position + this.transform.right * data.m_fRadius;
+            //Vector3 vRightEnd = vRightStart + this.transform.forward * data.m_fProbeLenght;
+            //Gizmos.DrawLine(vRightStart, vRightEnd);
+            //Gizmos.DrawLine(vRightEnd, vLeftEnd);
         }
 
 
